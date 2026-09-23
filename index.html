@@ -32,21 +32,39 @@
       min-height: 600px;
       position: relative;
       overflow: hidden;
-      background: #e2ded4;
+      background-color: #e2ded4;
     }
 
-    /* VIDEO IS THE HERO */
+    /* HERO GRAFFITI */
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-image: url("IMG_0320.jpeg");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 170% auto;
+      z-index: 1;
+    }
+
+    /* INTRO VIDEO */
 
     #intro {
-      position: absolute;
+      position: fixed;
       inset: 0;
       width: 100%;
       height: 100%;
       background: #e2ded4;
-      z-index: 5;
+      z-index: 9999;
       display: flex;
       align-items: center;
       justify-content: center;
+      opacity: 1;
     }
 
     #intro video {
@@ -55,6 +73,7 @@
       object-fit: contain;
       display: block;
       background: #e2ded4;
+      transform: scale(1.7);
     }
 
     #startButton {
@@ -72,6 +91,12 @@
       display: none;
     }
 
+    #intro.hide {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.2s ease;
+    }
+
     /* HEADER */
 
     header {
@@ -83,7 +108,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 10;
+      z-index: 10000;
     }
 
     .logo {
@@ -408,10 +433,18 @@
         min-height: 100svh;
       }
 
+      .hero::before {
+        width: 100%;
+        height: 100%;
+        background-size: 185% auto;
+        background-position: center center;
+      }
+
       #intro video {
         width: 100%;
         height: 100%;
         object-fit: contain;
+        transform: scale(1.85);
       }
 
       section:not(.hero) {
@@ -488,28 +521,24 @@
 
 <body>
 
-  <section class="hero">
+  <div id="intro">
 
-    <div id="intro">
+    <video
+      id="introVideo"
+      autoplay
+      muted
+      playsinline
+      preload="auto">
 
-      <video
-        id="introVideo"
-        autoplay
-        muted
-        playsinline
-        preload="auto">
+      <source src="MOZake-intro.mp4" type="video/mp4">
 
-        <source src="MOZake-intro.mp4" type="video/mp4">
+    </video>
 
-      </video>
+    <button id="startButton">
+      ENTER
+    </button>
 
-      <button id="startButton">
-        ENTER
-      </button>
-
-    </div>
-
-  </section>
+  </div>
 
 
   <header>
@@ -540,6 +569,9 @@
     </nav>
 
   </header>
+
+
+  <section class="hero"></section>
 
 
   <section class="world">
@@ -781,16 +813,27 @@
 
   <script>
 
+    const intro = document.getElementById("intro");
     const video = document.getElementById("introVideo");
     const startButton = document.getElementById("startButton");
 
     const introPlayed = sessionStorage.getItem("mozakeIntroPlayed");
 
+    function hideIntro() {
+
+      sessionStorage.setItem("mozakeIntroPlayed", "true");
+
+      intro.classList.add("hide");
+
+      setTimeout(() => {
+        intro.style.display = "none";
+      }, 1300);
+
+    }
+
     if (introPlayed === "true") {
 
-      video.pause();
-
-      video.currentTime = video.duration || 0;
+      intro.style.display = "none";
 
     } else {
 
@@ -802,7 +845,7 @@
 
       video.addEventListener("ended", () => {
 
-        sessionStorage.setItem("mozakeIntroPlayed", "true");
+        hideIntro();
 
       });
 
