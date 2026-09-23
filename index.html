@@ -213,25 +213,25 @@
   </div>
 
   <script>
-    const intro = document.getElementById("intro");
-    const video = document.getElementById("introVideo");
-    const website = document.getElementById("website");
+  const intro = document.getElementById("intro");
+  const video = document.getElementById("introVideo");
+  const website = document.getElementById("website");
 
-    function finishIntro() {
-      intro.classList.add("hidden");
-      website.classList.add("visible");
+  function finishIntro() {
+    intro.classList.add("hidden");
+    website.classList.add("visible");
 
-      setTimeout(() => {
-        intro.remove();
-      }, 1200);
-    }
+    setTimeout(() => {
+      intro.remove();
+    }, 1200);
+  }
 
-    video.addEventListener("ended", finishIntro);
+  video.play().catch(() => {
+    // If autoplay is blocked, keep the intro visible.
+  });
 
-    video.addEventListener("error", () => {
-      finishIntro();
-    });
-  </script>
+  video.addEventListener("ended", finishIntro);
+</script>
 
 </body>
 </html>
