@@ -22,6 +22,7 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
+
     /* =========================
        INTRO
     ========================= */
@@ -62,7 +63,9 @@
       font-size: 11px;
       letter-spacing: 2px;
       cursor: pointer;
+      z-index: 10;
     }
+
 
     /* =========================
        WEBSITE
@@ -76,6 +79,7 @@
     #website.visible {
       opacity: 1;
     }
+
 
     /* =========================
        HEADER
@@ -91,6 +95,7 @@
       justify-content: space-between;
       align-items: center;
       z-index: 20;
+      mix-blend-mode: normal;
     }
 
     .logo {
@@ -112,32 +117,45 @@
       letter-spacing: 1.5px;
     }
 
+
     /* =========================
        HERO
     ========================= */
 
     .hero {
+      position: relative;
       min-height: 100vh;
+      width: 100%;
+      overflow: hidden;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 40px 20px;
+      justify-content: center;
+      background: #e8e4dc;
     }
 
-    .hero-title {
-      font-size: clamp(80px, 15vw, 200px);
-      font-weight: 500;
-      letter-spacing: -9px;
-      line-height: 0.8;
+    /*
+      This video is NOT animated.
+      It is positioned on the homepage
+      and held on its final graffiti frame.
+    */
+
+    #heroGraffiti {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      z-index: 1;
     }
 
-    .hero-subtitle {
-      margin-top: 30px;
-      font-size: 12px;
-      letter-spacing: 5px;
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
     }
+
 
     /* =========================
        GENERAL
@@ -178,6 +196,7 @@
       letter-spacing: 2px;
     }
 
+
     /* =========================
        WORLD
     ========================= */
@@ -187,6 +206,7 @@
       flex-direction: column;
       justify-content: center;
     }
+
 
     /* =========================
        LATEST
@@ -210,6 +230,7 @@
       letter-spacing: 2px;
     }
 
+
     /* =========================
        STORY
     ========================= */
@@ -219,6 +240,7 @@
       flex-direction: column;
       justify-content: center;
     }
+
 
     /* =========================
        FOOTER
@@ -251,6 +273,7 @@
       letter-spacing: -4px;
     }
 
+
     /* =========================
        MOBILE
     ========================= */
@@ -274,16 +297,6 @@
         letter-spacing: 0.8px;
       }
 
-      .hero-title {
-        font-size: clamp(65px, 18vw, 110px);
-        letter-spacing: -6px;
-      }
-
-      .hero-subtitle {
-        font-size: 10px;
-        letter-spacing: 3px;
-      }
-
       section {
         padding: 90px 24px;
       }
@@ -303,11 +316,18 @@
       .footer-bottom {
         margin-top: 60px;
       }
+
+      #heroGraffiti {
+        object-fit: cover;
+      }
     }
+
   </style>
 </head>
 
+
 <body>
+
 
   <!-- =========================
        MOZake INTRO
@@ -331,13 +351,17 @@
   </div>
 
 
+
   <!-- =========================
        WEBSITE
   ========================= -->
 
   <div id="website">
 
-    <!-- HEADER -->
+
+    <!-- =========================
+         HEADER
+    ========================= -->
 
     <header>
 
@@ -354,22 +378,42 @@
     </header>
 
 
+
     <main>
 
-      <!-- HERO -->
+
+      <!-- =========================
+           HERO
+      ========================= -->
 
       <section class="hero">
 
-        <h1 class="hero-title">MOZake</h1>
+        <!--
+          Same intro video.
+          Once the intro finishes,
+          this video is frozen on
+          the final graffiti frame.
+        -->
 
-        <p class="hero-subtitle">
-          MAKE IT EXIST
-        </p>
+        <video
+          id="heroGraffiti"
+          muted
+          playsinline
+          webkit-playsinline
+          preload="auto"
+        >
+          <source src="MOZake-intro.mp4" type="video/mp4">
+        </video>
+
+        <div class="hero-overlay"></div>
 
       </section>
 
 
-      <!-- THE WORLD -->
+
+      <!-- =========================
+           THE WORLD
+      ========================= -->
 
       <section class="world">
 
@@ -386,7 +430,10 @@
       </section>
 
 
-      <!-- LATEST -->
+
+      <!-- =========================
+           LATEST
+      ========================= -->
 
       <section class="latest" id="art">
 
@@ -409,7 +456,10 @@
       </section>
 
 
-      <!-- STORY -->
+
+      <!-- =========================
+           STORY
+      ========================= -->
 
       <section class="story" id="story">
 
@@ -429,7 +479,10 @@
       </section>
 
 
-      <!-- SHOP -->
+
+      <!-- =========================
+           CLOTHING
+      ========================= -->
 
       <section id="clothing">
 
@@ -443,10 +496,14 @@
 
       </section>
 
+
     </main>
 
 
-    <!-- FOOTER / SHOP -->
+
+    <!-- =========================
+         FOOTER / SHOP
+    ========================= -->
 
     <footer id="shop">
 
@@ -461,24 +518,32 @@
         </div>
 
         <div>
+
           <a class="discover" href="#">
             CLOTHING
           </a>
+
           <br>
+
           <a class="discover" href="#">
             COLLECTIBLES
           </a>
+
           <br>
+
           <a class="discover" href="#">
             ART
           </a>
+
         </div>
 
       </div>
 
     </footer>
 
+
   </div>
+
 
 
   <!-- =========================
@@ -487,73 +552,184 @@
 
   <script>
 
-  const intro = document.getElementById("intro");
-  const video = document.getElementById("introVideo");
-  const website = document.getElementById("website");
-  const startButton = document.getElementById("startIntro");
+    const intro = document.getElementById("intro");
+    const introVideo = document.getElementById("introVideo");
+    const heroVideo = document.getElementById("heroGraffiti");
+    const website = document.getElementById("website");
+    const startButton = document.getElementById("startIntro");
 
-  let introFinished = false;
+    let introFinished = false;
 
-  function finishIntro() {
 
-    if (introFinished) return;
+    /* =========================
+       HERO FINAL FRAME
+    ========================= */
 
-    introFinished = true;
+    function showGraffitiFrame() {
 
-    sessionStorage.setItem("mozakeIntroSeen", "true");
+      if (heroVideo.readyState >= 1) {
 
-    intro.classList.add("hidden");
-    website.classList.add("visible");
+        if (heroVideo.duration && isFinite(heroVideo.duration)) {
+          heroVideo.currentTime = Math.max(0, heroVideo.duration - 0.05);
+        }
 
-    setTimeout(() => {
+      } else {
+
+        heroVideo.addEventListener("loadedmetadata", () => {
+
+          if (heroVideo.duration && isFinite(heroVideo.duration)) {
+            heroVideo.currentTime = Math.max(0, heroVideo.duration - 0.05);
+          }
+
+        }, { once: true });
+
+      }
+
+    }
+
+
+    /* =========================
+       FINISH INTRO
+    ========================= */
+
+    function finishIntro() {
+
+      if (introFinished) return;
+
+      introFinished = true;
+
+
+      /*
+        Remember that this browser tab
+        has already watched the intro.
+      */
+
+      try {
+        sessionStorage.setItem("mozakeIntroSeen", "true");
+      } catch (error) {}
+
+
+      /*
+        Prepare the graffiti background
+        before showing the homepage.
+      */
+
+      showGraffitiFrame();
+
+
+      intro.classList.add("hidden");
+      website.classList.add("visible");
+
+
+      setTimeout(() => {
+        intro.remove();
+      }, 1200);
+
+    }
+
+
+
+    /* =========================
+       CHECK SESSION
+    ========================= */
+
+    let hasSeenIntro = false;
+
+    try {
+      hasSeenIntro =
+        sessionStorage.getItem("mozakeIntroSeen") === "true";
+    } catch (error) {
+      hasSeenIntro = false;
+    }
+
+
+    /*
+      Safari sometimes reports a page reload
+      differently, so we also check the
+      browser navigation type.
+    */
+
+    let isReload = false;
+
+    try {
+
+      const navigation =
+        performance.getEntriesByType("navigation")[0];
+
+      if (navigation && navigation.type === "reload") {
+        isReload = true;
+      }
+
+    } catch (error) {}
+
+
+
+    /* =========================
+       IF ALREADY SEEN
+    ========================= */
+
+    if (hasSeenIntro || isReload) {
+
+      showGraffitiFrame();
+
       intro.remove();
-    }, 1200);
 
-  }
+      website.classList.add("visible");
+
+    }
 
 
-  /* If this Safari session has already seen the intro,
-     skip it immediately. */
 
-  if (sessionStorage.getItem("mozakeIntroSeen") === "true") {
+    /* =========================
+       FIRST VISIT
+    ========================= */
 
-    intro.remove();
-    website.classList.add("visible");
+    else {
 
-  } else {
+      introVideo.addEventListener(
+        "ended",
+        finishIntro
+      );
 
-    /* First visit to the site in this session */
 
-    video.addEventListener("ended", finishIntro);
+      startButton.addEventListener(
+        "click",
+        () => {
 
-    startButton.addEventListener("click", () => {
+          startButton.style.display = "none";
 
-      startButton.style.display = "none";
+          introVideo.currentTime = 0;
 
-      video.currentTime = 0;
+          introVideo.play().catch(() => {
 
-      video.play().catch(() => {
+            startButton.style.display = "block";
+
+          });
+
+        }
+      );
+
+
+      /*
+        Try autoplay.
+        If Safari blocks it,
+        show START.
+      */
+
+      introVideo.play().then(() => {
+
+        startButton.style.display = "none";
+
+      }).catch(() => {
 
         startButton.style.display = "block";
 
       });
 
-    });
+    }
 
+  </script>
 
-    video.play().then(() => {
-
-      startButton.style.display = "none";
-
-    }).catch(() => {
-
-      startButton.style.display = "block";
-
-    });
-
-  }
-
-</script>
 
 </body>
 </html>
