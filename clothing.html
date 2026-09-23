@@ -3,23 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>CLOTHING — MOZake</title>
+
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+
     html {
       scroll-behavior: smooth;
     }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: #e2ded4;
       color: #111;
       overflow-x: hidden;
     }
+
     /* HEADER */
+
     header {
       width: 100%;
       height: 90px;
@@ -30,26 +36,31 @@
       position: relative;
       z-index: 10;
     }
+
     .logo {
       display: flex;
       align-items: center;
       width: 62px;
       height: 48px;
     }
+
     .mozake-logo {
       width: 62px;
       height: 48px;
       display: block;
       overflow: visible;
     }
+
     .mozake-logo polygon {
       fill: #111;
     }
+
     nav {
       display: flex !important;
       gap: 40px !important;
       align-items: center !important;
     }
+
     nav a {
       color: #111 !important;
       text-decoration: none !important;
@@ -60,67 +71,81 @@
       line-height: 1 !important;
       transition: opacity 0.3s ease;
     }
+
     nav a:hover {
       opacity: 0.45;
     }
+
     /* HERO */
+
     .clothing-hero {
       min-height: 30vh;
-      padding: 20px 40px 25px;
+      padding: 15px 40px 15px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       border-bottom: 1px solid #111;
       overflow: hidden;
     }
+
     .clothing-label {
       font-size: 20px;
       letter-spacing: 3px;
       font-weight: 600;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
+
     .clothing-title {
       width: 100%;
-      font-size: clamp(55px, 12vw, 190px);
-      line-height: 0.82;
+      font-size: clamp(70px, 14vw, 220px);
+      line-height: 0.78;
       font-weight: 700;
-      letter-spacing: -7px;
+      letter-spacing: -9px;
       text-transform: uppercase;
       white-space: nowrap;
     }
+
     /* INTRO */
+
     .clothing-intro {
       padding: 110px 40px 90px;
       border-bottom: 1px solid #111;
     }
+
     .clothing-intro-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: end;
     }
+
     .clothing-intro h2 {
       font-size: clamp(45px, 6vw, 85px);
       line-height: 0.88;
       letter-spacing: -4px;
       text-transform: uppercase;
     }
+
     .clothing-intro p {
       max-width: 520px;
       font-size: 18px;
       line-height: 1.6;
     }
+
     /* COLLECTION */
+
     .collection {
       padding: 110px 40px 140px;
       border-bottom: 1px solid #111;
     }
+
     .section-label {
       font-size: 13px;
       letter-spacing: 4px;
       font-weight: 600;
       margin-bottom: 55px;
     }
+
     .collection-header {
       display: flex;
       justify-content: space-between;
@@ -128,18 +153,22 @@
       gap: 40px;
       margin-bottom: 70px;
     }
+
     .collection-header h2 {
       font-size: clamp(65px, 9vw, 135px);
       line-height: 0.8;
       letter-spacing: -6px;
       text-transform: uppercase;
     }
+
     .collection-header span {
       font-size: 11px;
       letter-spacing: 3px;
       font-weight: 600;
     }
+
     /* PRODUCTS */
+
     .product-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -147,6 +176,7 @@
       background: #111;
       border: 1px solid #111;
     }
+
     .product-card {
       background: #e2ded4;
       min-height: 650px;
@@ -155,20 +185,24 @@
       flex-direction: column;
       justify-content: space-between;
     }
+
     .product-top {
       display: flex;
       justify-content: space-between;
       gap: 20px;
     }
+
     .product-number,
     .product-status {
       font-size: 10px;
       letter-spacing: 3px;
       font-weight: 600;
     }
+
     .product-status {
       opacity: 0.5;
     }
+
     .product-image {
       flex: 1;
       margin: 30px 0;
@@ -180,31 +214,37 @@
       overflow: hidden;
       position: relative;
     }
+
     .product-image span {
       font-size: 11px;
       letter-spacing: 3px;
       font-weight: 600;
       opacity: 0.5;
     }
+
     .product-bottom h3 {
       font-size: 45px;
       line-height: 0.85;
       letter-spacing: -3px;
       text-transform: uppercase;
     }
+
     .product-bottom p {
       max-width: 450px;
       margin-top: 15px;
       font-size: 14px;
       line-height: 1.5;
     }
+
     .product-price {
       margin-top: 22px;
       font-size: 12px;
       letter-spacing: 2px;
       font-weight: 600;
     }
+
     /* PHILOSOPHY */
+
     .philosophy {
       padding: 150px 40px;
       min-height: 70vh;
@@ -214,62 +254,75 @@
       background: #111;
       color: #e2ded4;
     }
+
     .philosophy-label {
       font-size: 13px;
       letter-spacing: 4px;
       font-weight: 600;
       margin-bottom: 50px;
     }
+
     .philosophy h2 {
       font-size: clamp(55px, 10vw, 155px);
       line-height: 0.82;
       letter-spacing: -7px;
       text-transform: uppercase;
     }
+
     .philosophy p {
       max-width: 600px;
       margin-top: 60px;
       font-size: 18px;
       line-height: 1.5;
     }
+
     /* END */
+
     .clothing-end {
       padding: 120px 40px 100px;
     }
+
     .clothing-end-label {
       font-size: 13px;
       letter-spacing: 4px;
       font-weight: 600;
       margin-bottom: 40px;
     }
+
     .clothing-end h2 {
       font-size: clamp(55px, 9vw, 145px);
       line-height: 0.85;
       letter-spacing: -6px;
       text-transform: uppercase;
     }
+
     /* FOOTER */
+
     footer {
       padding: 70px 40px 40px;
       background: #111;
       color: #e2ded4;
     }
+
     .footer-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       gap: 40px;
     }
+
     .footer-logo {
       font-size: 42px;
       font-weight: 700;
       letter-spacing: -2px;
     }
+
     .footer-slogan {
       font-size: 13px;
       letter-spacing: 3px;
       font-weight: 600;
     }
+
     .footer-bottom {
       display: flex;
       justify-content: space-between;
@@ -278,126 +331,159 @@
       letter-spacing: 2px;
       font-weight: 600;
     }
+
     /* MOBILE */
+
     @media (max-width: 700px) {
+
       header {
         height: 75px;
         padding: 18px 20px;
       }
+
       .logo {
         width: 48px;
         height: 38px;
       }
+
       .mozake-logo {
         width: 48px;
         height: 38px;
       }
+
       nav {
         gap: 12px !important;
         flex-shrink: 0 !important;
       }
+
       nav a {
         font-size: 12px !important;
         font-weight: 600 !important;
         letter-spacing: 1.2px !important;
       }
+
       .clothing-hero {
         min-height: 22vh;
-        padding: 20px 20px 20px;
+        padding: 12px 20px 12px;
       }
+
       .clothing-label {
         font-size: 15px;
         letter-spacing: 2px;
-        margin-bottom: 15px;
+        margin-bottom: 13px;
       }
+
       .clothing-title {
         width: 100%;
-        font-size: 13.5vw;
+        font-size: 15vw;
         letter-spacing: -3px;
         white-space: nowrap;
       }
+
       .clothing-intro {
         padding: 75px 20px;
       }
+
       .clothing-intro-grid {
         grid-template-columns: 1fr;
         gap: 40px;
       }
+
       .clothing-intro h2 {
         font-size: 48px;
         letter-spacing: -3px;
       }
+
       .clothing-intro p {
         font-size: 16px;
       }
+
       .collection {
         padding: 75px 20px 100px;
       }
+
       .section-label {
         margin-bottom: 35px;
       }
+
       .collection-header {
         display: block;
         margin-bottom: 45px;
       }
+
       .collection-header h2 {
         font-size: 17vw;
         letter-spacing: -4px;
       }
+
       .collection-header span {
         display: block;
         margin-top: 20px;
       }
+
       .product-grid {
         grid-template-columns: 1fr;
-        gap: 15px;
       }
+
       .product-card {
         min-height: 500px;
         padding: 20px;
       }
+
       .product-image {
         min-height: 310px;
         margin: 25px 0;
       }
+
       .product-bottom h3 {
         font-size: 38px;
         letter-spacing: -3px;
       }
+
       .product-bottom p {
         font-size: 14px;
       }
+
       .philosophy {
         padding: 100px 20px;
         min-height: 60vh;
       }
+
       .philosophy h2 {
         font-size: 17vw;
         letter-spacing: -4px;
       }
+
       .philosophy p {
         margin-top: 45px;
         font-size: 16px;
       }
+
       .clothing-end {
         padding: 85px 20px 75px;
       }
+
       .clothing-end h2 {
         font-size: 17vw;
         letter-spacing: -4px;
       }
+
       footer {
         padding: 50px 20px 30px;
       }
+
       .footer-top {
         display: block;
       }
+
       .footer-logo {
         font-size: 34px;
       }
+
       .footer-slogan {
         margin-top: 20px;
       }
+
       .footer-bottom {
         margin-top: 60px;
         gap: 20px;
@@ -406,241 +492,374 @@
     }
   </style>
 </head>
+
 <body>
+
   <header>
+
     <a href="./index.html" class="logo" aria-label="MOZake">
+
       <svg
         class="mozake-logo"
         viewBox="0 0 82 58"
         aria-label="MOZake logo">
+
         <polygon points="2,55 29,7 56,55"></polygon>
         <polygon points="27,51 54,3 81,51"></polygon>
+
       </svg>
+
     </a>
+
     <nav>
+
       <a href="./art.html">
         ART
       </a>
+
       <a href="./clothing.html">
         CLOTHING
       </a>
+
       <a href="./collectibles.html">
         COLLECTIBLES
       </a>
+
       <a href="./story.html">
         STORY
       </a>
+
       <a href="./index.html#shop">
         SHOP
       </a>
+
     </nav>
+
   </header>
+
+
   <main>
+
     <section class="clothing-hero">
+
       <div class="clothing-label">
         THE WORLD OF MOZake
       </div>
+
       <h1 class="clothing-title">
         CLOTHING
       </h1>
+
     </section>
+
+
     <section class="clothing-intro">
+
       <div class="clothing-intro-grid">
+
         <h2>
-          WORN<br>
-          FROM<br>
-          THE<br>
-          WORLD.
+          DESIGNED<br>
+          TO<br>
+          EXIST.
         </h2>
+
         <p>
-          MOZake clothing is another way
-          to carry the world with you.
+          MOZake treats clothing as an extension
+          of its visual language.
+
           <br><br>
-          Each piece is built around the
-          artwork, characters and moments
-          that make up MOZake.
+
+          Each piece is developed through the
+          same ideas that shape the artwork —
+          identity, form, contrast and individuality.
+
           <br><br>
-          Designed to exist beyond the screen.
+
+          Not merchandise.
+          A physical expression of the brand.
         </p>
+
       </div>
+
     </section>
+
+
     <section class="collection">
+
       <div class="section-label">
         THE FIRST COLLECTION
       </div>
+
       <div class="collection-header">
+
         <h2>
           MAKE IT<br>
           EXIST.
         </h2>
+
         <span>
           01 / COLLECTION
         </span>
+
       </div>
+
+
       <div class="product-grid">
+
+
         <article class="product-card">
+
           <div class="product-top">
+
             <span class="product-number">
               01 / 04
             </span>
+
             <span class="product-status">
               COMING SOON
             </span>
+
           </div>
+
           <div class="product-image">
+
             <span>
               T-SHIRT / FRONT
             </span>
+
           </div>
+
           <div class="product-bottom">
+
             <h3>
               SYMBOL<br>
               TEE
             </h3>
+
             <p>
-              The MOZake symbol.
-              Nothing more. Nothing less.
+              A minimal expression of the
+              MOZake identity.
             </p>
+
             <div class="product-price">
               PRICE — TBA
             </div>
+
           </div>
+
         </article>
+
+
         <article class="product-card">
+
           <div class="product-top">
+
             <span class="product-number">
               02 / 04
             </span>
+
             <span class="product-status">
               COMING SOON
             </span>
+
           </div>
+
           <div class="product-image">
+
             <span>
               T-SHIRT / FRONT + BACK
             </span>
+
           </div>
+
           <div class="product-bottom">
+
             <h3>
               FIRST<br>
               MARK
             </h3>
+
             <p>
-              The first moment.
-              The first mark.
+              Built from the first visual mark
+              in the MOZake archive.
             </p>
+
             <div class="product-price">
               PRICE — TBA
             </div>
+
           </div>
+
         </article>
+
+
         <article class="product-card">
+
           <div class="product-top">
+
             <span class="product-number">
               03 / 04
             </span>
+
             <span class="product-status">
               COMING SOON
             </span>
+
           </div>
+
           <div class="product-image">
+
             <span>
               HOODIE / FRONT + BACK
             </span>
+
           </div>
+
           <div class="product-bottom">
+
             <h3>
               MOZake<br>
               HOODIE
             </h3>
+
             <p>
-              A heavier piece built around
-              the identity of the world.
+              A heavier expression of the
+              core MOZake identity.
             </p>
+
             <div class="product-price">
               PRICE — TBA
             </div>
+
           </div>
+
         </article>
+
+
         <article class="product-card">
+
           <div class="product-top">
+
             <span class="product-number">
               04 / 04
             </span>
+
             <span class="product-status">
               COMING SOON
             </span>
+
           </div>
+
           <div class="product-image">
+
             <span>
               LIMITED PIECE
             </span>
+
           </div>
+
           <div class="product-bottom">
+
             <h3>
               WORLD<br>
               PIECE
             </h3>
+
             <p>
-              A limited design connected
-              directly to the MOZake story.
+              A limited design developed around
+              the evolving MOZake visual language.
             </p>
+
             <div class="product-price">
               PRICE — TBA
             </div>
+
           </div>
+
         </article>
+
+
       </div>
+
     </section>
+
+
     <section class="philosophy">
+
       <div class="philosophy-label">
         THE IDEA
       </div>
+
       <h2>
-        DON'T<br>
-        JUST<br>
-        WEAR IT.
+        WEAR THE<br>
+        IDENTITY.
       </h2>
+
       <p>
-        Wear the idea.
+        MOZake is built around the idea
+        that what you create becomes
+        part of who you are.
+
         <br><br>
-        Every piece connects back to
-        something inside the MOZake world.
+
+        Art. Objects. Clothing.
+
         <br><br>
-        Something created.
-        Something that exists.
+
+        Different forms.
+        One identity.
       </p>
+
     </section>
+
+
     <section class="clothing-end">
+
       <div class="clothing-end-label">
         THE COLLECTION CONTINUES
       </div>
+
       <h2>
         MORE<br>
         TO COME.
       </h2>
+
     </section>
+
   </main>
+
+
   <footer>
+
     <div class="footer-top">
+
       <div class="footer-logo">
         MOZake
       </div>
+
       <div class="footer-slogan">
         MAKE IT EXIST.
       </div>
+
     </div>
+
     <div class="footer-bottom">
+
       <span>
         ART
       </span>
+
       <span>
         CLOTHING
       </span>
+
       <span>
         COLLECTIBLES
       </span>
+
     </div>
+
   </footer>
+
 </body>
 </html>
