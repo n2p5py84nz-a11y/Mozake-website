@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>ART — MOZake</title>
 
   <style>
@@ -18,25 +17,18 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
       background: #e2ded4;
       color: #111;
-      overflow-x: hidden;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
-    /* =========================
-       HEADER
-    ========================= */
-
     header {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
-      padding: 26px 34px;
+      padding: 28px 42px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
       z-index: 10;
     }
 
@@ -59,192 +51,218 @@
     }
 
     nav {
-      display: flex;
-      gap: 40px;
-      align-items: center;
+      display: flex !important;
+      gap: 40px !important;
+      align-items: center !important;
     }
 
     nav a {
-      color: #111;
-      text-decoration: none;
-      font-size: 21px;
-      font-weight: 600;
-      letter-spacing: 2.5px;
-      white-space: nowrap;
-      line-height: 1;
-      transition: opacity 0.3s ease;
+      color: #111 !important;
+      text-decoration: none !important;
+      font-size: 21px !important;
+      font-weight: 600 !important;
+      letter-spacing: 2.5px !important;
+      white-space: nowrap !important;
+      line-height: 1 !important;
     }
 
     nav a:hover {
-      opacity: 0.45;
+      opacity: 0.55;
     }
 
-    /* =========================
-       ART HERO
-    ========================= */
+    /* HERO */
 
     .art-hero {
-      min-height: 100vh;
-      padding: 180px 7vw 100px;
+      min-height: 72vh;
+      padding: 90px 42px 80px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      border-bottom: 1px solid #111;
+      border-bottom: 1px solid rgba(17,17,17,0.25);
     }
 
-    .art-label {
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
       font-size: 13px;
-      letter-spacing: 4px;
+      letter-spacing: 2px;
       font-weight: 600;
     }
 
-    .art-number {
-      font-size: 13px;
-      letter-spacing: 3px;
-      opacity: 0.5;
-      margin-top: 15px;
-    }
-
-    .art-title {
-      font-size: clamp(100px, 20vw, 300px);
-      line-height: 0.75;
-      letter-spacing: -12px;
+    .hero-title {
+      font-size: clamp(110px, 24vw, 360px);
+      line-height: 0.78;
+      letter-spacing: -10px;
       font-weight: 700;
-      text-transform: uppercase;
+      margin-top: 80px;
     }
 
-    /* =========================
-       FEATURED ART
-    ========================= */
+    .hero-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 70px;
+    }
+
+    .hero-description {
+      max-width: 380px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    /* FEATURED */
 
     .featured {
-      padding: 120px 7vw;
-      background: #111;
-      color: #e2ded4;
+      padding: 120px 42px;
     }
 
     .section-label {
       font-size: 13px;
-      letter-spacing: 4px;
+      letter-spacing: 2.5px;
       font-weight: 600;
-      margin-bottom: 35px;
+      margin-bottom: 45px;
     }
 
-    .art-image {
+    .artwork {
       width: 100%;
-      height: 75vh;
-      margin-top: 60px;
-      background: #242424;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #777;
-      font-size: 13px;
-      letter-spacing: 3px;
+      border-top: 1px solid rgba(17,17,17,0.25);
+      padding-top: 35px;
     }
 
-    .art-info {
-      margin-top: 45px;
+    .artwork-image-wrap {
+      width: 100%;
+      background: #d6d1c7;
+      overflow: hidden;
+    }
+
+    .artwork-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+
+    .artwork-image-wrap:hover .artwork-image {
+      transform: scale(1.025);
+    }
+
+    .artwork-info {
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
+      align-items: flex-start;
       gap: 40px;
+      padding-top: 28px;
     }
 
-    .art-info h2 {
-      font-size: clamp(45px, 7vw, 100px);
-      line-height: 0.9;
-      letter-spacing: -5px;
-      text-transform: uppercase;
+    .artwork-title {
+      font-size: clamp(32px, 5vw, 70px);
+      font-weight: 600;
+      letter-spacing: -2px;
     }
 
-    .art-info p {
-      max-width: 350px;
+    .artwork-meta {
+      max-width: 330px;
       font-size: 15px;
       line-height: 1.5;
     }
 
     .view-link {
       display: inline-block;
-      margin-top: 30px;
-      color: #e2ded4;
+      margin-top: 25px;
+      color: #111;
       text-decoration: none;
-      font-size: 12px;
-      letter-spacing: 3px;
-      border-bottom: 1px solid #e2ded4;
-      padding-bottom: 8px;
+      font-size: 13px;
+      letter-spacing: 2px;
+      font-weight: 600;
     }
 
-    /* =========================
-       STORY
-    ========================= */
+    .view-link:hover {
+      opacity: 0.5;
+    }
+
+    /* STORY */
 
     .story-preview {
-      min-height: 80vh;
-      padding: 130px 7vw;
-      background: #e2ded4;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      padding: 140px 42px;
+      border-top: 1px solid rgba(17,17,17,0.25);
     }
 
     .story-preview h2 {
-      font-size: clamp(60px, 11vw, 160px);
-      line-height: 0.82;
-      letter-spacing: -7px;
-      text-transform: uppercase;
+      font-size: clamp(65px, 11vw, 170px);
+      line-height: 0.86;
+      letter-spacing: -5px;
+      max-width: 1100px;
+      font-weight: 600;
     }
 
-    .story-preview p {
-      max-width: 600px;
-      margin-top: 45px;
-      font-size: 18px;
+    .story-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+      margin-top: 100px;
+    }
+
+    .story-bottom p {
+      max-width: 420px;
+      font-size: 17px;
       line-height: 1.5;
     }
 
     .story-link {
-      display: inline-block;
-      margin-top: 35px;
       color: #111;
       text-decoration: none;
       font-size: 13px;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
       font-weight: 600;
-      border-bottom: 1px solid #111;
-      padding-bottom: 8px;
+      white-space: nowrap;
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
+    /* FOOTER */
 
     footer {
-      padding: 100px 7vw 50px;
-      background: #111;
-      color: #e2ded4;
+      border-top: 1px solid rgba(17,17,17,0.25);
+      padding: 45px 42px 35px;
     }
 
-    footer h2 {
-      font-size: clamp(60px, 11vw, 160px);
-      line-height: 0.82;
-      letter-spacing: -7px;
-      text-transform: uppercase;
-      margin-bottom: 80px;
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
     }
 
-    footer p {
+    .footer-logo {
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: -2px;
+    }
+
+    .footer-slogan {
       font-size: 13px;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
+      font-weight: 600;
     }
 
-    /* =========================
-       MOBILE
-    ========================= */
+    .footer-links {
+      display: flex;
+      gap: 30px;
+      margin-top: 60px;
+    }
+
+    .footer-links a {
+      color: #111;
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+    }
+
+    /* MOBILE */
 
     @media (max-width: 700px) {
 
       header {
-        padding: 20px 16px;
+        padding: 22px 20px;
       }
 
       .logo {
@@ -258,69 +276,104 @@
       }
 
       nav {
-        gap: 12px;
+        gap: 12px !important;
+        flex-shrink: 0 !important;
       }
 
       nav a {
-        font-size: 12px;
-        font-weight: 600;
-        letter-spacing: 1.2px;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        letter-spacing: 1.2px !important;
       }
 
       .art-hero {
-        min-height: 100svh;
-        padding: 140px 22px 70px;
+        min-height: 65vh;
+        padding: 60px 20px 55px;
       }
 
-      .art-title {
-        font-size: clamp(90px, 25vw, 170px);
-        letter-spacing: -7px;
+      .hero-top {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+      }
+
+      .hero-title {
+        font-size: 28vw;
+        letter-spacing: -5px;
+        margin-top: 90px;
+      }
+
+      .hero-bottom {
+        margin-top: 60px;
+      }
+
+      .hero-description {
+        font-size: 14px;
+        max-width: 260px;
       }
 
       .featured {
-        padding: 85px 22px;
+        padding: 80px 20px;
       }
 
-      .art-image {
-        height: 55vh;
-        margin-top: 45px;
+      .section-label {
+        margin-bottom: 30px;
+        font-size: 11px;
       }
 
-      .art-info {
-        margin-top: 35px;
+      .artwork-info {
         display: block;
+        padding-top: 20px;
       }
 
-      .art-info h2 {
-        font-size: clamp(45px, 15vw, 80px);
-        letter-spacing: -4px;
+      .artwork-title {
+        font-size: 38px;
+        letter-spacing: -1.5px;
       }
 
-      .art-info p {
-        margin-top: 30px;
+      .artwork-meta {
+        margin-top: 18px;
+        font-size: 14px;
       }
 
       .story-preview {
-        min-height: 75vh;
-        padding: 90px 22px;
+        padding: 90px 20px;
       }
 
       .story-preview h2 {
-        font-size: clamp(55px, 17vw, 100px);
-        letter-spacing: -5px;
+        font-size: 18vw;
+        letter-spacing: -3px;
       }
 
-      .story-preview p {
-        font-size: 16px;
+      .story-bottom {
+        display: block;
+        margin-top: 70px;
+      }
+
+      .story-bottom p {
+        font-size: 15px;
+      }
+
+      .story-link {
+        display: inline-block;
+        margin-top: 30px;
       }
 
       footer {
-        padding: 80px 22px 40px;
+        padding: 35px 20px 30px;
       }
 
-      footer h2 {
-        font-size: clamp(55px, 17vw, 100px);
-        letter-spacing: -5px;
+      .footer-top {
+        display: block;
+      }
+
+      .footer-slogan {
+        margin-top: 18px;
+      }
+
+      .footer-links {
+        gap: 18px;
+        flex-wrap: wrap;
+        margin-top: 45px;
       }
     }
   </style>
@@ -328,148 +381,132 @@
 
 <body>
 
-  <!-- HEADER -->
-
   <header>
-
     <a href="./index.html" class="logo" aria-label="MOZake">
-
       <svg
         class="mozake-logo"
         viewBox="0 0 82 58"
         aria-label="MOZake logo">
-
         <polygon points="2,55 29,7 56,55"></polygon>
-
         <polygon points="27,51 54,3 81,51"></polygon>
-
       </svg>
-
     </a>
 
     <nav>
-
       <a href="./art.html">ART</a>
       <a href="./index.html#clothing">CLOTHING</a>
       <a href="./index.html#collectibles">COLLECTIBLES</a>
       <a href="./index.html#story">STORY</a>
       <a href="./index.html#shop">SHOP</a>
-
     </nav>
-
   </header>
 
 
-  <!-- ART HERO -->
+  <main>
 
-  <section class="art-hero">
-
-    <div>
-
-      <div class="art-label">
-        MOZake / 01
+    <section class="art-hero">
+      <div class="hero-top">
+        <span>MOZake / 01</span>
+        <span>ORIGINAL ARTWORK</span>
       </div>
 
-      <div class="art-number">
-        ORIGINAL ARTWORK
-      </div>
+      <h1 class="hero-title">ART</h1>
 
-    </div>
-
-    <h1 class="art-title">
-      ART
-    </h1>
-
-  </section>
-
-
-  <!-- FEATURED ART -->
-
-  <section class="featured">
-
-    <div class="section-label">
-      FEATURED
-    </div>
-
-    <div class="art-image">
-      MOZake ORIGINAL ARTWORK
-    </div>
-
-    <div class="art-info">
-
-      <div>
-
-        <h2>
-          ORIGINAL<br>
-          ARTWORK
-        </h2>
-
-      </div>
-
-      <div>
-
-        <p>
-          Original drawings and artwork from the
-          world of MOZake.
+      <div class="hero-bottom">
+        <p class="hero-description">
+          Original artwork, drawings and creations from the world of MOZake.
         </p>
 
-        <a href="#" class="view-link">
-          VIEW →
+        <span>2026</span>
+      </div>
+    </section>
+
+
+    <section class="featured">
+
+      <div class="section-label">
+        FEATURED
+      </div>
+
+      <div class="artwork">
+
+        <div class="artwork-image-wrap">
+          <img
+            src="Artwork01.JPEG"
+            alt="MOZake original artwork"
+            class="artwork-image">
+        </div>
+
+        <div class="artwork-info">
+
+          <div>
+            <h2 class="artwork-title">
+              ORIGINAL ARTWORK
+            </h2>
+
+            <a href="#" class="view-link">
+              VIEW →
+            </a>
+          </div>
+
+          <p class="artwork-meta">
+            An original creation from MOZake.
+            Artwork, ideas and experiments that
+            build the world one piece at a time.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="story-preview">
+
+      <div class="section-label">
+        THE STORY
+      </div>
+
+      <h2>
+        EVERY CREATION<br>
+        HAS A BEGINNING.
+      </h2>
+
+      <div class="story-bottom">
+
+        <p>
+          But where did MOZake come from?
+          Discover the idea behind the character,
+          the artwork and the world that surrounds it.
+        </p>
+
+        <a href="./index.html#story" class="story-link">
+          DISCOVER THE STORY →
         </a>
 
       </div>
 
-    </div>
+    </section>
 
-  </section>
+  </main>
 
-
-  <!-- STORY PREVIEW -->
-
-  <section class="story-preview">
-
-    <div class="section-label">
-      THE STORY
-    </div>
-
-    <h2>
-      EVERY<br>
-      CREATION<br>
-      HAS A<br>
-      BEGINNING.
-    </h2>
-
-    <p>
-      But where did MOZake come from?
-      Discover the idea, the creator and the world
-      behind every creation.
-    </p>
-
-    <a href="./index.html#story" class="story-link">
-      DISCOVER THE STORY →
-    </a>
-
-  </section>
-
-
-  <!-- FOOTER -->
 
   <footer>
 
-    <div class="section-label">
-      MOZake
+    <div class="footer-top">
+      <div class="footer-logo">MOZake</div>
+
+      <div class="footer-slogan">
+        MAKE IT EXIST.
+      </div>
     </div>
 
-    <h2>
-      MAKE IT<br>
-      EXIST.
-    </h2>
-
-    <p>
-      ART &nbsp; / &nbsp;
-      CLOTHING &nbsp; / &nbsp;
-      COLLECTIBLES
-    </p>
+    <div class="footer-links">
+      <a href="./art.html">ART</a>
+      <a href="./index.html#clothing">CLOTHING</a>
+      <a href="./index.html#collectibles">COLLECTIBLES</a>
+    </div>
 
   </footer>
 
