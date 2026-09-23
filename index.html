@@ -4,11 +4,234 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MOZake</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f4f1ea;
+      color: #111111;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* INTRO */
+
+    #intro {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #f4f1ea;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 1s ease, visibility 1s ease;
+    }
+
+    #intro video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    #intro.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* WEBSITE */
+
+    #website {
+      opacity: 0;
+      transition: opacity 1.2s ease;
+    }
+
+    #website.visible {
+      opacity: 1;
+    }
+
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 28px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: -2px;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: #111111;
+      text-decoration: none;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(70px, 14vw, 190px);
+      font-weight: 500;
+      letter-spacing: -8px;
+      line-height: 0.85;
+    }
+
+    .hero p {
+      margin-top: 28px;
+      font-size: 13px;
+      letter-spacing: 5px;
+    }
+
+    section {
+      min-height: 70vh;
+      padding: 120px 7%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .section-title {
+      font-size: clamp(36px, 6vw, 80px);
+      font-weight: 400;
+      letter-spacing: -3px;
+    }
+
+    .section-subtitle {
+      margin-top: 20px;
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 20px;
+      }
+
+      nav {
+        gap: 10px;
+        font-size: 9px;
+      }
+
+      .hero h1 {
+        letter-spacing: -5px;
+      }
+
+      section {
+        padding: 90px 24px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <h1>MOZake</h1>
+  <!-- MOZake INTRO -->
+
+  <div id="intro">
+    <video id="introVideo" autoplay muted playsinline>
+      <source src="_users_6a8e9cee-833e-4e31-87d1-1c684132049c_generated_d494328d-d767-4332-88c3-b35f87a454a4_generated_video.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- WEBSITE -->
+
+  <div id="website">
+
+    <header>
+      <div class="logo">▲▲</div>
+
+      <nav>
+        <a href="#art">ART</a>
+        <a href="#clothing">CLOTHING</a>
+        <a href="#collectibles">COLLECTIBLES</a>
+        <a href="#story">STORY</a>
+        <a href="#shop">SHOP</a>
+      </nav>
+    </header>
+
+    <main>
+
+      <section class="hero">
+        <h1>MOZake</h1>
+        <p>MAKE IT EXIST</p>
+      </section>
+
+      <section id="art">
+        <h2 class="section-title">THE WORLD OF MOZake</h2>
+        <p class="section-subtitle">Art. Clothing. Collectibles.</p>
+      </section>
+
+      <section id="clothing">
+        <h2 class="section-title">LATEST</h2>
+        <p class="section-subtitle">MOZake</p>
+      </section>
+
+      <section id="collectibles">
+        <h2 class="section-title">THE STORY</h2>
+        <p class="section-subtitle">Every creation has a beginning.</p>
+      </section>
+
+      <section id="story">
+        <h2 class="section-title">MAKE IT EXIST.</h2>
+      </section>
+
+      <section id="shop">
+        <h2 class="section-title">SHOP MOZake</h2>
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    const intro = document.getElementById("intro");
+    const video = document.getElementById("introVideo");
+    const website = document.getElementById("website");
+
+    function finishIntro() {
+      intro.classList.add("hidden");
+      website.classList.add("visible");
+
+      setTimeout(() => {
+        intro.remove();
+      }, 1200);
+    }
+
+    video.addEventListener("ended", finishIntro);
+
+    video.addEventListener("error", () => {
+      finishIntro();
+    });
+  </script>
 
 </body>
 </html>
