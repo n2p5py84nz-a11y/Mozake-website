@@ -329,7 +329,7 @@ footer p {
     height: 38px;
   }
 
-  /* TOP NAV */
+  /* TOP NAV — 12PX */
 
   nav {
     gap: 12px !important;
@@ -337,7 +337,7 @@ footer p {
   }
 
   nav a {
-    font-size: 13px !important;
+    font-size: 12px !important;
     font-weight: 600 !important;
     letter-spacing: 1.2px !important;
   }
@@ -402,10 +402,6 @@ footer p {
 
 <body>
 
-<!-- =========================
-     INTRO
-========================= -->
-
 <div id="intro">
 
   <video
@@ -423,11 +419,6 @@ footer p {
   </button>
 
 </div>
-
-
-<!-- =========================
-     HEADER
-========================= -->
 
 <header>
 
@@ -463,17 +454,7 @@ footer p {
 
 </header>
 
-
-<!-- =========================
-     HERO
-========================= -->
-
 <section class="hero"></section>
-
-
-<!-- =========================
-     WORLD
-========================= -->
 
 <section class="content">
 
@@ -499,11 +480,6 @@ footer p {
   </div>
 
 </section>
-
-
-<!-- =========================
-     ART
-========================= -->
 
 <section class="content" id="art">
 
@@ -539,11 +515,6 @@ footer p {
 
 </section>
 
-
-<!-- =========================
-     STORY
-========================= -->
-
 <section class="content story" id="story">
 
   <h2>
@@ -558,11 +529,6 @@ footer p {
   </strong>
 
 </section>
-
-
-<!-- =========================
-     CLOTHING
-========================= -->
 
 <section class="content" id="clothing">
 
@@ -596,11 +562,6 @@ footer p {
   </div>
 
 </section>
-
-
-<!-- =========================
-     COLLECTIBLES
-========================= -->
 
 <section class="content" id="collectibles">
 
@@ -654,11 +615,6 @@ footer p {
 
 </section>
 
-
-<!-- =========================
-     SHOP
-========================= -->
-
 <footer id="shop">
 
   <h2>
@@ -672,12 +628,7 @@ footer p {
 
 </footer>
 
-
 <script>
-
-/* =========================
-   INTRO SESSION CONTROL
-========================= */
 
 const intro = document.getElementById("intro");
 const introVideo = document.getElementById("introVideo");
@@ -696,13 +647,11 @@ try {
 
 }
 
-
 if (introSeen) {
 
   intro.remove();
 
 }
-
 
 else {
 
@@ -727,12 +676,10 @@ else {
 
   }
 
-
   introVideo.addEventListener(
     "ended",
     finishIntro
   );
-
 
   startButton.addEventListener(
     "click",
@@ -750,7 +697,6 @@ else {
 
     }
   );
-
 
   introVideo.play().then(function() {
 
