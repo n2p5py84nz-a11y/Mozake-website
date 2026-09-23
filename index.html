@@ -109,7 +109,7 @@
       justify-content: space-between;
       align-items: center;
       z-index: 10000;
-      opacity: 0;
+      opacity: 1;
       transition: opacity 0.8s ease;
     }
 
@@ -823,7 +823,6 @@
     const intro = document.getElementById("intro");
     const video = document.getElementById("introVideo");
     const startButton = document.getElementById("startButton");
-    const header = document.querySelector("header");
 
     const introPlayed = sessionStorage.getItem("mozakeIntroPlayed");
 
@@ -832,8 +831,6 @@
       sessionStorage.setItem("mozakeIntroPlayed", "true");
 
       intro.classList.add("hide");
-
-      header.classList.add("header-show");
 
       setTimeout(() => {
         intro.style.display = "none";
@@ -844,7 +841,6 @@
     if (introPlayed === "true") {
 
       intro.style.display = "none";
-      header.classList.add("header-show");
 
     } else {
 
