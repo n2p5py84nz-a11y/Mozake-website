@@ -136,13 +136,47 @@ nav a {
   height: 100vh;
   min-height: 600px;
   position: relative;
+  overflow: hidden;
+
+  background-color: #e2ded4;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+
+  width: 94%;
+  height: 94%;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
 
   background-image: url("IMG_0320.jpeg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
 
-  background-color: #e2ded4;
+  animation: heroReveal 1.2s ease-out forwards;
+}
+
+@keyframes heroReveal {
+
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.03);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
 }
 
 /* =========================
@@ -317,8 +351,6 @@ footer p {
     padding: 18px;
   }
 
-  /* LOGO — UNCHANGED */
-
   .logo {
     width: 48px;
     height: 38px;
@@ -328,8 +360,6 @@ footer p {
     width: 48px;
     height: 38px;
   }
-
-  /* TOP NAV — 12PX */
 
   nav {
     gap: 12px !important;
@@ -345,8 +375,12 @@ footer p {
   .hero {
     height: 100svh;
     min-height: 500px;
+  }
+
+  .hero::before {
+    width: 98%;
+    height: 98%;
     background-size: contain;
-    background-position: center center;
   }
 
   section.content {
