@@ -18,7 +18,7 @@
 
     body {
       background: #f4f1ea;
-      color: #111111;
+      color: #111;
       font-family: Arial, Helvetica, sans-serif;
     }
 
@@ -52,14 +52,14 @@
 
     #startIntro {
       position: absolute;
+      bottom: 32px;
       left: 50%;
-      bottom: 40px;
       transform: translateX(-50%);
       padding: 14px 24px;
-      border: 1px solid #111111;
+      border: 1px solid #111;
       background: #f4f1ea;
-      color: #111111;
-      font-size: 12px;
+      color: #111;
+      font-size: 11px;
       letter-spacing: 2px;
       cursor: pointer;
     }
@@ -77,6 +77,10 @@
       opacity: 1;
     }
 
+    /* =========================
+       HEADER
+    ========================= */
+
     header {
       position: absolute;
       top: 0;
@@ -86,26 +90,31 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 10;
+      z-index: 20;
     }
 
     .logo {
       font-size: 20px;
       font-weight: bold;
-      letter-spacing: -2px;
+      letter-spacing: -3px;
     }
 
     nav {
       display: flex;
       gap: 24px;
-      font-size: 12px;
-      letter-spacing: 1px;
+      align-items: center;
     }
 
     nav a {
-      color: #111111;
+      color: #111;
       text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 1.5px;
     }
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
       min-height: 100vh;
@@ -117,37 +126,129 @@
       padding: 40px 20px;
     }
 
-    .hero h1 {
-      font-size: clamp(70px, 14vw, 190px);
+    .hero-title {
+      font-size: clamp(80px, 15vw, 200px);
       font-weight: 500;
-      letter-spacing: -8px;
-      line-height: 0.85;
+      letter-spacing: -9px;
+      line-height: 0.8;
     }
 
-    .hero p {
-      margin-top: 28px;
-      font-size: 13px;
+    .hero-subtitle {
+      margin-top: 30px;
+      font-size: 12px;
       letter-spacing: 5px;
     }
 
+    /* =========================
+       GENERAL
+    ========================= */
+
     section {
-      min-height: 70vh;
+      min-height: 75vh;
       padding: 120px 7%;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 3px;
+      margin-bottom: 25px;
+    }
+
+    .large-title {
+      font-size: clamp(45px, 8vw, 110px);
+      font-weight: 400;
+      letter-spacing: -5px;
+      line-height: 0.9;
+      max-width: 900px;
+    }
+
+    .body-text {
+      margin-top: 25px;
+      font-size: 16px;
+      line-height: 1.5;
+      max-width: 500px;
+    }
+
+    .discover {
+      display: inline-block;
+      margin-top: 35px;
+      color: #111;
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    /* =========================
+       WORLD
+    ========================= */
+
+    .world {
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
-    .section-title {
-      font-size: clamp(36px, 6vw, 80px);
-      font-weight: 400;
-      letter-spacing: -3px;
+    /* =========================
+       LATEST
+    ========================= */
+
+    .latest {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .section-subtitle {
-      margin-top: 20px;
-      font-size: 16px;
-      letter-spacing: 1px;
+    .art-placeholder {
+      margin-top: 45px;
+      width: 100%;
+      min-height: 420px;
+      border: 1px solid #d4d0c8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    /* =========================
+       STORY
+    ========================= */
+
+    .story {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      min-height: 45vh;
+      padding: 100px 7% 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .footer-title {
+      font-size: clamp(45px, 8vw, 110px);
+      font-weight: 400;
+      letter-spacing: -5px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 80px;
+    }
+
+    .footer-logo {
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: -4px;
     }
 
     /* =========================
@@ -160,21 +261,47 @@
         padding: 20px;
       }
 
-      nav {
-        gap: 10px;
-        font-size: 9px;
+      .logo {
+        font-size: 18px;
       }
 
-      .hero h1 {
-        letter-spacing: -5px;
+      nav {
+        gap: 9px;
+      }
+
+      nav a {
+        font-size: 8px;
+        letter-spacing: 0.8px;
+      }
+
+      .hero-title {
+        font-size: clamp(65px, 18vw, 110px);
+        letter-spacing: -6px;
+      }
+
+      .hero-subtitle {
+        font-size: 10px;
+        letter-spacing: 3px;
       }
 
       section {
         padding: 90px 24px;
       }
 
-      #startIntro {
-        bottom: 25px;
+      .large-title {
+        letter-spacing: -3px;
+      }
+
+      .art-placeholder {
+        min-height: 300px;
+      }
+
+      footer {
+        padding: 80px 24px 35px;
+      }
+
+      .footer-bottom {
+        margin-top: 60px;
       }
     }
   </style>
@@ -210,6 +337,8 @@
 
   <div id="website">
 
+    <!-- HEADER -->
+
     <header>
 
       <div class="logo">▲▲</div>
@@ -231,80 +360,123 @@
 
       <section class="hero">
 
-        <h1>MOZake</h1>
+        <h1 class="hero-title">MOZake</h1>
 
-        <p>MAKE IT EXIST</p>
+        <p class="hero-subtitle">
+          MAKE IT EXIST
+        </p>
 
       </section>
 
 
-      <!-- ART -->
+      <!-- THE WORLD -->
 
-      <section id="art">
+      <section class="world">
 
-        <h2 class="section-title">
+        <p class="eyebrow">
           THE WORLD OF MOZake
-        </h2>
-
-        <p class="section-subtitle">
-          Art. Clothing. Collectibles.
         </p>
+
+        <h2 class="large-title">
+          Art.<br>
+          Clothing.<br>
+          Collectibles.
+        </h2>
 
       </section>
 
 
-      <!-- CLOTHING -->
+      <!-- LATEST -->
 
-      <section id="clothing">
+      <section class="latest" id="art">
 
-        <h2 class="section-title">
+        <p class="eyebrow">
           LATEST
-        </h2>
+        </p>
 
-        <p class="section-subtitle">
+        <h2 class="large-title">
           MOZake
-        </p>
-
-      </section>
-
-
-      <!-- COLLECTIBLES -->
-
-      <section id="collectibles">
-
-        <h2 class="section-title">
-          THE STORY
         </h2>
 
-        <p class="section-subtitle">
-          Every creation has a beginning.
-        </p>
+        <div class="art-placeholder">
+          ORIGINAL MOZake ARTWORK
+        </div>
+
+        <a class="discover" href="#">
+          DISCOVER →
+        </a>
 
       </section>
 
 
       <!-- STORY -->
 
-      <section id="story">
+      <section class="story" id="story">
 
-        <h2 class="section-title">
-          MAKE IT EXIST.
+        <p class="eyebrow">
+          THE STORY
+        </p>
+
+        <h2 class="large-title">
+          Every creation<br>
+          has a beginning.
         </h2>
+
+        <a class="discover" href="#">
+          DISCOVER →
+        </a>
 
       </section>
 
 
       <!-- SHOP -->
 
-      <section id="shop">
+      <section id="clothing">
 
-        <h2 class="section-title">
-          SHOP MOZake
+        <p class="eyebrow">
+          THE WORLD OF MOZake
+        </p>
+
+        <h2 class="large-title">
+          MAKE IT EXIST.
         </h2>
 
       </section>
 
     </main>
+
+
+    <!-- FOOTER / SHOP -->
+
+    <footer id="shop">
+
+      <h2 class="footer-title">
+        SHOP MOZake
+      </h2>
+
+      <div class="footer-bottom">
+
+        <div class="footer-logo">
+          ▲▲
+        </div>
+
+        <div>
+          <a class="discover" href="#">
+            CLOTHING
+          </a>
+          <br>
+          <a class="discover" href="#">
+            COLLECTIBLES
+          </a>
+          <br>
+          <a class="discover" href="#">
+            ART
+          </a>
+        </div>
+
+      </div>
+
+    </footer>
 
   </div>
 
@@ -339,12 +511,8 @@
     }
 
 
-    /* When the video finishes */
-
     video.addEventListener("ended", finishIntro);
 
-
-    /* START button */
 
     startButton.addEventListener("click", () => {
 
@@ -360,8 +528,6 @@
 
     });
 
-
-    /* Try autoplay */
 
     video.play().then(() => {
 
