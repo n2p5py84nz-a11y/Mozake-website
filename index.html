@@ -1,750 +1,753 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>MOZake</title>
-
-<style>
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: #e2ded4;
-  color: #111;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* =========================
-   INTRO
-========================= */
-
-#intro {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  background: #e2ded4;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-#intro video {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  background: #e2ded4;
-}
-
-#startIntro {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #111;
-  color: #fff;
-  border: none;
-  padding: 14px 24px;
-  font-size: 12px;
-  letter-spacing: 2px;
-  cursor: pointer;
-}
-
-#intro.hidden {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 1s ease;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 25px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 20;
-}
-
-/* =========================
-   MOZake LOGO
-========================= */
-
-.logo {
-  display: flex;
-  align-items: center;
-  width: 62px;
-  height: 48px;
-}
-
-.mozake-logo {
-  width: 62px;
-  height: 48px;
-  display: block;
-  overflow: visible;
-}
-
-.mozake-logo polygon {
-  fill: #111;
-}
-
-/* =========================
-   TOP NAVIGATION
-========================= */
-
-nav {
-  display: flex !important;
-  gap: 40px !important;
-  align-items: center !important;
-}
-
-nav a {
-  color: #111 !important;
-  text-decoration: none !important;
-  font-size: 21px !important;
-  font-weight: 600 !important;
-  letter-spacing: 2.5px !important;
-  white-space: nowrap !important;
-  line-height: 1 !important;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-  width: 100%;
-  height: 100vh;
-  min-height: 600px;
-  position: relative;
-  overflow: hidden;
-
-  background-color: #e2ded4;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-
-  width: 94%;
-  height: 94%;
-
-  top: 50%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
-
-  background-image: url("IMG_0320.jpeg");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
-
-  animation: heroReveal 1.2s ease-out forwards;
-}
-
-@keyframes heroReveal {
-
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(1.03);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-
-}
-
-/* =========================
-   GENERAL SECTIONS
-========================= */
-
-section.content {
-  padding: 120px 7vw;
-}
-
-.section-title {
-  font-size: clamp(42px, 8vw, 100px);
-  line-height: .9;
-  font-weight: 900;
-  letter-spacing: -5px;
-  margin-bottom: 50px;
-}
-
-.section-text {
-  max-width: 650px;
-  font-size: 18px;
-  line-height: 1.5;
-}
-
-/* =========================
-   WORLD
-========================= */
-
-.world-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.world-card {
-  min-height: 300px;
-  background: #111;
-  color: #fff;
-  display: flex;
-  align-items: flex-end;
-  padding: 25px;
-}
-
-.world-card h3 {
-  font-size: 30px;
-  letter-spacing: -1px;
-}
-
-/* =========================
-   LATEST
-========================= */
-
-.latest {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 50px;
-  align-items: center;
-}
-
-.art-placeholder {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  background: #d5d0c7;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  letter-spacing: 2px;
-}
-
-/* =========================
-   STORY
-========================= */
-
-.story {
-  min-height: 70vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.story h2 {
-  font-size: clamp(50px, 9vw, 120px);
-  line-height: .88;
-  letter-spacing: -6px;
-  max-width: 1000px;
-}
-
-/* =========================
-   CLOTHING
-========================= */
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.product {
-  background: #d5d0c7;
-  min-height: 400px;
-  padding: 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.product h3 {
-  font-size: 28px;
-}
-
-/* =========================
-   COLLECTIBLES
-========================= */
-
-.collectible {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.collectible-image {
-  aspect-ratio: 1 / 1;
-  background: #d5d0c7;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  letter-spacing: 2px;
-}
-
-.collectible h3 {
-  font-size: 50px;
-  letter-spacing: -3px;
-}
-
-.collectible p {
-  margin-top: 25px;
-  line-height: 1.6;
-  max-width: 500px;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-  padding: 80px 7vw 40px;
-  border-top: 1px solid #111;
-}
-
-footer h2 {
-  font-size: clamp(50px, 10vw, 130px);
-  letter-spacing: -7px;
-  line-height: .85;
-}
-
-footer p {
-  margin-top: 50px;
-  font-size: 12px;
-  letter-spacing: 2px;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 700px) {
-
-  header {
-    padding: 18px;
-  }
-
-  .logo {
-    width: 48px;
-    height: 38px;
-  }
-
-  .mozake-logo {
-    width: 48px;
-    height: 38px;
-  }
-
-  nav {
-    gap: 12px !important;
-    flex-shrink: 0 !important;
-  }
-
-  nav a {
-    font-size: 12px !important;
-    font-weight: 600 !important;
-    letter-spacing: 1.2px !important;
-  }
-
-  .hero {
-    height: 100svh;
-    min-height: 500px;
-  }
-
-  .hero::before {
-    width: 98%;
-    height: 98%;
-    background-size: contain;
-  }
-
-  section.content {
-    padding: 80px 20px;
-  }
-
-  .section-title {
-    font-size: 55px;
-    letter-spacing: -4px;
-  }
-
-  .world-grid,
-  .product-grid,
-  .latest,
-  .collectible {
-    grid-template-columns: 1fr;
-  }
-
-  .world-card {
-    min-height: 220px;
-  }
-
-  .latest {
-    gap: 30px;
-  }
-
-  .story {
-    min-height: 60vh;
-  }
-
-  .story h2 {
-    font-size: 60px;
-    letter-spacing: -4px;
-  }
-
-  .collectible h3 {
-    font-size: 40px;
-  }
-
-  footer {
-    padding: 60px 20px 30px;
-  }
-
-  footer h2 {
-    font-size: 65px;
-    letter-spacing: -5px;
-  }
-
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MOZake</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #e2ded4;
+      color: #111;
+      overflow-x: hidden;
+    }
+
+    /* =========================
+       INTRO
+    ========================= */
+
+    #intro {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: #e2ded4;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #intro video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #e2ded4;
+    }
+
+    #startButton {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 12px 22px;
+      border: 1px solid #111;
+      background: transparent;
+      color: #111;
+      font-size: 12px;
+      letter-spacing: 2px;
+      cursor: pointer;
+      display: none;
+    }
+
+    #intro.hide {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.2s ease;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 26px 34px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      width: 62px;
+      height: 48px;
+    }
+
+    .mozake-logo {
+      width: 62px;
+      height: 48px;
+      display: block;
+      overflow: visible;
+    }
+
+    .mozake-logo polygon {
+      fill: #111;
+    }
+
+    nav {
+      display: flex !important;
+      gap: 40px !important;
+      align-items: center !important;
+    }
+
+    nav a {
+      color: #111 !important;
+      text-decoration: none !important;
+      font-size: 21px !important;
+      font-weight: 600 !important;
+      letter-spacing: 2.5px !important;
+      white-space: nowrap !important;
+      line-height: 1 !important;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
+      position: relative;
+      overflow: hidden;
+
+      background-color: #e2ded4;
+    }
+
+    /*
+      The graffiti image itself is deliberately oversized.
+      This makes the actual MOZake graffiti massive rather
+      than simply making its container bigger.
+    */
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
+      background-image: url("IMG_0320.jpeg");
+      background-repeat: no-repeat;
+      background-position: center center;
+
+      background-size: 170% auto;
+
+      z-index: 1;
+    }
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================= */
+
+    section:not(.hero) {
+      padding: 120px 7vw;
+    }
+
+    .section-label {
+      font-size: 14px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+
+    .large-title {
+      font-size: clamp(50px, 9vw, 150px);
+      line-height: 0.9;
+      font-weight: 700;
+      letter-spacing: -5px;
+      text-transform: uppercase;
+    }
+
+    .medium-title {
+      font-size: clamp(38px, 6vw, 90px);
+      line-height: 0.95;
+      font-weight: 700;
+      letter-spacing: -3px;
+      text-transform: uppercase;
+    }
+
+    .body-text {
+      max-width: 600px;
+      font-size: 18px;
+      line-height: 1.5;
+      margin-top: 30px;
+    }
+
+    .discover {
+      display: inline-block;
+      margin-top: 35px;
+      color: #111;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 2px;
+      font-weight: 600;
+      border-bottom: 1px solid #111;
+      padding-bottom: 7px;
+    }
+
+    /* =========================
+       WORLD
+    ========================= */
+
+    .world {
+      min-height: 80vh;
+      background: #e2ded4;
+    }
+
+    /* =========================
+       LATEST
+    ========================= */
+
+    .latest {
+      background: #111;
+      color: #e2ded4;
+    }
+
+    .latest .discover {
+      color: #e2ded4;
+      border-color: #e2ded4;
+    }
+
+    .art-placeholder {
+      width: 100%;
+      height: 65vh;
+      margin-top: 60px;
+      background: #242424;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: #888;
+    }
+
+    /* =========================
+       STORY
+    ========================= */
+
+    .story {
+      min-height: 90vh;
+    }
+
+    /* =========================
+       CLOTHING
+    ========================= */
+
+    .clothing {
+      background: #e2ded4;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 70px;
+    }
+
+    .product {
+      min-height: 500px;
+      background: #d4d0c6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .product span {
+      font-size: 13px;
+      letter-spacing: 3px;
+    }
+
+    /* =========================
+       COLLECTIBLES
+    ========================= */
+
+    .collectibles {
+      background: #111;
+      color: #e2ded4;
+    }
+
+    .collectible-layout {
+      margin-top: 70px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .collectible-image {
+      min-height: 600px;
+      background: #242424;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #777;
+      font-size: 13px;
+      letter-spacing: 3px;
+    }
+
+    .collectible-info h3 {
+      font-size: clamp(40px, 6vw, 85px);
+      line-height: 0.9;
+      letter-spacing: -4px;
+      text-transform: uppercase;
+    }
+
+    .edition {
+      margin-top: 35px;
+      font-size: 14px;
+      letter-spacing: 3px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 80px 7vw 50px;
+      background: #111;
+      color: #e2ded4;
+      border-top: 1px solid #333;
+    }
+
+    footer .large-title {
+      margin-bottom: 80px;
+    }
+
+    footer a {
+      color: #e2ded4;
+      text-decoration: none;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 700px) {
+
+      header {
+        padding: 20px 16px;
+      }
+
+      .logo {
+        width: 48px;
+        height: 38px;
+      }
+
+      .mozake-logo {
+        width: 48px;
+        height: 38px;
+      }
+
+      nav {
+        gap: 12px !important;
+        flex-shrink: 0 !important;
+      }
+
+      nav a {
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        letter-spacing: 1.2px !important;
+      }
+
+      .hero {
+        min-height: 100svh;
+      }
+
+      /*
+        Keep the graffiti oversized on phones too.
+        The image is intentionally allowed to crop at
+        the edges so the graffiti dominates the screen.
+      */
+
+      .hero::before {
+        width: 100%;
+        height: 100%;
+        background-size: 185% auto;
+        background-position: center center;
+      }
+
+      section:not(.hero) {
+        padding: 85px 22px;
+      }
+
+      .large-title {
+        font-size: clamp(48px, 16vw, 90px);
+        letter-spacing: -3px;
+      }
+
+      .medium-title {
+        font-size: clamp(38px, 13vw, 70px);
+        letter-spacing: -2px;
+      }
+
+      .body-text {
+        font-size: 16px;
+      }
+
+      .art-placeholder {
+        height: 55vh;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .product {
+        min-height: 400px;
+      }
+
+      .collectible-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .collectible-image {
+        min-height: 450px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div id="intro">
+  <!-- =========================
+       INTRO
+  ========================= -->
 
-  <video
-    id="introVideo"
-    autoplay
-    muted
-    playsinline
-    preload="auto"
-  >
-    <source src="MOZake-intro.mp4" type="video/mp4">
-  </video>
+  <div id="intro">
 
-  <button id="startIntro">
-    START
-  </button>
+    <video id="introVideo"
+           autoplay
+           muted
+           playsinline
+           preload="auto">
 
-</div>
+      <source src="MOZake-intro.mp4" type="video/mp4">
 
-<header>
+    </video>
 
-  <div class="logo">
-
-    <svg
-      class="mozake-logo"
-      viewBox="0 0 82 58"
-      aria-label="MOZake logo"
-    >
-
-      <polygon
-        points="2,55 29,7 56,55"
-      ></polygon>
-
-      <polygon
-        points="27,51 54,3 81,51"
-      ></polygon>
-
-    </svg>
+    <button id="startButton">
+      ENTER
+    </button>
 
   </div>
 
-  <nav>
 
-    <a href="#art">ART</a>
-    <a href="#clothing">CLOTHING</a>
-    <a href="#collectibles">COLLECTIBLES</a>
-    <a href="#story">STORY</a>
-    <a href="#shop">SHOP</a>
+  <!-- =========================
+       HEADER
+  ========================= -->
 
-  </nav>
+  <header>
 
-</header>
+    <a href="#" class="logo" aria-label="MOZake">
 
-<section class="hero"></section>
+      <svg
+        class="mozake-logo"
+        viewBox="0 0 82 58"
+        aria-label="MOZake logo">
 
-<section class="content">
+        <polygon points="2,55 29,7 56,55"></polygon>
 
-  <h2 class="section-title">
-    THE WORLD<br>
-    OF MOZake
-  </h2>
+        <polygon points="27,51 54,3 81,51"></polygon>
 
-  <div class="world-grid">
+      </svg>
 
-    <div class="world-card">
-      <h3>ART.</h3>
+    </a>
+
+    <nav>
+
+      <a href="#art">ART</a>
+      <a href="#clothing">CLOTHING</a>
+      <a href="#collectibles">COLLECTIBLES</a>
+      <a href="#story">STORY</a>
+      <a href="#shop">SHOP</a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section class="hero"></section>
+
+
+  <!-- =========================
+       WORLD
+  ========================= -->
+
+  <section class="world">
+
+    <div class="section-label">
+      THE WORLD OF MOZake
     </div>
 
-    <div class="world-card">
-      <h3>CLOTHING.</h3>
+    <h2 class="large-title">
+      ART.<br>
+      CLOTHING.<br>
+      COLLECTIBLES.
+    </h2>
+
+  </section>
+
+
+  <!-- =========================
+       ART
+  ========================= -->
+
+  <section class="latest" id="art">
+
+    <div class="section-label">
+      LATEST
     </div>
 
-    <div class="world-card">
-      <h3>COLLECTIBLES.</h3>
-    </div>
-
-  </div>
-
-</section>
-
-<section class="content" id="art">
-
-  <h2 class="section-title">
-    LATEST.
-  </h2>
-
-  <div class="latest">
+    <h2 class="medium-title">
+      MOZake<br>
+      ARTWORK
+    </h2>
 
     <div class="art-placeholder">
-      MOZake ARTWORK
+      ORIGINAL MOZake ARTWORK
     </div>
 
-    <div>
+    <a href="#" class="discover">
+      DISCOVER →
+    </a>
 
-      <h3>
-        MOZake
-      </h3>
+  </section>
 
-      <p class="section-text">
-        The latest creation from the world of MOZake.
-      </p>
 
-      <br>
+  <!-- =========================
+       STORY
+  ========================= -->
 
-      <strong>
-        DISCOVER →
-      </strong>
+  <section class="story" id="story">
+
+    <div class="section-label">
+      THE STORY
+    </div>
+
+    <h2 class="large-title">
+      EVERY<br>
+      CREATION<br>
+      HAS A<br>
+      BEGINNING.
+    </h2>
+
+    <p class="body-text">
+      Every creation has a beginning.
+      But where did MOZake come from?
+    </p>
+
+    <a href="#" class="discover">
+      DISCOVER THE STORY →
+    </a>
+
+  </section>
+
+
+  <!-- =========================
+       CLOTHING
+  ========================= -->
+
+  <section class="clothing" id="clothing">
+
+    <div class="section-label">
+      CLOTHING.
+    </div>
+
+    <h2 class="medium-title">
+      EXPLORE<br>
+      THE CLOTHING
+    </h2>
+
+    <div class="product-grid">
+
+      <div class="product">
+        <span>MOZake TEE</span>
+      </div>
+
+      <div class="product">
+        <span>NEXT PIECE</span>
+      </div>
+
+      <div class="product">
+        <span>NEXT PIECE</span>
+      </div>
 
     </div>
 
-  </div>
+    <a href="#" class="discover">
+      EXPLORE THE WORLD →
+    </a>
 
-</section>
+  </section>
 
-<section class="content story" id="story">
 
-  <h2>
-    EVERY CREATION<br>
-    HAS A BEGINNING.
-  </h2>
+  <!-- =========================
+       COLLECTIBLES
+  ========================= -->
 
-  <br><br>
+  <section class="collectibles" id="collectibles">
 
-  <strong>
-    MAKE IT EXIST.
-  </strong>
-
-</section>
-
-<section class="content" id="clothing">
-
-  <h2 class="section-title">
-    CLOTHING.
-  </h2>
-
-  <p class="section-text">
-    EXPLORE THE CLOTHING.
-  </p>
-
-  <br><br>
-
-  <div class="product-grid">
-
-    <div class="product">
-      <h3>MOZake TEE</h3>
-      <p>EXPLORE →</p>
+    <div class="section-label">
+      COLLECTIBLES.
     </div>
 
-    <div class="product">
-      <h3>NEXT PIECE</h3>
-      <p>EXPLORE →</p>
-    </div>
+    <h2 class="medium-title">
+      EXPLORE<br>
+      THE COLLECTION
+    </h2>
 
-    <div class="product">
-      <h3>NEXT PIECE</h3>
-      <p>EXPLORE →</p>
-    </div>
+    <div class="collectible-layout">
 
-  </div>
-
-</section>
-
-<section class="content" id="collectibles">
-
-  <h2 class="section-title">
-    COLLECTIBLES.
-  </h2>
-
-  <div class="collectible">
-
-    <div class="collectible-image">
-      FIGURE IMAGE
-    </div>
-
-    <div>
-
-      <p>
+      <div class="collectible-image">
         MOZake 001
-      </p>
+      </div>
 
-      <h3>
-        MOZake
-      </h3>
+      <div class="collectible-info">
 
-      <p>
-        THE ORIGINAL MOZake COLLECTIBLE
-      </p>
+        <h3>
+          MOZake<br>
+          001
+        </h3>
 
-      <p>
-        MOZake, exactly as he was first created.
-        The original form of the character — before
-        the different versions, worlds and stories begin.
-        This is where the collection starts.
-      </p>
+        <p class="edition">
+          MOZake<br><br>
+          THE ORIGINAL MOZake COLLECTIBLE
+        </p>
 
-      <br>
+        <p class="body-text">
+          MOZake, exactly as he was first created.
+          The original form of the character —
+          before the different versions, worlds and
+          stories begin.
+          <br><br>
+          This is where the collection starts.
+        </p>
 
-      <p>
-        LIMITED EDITION<br>
-        5,000 PIECES
-      </p>
+        <p class="edition">
+          LIMITED EDITION<br>
+          5,000 PIECES
+        </p>
 
-      <br>
+        <a href="#" class="discover">
+          BUY NOW →
+        </a>
 
-      <strong>
-        BUY NOW →
-      </strong>
+      </div>
 
     </div>
 
-  </div>
+  </section>
 
-</section>
 
-<footer id="shop">
+  <!-- =========================
+       SHOP
+  ========================= -->
 
-  <h2>
-    MAKE IT<br>
-    EXIST.
-  </h2>
+  <footer id="shop">
 
-  <p>
-    ▲▲ &nbsp; MOZake
-  </p>
+    <div class="section-label">
+      SHOP MOZake
+    </div>
 
-</footer>
+    <h2 class="large-title">
+      MAKE IT<br>
+      EXIST.
+    </h2>
 
-<script>
+    <p>
+      CLOTHING &nbsp; / &nbsp;
+      COLLECTIBLES &nbsp; / &nbsp;
+      ART
+    </p>
 
-const intro = document.getElementById("intro");
-const introVideo = document.getElementById("introVideo");
-const startButton = document.getElementById("startIntro");
+  </footer>
 
-let introSeen = false;
 
-try {
+  <!-- =========================
+       INTRO SCRIPT
+  ========================= -->
 
-  introSeen =
-    sessionStorage.getItem("mozakeIntroSeen") === "true";
+  <script>
 
-} catch (error) {
+    const intro = document.getElementById("intro");
+    const video = document.getElementById("introVideo");
+    const startButton = document.getElementById("startButton");
 
-  introSeen = false;
+    const introPlayed = sessionStorage.getItem("mozakeIntroPlayed");
 
-}
+    function hideIntro() {
 
-if (introSeen) {
+      sessionStorage.setItem("mozakeIntroPlayed", "true");
 
-  intro.remove();
+      intro.classList.add("hide");
 
-}
+      setTimeout(() => {
+        intro.style.display = "none";
+      }, 1300);
 
-else {
+    }
 
-  function finishIntro() {
+    if (introPlayed === "true") {
 
-    try {
+      intro.style.display = "none";
 
-      sessionStorage.setItem(
-        "mozakeIntroSeen",
-        "true"
-      );
+    } else {
 
-    } catch (error) {}
-
-    intro.classList.add("hidden");
-
-    setTimeout(function() {
-
-      intro.remove();
-
-    }, 1000);
-
-  }
-
-  introVideo.addEventListener(
-    "ended",
-    finishIntro
-  );
-
-  startButton.addEventListener(
-    "click",
-    function() {
-
-      startButton.style.display = "none";
-
-      introVideo.currentTime = 0;
-
-      introVideo.play().catch(function() {
+      video.play().catch(() => {
 
         startButton.style.display = "block";
 
       });
 
+      video.addEventListener("ended", () => {
+
+        hideIntro();
+
+      });
+
+      startButton.addEventListener("click", () => {
+
+        startButton.style.display = "none";
+
+        video.play();
+
+      });
+
     }
-  );
 
-  introVideo.play().then(function() {
-
-    startButton.style.display = "none";
-
-  }).catch(function() {
-
-    startButton.style.display = "block";
-
-  });
-
-}
-
-</script>
+  </script>
 
 </body>
 </html>
