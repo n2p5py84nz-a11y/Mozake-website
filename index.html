@@ -113,16 +113,17 @@ header {
 
 nav {
   display: flex;
-  gap: 30px;
+  gap: 34px;
   align-items: center;
 }
 
 nav a {
   color: #111;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
-  letter-spacing: 2px;
+  letter-spacing: 2.2px;
+  white-space: nowrap;
 }
 
 /* =========================
@@ -438,14 +439,10 @@ footer p {
       aria-label="MOZake logo"
     >
 
-      <!-- LEFT TRIANGLE -->
       <polygon
         points="2,55 29,7 56,55"
       ></polygon>
 
-      <!-- RIGHT TRIANGLE
-           slightly higher
-           and only slightly overlapping -->
       <polygon
         points="27,51 54,3 81,51"
       ></polygon>
@@ -700,16 +697,12 @@ try {
 }
 
 
-/* If already seen during this browser session */
-
 if (introSeen) {
 
   intro.remove();
 
 }
 
-
-/* Otherwise play intro */
 
 else {
 
