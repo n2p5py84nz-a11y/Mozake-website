@@ -24,10 +24,6 @@
       overflow-x: hidden;
     }
 
-    /* =========================
-       INTRO
-    ========================= */
-
     #intro {
       position: fixed;
       inset: 0;
@@ -68,10 +64,6 @@
       pointer-events: none;
       transition: opacity 1.2s ease;
     }
-
-    /* =========================
-       HEADER
-    ========================= */
 
     header {
       position: absolute;
@@ -124,10 +116,6 @@
       opacity: 0.45;
     }
 
-    /* =========================
-       HERO
-    ========================= */
-
     .hero {
       width: 100%;
       height: 100vh;
@@ -142,23 +130,15 @@
       position: absolute;
       width: 100%;
       height: 100%;
-
       top: 50%;
       left: 50%;
-
       transform: translate(-50%, -50%);
-
       background-image: url("IMG_0320.jpeg");
       background-repeat: no-repeat;
       background-position: center center;
       background-size: 170% auto;
-
       z-index: 1;
     }
-
-    /* =========================
-       GENERAL
-    ========================= */
 
     section:not(.hero) {
       padding: 120px 7vw;
@@ -210,10 +190,6 @@
     .discover:hover {
       opacity: 0.45;
     }
-
-    /* =========================
-       WORLD OF MOZake
-    ========================= */
 
     .world {
       min-height: 100vh;
@@ -289,10 +265,6 @@
       padding-bottom: 6px;
     }
 
-    /* =========================
-       LATEST
-    ========================= */
-
     .latest {
       background: #111;
       color: #e2ded4;
@@ -316,17 +288,9 @@
       color: #888;
     }
 
-    /* =========================
-       STORY
-    ========================= */
-
     .story {
       min-height: 90vh;
     }
-
-    /* =========================
-       CLOTHING
-    ========================= */
 
     .clothing {
       background: #e2ded4;
@@ -358,10 +322,6 @@
       font-size: 13px;
       letter-spacing: 3px;
     }
-
-    /* =========================
-       COLLECTIBLES
-    ========================= */
 
     .collectibles {
       background: #111;
@@ -400,10 +360,6 @@
       letter-spacing: 3px;
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
-
     footer {
       padding: 80px 7vw 50px;
       background: #111;
@@ -419,10 +375,6 @@
       color: #e2ded4;
       text-decoration: none;
     }
-
-    /* =========================
-       MOBILE
-    ========================= */
 
     @media (max-width: 700px) {
 
@@ -480,8 +432,6 @@
         font-size: 16px;
       }
 
-      /* WORLD MOBILE */
-
       .world {
         min-height: auto;
         padding-top: 100px !important;
@@ -538,8 +488,6 @@
 
 <body>
 
-  <!-- INTRO -->
-
   <div id="intro">
 
     <video id="introVideo"
@@ -559,11 +507,9 @@
   </div>
 
 
-  <!-- HEADER -->
-
   <header>
 
-    <a href="index.html" class="logo" aria-label="MOZake">
+    <a href="./index.html" class="logo" aria-label="MOZake">
 
       <svg
         class="mozake-logo"
@@ -580,23 +526,19 @@
 
     <nav>
 
-      <a href="art.html">ART</a>
-      <a href="#clothing">CLOTHING</a>
-      <a href="#collectibles">COLLECTIBLES</a>
-      <a href="#story">STORY</a>
-      <a href="#shop">SHOP</a>
+      <a href="./art.html">ART</a>
+      <a href="./index.html#clothing">CLOTHING</a>
+      <a href="./index.html#collectibles">COLLECTIBLES</a>
+      <a href="./index.html#story">STORY</a>
+      <a href="./index.html#shop">SHOP</a>
 
     </nav>
 
   </header>
 
 
-  <!-- HERO -->
-
   <section class="hero"></section>
 
-
-  <!-- WORLD OF MOZake -->
 
   <section class="world">
 
@@ -629,7 +571,7 @@
           from the world of MOZake.
         </p>
 
-        <a href="art.html">
+        <a href="./art.html">
           EXPLORE →
         </a>
 
@@ -649,7 +591,7 @@
           MOZake and the ideas behind him.
         </p>
 
-        <a href="#clothing">
+        <a href="./index.html#clothing">
           EXPLORE →
         </a>
 
@@ -669,7 +611,7 @@
           Each creation becomes part of the story.
         </p>
 
-        <a href="#collectibles">
+        <a href="./index.html#collectibles">
           EXPLORE →
         </a>
 
@@ -680,9 +622,7 @@
   </section>
 
 
-  <!-- LATEST -->
-
-  <section class="latest" id="art">
+  <section class="latest">
 
     <div class="section-label">
       LATEST
@@ -697,14 +637,12 @@
       ORIGINAL MOZake ARTWORK
     </div>
 
-    <a href="art.html" class="discover">
+    <a href="./art.html" class="discover">
       DISCOVER →
     </a>
 
   </section>
 
-
-  <!-- STORY -->
 
   <section class="story" id="story">
 
@@ -730,8 +668,6 @@
 
   </section>
 
-
-  <!-- CLOTHING -->
 
   <section class="clothing" id="clothing">
 
@@ -766,8 +702,6 @@
 
   </section>
 
-
-  <!-- COLLECTIBLES -->
 
   <section class="collectibles" id="collectibles">
 
@@ -823,8 +757,6 @@
   </section>
 
 
-  <!-- FOOTER -->
-
   <footer id="shop">
 
     <div class="section-label">
@@ -844,8 +776,6 @@
 
   </footer>
 
-
-  <!-- INTRO SCRIPT -->
 
   <script>
 
