@@ -71,6 +71,7 @@
       flex-direction: column;
       justify-content: flex-end;
       border-bottom: 1px solid #111;
+      overflow: hidden;
     }
     .collectibles-label {
       font-size: 20px;
@@ -79,11 +80,13 @@
       margin-bottom: 20px;
     }
     .collectibles-title {
-      font-size: clamp(80px, 15vw, 230px);
-      line-height: 0.78;
+      width: 100%;
+      font-size: clamp(55px, 11vw, 190px);
+      line-height: 0.82;
       font-weight: 700;
-      letter-spacing: -10px;
+      letter-spacing: -7px;
       text-transform: uppercase;
+      white-space: nowrap;
     }
     /* COLLECTION INTRO */
     .collection-intro {
@@ -385,8 +388,10 @@
         margin-bottom: 15px;
       }
       .collectibles-title {
-        font-size: 20vw;
-        letter-spacing: -5px;
+        width: 100%;
+        font-size: 13.5vw;
+        letter-spacing: -3px;
+        white-space: nowrap;
       }
       .collection-intro {
         padding: 75px 20px;
@@ -516,11 +521,21 @@
       </svg>
     </a>
     <nav>
-      <a href="./art.html">ART</a>
-      <a href="./index.html#clothing">CLOTHING</a>
-      <a href="./collectibles.html">COLLECTIBLES</a>
-      <a href="./story.html">STORY</a>
-      <a href="./index.html#shop">SHOP</a>
+      <a href="./art.html">
+        ART
+      </a>
+      <a href="./index.html#clothing">
+        CLOTHING
+      </a>
+      <a href="./collectibles.html">
+        COLLECTIBLES
+      </a>
+      <a href="./story.html">
+        STORY
+      </a>
+      <a href="./index.html#shop">
+        SHOP
+      </a>
     </nav>
   </header>
   <main>
@@ -814,9 +829,15 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>ART</span>
-      <span>CLOTHING</span>
-      <span>COLLECTIBLES</span>
+      <span>
+        ART
+      </span>
+      <span>
+        CLOTHING
+      </span>
+      <span>
+        COLLECTIBLES
+      </span>
     </div>
   </footer>
 </body>
