@@ -487,32 +487,44 @@
 
   <script>
 
-    const intro = document.getElementById("intro");
-    const video = document.getElementById("introVideo");
-    const website = document.getElementById("website");
-    const startButton = document.getElementById("startIntro");
+  const intro = document.getElementById("intro");
+  const video = document.getElementById("introVideo");
+  const website = document.getElementById("website");
+  const startButton = document.getElementById("startIntro");
 
-    let introFinished = false;
+  let introFinished = false;
+
+  function finishIntro() {
+
+    if (introFinished) return;
+
+    introFinished = true;
+
+    sessionStorage.setItem("mozakeIntroSeen", "true");
+
+    intro.classList.add("hidden");
+    website.classList.add("visible");
+
+    setTimeout(() => {
+      intro.remove();
+    }, 1200);
+
+  }
 
 
-    function finishIntro() {
+  /* If this Safari session has already seen the intro,
+     skip it immediately. */
 
-      if (introFinished) return;
+  if (sessionStorage.getItem("mozakeIntroSeen") === "true") {
 
-      introFinished = true;
+    intro.remove();
+    website.classList.add("visible");
 
-      intro.classList.add("hidden");
-      website.classList.add("visible");
+  } else {
 
-      setTimeout(() => {
-        intro.remove();
-      }, 1200);
-
-    }
-
+    /* First visit to the site in this session */
 
     video.addEventListener("ended", finishIntro);
-
 
     startButton.addEventListener("click", () => {
 
@@ -539,7 +551,9 @@
 
     });
 
-  </script>
+  }
+
+</script>
 
 </body>
 </html>
