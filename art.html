@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>ART — MOZake</title>
 
   <style>
@@ -17,17 +18,20 @@
     }
 
     body {
+      font-family: Arial, Helvetica, sans-serif;
       background: #e2ded4;
       color: #111;
-      font-family: Arial, Helvetica, sans-serif;
     }
+
+    /* HEADER */
 
     header {
       width: 100%;
-      padding: 28px 42px;
+      height: 90px;
+      padding: 20px 40px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       position: relative;
       z-index: 10;
     }
@@ -66,22 +70,18 @@
       line-height: 1 !important;
     }
 
-    nav a:hover {
-      opacity: 0.55;
-    }
-
-    /* HERO */
+    /* ART HERO */
 
     .art-hero {
-      min-height: 72vh;
-      padding: 90px 42px 80px;
+      min-height: 80vh;
+      padding: 90px 40px 80px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      border-bottom: 1px solid rgba(17,17,17,0.25);
+      border-bottom: 1px solid #111;
     }
 
-    .hero-top {
+    .art-meta {
       display: flex;
       justify-content: space-between;
       font-size: 13px;
@@ -89,171 +89,137 @@
       font-weight: 600;
     }
 
-    .hero-title {
-      font-size: clamp(110px, 24vw, 360px);
-      line-height: 0.78;
-      letter-spacing: -10px;
+    .art-title {
+      font-size: clamp(100px, 23vw, 330px);
       font-weight: 700;
-      margin-top: 80px;
+      line-height: 0.8;
+      letter-spacing: -9px;
+      margin-top: 120px;
     }
 
-    .hero-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-top: 70px;
-    }
-
-    .hero-description {
-      max-width: 380px;
-      font-size: 16px;
-      line-height: 1.5;
-    }
-
-    /* FEATURED */
+    /* FEATURED ART */
 
     .featured {
-      padding: 120px 42px;
+      padding: 120px 40px;
+      border-bottom: 1px solid #111;
     }
 
     .section-label {
       font-size: 13px;
-      letter-spacing: 2.5px;
+      letter-spacing: 3px;
       font-weight: 600;
-      margin-bottom: 45px;
+      margin-bottom: 50px;
     }
 
-    .artwork {
+    .artwork-container {
       width: 100%;
-      border-top: 1px solid rgba(17,17,17,0.25);
-      padding-top: 35px;
-    }
-
-    .artwork-image-wrap {
-      width: 100%;
-      background: #d6d1c7;
+      min-height: 650px;
+      background: #d8d3c8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
     }
 
     .artwork-image {
       width: 100%;
-      height: auto;
+      height: 650px;
+      object-fit: contain;
       display: block;
-      transition: transform 0.8s ease;
     }
 
-    .artwork-image-wrap:hover .artwork-image {
-      transform: scale(1.025);
-    }
-
-    .artwork-info {
+    .art-info {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: flex-end;
       gap: 40px;
-      padding-top: 28px;
+      margin-top: 35px;
     }
 
-    .artwork-title {
-      font-size: clamp(32px, 5vw, 70px);
+    .art-info h2 {
+      font-size: 38px;
       font-weight: 600;
-      letter-spacing: -2px;
+      letter-spacing: -1px;
     }
 
-    .artwork-meta {
-      max-width: 330px;
-      font-size: 15px;
+    .art-info p {
+      max-width: 420px;
+      font-size: 16px;
       line-height: 1.5;
     }
 
     .view-link {
-      display: inline-block;
-      margin-top: 25px;
       color: #111;
       text-decoration: none;
-      font-size: 13px;
-      letter-spacing: 2px;
+      font-size: 14px;
       font-weight: 600;
-    }
-
-    .view-link:hover {
-      opacity: 0.5;
+      letter-spacing: 2px;
+      white-space: nowrap;
     }
 
     /* STORY */
 
     .story-preview {
-      padding: 140px 42px;
-      border-top: 1px solid rgba(17,17,17,0.25);
+      padding: 140px 40px;
+      border-bottom: 1px solid #111;
     }
 
     .story-preview h2 {
-      font-size: clamp(65px, 11vw, 170px);
-      line-height: 0.86;
-      letter-spacing: -5px;
       max-width: 1100px;
+      font-size: clamp(60px, 9vw, 150px);
+      line-height: 0.9;
+      letter-spacing: -5px;
       font-weight: 600;
     }
 
-    .story-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 40px;
-      margin-top: 100px;
-    }
-
-    .story-bottom p {
-      max-width: 420px;
-      font-size: 17px;
+    .story-preview p {
+      max-width: 550px;
+      margin-top: 50px;
+      font-size: 18px;
       line-height: 1.5;
     }
 
     .story-link {
+      display: inline-block;
+      margin-top: 35px;
       color: #111;
       text-decoration: none;
-      font-size: 13px;
-      letter-spacing: 2px;
+      font-size: 14px;
       font-weight: 600;
-      white-space: nowrap;
+      letter-spacing: 2px;
     }
 
     /* FOOTER */
 
     footer {
-      border-top: 1px solid rgba(17,17,17,0.25);
-      padding: 45px 42px 35px;
+      padding: 70px 40px 40px;
     }
 
     .footer-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
+      gap: 40px;
     }
 
     .footer-logo {
-      font-size: 34px;
+      font-size: 42px;
       font-weight: 700;
       letter-spacing: -2px;
     }
 
     .footer-slogan {
       font-size: 13px;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       font-weight: 600;
     }
 
-    .footer-links {
+    .footer-bottom {
       display: flex;
-      gap: 30px;
-      margin-top: 60px;
-    }
-
-    .footer-links a {
-      color: #111;
-      text-decoration: none;
-      font-size: 12px;
-      letter-spacing: 1.5px;
+      justify-content: space-between;
+      margin-top: 90px;
+      font-size: 11px;
+      letter-spacing: 2px;
       font-weight: 600;
     }
 
@@ -262,7 +228,8 @@
     @media (max-width: 700px) {
 
       header {
-        padding: 22px 20px;
+        height: 75px;
+        padding: 18px 20px;
       }
 
       .logo {
@@ -287,28 +254,18 @@
       }
 
       .art-hero {
-        min-height: 65vh;
-        padding: 60px 20px 55px;
+        min-height: 75vh;
+        padding: 70px 20px 50px;
       }
 
-      .hero-top {
+      .art-meta {
         font-size: 10px;
-        letter-spacing: 1.5px;
       }
 
-      .hero-title {
-        font-size: 28vw;
-        letter-spacing: -5px;
-        margin-top: 90px;
-      }
-
-      .hero-bottom {
-        margin-top: 60px;
-      }
-
-      .hero-description {
-        font-size: 14px;
-        max-width: 260px;
+      .art-title {
+        font-size: 30vw;
+        letter-spacing: -4px;
+        margin-top: 100px;
       }
 
       .featured {
@@ -317,22 +274,33 @@
 
       .section-label {
         margin-bottom: 30px;
-        font-size: 11px;
       }
 
-      .artwork-info {
+      .artwork-container {
+        min-height: 420px;
+      }
+
+      .artwork-image {
+        height: 420px;
+      }
+
+      .art-info {
         display: block;
-        padding-top: 20px;
+        margin-top: 25px;
       }
 
-      .artwork-title {
-        font-size: 38px;
-        letter-spacing: -1.5px;
+      .art-info h2 {
+        font-size: 28px;
       }
 
-      .artwork-meta {
+      .art-info p {
         margin-top: 18px;
         font-size: 14px;
+      }
+
+      .view-link {
+        display: inline-block;
+        margin-top: 25px;
       }
 
       .story-preview {
@@ -340,40 +308,35 @@
       }
 
       .story-preview h2 {
-        font-size: 18vw;
+        font-size: 17vw;
         letter-spacing: -3px;
       }
 
-      .story-bottom {
-        display: block;
-        margin-top: 70px;
-      }
-
-      .story-bottom p {
+      .story-preview p {
+        margin-top: 35px;
         font-size: 15px;
       }
 
-      .story-link {
-        display: inline-block;
-        margin-top: 30px;
-      }
-
       footer {
-        padding: 35px 20px 30px;
+        padding: 50px 20px 30px;
       }
 
       .footer-top {
         display: block;
       }
 
-      .footer-slogan {
-        margin-top: 18px;
+      .footer-logo {
+        font-size: 34px;
       }
 
-      .footer-links {
-        gap: 18px;
+      .footer-slogan {
+        margin-top: 20px;
+      }
+
+      .footer-bottom {
+        margin-top: 60px;
+        gap: 20px;
         flex-wrap: wrap;
-        margin-top: 45px;
       }
     }
   </style>
@@ -410,22 +373,12 @@
 
     <section class="art-hero">
 
-      <div class="hero-top">
+      <div class="art-meta">
         <span>MOZake / 01</span>
         <span>ORIGINAL ARTWORK</span>
       </div>
 
-      <h1 class="hero-title">ART</h1>
-
-      <div class="hero-bottom">
-
-        <p class="hero-description">
-          Original artwork, drawings and creations from the world of MOZake.
-        </p>
-
-        <span>2026</span>
-
-      </div>
+      <h1 class="art-title">ART</h1>
 
     </section>
 
@@ -436,41 +389,29 @@
         FEATURED
       </div>
 
-      <div class="artwork">
+      <div class="artwork-container">
 
-        <div class="artwork-image-wrap">
+        <img
+          src="./artwork01.JPG"
+          alt="MOZake original artwork"
+          class="artwork-image"
+          loading="eager">
 
-          <img
-            src="./artwork01.jpg"
-            alt="MOZake original artwork"
-            class="artwork-image"
-            loading="eager">
+      </div>
 
-        </div>
+      <div class="art-info">
 
+        <div>
+          <h2>ORIGINAL ARTWORK</h2>
 
-        <div class="artwork-info">
-
-          <div>
-
-            <h2 class="artwork-title">
-              ORIGINAL ARTWORK
-            </h2>
-
-            <a href="#" class="view-link">
-              VIEW →
-            </a>
-
-          </div>
-
-
-          <p class="artwork-meta">
-            An original creation from MOZake.
-            Artwork, ideas and experiments that
-            build the world one piece at a time.
+          <p>
+            Original artwork, drawings and creations from the world of MOZake.
           </p>
-
         </div>
+
+        <a href="#" class="view-link">
+          VIEW →
+        </a>
 
       </div>
 
@@ -484,23 +425,16 @@
       </div>
 
       <h2>
-        EVERY CREATION<br>
-        HAS A BEGINNING.
+        EVERY CREATION HAS A BEGINNING.
       </h2>
 
-      <div class="story-bottom">
+      <p>
+        But where did MOZake come from?
+      </p>
 
-        <p>
-          But where did MOZake come from?
-          Discover the idea behind the character,
-          the artwork and the world that surrounds it.
-        </p>
-
-        <a href="./index.html#story" class="story-link">
-          DISCOVER THE STORY →
-        </a>
-
-      </div>
+      <a href="./index.html#story" class="story-link">
+        DISCOVER THE STORY →
+      </a>
 
     </section>
 
@@ -521,11 +455,11 @@
 
     </div>
 
-    <div class="footer-links">
+    <div class="footer-bottom">
 
-      <a href="./art.html">ART</a>
-      <a href="./index.html#clothing">CLOTHING</a>
-      <a href="./index.html#collectibles">COLLECTIBLES</a>
+      <span>ART</span>
+      <span>CLOTHING</span>
+      <span>COLLECTIBLES</span>
 
     </div>
 
