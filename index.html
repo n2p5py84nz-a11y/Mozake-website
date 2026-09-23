@@ -22,7 +22,9 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    /* INTRO */
+    /* =========================
+       INTRO
+    ========================= */
 
     #intro {
       position: fixed;
@@ -39,6 +41,7 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
+      display: block;
     }
 
     #intro.hidden {
@@ -47,7 +50,23 @@
       pointer-events: none;
     }
 
-    /* WEBSITE */
+    #startIntro {
+      position: absolute;
+      left: 50%;
+      bottom: 40px;
+      transform: translateX(-50%);
+      padding: 14px 24px;
+      border: 1px solid #111111;
+      background: #f4f1ea;
+      color: #111111;
+      font-size: 12px;
+      letter-spacing: 2px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       WEBSITE
+    ========================= */
 
     #website {
       opacity: 0;
@@ -131,7 +150,12 @@
       letter-spacing: 1px;
     }
 
+    /* =========================
+       MOBILE
+    ========================= */
+
     @media (max-width: 600px) {
+
       header {
         padding: 20px;
       }
@@ -148,25 +172,46 @@
       section {
         padding: 90px 24px;
       }
+
+      #startIntro {
+        bottom: 25px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- MOZake INTRO -->
+  <!-- =========================
+       MOZake INTRO
+  ========================= -->
 
   <div id="intro">
-    <video id="introVideo" autoplay muted playsinline>
-      <source src="mozake-intro.mp4" type="video/mp4">
+
+    <video
+      id="introVideo"
+      autoplay
+      muted
+      playsinline
+      webkit-playsinline
+      preload="auto"
+    >
+      <source src="MOZake-intro.mp4" type="video/mp4">
     </video>
+
+    <button id="startIntro">START</button>
+
   </div>
 
-  <!-- WEBSITE -->
+
+  <!-- =========================
+       WEBSITE
+  ========================= -->
 
   <div id="website">
 
     <header>
+
       <div class="logo">▲▲</div>
 
       <nav>
@@ -176,62 +221,159 @@
         <a href="#story">STORY</a>
         <a href="#shop">SHOP</a>
       </nav>
+
     </header>
+
 
     <main>
 
+      <!-- HERO -->
+
       <section class="hero">
+
         <h1>MOZake</h1>
+
         <p>MAKE IT EXIST</p>
+
       </section>
+
+
+      <!-- ART -->
 
       <section id="art">
-        <h2 class="section-title">THE WORLD OF MOZake</h2>
-        <p class="section-subtitle">Art. Clothing. Collectibles.</p>
+
+        <h2 class="section-title">
+          THE WORLD OF MOZake
+        </h2>
+
+        <p class="section-subtitle">
+          Art. Clothing. Collectibles.
+        </p>
+
       </section>
+
+
+      <!-- CLOTHING -->
 
       <section id="clothing">
-        <h2 class="section-title">LATEST</h2>
-        <p class="section-subtitle">MOZake</p>
+
+        <h2 class="section-title">
+          LATEST
+        </h2>
+
+        <p class="section-subtitle">
+          MOZake
+        </p>
+
       </section>
+
+
+      <!-- COLLECTIBLES -->
 
       <section id="collectibles">
-        <h2 class="section-title">THE STORY</h2>
-        <p class="section-subtitle">Every creation has a beginning.</p>
+
+        <h2 class="section-title">
+          THE STORY
+        </h2>
+
+        <p class="section-subtitle">
+          Every creation has a beginning.
+        </p>
+
       </section>
+
+
+      <!-- STORY -->
 
       <section id="story">
-        <h2 class="section-title">MAKE IT EXIST.</h2>
+
+        <h2 class="section-title">
+          MAKE IT EXIST.
+        </h2>
+
       </section>
 
+
+      <!-- SHOP -->
+
       <section id="shop">
-        <h2 class="section-title">SHOP MOZake</h2>
+
+        <h2 class="section-title">
+          SHOP MOZake
+        </h2>
+
       </section>
 
     </main>
 
   </div>
 
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
   <script>
-  const intro = document.getElementById("intro");
-  const video = document.getElementById("introVideo");
-  const website = document.getElementById("website");
 
-  function finishIntro() {
-    intro.classList.add("hidden");
-    website.classList.add("visible");
+    const intro = document.getElementById("intro");
+    const video = document.getElementById("introVideo");
+    const website = document.getElementById("website");
+    const startButton = document.getElementById("startIntro");
 
-    setTimeout(() => {
-      intro.remove();
-    }, 1200);
-  }
+    let introFinished = false;
 
-  video.play().catch(() => {
-    // If autoplay is blocked, keep the intro visible.
-  });
 
-  video.addEventListener("ended", finishIntro);
-</script>
+    function finishIntro() {
+
+      if (introFinished) return;
+
+      introFinished = true;
+
+      intro.classList.add("hidden");
+      website.classList.add("visible");
+
+      setTimeout(() => {
+        intro.remove();
+      }, 1200);
+
+    }
+
+
+    /* When the video finishes */
+
+    video.addEventListener("ended", finishIntro);
+
+
+    /* START button */
+
+    startButton.addEventListener("click", () => {
+
+      startButton.style.display = "none";
+
+      video.currentTime = 0;
+
+      video.play().catch(() => {
+
+        startButton.style.display = "block";
+
+      });
+
+    });
+
+
+    /* Try autoplay */
+
+    video.play().then(() => {
+
+      startButton.style.display = "none";
+
+    }).catch(() => {
+
+      startButton.style.display = "block";
+
+    });
+
+  </script>
 
 </body>
 </html>
