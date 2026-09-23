@@ -85,21 +85,43 @@ header {
   z-index: 20;
 }
 
+/* =========================
+   MOZake LOGO
+========================= */
+
 .logo {
-  font-size: 25px;
-  font-weight: 900;
-  letter-spacing: -7px;
+  display: flex;
+  align-items: center;
+  width: 62px;
+  height: 48px;
 }
+
+.mozake-logo {
+  width: 62px;
+  height: 48px;
+  display: block;
+  overflow: visible;
+}
+
+.mozake-logo polygon {
+  fill: #111;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
 
 nav {
   display: flex;
-  gap: 25px;
+  gap: 30px;
+  align-items: center;
 }
 
 nav a {
   color: #111;
   text-decoration: none;
-  font-size: 11px;
+  font-size: 14px;
+  font-weight: 500;
   letter-spacing: 2px;
 }
 
@@ -120,9 +142,6 @@ nav a {
 
   background-color: #e2ded4;
 }
-
-/* Keeps the artwork clean while allowing the image
-   to remain visible on mobile */
 
 .hero-overlay {
   position: absolute;
@@ -302,23 +321,29 @@ footer p {
     padding: 18px;
   }
 
+  .logo {
+    width: 48px;
+    height: 38px;
+  }
+
+  .mozake-logo {
+    width: 48px;
+    height: 38px;
+  }
+
   nav {
-    gap: 12px;
+    gap: 13px;
   }
 
   nav a {
-    font-size: 8px;
-    letter-spacing: 1px;
-  }
-
-  .logo {
-    font-size: 20px;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
   }
 
   .hero {
     height: 100svh;
     min-height: 500px;
-
     background-size: contain;
     background-position: center center;
   }
@@ -368,6 +393,7 @@ footer p {
     font-size: 65px;
     letter-spacing: -5px;
   }
+
 }
 
 </style>
@@ -405,15 +431,37 @@ footer p {
 <header>
 
   <div class="logo">
-    ▲▲
+
+    <svg
+      class="mozake-logo"
+      viewBox="0 0 82 58"
+      aria-label="MOZake logo"
+    >
+
+      <!-- LEFT TRIANGLE -->
+      <polygon
+        points="2,55 29,7 56,55"
+      ></polygon>
+
+      <!-- RIGHT TRIANGLE
+           slightly higher
+           and only slightly overlapping -->
+      <polygon
+        points="27,51 54,3 81,51"
+      ></polygon>
+
+    </svg>
+
   </div>
 
   <nav>
+
     <a href="#art">ART</a>
     <a href="#clothing">CLOTHING</a>
     <a href="#collectibles">COLLECTIBLES</a>
     <a href="#story">STORY</a>
     <a href="#shop">SHOP</a>
+
   </nav>
 
 </header>
@@ -641,10 +689,14 @@ const startButton = document.getElementById("startIntro");
 let introSeen = false;
 
 try {
+
   introSeen =
     sessionStorage.getItem("mozakeIntroSeen") === "true";
+
 } catch (error) {
+
   introSeen = false;
+
 }
 
 
@@ -664,16 +716,20 @@ else {
   function finishIntro() {
 
     try {
+
       sessionStorage.setItem(
         "mozakeIntroSeen",
         "true"
       );
+
     } catch (error) {}
 
     intro.classList.add("hidden");
 
     setTimeout(function() {
+
       intro.remove();
+
     }, 1000);
 
   }
