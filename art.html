@@ -133,6 +133,7 @@
       width: 100%;
       background: #d6d1c7;
       overflow: hidden;
+      min-height: 300px;
     }
 
     .artwork-image {
@@ -320,6 +321,10 @@
         font-size: 11px;
       }
 
+      .artwork-image-wrap {
+        min-height: 220px;
+      }
+
       .artwork-info {
         display: block;
         padding-top: 20px;
@@ -382,6 +387,7 @@
 <body>
 
   <header>
+
     <a href="./index.html" class="logo" aria-label="MOZake">
       <svg
         class="mozake-logo"
@@ -399,12 +405,14 @@
       <a href="./index.html#story">STORY</a>
       <a href="./index.html#shop">SHOP</a>
     </nav>
+
   </header>
 
 
   <main>
 
     <section class="art-hero">
+
       <div class="hero-top">
         <span>MOZake / 01</span>
         <span>ORIGINAL ARTWORK</span>
@@ -413,12 +421,15 @@
       <h1 class="hero-title">ART</h1>
 
       <div class="hero-bottom">
+
         <p class="hero-description">
           Original artwork, drawings and creations from the world of MOZake.
         </p>
 
         <span>2026</span>
+
       </div>
+
     </section>
 
 
@@ -431,15 +442,20 @@
       <div class="artwork">
 
         <div class="artwork-image-wrap">
+
           <img
-            src="Artwork01.JPEG"
+            src="./Artwork01.JPEG?v=2"
             alt="MOZake original artwork"
-            class="artwork-image">
+            class="artwork-image"
+            loading="eager">
+
         </div>
+
 
         <div class="artwork-info">
 
           <div>
+
             <h2 class="artwork-title">
               ORIGINAL ARTWORK
             </h2>
@@ -447,7 +463,9 @@
             <a href="#" class="view-link">
               VIEW →
             </a>
+
           </div>
+
 
           <p class="artwork-meta">
             An original creation from MOZake.
@@ -495,17 +513,23 @@
   <footer>
 
     <div class="footer-top">
-      <div class="footer-logo">MOZake</div>
+
+      <div class="footer-logo">
+        MOZake
+      </div>
 
       <div class="footer-slogan">
         MAKE IT EXIST.
       </div>
+
     </div>
 
     <div class="footer-links">
+
       <a href="./art.html">ART</a>
       <a href="./index.html#clothing">CLOTHING</a>
       <a href="./index.html#collectibles">COLLECTIBLES</a>
+
     </div>
 
   </footer>
