@@ -321,10 +321,16 @@
     const SUPABASE_PUBLISHABLE_KEY =
       "sb_publishable_vDNha1HTi57tHedL3KgSzA_DnyVaEj5";
     const supabase =
-      createClient(
-        SUPABASE_URL,
-        SUPABASE_PUBLISHABLE_KEY
-      );
+  createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY,
+    {
+      auth: {
+        redirectTo:
+          "https://n2p5py84nz-a11y.github.io/Mozake-website/account.html"
+      }
+    }
+  );
     const authForm =
       document.getElementById("authForm");
     const signupButton =
