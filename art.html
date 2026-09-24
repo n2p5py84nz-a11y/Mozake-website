@@ -299,14 +299,14 @@
       font-size: 42px;
       font-weight: 700;
       letter-spacing: -2px;
-      color: #111;
+      color: #111 !important;
     }
 
     .footer-slogan {
       font-size: 13px;
       letter-spacing: 3px;
       font-weight: 600;
-      color: #111;
+      color: #111 !important;
     }
 
     .footer-bottom {
@@ -318,8 +318,15 @@
       font-weight: 600;
     }
 
-    .footer-bottom span {
-      color: #111;
+    .footer-bottom a {
+      color: #111 !important;
+      text-decoration: none !important;
+      font-weight: 600 !important;
+      letter-spacing: 2px !important;
+    }
+
+    .footer-bottom a:hover {
+      opacity: 0.45;
     }
 
     /* MOBILE */
@@ -590,9 +597,9 @@
 
     <div class="footer-bottom">
 
-      <span>ART</span>
-      <span>CLOTHING</span>
-      <span>COLLECTIBLES</span>
+      <a href="./art.html">ART</a>
+      <a href="./clothing.html">CLOTHING</a>
+      <a href="./collectibles.html">COLLECTIBLES</a>
 
     </div>
 
