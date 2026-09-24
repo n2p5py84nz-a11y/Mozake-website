@@ -16,6 +16,16 @@
       color: #111;
       min-height: 100vh;
     }
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible {
+      outline: 2px solid #111;
+      outline-offset: 4px;
+    }
     header {
       width: 100%;
       padding: 26px 34px;
@@ -65,7 +75,7 @@
     }
     .account-wrap {
       width: 100%;
-      max-width: 620px;
+      max-width: 720px;
     }
     .label {
       font-size: 13px;
@@ -104,6 +114,10 @@
       font-size: 18px;
       padding: 4px 0;
     }
+    .field input::placeholder {
+      color: #111;
+      opacity: 0.35;
+    }
     .actions {
       display: flex;
       gap: 15px;
@@ -129,6 +143,21 @@
     button:hover {
       opacity: 0.55;
     }
+    .forgot {
+      display: inline-block;
+      margin-top: 25px;
+      color: #111;
+      font-size: 11px;
+      letter-spacing: 2px;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid #111;
+      padding-bottom: 4px;
+      transition: opacity 0.3s ease;
+    }
+    .forgot:hover {
+      opacity: 0.45;
+    }
     .message {
       min-height: 22px;
       margin-top: 25px;
@@ -142,10 +171,45 @@
       display: block;
     }
     .account-email {
-      font-size: 22px;
       padding: 25px 0;
       border-top: 1px solid #111;
       border-bottom: 1px solid #111;
+    }
+    .account-email-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .account-email-value {
+      font-size: 22px;
+      word-break: break-word;
+    }
+    .account-sections {
+      margin-top: 45px;
+      border-top: 1px solid #111;
+    }
+    .account-section {
+      padding: 28px 0;
+      border-bottom: 1px solid #111;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+    .account-section-title {
+      font-size: 16px;
+      letter-spacing: 3px;
+      font-weight: 600;
+    }
+    .account-section-status {
+      font-size: 11px;
+      letter-spacing: 2px;
+      opacity: 0.5;
+      text-align: right;
+    }
+    .logout-wrap {
+      margin-top: 35px;
     }
     footer {
       background: #111;
@@ -176,6 +240,10 @@
       text-decoration: none;
       font-weight: 600;
       letter-spacing: 2px;
+      transition: opacity 0.3s ease;
+    }
+    .footer-bottom a:hover {
+      opacity: 0.45;
     }
     @media (max-width: 700px) {
       header {
@@ -211,6 +279,15 @@
       button {
         width: 100%;
       }
+      .account-section {
+        align-items: flex-start;
+      }
+      .account-section-title {
+        font-size: 14px;
+      }
+      .account-section-status {
+        font-size: 9px;
+      }
       footer {
         padding: 60px 22px 35px;
       }
@@ -219,19 +296,25 @@
         gap: 20px;
       }
     }
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
-<a href="./index.html" class="logo" aria-label="MOZake">
-  <svg
-    class="mozake-logo"
-    viewBox="0 0 82 58"
-    aria-label="MOZake logo">
-    <polygon points="2,55 29,7 56,55"></polygon>
-    <polygon points="27,51 54,3 81,51"></polygon>
-  </svg>
-</a>
+    <a href="./index.html" class="logo" aria-label="MOZake">
+      <svg
+        class="mozake-logo"
+        viewBox="0 0 82 58"
+        aria-label="MOZake logo">
+        <polygon points="2,55 29,7 56,55"></polygon>
+        <polygon points="27,51 54,3 81,51"></polygon>
+      </svg>
+    </a>
 <nav>
   <a href="./art.html">ART</a>
   <a href="./clothing.html">CLOTHING</a>
@@ -241,13 +324,14 @@
 </nav>
   </header>
   <main>
-<div class="account-wrap">
+    <div class="account-wrap">
   <div class="label">
     MOZake ACCOUNT
   </div>
   <h1>
     ACCOUNT
   </h1>
+  <!-- LOGGED OUT -->
   <div id="authForms">
     <form id="authForm" class="form">
       <div class="field">
@@ -279,12 +363,51 @@
         </button>
       </div>
     </form>
+    <a
+      href="#"
+      class="forgot"
+      id="forgotPassword">
+      FORGOT PASSWORD?
+    </a>
   </div>
+  <!-- LOGGED IN -->
   <div id="accountInfo" class="account-info">
     <div class="account-email">
-      <span id="loggedInEmail"></span>
+      <div class="account-email-label">
+        SIGNED IN AS
+      </div>
+      <div
+        class="account-email-value"
+        id="loggedInEmail">
+      </div>
     </div>
-    <div class="actions">
+    <div class="account-sections">
+      <div class="account-section">
+        <div class="account-section-title">
+          ORDERS
+        </div>
+        <div class="account-section-status">
+          NO ORDERS YET
+        </div>
+      </div>
+      <div class="account-section">
+        <div class="account-section-title">
+          WISHLIST
+        </div>
+        <div class="account-section-status">
+          COMING SOON
+        </div>
+      </div>
+      <div class="account-section">
+        <div class="account-section-title">
+          ACCOUNT DETAILS
+        </div>
+        <div class="account-section-status">
+          COMING SOON
+        </div>
+      </div>
+    </div>
+    <div class="logout-wrap">
       <button
         type="button"
         id="logoutButton">
@@ -321,22 +444,24 @@
     const SUPABASE_PUBLISHABLE_KEY =
       "sb_publishable_vDNha1HTi57tHedL3KgSzA_DnyVaEj5";
     const supabase =
-  createClient(
-    SUPABASE_URL,
-    SUPABASE_PUBLISHABLE_KEY,
-    {
-      auth: {
-        redirectTo:
-          "https://n2p5py84nz-a11y.github.io/Mozake-website/account.html"
-      }
-    }
-  );
+      createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY,
+        {
+          auth: {
+            redirectTo:
+              "https://n2p5py84nz-a11y.github.io/Mozake-website/account.html"
+          }
+        }
+      );
     const authForm =
       document.getElementById("authForm");
     const signupButton =
       document.getElementById("signupButton");
     const logoutButton =
       document.getElementById("logoutButton");
+    const forgotPassword =
+      document.getElementById("forgotPassword");
     const authForms =
       document.getElementById("authForms");
     const accountInfo =
@@ -363,17 +488,23 @@
       async function(event) {
         event.preventDefault();
         const email =
-          document.getElementById("email").value.trim();
+          document
+            .getElementById("email")
+            .value
+            .trim();
         const password =
-          document.getElementById("password").value;
+          document
+            .getElementById("password")
+            .value;
         showMessage("LOGGING IN…");
         const {
           data,
           error
-        } = await supabase.auth.signInWithPassword({
-          email,
-          password
-        });
+        } =
+          await supabase.auth.signInWithPassword({
+            email,
+            password
+          });
         if (error) {
           showMessage(error.message);
           return;
@@ -386,9 +517,14 @@
       "click",
       async function() {
         const email =
-          document.getElementById("email").value.trim();
+          document
+            .getElementById("email")
+            .value
+            .trim();
         const password =
-          document.getElementById("password").value;
+          document
+            .getElementById("password")
+            .value;
         if (!email || !password) {
           showMessage(
             "ENTER YOUR EMAIL AND PASSWORD FIRST."
@@ -399,16 +535,19 @@
         const {
           data,
           error
-        } = await supabase.auth.signUp({
-          email,
-          password
-        });
+        } =
+          await supabase.auth.signUp({
+            email,
+            password
+          });
         if (error) {
           showMessage(error.message);
           return;
         }
         if (data.session) {
-          showMessage("ACCOUNT CREATED.");
+          showMessage(
+            "ACCOUNT CREATED."
+          );
           showLoggedIn(data.user);
         } else {
           showMessage(
@@ -417,27 +556,91 @@
         }
       }
     );
+    forgotPassword.addEventListener(
+      "click",
+      async function(event) {
+        event.preventDefault();
+        const email =
+          document
+            .getElementById("email")
+            .value
+            .trim();
+        if (!email) {
+          showMessage(
+            "ENTER YOUR EMAIL FIRST."
+          );
+          return;
+        }
+        showMessage(
+          "SENDING PASSWORD RESET EMAIL…"
+        );
+        const {
+          error
+        } =
+          await supabase.auth.resetPasswordForEmail(
+            email,
+            {
+              redirectTo:
+                "https://n2p5py84nz-a11y.github.io/Mozake-website/account.html"
+            }
+          );
+        if (error) {
+          showMessage(
+            error.message
+          );
+          return;
+        }
+        showMessage(
+          "CHECK YOUR EMAIL FOR A PASSWORD RESET LINK."
+        );
+      }
+    );
     logoutButton.addEventListener(
       "click",
       async function() {
         const {
           error
-        } = await supabase.auth.signOut();
+        } =
+          await supabase.auth.signOut();
         if (error) {
-          showMessage(error.message);
+          showMessage(
+            error.message
+          );
           return;
         }
-        showMessage("LOGGED OUT.");
+        showMessage(
+          "LOGGED OUT."
+        );
         showLoggedOut();
+      }
+    );
+    supabase.auth.onAuthStateChange(
+      function(event, session) {
+        if (
+          session &&
+          session.user
+        ) {
+          showLoggedIn(
+            session.user
+          );
+        } else {
+          showLoggedOut();
+        }
       }
     );
     const {
       data: {
         session
       }
-    } = await supabase.auth.getSession();
-    if (session && session.user) {
-      showLoggedIn(session.user);
+    } =
+      await supabase.auth.getSession();
+    if (
+      session &&
+      session.user
+    ) {
+      showLoggedIn(
+        session.user
+      );
     } else {
       showLoggedOut();
     }
