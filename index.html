@@ -570,25 +570,11 @@
 
     <nav>
 
-      <a href="./art.html">
-        ART
-      </a>
-
-      <a href="./clothing.html">
-        CLOTHING
-      </a>
-
-      <a href="./collectibles.html">
-        COLLECTIBLES
-      </a>
-
-      <a href="./story.html">
-        STORY
-      </a>
-
-      <a href="./shop.html">
-        SHOP
-      </a>
+      <a href="./art.html">ART</a>
+      <a href="./clothing.html">CLOTHING</a>
+      <a href="./collectibles.html">COLLECTIBLES</a>
+      <a href="./story.html">STORY</a>
+      <a href="./shop.html">SHOP</a>
 
     </nav>
 
@@ -606,11 +592,9 @@
       </div>
 
       <h2 class="world-title">
-
         <span>ART.</span>
         <span>CLOTHING.</span>
         <span>COLLECTIBLES.</span>
-
       </h2>
 
     </div>
@@ -618,16 +602,13 @@
 
     <div class="world-bottom">
 
-
       <div class="world-card">
 
         <div class="world-number">
           01 / 03
         </div>
 
-        <h3>
-          ART
-        </h3>
+        <h3>ART</h3>
 
         <p>
           Original artwork, drawings and creations
@@ -647,9 +628,7 @@
           02 / 03
         </div>
 
-        <h3>
-          CLOTHING
-        </h3>
+        <h3>CLOTHING</h3>
 
         <p>
           Wear the world. Pieces built around
@@ -669,9 +648,7 @@
           03 / 03
         </div>
 
-        <h3>
-          COLLECTIBLES
-        </h3>
+        <h3>COLLECTIBLES</h3>
 
         <p>
           Physical pieces of the MOZake world.
@@ -683,7 +660,6 @@
         </a>
 
       </div>
-
 
     </div>
 
@@ -852,9 +828,15 @@
     </h2>
 
     <p>
-      CLOTHING &nbsp; / &nbsp;
-      COLLECTIBLES &nbsp; / &nbsp;
-      ART
+      <a href="./art.html">ART</a>
+      &nbsp; / &nbsp;
+      <a href="./clothing.html">CLOTHING</a>
+      &nbsp; / &nbsp;
+      <a href="./collectibles.html">COLLECTIBLES</a>
+      &nbsp; / &nbsp;
+      <a href="./story.html">STORY</a>
+      &nbsp; / &nbsp;
+      <a href="./shop.html">SHOP</a>
     </p>
 
   </footer>
@@ -921,15 +903,19 @@
     }
 
 
-    /* FORCE TOP NAVIGATION TO OPEN PAGES */
+    /* PAGE NAVIGATION */
 
-    document.querySelectorAll("header nav a").forEach(link => {
+    document.querySelectorAll("header nav a, .world-card a, .discover, footer a").forEach(link => {
 
       link.addEventListener("click", function(event) {
 
+        const destination = this.getAttribute("href");
+
+        if (!destination) return;
+
         event.preventDefault();
 
-        window.location.href = this.getAttribute("href");
+        window.location.assign(destination);
 
       });
 
