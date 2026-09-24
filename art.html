@@ -164,10 +164,122 @@
       font-weight: 600;
       letter-spacing: 2px;
       white-space: nowrap;
+      cursor: pointer;
     }
 
     .view-link:hover {
       opacity: 0.45;
+    }
+
+    /* ARTWORK VIEWER */
+
+    .artwork-viewer {
+      position: fixed;
+      inset: 0;
+      background: #111;
+      color: #e2ded4;
+      z-index: 9999;
+      overflow-y: auto;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.45s ease, visibility 0.45s ease;
+    }
+
+    .artwork-viewer.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .viewer-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      padding: 25px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2;
+      background: #111;
+    }
+
+    .viewer-number {
+      font-size: 12px;
+      letter-spacing: 3px;
+      font-weight: 600;
+    }
+
+    .viewer-close {
+      border: 0;
+      background: transparent;
+      color: #e2ded4;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      letter-spacing: 2px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 10px 0;
+    }
+
+    .viewer-close:hover {
+      opacity: 0.5;
+    }
+
+    .viewer-content {
+      padding: 20px 40px 100px;
+    }
+
+    .viewer-title {
+      font-size: clamp(55px, 10vw, 150px);
+      line-height: 0.85;
+      letter-spacing: -7px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 55px;
+    }
+
+    .viewer-image-wrap {
+      width: 100%;
+      background: #242424;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .viewer-image {
+      width: 100%;
+      max-height: 78vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    .viewer-story {
+      max-width: 800px;
+      margin-top: 70px;
+    }
+
+    .viewer-story-label {
+      font-size: 12px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      margin-bottom: 25px;
+      opacity: 0.6;
+    }
+
+    .viewer-story h2 {
+      font-size: clamp(35px, 5vw, 65px);
+      line-height: 0.95;
+      letter-spacing: -3px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+
+    .viewer-story p {
+      max-width: 700px;
+      font-size: 18px;
+      line-height: 1.6;
     }
 
     /* FOOTER */
@@ -287,6 +399,48 @@
         margin-top: 25px;
       }
 
+      /* MOBILE ARTWORK VIEWER */
+
+      .viewer-header {
+        padding: 20px;
+      }
+
+      .viewer-content {
+        padding: 10px 20px 70px;
+      }
+
+      .viewer-title {
+        font-size: 15vw;
+        letter-spacing: -3px;
+        margin-bottom: 30px;
+      }
+
+      .viewer-image-wrap {
+        padding: 15px;
+      }
+
+      .viewer-image {
+        max-height: 65vh;
+      }
+
+      .viewer-story {
+        margin-top: 45px;
+      }
+
+      .viewer-story-label {
+        margin-bottom: 18px;
+      }
+
+      .viewer-story h2 {
+        font-size: 36px;
+        letter-spacing: -2px;
+      }
+
+      .viewer-story p {
+        font-size: 16px;
+        line-height: 1.55;
+      }
+
       footer {
         padding: 50px 20px 30px;
       }
@@ -403,7 +557,7 @@
 
         </div>
 
-        <a href="#" class="view-link">
+        <a href="#" class="view-link" id="viewArtwork">
           VIEW →
         </a>
 
@@ -437,6 +591,143 @@
     </div>
 
   </footer>
+
+
+  <!-- ARTWORK VIEWER -->
+
+  <div class="artwork-viewer" id="artworkViewer" aria-hidden="true">
+
+    <div class="viewer-header">
+
+      <div class="viewer-number">
+        01 / ART
+      </div>
+
+      <button class="viewer-close" id="closeArtwork">
+        CLOSE ×
+      </button>
+
+    </div>
+
+
+    <div class="viewer-content">
+
+      <h1 class="viewer-title">
+        FIRST MARK
+      </h1>
+
+      <div class="viewer-image-wrap">
+
+        <img
+          src="./artwork01.JPG"
+          alt="MOZake creating his first graffiti"
+          class="viewer-image">
+
+      </div>
+
+
+      <div class="viewer-story">
+
+        <div class="viewer-story-label">
+          THE STORY
+        </div>
+
+        <h2>
+          THE FIRST MARK.
+        </h2>
+
+        <p>
+          Every world begins somewhere.
+
+          <br><br>
+
+          For MOZake, it begins with a mark.
+
+          <br><br>
+
+          The first piece of graffiti represents the moment
+          MOZake begins creating something of his own. Not
+          simply a drawing, but an expression of identity —
+          a decision to leave something behind and make it exist.
+
+          <br><br>
+
+          This is the first mark in a world that will continue
+          to create itself.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    const viewArtwork = document.getElementById("viewArtwork");
+    const artworkViewer = document.getElementById("artworkViewer");
+    const closeArtwork = document.getElementById("closeArtwork");
+
+
+    function openArtwork() {
+
+      artworkViewer.classList.add("open");
+      artworkViewer.setAttribute("aria-hidden", "false");
+
+      document.body.style.overflow = "hidden";
+
+    }
+
+
+    function closeArtworkViewer() {
+
+      artworkViewer.classList.remove("open");
+      artworkViewer.setAttribute("aria-hidden", "true");
+
+      document.body.style.overflow = "";
+
+    }
+
+
+    viewArtwork.addEventListener("click", function(event) {
+
+      event.preventDefault();
+
+      openArtwork();
+
+    });
+
+
+    closeArtwork.addEventListener("click", function() {
+
+      closeArtworkViewer();
+
+    });
+
+
+    artworkViewer.addEventListener("click", function(event) {
+
+      if (event.target === artworkViewer) {
+
+        closeArtworkViewer();
+
+      }
+
+    });
+
+
+    document.addEventListener("keydown", function(event) {
+
+      if (event.key === "Escape") {
+
+        closeArtworkViewer();
+
+      }
+
+    });
+
+  </script>
 
 </body>
 </html>
