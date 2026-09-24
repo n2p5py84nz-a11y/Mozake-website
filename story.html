@@ -4,27 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>THE STORY — MOZake</title>
-
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
     html {
       scroll-behavior: smooth;
     }
-
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: #e2ded4;
       color: #111;
       overflow-x: hidden;
     }
-
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid #111;
+      outline-offset: 4px;
+    }
     /* HEADER */
-
     header {
       width: 100%;
       height: 90px;
@@ -35,31 +39,26 @@
       position: relative;
       z-index: 10;
     }
-
     .logo {
       display: flex;
       align-items: center;
       width: 62px;
       height: 48px;
     }
-
     .mozake-logo {
       width: 62px;
       height: 48px;
       display: block;
       overflow: visible;
     }
-
     .mozake-logo polygon {
       fill: #111;
     }
-
     nav {
       display: flex !important;
       gap: 40px !important;
       align-items: center !important;
     }
-
     nav a {
       color: #111 !important;
       text-decoration: none !important;
@@ -70,13 +69,10 @@
       line-height: 1 !important;
       transition: opacity 0.3s ease;
     }
-
     nav a:hover {
       opacity: 0.45;
     }
-
     /* STORY HERO */
-
     .story-hero {
       min-height: 24vh;
       padding: 8px 40px 10px;
@@ -86,14 +82,12 @@
       border-bottom: 1px solid #111;
       overflow: hidden;
     }
-
     .story-label {
       font-size: 20px;
       letter-spacing: 3px;
       font-weight: 600;
       margin-bottom: 18px;
     }
-
     .story-title {
       width: 100%;
       font-size: clamp(70px, 14vw, 220px);
@@ -103,87 +97,71 @@
       text-transform: uppercase;
       white-space: nowrap;
     }
-
     /* STORY INTRO */
-
     .story-intro {
       padding: 130px 40px;
       border-bottom: 1px solid #111;
     }
-
     .story-intro-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: start;
     }
-
     .story-intro h2 {
       font-size: clamp(45px, 6vw, 90px);
       line-height: 0.9;
       letter-spacing: -4px;
       text-transform: uppercase;
     }
-
     .story-copy {
       max-width: 560px;
       font-size: 20px;
       line-height: 1.6;
     }
-
     .story-copy p + p {
       margin-top: 30px;
     }
-
     /* EPISODES */
-
     .episodes {
       padding: 120px 40px;
       background: #111;
       color: #e2ded4;
     }
-
     .episodes-label {
       font-size: 13px;
       letter-spacing: 4px;
       font-weight: 600;
       margin-bottom: 70px;
     }
-
     .episode {
       border-top: 1px solid #555;
       padding: 50px 0 65px;
     }
-
     .episode-top {
       display: grid;
       grid-template-columns: 120px 1fr;
       gap: 50px;
       align-items: start;
     }
-
     .episode-number {
       font-size: 13px;
       letter-spacing: 2px;
       opacity: 0.5;
     }
-
     .episode h3 {
       font-size: clamp(50px, 7vw, 110px);
       line-height: 0.82;
       letter-spacing: -6px;
       text-transform: uppercase;
     }
-
     .episode-subtitle {
       margin-top: 25px;
       font-size: 16px;
       letter-spacing: 1px;
       opacity: 0.65;
     }
-
     /* EPISODE VISUAL */
-
     .episode-visual {
       margin-top: 55px;
       width: 100%;
@@ -197,14 +175,12 @@
       position: relative;
       overflow: hidden;
     }
-
     .coming-soon {
       font-size: clamp(45px, 8vw, 110px);
       line-height: 0.85;
       letter-spacing: -5px;
       font-weight: 700;
     }
-
     .episode-status {
       position: absolute;
       top: 25px;
@@ -213,7 +189,6 @@
       letter-spacing: 3px;
       opacity: 0.5;
     }
-
     .episode-story {
       margin-top: 40px;
       max-width: 650px;
@@ -222,7 +197,6 @@
       font-size: 17px;
       line-height: 1.6;
     }
-
     .figure-release {
       margin-top: 30px;
       font-size: 12px;
@@ -230,9 +204,7 @@
       font-weight: 600;
       opacity: 0.7;
     }
-
     /* PHILOSOPHY */
-
     .philosophy {
       padding: 150px 40px;
       min-height: 75vh;
@@ -241,76 +213,63 @@
       justify-content: center;
       border-bottom: 1px solid #111;
     }
-
     .philosophy-label {
       font-size: 13px;
       letter-spacing: 4px;
       font-weight: 600;
       margin-bottom: 50px;
     }
-
     .philosophy h2 {
       font-size: clamp(55px, 10vw, 155px);
       line-height: 0.82;
       letter-spacing: -7px;
       text-transform: uppercase;
     }
-
     .philosophy p {
       max-width: 600px;
       margin-top: 60px;
       font-size: 18px;
       line-height: 1.5;
     }
-
     /* STORY END */
-
     .story-end {
       padding: 120px 40px 100px;
       background: #e2ded4;
     }
-
     .story-end-label {
       font-size: 13px;
       letter-spacing: 4px;
       font-weight: 600;
       margin-bottom: 40px;
     }
-
     .story-end h2 {
       font-size: clamp(55px, 9vw, 145px);
       line-height: 0.85;
       letter-spacing: -6px;
       text-transform: uppercase;
     }
-
     /* FOOTER */
-
     footer {
       padding: 70px 40px 40px;
       background: #111;
       color: #e2ded4;
     }
-
     .footer-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       gap: 40px;
     }
-
     .footer-logo {
       font-size: 42px;
       font-weight: 700;
       letter-spacing: -2px;
     }
-
     .footer-slogan {
       font-size: 13px;
       letter-spacing: 3px;
       font-weight: 600;
     }
-
     .footer-bottom {
       display: flex;
       justify-content: space-between;
@@ -319,50 +278,47 @@
       letter-spacing: 2px;
       font-weight: 600;
     }
-
+    .footer-bottom a {
+      color: #e2ded4;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+    .footer-bottom a:hover {
+      opacity: 0.45;
+    }
     /* MOBILE */
-
     @media (max-width: 700px) {
-
       header {
         height: 75px;
         padding: 18px 20px;
       }
-
       .logo {
         width: 48px;
         height: 38px;
       }
-
       .mozake-logo {
         width: 48px;
         height: 38px;
       }
-
       nav {
         gap: 12px !important;
         flex-shrink: 0 !important;
       }
-
       nav a {
         font-size: 12px !important;
         font-weight: 600 !important;
         letter-spacing: 1.2px !important;
       }
-
       /* SAME HERO SIZE / POSITION AS CLOTHING */
-
       .story-hero {
         min-height: 18vh;
         padding: 8px 20px 8px;
       }
-
       .story-label {
         font-size: 15px;
         letter-spacing: 2px;
         margin-bottom: 13px;
       }
-
       .story-title {
         width: 100%;
         font-size: 15vw;
@@ -370,453 +326,317 @@
         letter-spacing: -3px;
         white-space: nowrap;
       }
-
       .story-intro {
         padding: 85px 20px;
       }
-
       .story-intro-grid {
         grid-template-columns: 1fr;
         gap: 45px;
       }
-
       .story-intro h2 {
         font-size: 48px;
         letter-spacing: -3px;
       }
-
       .story-copy {
         font-size: 17px;
         line-height: 1.55;
       }
-
       .episodes {
         padding: 85px 20px;
       }
-
       .episodes-label {
         margin-bottom: 45px;
       }
-
       .episode {
         padding: 35px 0 50px;
       }
-
       .episode-top {
         grid-template-columns: 1fr;
         gap: 20px;
       }
-
       .episode h3 {
         font-size: 52px;
         letter-spacing: -4px;
       }
-
       .episode-subtitle {
         font-size: 14px;
         line-height: 1.4;
       }
-
       .episode-visual {
         min-height: 360px;
         margin-top: 40px;
         padding: 25px;
       }
-
       .coming-soon {
         font-size: 16vw;
         letter-spacing: -4px;
       }
-
       .episode-status {
         top: 18px;
         right: 18px;
         font-size: 9px;
       }
-
       .episode-story {
         font-size: 15px;
         margin-top: 30px;
       }
-
       .figure-release {
         font-size: 10px;
         line-height: 1.5;
       }
-
       .philosophy {
         padding: 100px 20px;
         min-height: 60vh;
       }
-
       .philosophy h2 {
         font-size: 17vw;
         letter-spacing: -4px;
       }
-
       .philosophy p {
         margin-top: 45px;
         font-size: 16px;
       }
-
       .story-end {
         padding: 85px 20px 75px;
       }
-
       .story-end h2 {
         font-size: 17vw;
         letter-spacing: -4px;
       }
-
       footer {
         padding: 50px 20px 30px;
       }
-
       .footer-top {
         display: block;
       }
-
       .footer-logo {
         font-size: 34px;
       }
-
       .footer-slogan {
         margin-top: 20px;
       }
-
       .footer-bottom {
         margin-top: 60px;
         gap: 20px;
         flex-wrap: wrap;
       }
     }
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      nav a,
+      .footer-bottom a {
+        transition: none;
+      }
+    }
   </style>
 </head>
-
 <body>
-
   <header>
-
-    <a href="./index.html" class="logo" aria-label="MOZake">
-
-      <svg
-        class="mozake-logo"
-        viewBox="0 0 82 58"
-        aria-label="MOZake logo">
-
-        <polygon points="2,55 29,7 56,55"></polygon>
-        <polygon points="27,51 54,3 81,51"></polygon>
-
-      </svg>
-
-    </a>
-
-    <nav>
-
-      <a href="./art.html">ART</a>
-
-      <a href="./clothing.html">CLOTHING</a>
-
-      <a href="./collectibles.html">COLLECTIBLES</a>
-
-      <a href="./story.html">STORY</a>
-
-      <a href="./shop.html">SHOP</a>
-
-    </nav>
-
+<a href="./index.html" class="logo" aria-label="MOZake">
+  <svg
+    class="mozake-logo"
+    viewBox="0 0 82 58"
+    aria-label="MOZake logo">
+    <polygon points="2,55 29,7 56,55"></polygon>
+    <polygon points="27,51 54,3 81,51"></polygon>
+  </svg>
+</a>
+<nav>
+  <a href="./art.html">ART</a>
+  <a href="./clothing.html">CLOTHING</a>
+  <a href="./collectibles.html">COLLECTIBLES</a>
+  <a href="./story.html">STORY</a>
+  <a href="./shop.html">SHOP</a>
+</nav>
   </header>
-
-
   <main>
-
-    <section class="story-hero">
-
-      <div class="story-label">
-        THE WORLD OF MOZake
-      </div>
-
-      <h1 class="story-title">
-        STORY
-      </h1>
-
-    </section>
-
-
-    <section class="story-intro">
-
-      <div class="story-intro-grid">
-
-        <h2>
-          A WORLD<br>
-          THAT<br>
-          CREATES<br>
-          ITSELF.
-        </h2>
-
-        <div class="story-copy">
-
-          <p>
-            MOZake is not one story.
-            It is a world that keeps creating itself.
-          </p>
-
-          <p>
-            Every episode introduces a new moment,
-            a new identity, or a new part of the world.
-          </p>
-
-          <p>
-            What begins with one simple creation
-            slowly becomes something bigger.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <section class="episodes">
-
-      <div class="episodes-label">
-        THE MOZake CHRONICLES
-      </div>
-
-
-      <article class="episode">
-
-        <div class="episode-top">
-
-          <div class="episode-number">
-            EPISODE 01
-          </div>
-
-          <div>
-
-            <h3>
-              THE<br>
-              CREATION
-            </h3>
-
-            <div class="episode-subtitle">
-              BEFORE MOZake EXISTED, THERE WAS ONLY A BLANK PAGE.
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <div class="episode-visual">
-
-          <div class="episode-status">
-            COMING SOON
-          </div>
-
-          <div class="coming-soon">
-            COMING<br>
-            SOON
-          </div>
-
-        </div>
-
-
-        <p class="episode-story">
-          A giant pencil begins to draw.
-          Line by line, shape by shape, MOZake appears.
-          At first he is only an idea on paper.
-          Then something changes.
-          MOZake comes alive, looks around,
-          and picks up the pencil that created him.
-        </p>
-
-
-        <div class="figure-release">
-          FIGURE RELEASE — THE CREATION
-        </div>
-
-      </article>
-
-
-      <article class="episode">
-
-        <div class="episode-top">
-
-          <div class="episode-number">
-            EPISODE 02
-          </div>
-
-          <div>
-
-            <h3>
-              FIRST<br>
-              MARK
-            </h3>
-
-            <div class="episode-subtitle">
-              MOZake DISCOVERS THE ABILITY TO LEAVE SOMETHING BEHIND.
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <div class="episode-visual">
-
-          <div class="episode-status">
-            COMING SOON
-          </div>
-
-          <div class="coming-soon">
-            COMING<br>
-            SOON
-          </div>
-
-        </div>
-
-
-        <p class="episode-story">
-          Continuing from where the first episode ends,
-          MOZake walks into an alley and discovers a spray can,
-          a beanie and a bandana.
-          He puts them on, picks up the can,
-          and makes his first mark.
-        </p>
-
-
-        <div class="figure-release">
-          FIGURE RELEASE — GRAFFITI
-        </div>
-
-      </article>
-
-
-      <article class="episode">
-
-        <div class="episode-top">
-
-          <div class="episode-number">
-            EPISODE 03
-          </div>
-
-          <div>
-
-            <h3>
-              THE<br>
-              CREATOR
-            </h3>
-
-            <div class="episode-subtitle">
-              CREATION DOESN'T HAVE TO STOP WITH YOURSELF.
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <div class="episode-visual">
-
-          <div class="episode-status">
-            COMING SOON
-          </div>
-
-          <div class="coming-soon">
-            COMING<br>
-            SOON
-          </div>
-
-        </div>
-
-
-        <p class="episode-story">
-          MOZake discovers that creation can go further.
-          A new MOZake appears.
-          But who created him?
-          And what happens when the creation
-          becomes the creator?
-        </p>
-
-
-        <div class="figure-release">
-          FIGURE RELEASE — THE CREATOR · 1 OF 100
-        </div>
-
-      </article>
-
-    </section>
-
-
-    <section class="philosophy">
-
-      <div class="philosophy-label">
-        THE IDEA
-      </div>
-
-      <h2>
-        MAKE IT<br>
-        EXIST.
-      </h2>
-
+<section class="story-hero">
+  <div class="story-label">
+    THE WORLD OF MOZake
+  </div>
+  <h1 class="story-title">
+    STORY
+  </h1>
+</section>
+<section class="story-intro">
+  <div class="story-intro-grid">
+    <h2>
+      A WORLD<br>
+      THAT<br>
+      CREATES<br>
+      ITSELF.
+    </h2>
+    <div class="story-copy">
       <p>
-        An idea doesn't have to make sense before
-        it deserves to exist.
-
-        <br><br>
-
-        Create it. Shape it. Give it a place in
-        the world.
-
-        <br><br>
-
-        That's what MOZake is about.
+        MOZake is not one story.
+        It is a world that keeps creating itself.
       </p>
-
-    </section>
-
-
-    <section class="story-end">
-
-      <div class="story-end-label">
-        THE STORY CONTINUES
+      <p>
+        Every episode introduces a new moment,
+        a new identity, or a new part of the world.
+      </p>
+      <p>
+        What begins with one simple creation
+        slowly becomes something bigger.
+      </p>
+    </div>
+  </div>
+</section>
+<section class="episodes">
+  <div class="episodes-label">
+    THE MOZake CHRONICLES
+  </div>
+  <article class="episode">
+    <div class="episode-top">
+      <div class="episode-number">
+        EPISODE 01
       </div>
-
-      <h2>
-        MORE<br>
-        TO COME.
-      </h2>
-
-    </section>
-
+      <div>
+        <h3>
+          THE<br>
+          BEGINNING
+        </h3>
+        <div class="episode-subtitle">
+          BEFORE MOZake EXISTED, THERE WAS ONLY A BLANK PAGE.
+        </div>
+      </div>
+    </div>
+    <div class="episode-visual">
+      <div class="episode-status">
+        COMING SOON
+      </div>
+      <div class="coming-soon">
+        COMING<br>
+        SOON
+      </div>
+    </div>
+    <p class="episode-story">
+      A giant pencil begins to draw.
+      Line by line, shape by shape, MOZake appears.
+      At first he is only an idea on paper.
+      Then something changes.
+      MOZake comes alive, looks around,
+      and picks up the pencil that created him.
+    </p>
+    <div class="figure-release">
+      FIGURE RELEASE — MOZake
+    </div>
+  </article>
+  <article class="episode">
+    <div class="episode-top">
+      <div class="episode-number">
+        EPISODE 02
+      </div>
+      <div>
+        <h3>
+          FIRST<br>
+          MARK
+        </h3>
+        <div class="episode-subtitle">
+          MOZake DISCOVERS THE ABILITY TO LEAVE SOMETHING BEHIND.
+        </div>
+      </div>
+    </div>
+    <div class="episode-visual">
+      <div class="episode-status">
+        COMING SOON
+      </div>
+      <div class="coming-soon">
+        COMING<br>
+        SOON
+      </div>
+    </div>
+    <p class="episode-story">
+      Continuing from where the first episode ends,
+      MOZake walks into an alley and discovers a spray can,
+      a beanie and a bandana.
+      He puts them on, picks up the can,
+      and makes his first mark.
+    </p>
+    <div class="figure-release">
+      FIGURE RELEASE — GRAFFITI
+    </div>
+  </article>
+  <article class="episode">
+    <div class="episode-top">
+      <div class="episode-number">
+        EPISODE 03
+      </div>
+      <div>
+        <h3>
+          THE<br>
+          CREATOR
+        </h3>
+        <div class="episode-subtitle">
+          CREATION DOESN'T HAVE TO STOP WITH YOURSELF.
+        </div>
+      </div>
+    </div>
+    <div class="episode-visual">
+      <div class="episode-status">
+        COMING SOON
+      </div>
+      <div class="coming-soon">
+        COMING<br>
+        SOON
+      </div>
+    </div>
+    <p class="episode-story">
+      MOZake discovers that creation can go further.
+      A new MOZake appears.
+      But who created him?
+      And what happens when the creation
+      becomes the creator?
+    </p>
+    <div class="figure-release">
+      FIGURE RELEASE — THE CREATOR · 1 OF 100
+    </div>
+  </article>
+</section>
+<section class="philosophy">
+  <div class="philosophy-label">
+    THE IDEA
+  </div>
+  <h2>
+    MAKE IT<br>
+    EXIST.
+  </h2>
+  <p>
+    An idea doesn't have to make sense before
+    it deserves to exist.
+    <br><br>
+    Create it. Shape it. Give it a place in
+    the world.
+    <br><br>
+    That's what MOZake is about.
+  </p>
+</section>
+<section class="story-end">
+  <div class="story-end-label">
+    THE STORY CONTINUES
+  </div>
+  <h2>
+    MORE<br>
+    TO COME.
+  </h2>
+</section>
   </main>
-
-
   <footer>
-
-    <div class="footer-top">
-
-      <div class="footer-logo">
-        MOZake
-      </div>
-
-      <div class="footer-slogan">
-        MAKE IT EXIST.
-      </div>
-
-    </div>
-
-    <div class="footer-bottom">
-
-      <span>ART</span>
-      <span>CLOTHING</span>
-      <span>COLLECTIBLES</span>
-
-    </div>
-
+<div class="footer-top">
+  <div class="footer-logo">
+    MOZake
+  </div>
+  <div class="footer-slogan">
+    MAKE IT EXIST.
+  </div>
+</div>
+<div class="footer-bottom">
+  <a href="./art.html">ART</a>
+  <a href="./clothing.html">CLOTHING</a>
+  <a href="./collectibles.html">COLLECTIBLES</a>
+</div>
   </footer>
-
 </body>
 </html>
