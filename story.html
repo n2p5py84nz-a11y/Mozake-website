@@ -28,7 +28,6 @@
       outline: 2px solid #111;
       outline-offset: 4px;
     }
-    /* HEADER */
     header {
       width: 100%;
       height: 90px;
@@ -72,7 +71,7 @@
     nav a:hover {
       opacity: 0.45;
     }
-    /* STORY HERO */
+    /* HERO */
     .story-hero {
       min-height: 24vh;
       padding: 8px 40px 10px;
@@ -97,7 +96,7 @@
       text-transform: uppercase;
       white-space: nowrap;
     }
-    /* STORY INTRO */
+    /* INTRO */
     .story-intro {
       padding: 130px 40px;
       border-bottom: 1px solid #111;
@@ -129,10 +128,12 @@
       color: #e2ded4;
     }
     .episodes-label {
-      font-size: 13px;
-      letter-spacing: 4px;
-      font-weight: 600;
-      margin-bottom: 70px;
+      font-size: clamp(45px, 7vw, 110px);
+      line-height: 0.82;
+      letter-spacing: -6px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 80px;
     }
     .episode {
       border-top: 1px solid #555;
@@ -161,7 +162,6 @@
       letter-spacing: 1px;
       opacity: 0.65;
     }
-    /* EPISODE VISUAL */
     .episode-visual {
       margin-top: 55px;
       width: 100%;
@@ -231,7 +231,7 @@
       font-size: 18px;
       line-height: 1.5;
     }
-    /* STORY END */
+    /* END */
     .story-end {
       padding: 120px 40px 100px;
       background: #e2ded4;
@@ -309,7 +309,6 @@
         font-weight: 600 !important;
         letter-spacing: 1.2px !important;
       }
-      /* SAME HERO SIZE / POSITION AS CLOTHING */
       .story-hero {
         min-height: 18vh;
         padding: 8px 20px 8px;
@@ -345,7 +344,9 @@
         padding: 85px 20px;
       }
       .episodes-label {
-        margin-bottom: 45px;
+        font-size: 15vw;
+        letter-spacing: -4px;
+        margin-bottom: 50px;
       }
       .episode {
         padding: 35px 0 50px;
@@ -433,140 +434,127 @@
   </style>
 </head>
 <body>
-  <header>
-<a href="./index.html" class="logo" aria-label="MOZake">
-  <svg
-    class="mozake-logo"
-    viewBox="0 0 82 58"
-    aria-label="MOZake logo">
-    <polygon points="2,55 29,7 56,55"></polygon>
-    <polygon points="27,51 54,3 81,51"></polygon>
-  </svg>
-</a>
-<nav>
-  <a href="./art.html">ART</a>
-  <a href="./clothing.html">CLOTHING</a>
-  <a href="./collectibles.html">COLLECTIBLES</a>
-  <a href="./story.html">STORY</a>
-  <a href="./shop.html">SHOP</a>
-</nav>
-  </header>
-  <main>
-<section class="story-hero">
-  <div class="story-label">
-    THE WORLD OF MOZake
-  </div>
-  <h1 class="story-title">
-    STORY
-  </h1>
-</section>
-<section class="story-intro">
-  <div class="story-intro-grid">
-    <h2>
-      A WORLD<br>
-      THAT<br>
-      CREATES<br>
-      ITSELF.
-    </h2>
-    <div class="story-copy">
-      <p>
-        MOZake is not one story.
-        It is a world that keeps creating itself.
-      </p>
-      <p>
-        Every episode introduces a new moment,
-        a new identity, or a new part of the world.
-      </p>
-      <p>
-        What begins with one simple creation
-        slowly becomes something bigger.
-      </p>
-    </div>
-  </div>
-</section>
-<section class="episodes">
-  <div class="episodes-label">
-    THE MOZake CHRONICLES
-  </div>
-  <article class="episode">
-    <div class="episode-top">
-      <div class="episode-number">
-        EPISODE 01
-      </div>
-      <div>
-        <h3>
-          THE<br>
-          BEGINNING
-        </h3>
-        <div class="episode-subtitle">
-          BEFORE MOZake EXISTED, THERE WAS ONLY A BLANK PAGE.
-        </div>
-      </div>
-    </div>
-    <div class="episode-visual">
-      <div class="episode-status">
-        COMING SOON
-      </div>
-      <div class="coming-soon">
-        COMING<br>
-        SOON
-      </div>
-    </div>
-    <p class="episode-story">
-      A giant pencil begins to draw.
-      Line by line, shape by shape, MOZake appears.
-      At first he is only an idea on paper.
-      Then something changes.
-      MOZake comes alive, looks around,
-      and picks up the pencil that created him.
+<header>
+  <a href="./index.html" class="logo" aria-label="MOZake">
+    <svg
+      class="mozake-logo"
+      viewBox="0 0 82 58"
+      aria-label="MOZake logo">
+      <polygon points="2,55 29,7 56,55"></polygon>
+      <polygon points="27,51 54,3 81,51"></polygon>
+    </svg>
+  </a>
+  <nav>
+    <a href="./art.html">ART</a>
+    <a href="./clothing.html">CLOTHING</a>
+    <a href="./collectibles.html">COLLECTIBLES</a>
+    <a href="./story.html">STORY</a>
+    <a href="./shop.html">SHOP</a>
+  </nav>
+</header>
+<main>
+  <!-- HERO -->
+  <section class="story-hero">
+    <div class="story-label">THE WORLD OF MOZake</div>
+    <h1 class="story-title">STORY</h1>
+  </section>
+  <!-- INTRO -->
+  <section class="story-intro">
+    <div class="story-intro-grid">
+  <h2>
+    A WORLD<br>
+    THAT<br>
+    CREATES<br>
+    ITSELF.
+  </h2>
+  <div class="story-copy">
+    <p>
+      MOZake is not one story. It is a world that keeps creating itself.
     </p>
-    <div class="figure-release">
-      FIGURE RELEASE — MOZake
+    <p>
+      Every episode introduces a new moment, a new identity, or a new part of the world.
+    </p>
+    <p>
+      What begins with one simple creation slowly becomes something bigger.
+    </p>
+  </div>
+</div>
+  </section>
+  <!-- CHRONICLES -->
+  <section class="episodes">
+<div class="episodes-label">
+  THE MOZake CHRONICLES
+</div>
+<article class="episode">
+  <div class="episode-top">
+    <div class="episode-number">
+      EPISODE 01
     </div>
-  </article>
-</section>
-<section class="philosophy">
-  <div class="philosophy-label">
-    THE IDEA
+    <div>
+      <h3>TBA</h3>
+    </div>
   </div>
-  <h2>
-    MAKE IT<br>
-    EXIST.
-  </h2>
-  <p>
-    An idea doesn't have to make sense before
-    it deserves to exist.
-    <br><br>
-    Create it. Shape it. Give it a place in
-    the world.
-    <br><br>
-    That's what MOZake is about.
+  <div class="episode-visual">
+    <div class="episode-status">
+      TBA
+    </div>
+    <div class="coming-soon">
+      TBA
+    </div>
+  </div>
+  <p class="episode-story">
+    TBA
   </p>
-</section>
-<section class="story-end">
-  <div class="story-end-label">
-    THE STORY CONTINUES
+  <div class="figure-release">
+    FIGURE RELEASE — MOZake
   </div>
-  <h2>
-    MORE<br>
-    TO COME.
-  </h2>
-</section>
-  </main>
-  <footer>
-<div class="footer-top">
-  <div class="footer-logo">
-    MOZake
-  </div>
-  <div class="footer-slogan">
-    MAKE IT EXIST.
-  </div>
+</article>
+  </section>
+  <!-- PHILOSOPHY -->
+  <section class="philosophy">
+<div class="philosophy-label">
+  THE IDEA
 </div>
-<div class="footer-bottom">
-  <a href="./art.html">ART</a>
-  <a href="./clothing.html">CLOTHING</a>
-  <a href="./collectibles.html">COLLECTIBLES</a>
+<h2>
+  MAKE IT<br>
+  EXIST.
+</h2>
+<p>
+  An idea doesn't have to make sense before
+  it deserves to exist.
+  <br><br>
+  Create it. Shape it. Give it a place in
+  the world.
+  <br><br>
+  That's what MOZake is about.
+</p>
+  </section>
+  <!-- END -->
+  <section class="story-end">
+<div class="story-end-label">
+  THE STORY CONTINUES
 </div>
-  </footer>
+<h2>
+  MORE<br>
+  TO COME.
+</h2>
+  </section>
+</main>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo">
+      MOZake
+    </div>
+<div class="footer-slogan">
+  MAKE IT EXIST.
+</div>
+  </div>
+  <div class="footer-bottom">
+    <a href="./art.html">ART</a>
+    <a href="./clothing.html">CLOTHING</a>
+    <a href="./collectibles.html">COLLECTIBLES</a>
+  </div>
+</footer>
 </body>
 </html>
