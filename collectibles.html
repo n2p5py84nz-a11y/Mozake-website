@@ -4,27 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>COLLECTIBLES — MOZake</title>
-
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
     html {
       scroll-behavior: smooth;
     }
-
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: #e2ded4;
       color: #111;
       overflow-x: hidden;
     }
-
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
     /* HEADER */
-
     header {
       width: 100%;
       height: 90px;
@@ -35,31 +34,26 @@
       position: relative;
       z-index: 10;
     }
-
     .logo {
       display: flex;
       align-items: center;
       width: 62px;
       height: 48px;
     }
-
     .mozake-logo {
       width: 62px;
       height: 48px;
       display: block;
       overflow: visible;
     }
-
     .mozake-logo polygon {
       fill: #111;
     }
-
     nav {
       display: flex !important;
       gap: 40px !important;
       align-items: center !important;
     }
-
     nav a {
       color: #111 !important;
       text-decoration: none !important;
@@ -70,13 +64,10 @@
       line-height: 1 !important;
       transition: opacity 0.3s ease;
     }
-
     nav a:hover {
       opacity: 0.45;
     }
-
     /* HERO */
-
     .collectibles-hero {
       min-height: 24vh;
       padding: 8px 40px 10px;
@@ -86,14 +77,12 @@
       border-bottom: 1px solid #111;
       overflow: hidden;
     }
-
     .collectibles-label {
       font-size: 20px;
       letter-spacing: 3px;
       font-weight: 600;
       margin-bottom: 18px;
     }
-
     .collectibles-title {
       width: 100%;
       font-size: clamp(70px, 14vw, 220px);
@@ -103,97 +92,81 @@
       text-transform: uppercase;
       white-space: nowrap;
     }
-
-    /* COLLECTION INTRO */
-
+    /* INTRO */
     .collection-intro {
-      padding: 100px 40px 80px;
+      padding: 120px 40px 110px;
       border-bottom: 1px solid #111;
     }
-
     .collection-intro-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.2fr 0.8fr;
       gap: 80px;
       align-items: end;
     }
-
     .collection-intro h2 {
-      font-size: clamp(45px, 6vw, 85px);
-      line-height: 0.88;
-      letter-spacing: -4px;
+      font-size: clamp(55px, 8vw, 125px);
+      line-height: 0.82;
+      letter-spacing: -7px;
       text-transform: uppercase;
     }
-
     .collection-intro p {
-      max-width: 520px;
-      font-size: 18px;
-      line-height: 1.6;
+      max-width: 500px;
+      font-size: 17px;
+      line-height: 1.65;
     }
-
     /* FEATURED */
-
     .featured {
-      padding: 100px 40px 130px;
+      padding: 120px 40px 140px;
       border-bottom: 1px solid #111;
     }
-
     .section-label {
       font-size: 13px;
       letter-spacing: 4px;
       font-weight: 600;
       margin-bottom: 45px;
     }
-
     .featured-number {
-      font-size: 12px;
+      font-size: 11px;
       letter-spacing: 3px;
       font-weight: 600;
       margin-bottom: 20px;
+      opacity: 0.55;
     }
-
     .featured-title {
-      font-size: clamp(70px, 11vw, 170px);
-      line-height: 0.8;
-      letter-spacing: -7px;
+      font-size: clamp(75px, 12vw, 180px);
+      line-height: 0.78;
+      letter-spacing: -9px;
       font-weight: 700;
       text-transform: uppercase;
-      margin-bottom: 55px;
+      margin-bottom: 60px;
     }
-
-    /* FIGURE PLACEHOLDER */
-
     .figure-display {
       width: 100%;
-      min-height: 650px;
-      background: #d8d3c8;
-      border: 1px solid #111;
+      min-height: 700px;
+      background: #d6d1c6;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       overflow: hidden;
     }
-
     .figure-placeholder {
       text-align: center;
+      opacity: 0.45;
     }
-
     .figure-placeholder span {
       display: block;
-      font-size: 12px;
+      font-size: 11px;
       letter-spacing: 4px;
       font-weight: 600;
-      margin-bottom: 18px;
+      margin-bottom: 15px;
     }
-
     .figure-placeholder strong {
       display: block;
-      font-size: clamp(45px, 7vw, 100px);
-      line-height: 0.85;
-      letter-spacing: -4px;
+      font-size: clamp(50px, 8vw, 120px);
+      line-height: 0.82;
+      letter-spacing: -6px;
     }
-
     .edition {
       position: absolute;
       top: 25px;
@@ -202,30 +175,25 @@
       letter-spacing: 3px;
       font-weight: 600;
     }
-
     .featured-info {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.2fr 0.8fr;
       gap: 80px;
-      margin-top: 40px;
+      margin-top: 45px;
     }
-
     .featured-info h3 {
-      font-size: 25px;
+      font-size: 28px;
       letter-spacing: -1px;
-      margin-bottom: 15px;
+      margin-bottom: 18px;
     }
-
     .featured-info p {
-      max-width: 520px;
+      max-width: 600px;
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.65;
     }
-
     .release-info {
       text-align: right;
     }
-
     .release-info span {
       display: block;
       font-size: 11px;
@@ -233,76 +201,65 @@
       font-weight: 600;
       margin-bottom: 12px;
     }
-
     .release-info strong {
-      font-size: 28px;
-      letter-spacing: -1px;
+      font-size: 34px;
+      letter-spacing: -2px;
     }
-
-    /* COLLECTION GRID */
-
+    /* COLLECTION */
     .collection {
-      padding: 120px 40px 140px;
+      padding: 130px 40px 150px;
       background: #111;
       color: #e2ded4;
     }
-
     .collection-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      margin-bottom: 65px;
       gap: 40px;
+      margin-bottom: 70px;
     }
-
     .collection-header h2 {
-      font-size: clamp(55px, 8vw, 120px);
-      line-height: 0.82;
-      letter-spacing: -6px;
+      font-size: clamp(65px, 10vw, 155px);
+      line-height: 0.8;
+      letter-spacing: -8px;
       text-transform: uppercase;
     }
-
     .collection-header span {
-      font-size: 12px;
+      font-size: 11px;
       letter-spacing: 3px;
-      opacity: 0.55;
+      opacity: 0.5;
+      white-space: nowrap;
     }
-
     .collectible-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1px;
-      background: #555;
-      border: 1px solid #555;
+      background: #444;
+      border: 1px solid #444;
     }
-
     .collectible-card {
       background: #111;
-      padding: 30px;
-      min-height: 500px;
+      padding: 32px;
+      min-height: 560px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       transition: background 0.3s ease;
     }
-
     .collectible-card:hover {
       background: #181818;
     }
-
     .card-top {
       display: flex;
       justify-content: space-between;
       gap: 20px;
     }
-
     .card-number,
     .card-edition {
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 3px;
       opacity: 0.5;
     }
-
     .card-image {
       flex: 1;
       margin: 35px 0;
@@ -311,108 +268,120 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      min-height: 280px;
+      min-height: 320px;
     }
-
     .card-image span {
       font-size: 10px;
       letter-spacing: 3px;
-      opacity: 0.4;
+      opacity: 0.35;
     }
-
     .card-bottom h3 {
-      font-size: 42px;
-      line-height: 0.85;
-      letter-spacing: -3px;
+      font-size: clamp(38px, 4vw, 60px);
+      line-height: 0.84;
+      letter-spacing: -4px;
       text-transform: uppercase;
     }
-
     .card-bottom p {
-      margin-top: 15px;
+      margin-top: 17px;
+      max-width: 400px;
       font-size: 13px;
-      line-height: 1.5;
-      opacity: 0.65;
+      line-height: 1.55;
+      opacity: 0.6;
     }
-
-    /* PHILOSOPHY */
-
-    .philosophy {
+    /* OBJECT */
+    .object-section {
       padding: 150px 40px;
-      min-height: 70vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
       border-bottom: 1px solid #111;
     }
-
-    .philosophy-label {
+    .object-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 80px;
+      align-items: end;
+    }
+    .object-label {
       font-size: 13px;
       letter-spacing: 4px;
       font-weight: 600;
       margin-bottom: 50px;
     }
-
-    .philosophy h2 {
-      font-size: clamp(55px, 10vw, 155px);
+    .object-section h2 {
+      font-size: clamp(60px, 10vw, 155px);
       line-height: 0.82;
-      letter-spacing: -7px;
+      letter-spacing: -8px;
       text-transform: uppercase;
     }
-
+    .object-section p {
+      max-width: 500px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    /* PHILOSOPHY */
+    .philosophy {
+      padding: 160px 40px;
+      min-height: 75vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #111;
+      color: #e2ded4;
+    }
+    .philosophy-label {
+      font-size: 13px;
+      letter-spacing: 4px;
+      font-weight: 600;
+      margin-bottom: 55px;
+    }
+    .philosophy h2 {
+      font-size: clamp(60px, 10vw, 155px);
+      line-height: 0.82;
+      letter-spacing: -8px;
+      text-transform: uppercase;
+    }
     .philosophy p {
       max-width: 600px;
-      margin-top: 60px;
+      margin-top: 65px;
       font-size: 18px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
-
     /* END */
-
     .collection-end {
-      padding: 120px 40px 100px;
+      padding: 130px 40px 110px;
     }
-
     .collection-end-label {
       font-size: 13px;
       letter-spacing: 4px;
       font-weight: 600;
-      margin-bottom: 40px;
+      margin-bottom: 45px;
     }
-
     .collection-end h2 {
-      font-size: clamp(55px, 9vw, 145px);
-      line-height: 0.85;
-      letter-spacing: -6px;
+      font-size: clamp(60px, 10vw, 150px);
+      line-height: 0.82;
+      letter-spacing: -7px;
       text-transform: uppercase;
     }
-
     /* FOOTER */
-
     footer {
       padding: 70px 40px 40px;
       background: #111;
       color: #e2ded4;
     }
-
     .footer-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       gap: 40px;
     }
-
     .footer-logo {
       font-size: 42px;
       font-weight: 700;
       letter-spacing: -2px;
     }
-
     .footer-slogan {
       font-size: 13px;
       letter-spacing: 3px;
       font-weight: 600;
     }
-
     .footer-bottom {
       display: flex;
       justify-content: space-between;
@@ -421,50 +390,46 @@
       letter-spacing: 2px;
       font-weight: 600;
     }
-
+    .footer-bottom a {
+      color: #e2ded4;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+    .footer-bottom a:hover {
+      opacity: 0.45;
+    }
     /* MOBILE */
-
     @media (max-width: 700px) {
-
       header {
         height: 75px;
         padding: 18px 20px;
       }
-
       .logo {
         width: 48px;
         height: 38px;
       }
-
       .mozake-logo {
         width: 48px;
         height: 38px;
       }
-
       nav {
         gap: 12px !important;
         flex-shrink: 0 !important;
       }
-
       nav a {
         font-size: 12px !important;
         font-weight: 600 !important;
         letter-spacing: 1.2px !important;
       }
-
-      /* SAME HERO SIZE / POSITION AS CLOTHING */
-
       .collectibles-hero {
         min-height: 18vh;
         padding: 8px 20px 8px;
       }
-
       .collectibles-label {
         font-size: 15px;
         letter-spacing: 2px;
         margin-bottom: 13px;
       }
-
       .collectibles-title {
         width: 100%;
         font-size: 15vw;
@@ -472,664 +437,512 @@
         letter-spacing: -3px;
         white-space: nowrap;
       }
-
       .collection-intro {
-        padding: 75px 20px;
+        padding: 85px 20px;
       }
-
       .collection-intro-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 45px;
       }
-
       .collection-intro h2 {
-        font-size: 48px;
-        letter-spacing: -3px;
+        font-size: 16vw;
+        letter-spacing: -4px;
       }
-
       .collection-intro p {
         font-size: 16px;
       }
-
       .featured {
-        padding: 75px 20px 90px;
+        padding: 85px 20px 100px;
       }
-
       .section-label {
         margin-bottom: 30px;
       }
-
       .featured-title {
         font-size: 17vw;
         letter-spacing: -4px;
-        margin-bottom: 35px;
+        margin-bottom: 40px;
       }
-
       .figure-display {
-        min-height: 430px;
+        min-height: 450px;
       }
-
       .edition {
         top: 18px;
         right: 18px;
         font-size: 9px;
       }
-
       .featured-info {
         grid-template-columns: 1fr;
-        gap: 30px;
-        margin-top: 30px;
+        gap: 35px;
+        margin-top: 35px;
       }
-
       .featured-info h3 {
-        font-size: 22px;
+        font-size: 23px;
       }
-
       .featured-info p {
         font-size: 15px;
       }
-
       .release-info {
         text-align: left;
       }
-
       .collection {
-        padding: 85px 20px 100px;
+        padding: 90px 20px 105px;
       }
-
       .collection-header {
         display: block;
-        margin-bottom: 45px;
+        margin-bottom: 50px;
       }
-
       .collection-header h2 {
         font-size: 17vw;
         letter-spacing: -4px;
       }
-
       .collection-header span {
         display: block;
-        margin-top: 20px;
+        margin-top: 22px;
+        white-space: normal;
+        line-height: 1.5;
       }
-
       .collectible-grid {
         grid-template-columns: 1fr;
       }
-
       .collectible-card {
-        min-height: 430px;
-        padding: 22px;
+        min-height: 470px;
+        padding: 23px;
       }
-
       .card-image {
-        min-height: 250px;
-        margin: 25px 0;
+        min-height: 280px;
+        margin: 28px 0;
       }
-
       .card-bottom h3 {
-        font-size: 38px;
-        letter-spacing: -3px;
+        font-size: 15vw;
+        letter-spacing: -4px;
       }
-
-      .philosophy {
+      .card-bottom p {
+        font-size: 14px;
+      }
+      .object-section {
         padding: 100px 20px;
-        min-height: 60vh;
       }
-
+      .object-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+      .object-label {
+        margin-bottom: 35px;
+      }
+      .object-section h2 {
+        font-size: 17vw;
+        letter-spacing: -4px;
+      }
+      .object-section p {
+        font-size: 16px;
+      }
+      .philosophy {
+        padding: 110px 20px;
+        min-height: 65vh;
+      }
       .philosophy h2 {
         font-size: 17vw;
         letter-spacing: -4px;
       }
-
       .philosophy p {
         margin-top: 45px;
         font-size: 16px;
       }
-
       .collection-end {
-        padding: 85px 20px 75px;
+        padding: 90px 20px 80px;
       }
-
       .collection-end h2 {
         font-size: 17vw;
         letter-spacing: -4px;
       }
-
       footer {
         padding: 50px 20px 30px;
       }
-
       .footer-top {
         display: block;
       }
-
       .footer-logo {
         font-size: 34px;
       }
-
       .footer-slogan {
         margin-top: 20px;
       }
-
       .footer-bottom {
         margin-top: 60px;
         gap: 20px;
         flex-wrap: wrap;
       }
     }
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      nav a,
+      .footer-bottom a,
+      .collectible-card {
+        transition: none;
+      }
+    }
   </style>
 </head>
-
 <body>
-
-  <header>
-
-    <a href="./index.html" class="logo" aria-label="MOZake">
-
-      <svg
-        class="mozake-logo"
-        viewBox="0 0 82 58"
-        aria-label="MOZake logo">
-
-        <polygon points="2,55 29,7 56,55"></polygon>
-        <polygon points="27,51 54,3 81,51"></polygon>
-
-      </svg>
-
-    </a>
-
-    <nav>
-
-      <a href="./art.html">
-        ART
-      </a>
-
-      <a href="./clothing.html">
-        CLOTHING
-      </a>
-
-      <a href="./collectibles.html">
-        COLLECTIBLES
-      </a>
-
-      <a href="./story.html">
-        STORY
-      </a>
-
-      <a href="./shop.html">
-        SHOP
-      </a>
-
-    </nav>
-
-  </header>
-
-
-  <main>
-
-    <section class="collectibles-hero">
-
-      <div class="collectibles-label">
-        THE WORLD OF MOZake
-      </div>
-
-      <h1 class="collectibles-title">
-        COLLECTIBLES
-      </h1>
-
-    </section>
-
-
-    <section class="collection-intro">
-
-      <div class="collection-intro-grid">
-
-        <h2>
-          OBJECTS<br>
-          FROM THE<br>
-          MOZake<br>
-          WORLD.
-        </h2>
-
-        <p>
-          MOZake exists beyond the artwork.
-
-          <br><br>
-
-          Each collectible represents a moment,
-          identity or chapter from the world.
-
-          <br><br>
-
-          Created in limited editions,
-          each figure becomes part of the story.
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <section class="featured">
-
-      <div class="section-label">
-        01 / THE COLLECTION
-      </div>
-
-      <div class="featured-number">
-        ORIGINAL
-      </div>
-
-      <h2 class="featured-title">
+<header>
+  <a href="./index.html" class="logo" aria-label="MOZake">
+<svg
+  class="mozake-logo"
+  viewBox="0 0 82 58"
+  aria-label="MOZake logo">
+  <polygon points="2,55 29,7 56,55"></polygon>
+  <polygon points="27,51 54,3 81,51"></polygon>
+</svg>
+  </a>
+  <nav>
+    <a href="./art.html">ART</a>
+    <a href="./clothing.html">CLOTHING</a>
+    <a href="./collectibles.html">COLLECTIBLES</a>
+    <a href="./story.html">STORY</a>
+    <a href="./shop.html">SHOP</a>
+  </nav>
+</header>
+<main>
+  <!-- HERO -->
+  <section class="collectibles-hero">
+<div class="collectibles-label">
+  THE WORLD OF MOZake
+</div>
+<h1 class="collectibles-title">
+  COLLECTIBLES
+</h1>
+  </section>
+  <!-- INTRO -->
+  <section class="collection-intro">
+<div class="collection-intro-grid">
+  <h2>
+    OBJECTS<br>
+    FROM THE<br>
+    MOZake<br>
+    WORLD.
+  </h2>
+  <p>
+    MOZake exists beyond the artwork.
+    <br><br>
+    Each collectible represents a moment,
+    identity or chapter from the world.
+    <br><br>
+    Created in limited editions,
+    each figure becomes part of the collection.
+  </p>
+</div>
+  </section>
+  <!-- FEATURED ORIGINAL -->
+  <section class="featured">
+<div class="section-label">
+  FEATURED RELEASE
+</div>
+<div class="featured-number">
+  01 / THE COLLECTION
+</div>
+<h2 class="featured-title">
+  THE<br>
+  CREATION
+</h2>
+<div class="figure-display">
+  <div class="edition">
+    EDITION OF 5,000
+  </div>
+  <div class="figure-placeholder">
+    <span>
+      FIGURE IMAGE
+    </span>
+    <strong>
+      COMING<br>
+      SOON
+    </strong>
+  </div>
+</div>
+<div class="featured-info">
+  <div>
+    <h3>
+      THE FIRST MOZake.
+    </h3>
+    <p>
+      Before the versions, before the identities,
+      there was only one.
+      <br><br>
+      The Creation is the original MOZake —
+      the first physical object in the collection
+      and the beginning of everything that follows.
+    </p>
+  </div>
+  <div class="release-info">
+    <span>
+      EDITION
+    </span>
+    <strong>
+      5,000
+    </strong>
+  </div>
+</div>
+  </section>
+  <!-- COLLECTION -->
+  <section class="collection">
+<div class="collection-header">
+  <h2>
+    THE<br>
+    COLLECTION
+  </h2>
+  <span>
+    07 FIGURES / LIMITED EDITIONS
+  </span>
+</div>
+<div class="collectible-grid">
+  <!-- 01 -->
+  <article class="collectible-card">
+    <div class="card-top">
+      <span class="card-number">
+        01 / 07
+      </span>
+      <span class="card-edition">
+        5,000
+      </span>
+    </div>
+    <div class="card-image">
+      <span>
+        IMAGE COMING SOON
+      </span>
+    </div>
+    <div class="card-bottom">
+      <h3>
         THE<br>
         CREATION
-      </h2>
-
-      <div class="figure-display">
-
-        <div class="edition">
-          EDITION OF 5,000
-        </div>
-
-        <div class="figure-placeholder">
-
-          <span>
-            FIGURE IMAGE
-          </span>
-
-          <strong>
-            COMING<br>
-            SOON
-          </strong>
-
-        </div>
-
-      </div>
-
-      <div class="featured-info">
-
-        <div>
-
-          <h3>
-            THE FIRST MOZake.
-          </h3>
-
-          <p>
-            Before the versions, before the identities,
-            there was only one.
-
-            <br><br>
-
-            The Creation is the original MOZake —
-            the beginning of the world and the first
-            physical piece of the story.
-          </p>
-
-        </div>
-
-        <div class="release-info">
-
-          <span>
-            EDITION
-          </span>
-
-          <strong>
-            5,000
-          </strong>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <section class="collection">
-
-      <div class="collection-header">
-
-        <h2>
-          THE<br>
-          COLLECTION
-        </h2>
-
-        <span>
-          07 FIGURES / LIMITED EDITIONS
-        </span>
-
-      </div>
-
-
-      <div class="collectible-grid">
-
-
-        <article class="collectible-card">
-
-          <div class="card-top">
-
-            <span class="card-number">
-              01 / 07
-            </span>
-
-            <span class="card-edition">
-              5,000
-            </span>
-
-          </div>
-
-          <div class="card-image">
-            <span>
-              THE CREATION
-            </span>
-          </div>
-
-          <div class="card-bottom">
-
-            <h3>
-              THE<br>
-              CREATION
-            </h3>
-
-            <p>
-              The original MOZake.
-            </p>
-
-          </div>
-
-        </article>
-
-
-        <article class="collectible-card">
-
-          <div class="card-top">
-
-            <span class="card-number">
-              02 / 07
-            </span>
-
-            <span class="card-edition">
-              1 / 100
-            </span>
-
-          </div>
-
-          <div class="card-image">
-            <span>
-              THE CREATOR
-            </span>
-          </div>
-
-          <div class="card-bottom">
-
-            <h3>
-              THE<br>
-              CREATOR
-            </h3>
-
-            <p>
-              MOZake becomes the creator.
-            </p>
-
-          </div>
-
-        </article>
-
-
-        <article class="collectible-card">
-
-          <div class="card-top">
-
-            <span class="card-number">
-              03 / 07
-            </span>
-
-            <span class="card-edition">
-              1,000
-            </span>
-
-          </div>
-
-          <div class="card-image">
-            <span>
-              GRAFFITI
-            </span>
-          </div>
-
-          <div class="card-bottom">
-
-            <h3>
-              GRAFFITI
-            </h3>
-
-            <p>
-              The first mark.
-            </p>
-
-          </div>
-
-        </article>
-
-
-        <article class="collectible-card">
-
-          <div class="card-top">
-
-            <span class="card-number">
-              04 / 07
-            </span>
-
-            <span class="card-edition">
-              500
-            </span>
-
-          </div>
-
-          <div class="card-image">
-            <span>
-              IMPOSTER
-            </span>
-          </div>
-
-          <div class="card-bottom">
-
-            <h3>
-              IMPOSTER
-            </h3>
-
-            <p>
-              Not everything is what it seems.
-            </p>
-
-          </div>
-
-        </article>
-
-
-        <article class="collectible-card">
-
-          <div class="card-top">
-
-            <span class="card-number">
-              05 / 07
-            </span>
-
-            <span class="card-edition">
-              1,000
-            </span>
-
-          </div>
-
-          <div class="card-image">
-            <span>
-              FORGOTTEN
-            </span>
-          </div>
-
-          <div class="card-bottom">
-
-            <h3>
-              FORGOTTEN
-            </h3>
-
-            <p>
-              A version left behind.
-            </p>
-
-          </div>
-
-        </article>
-
-
-        <article class="collectible-card">
-
-          <div class="card-top">
-
-            <span class="card-number">
-              06 / 07
-            </span>
-
-            <span class="card-edition">
-              1,000
-            </span>
-
-          </div>
-
-          <div class="card-image">
-            <span>
-              HERO
-            </span>
-          </div>
-
-          <div class="card-bottom">
-
-            <h3>
-              HERO
-            </h3>
-
-            <p>
-              Every world needs one.
-            </p>
-
-          </div>
-
-        </article>
-
-
-        <article class="collectible-card">
-
-          <div class="card-top">
-
-            <span class="card-number">
-              07 / 07
-            </span>
-
-            <span class="card-edition">
-              50
-            </span>
-
-          </div>
-
-          <div class="card-image">
-            <span>
-              SPECIAL EDITION
-            </span>
-          </div>
-
-          <div class="card-bottom">
-
-            <h3>
-              SPECIAL<br>
-              EDITION
-            </h3>
-
-            <p>
-              Created outside the ordinary.
-            </p>
-
-          </div>
-
-        </article>
-
-
-      </div>
-
-    </section>
-
-
-    <section class="philosophy">
-
-      <div class="philosophy-label">
-        WHY THEY EXIST
-      </div>
-
-      <h2>
-        MORE THAN<br>
-        A FIGURE.
-      </h2>
-
+      </h3>
       <p>
-        Every MOZake collectible represents
-        something that exists within the world.
-
-        <br><br>
-
-        A moment. An identity. A creation.
-
-        <br><br>
-
-        The collection grows as the story grows.
+        The original MOZake.
       </p>
-
-    </section>
-
-
-    <section class="collection-end">
-
-      <div class="collection-end-label">
-        THE COLLECTION CONTINUES
-      </div>
-
-      <h2>
-        MORE<br>
-        TO COME.
-      </h2>
-
-    </section>
-
-  </main>
-
-
-  <footer>
-
-    <div class="footer-top">
-
-      <div class="footer-logo">
-        MOZake
-      </div>
-
-      <div class="footer-slogan">
-        MAKE IT EXIST.
-      </div>
-
     </div>
-
-    <div class="footer-bottom">
-
-      <span>
-        ART
+  </article>
+  <!-- 02 -->
+  <article class="collectible-card">
+    <div class="card-top">
+      <span class="card-number">
+        02 / 07
       </span>
-
-      <span>
-        CLOTHING
+      <span class="card-edition">
+        1 / 100
       </span>
-
-      <span>
-        COLLECTIBLES
-      </span>
-
     </div>
-
-  </footer>
-
+    <div class="card-image">
+      <span>
+        IMAGE COMING SOON
+      </span>
+    </div>
+    <div class="card-bottom">
+      <h3>
+        THE<br>
+        CREATOR
+      </h3>
+      <p>
+        MOZake becomes the creator.
+      </p>
+    </div>
+  </article>
+  <!-- 03 -->
+  <article class="collectible-card">
+    <div class="card-top">
+      <span class="card-number">
+        03 / 07
+      </span>
+      <span class="card-edition">
+        1,000
+      </span>
+    </div>
+    <div class="card-image">
+      <span>
+        IMAGE COMING SOON
+      </span>
+    </div>
+    <div class="card-bottom">
+      <h3>
+        GRAFFITI
+      </h3>
+      <p>
+        The first mark.
+      </p>
+    </div>
+  </article>
+  <!-- 04 -->
+  <article class="collectible-card">
+    <div class="card-top">
+      <span class="card-number">
+        04 / 07
+      </span>
+      <span class="card-edition">
+        500
+      </span>
+    </div>
+    <div class="card-image">
+      <span>
+        IMAGE COMING SOON
+      </span>
+    </div>
+    <div class="card-bottom">
+      <h3>
+        IMPOSTER
+      </h3>
+      <p>
+        Not everything is what it seems.
+      </p>
+    </div>
+  </article>
+  <!-- 05 -->
+  <article class="collectible-card">
+    <div class="card-top">
+      <span class="card-number">
+        05 / 07
+      </span>
+      <span class="card-edition">
+        1,000
+      </span>
+    </div>
+    <div class="card-image">
+      <span>
+        IMAGE COMING SOON
+      </span>
+    </div>
+    <div class="card-bottom">
+      <h3>
+        FORGOTTEN
+      </h3>
+      <p>
+        A version left behind.
+      </p>
+    </div>
+  </article>
+  <!-- 06 -->
+  <article class="collectible-card">
+    <div class="card-top">
+      <span class="card-number">
+        06 / 07
+      </span>
+      <span class="card-edition">
+        1,000
+      </span>
+    </div>
+    <div class="card-image">
+      <span>
+        IMAGE COMING SOON
+      </span>
+    </div>
+    <div class="card-bottom">
+      <h3>
+        HERO
+      </h3>
+      <p>
+        Every world needs one.
+      </p>
+    </div>
+  </article>
+  <!-- 07 -->
+  <article class="collectible-card">
+    <div class="card-top">
+      <span class="card-number">
+        07 / 07
+      </span>
+      <span class="card-edition">
+        50
+      </span>
+    </div>
+    <div class="card-image">
+      <span>
+        IMAGE COMING SOON
+      </span>
+    </div>
+    <div class="card-bottom">
+      <h3>
+        SPECIAL<br>
+        EDITION
+      </h3>
+      <p>
+        Created outside the ordinary.
+      </p>
+    </div>
+  </article>
+</div>
+  </section>
+  <!-- THE OBJECT -->
+  <section class="object-section">
+<div class="object-grid">
+  <div>
+    <div class="object-label">
+      THE OBJECT
+    </div>
+    <h2>
+      MORE THAN<br>
+      A FIGURE.
+    </h2>
+  </div>
+  <p>
+    A MOZake collectible is an object
+    designed to exist beyond the screen.
+    <br><br>
+    Made to be held, displayed and collected.
+    <br><br>
+    Each edition gives the world another
+    physical form.
+  </p>
+</div>
+  </section>
+  <!-- PHILOSOPHY -->
+  <section class="philosophy">
+<div class="philosophy-label">
+  MADE TO EXIST
+</div>
+<h2>
+  MAKE IT<br>
+  EXIST.
+</h2>
+<p>
+  The collection grows with the world.
+  <br><br>
+  New identities.
+  New objects.
+  New editions.
+  <br><br>
+  Nothing stays the same forever.
+</p>
+  </section>
+  <!-- END -->
+  <section class="collection-end">
+<div class="collection-end-label">
+  THE COLLECTION CONTINUES
+</div>
+<h2>
+  MORE<br>
+  TO COME.
+</h2>
+  </section>
+</main>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+<div class="footer-logo">
+  MOZake
+</div>
+<div class="footer-slogan">
+  MAKE IT EXIST.
+</div>
+  </div>
+  <div class="footer-bottom">
+<a href="./art.html">
+  ART
+</a>
+<a href="./clothing.html">
+  CLOTHING
+</a>
+<a href="./collectibles.html">
+  COLLECTIBLES
+</a>
+  </div>
+</footer>
 </body>
 </html>
