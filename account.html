@@ -1,1 +1,440 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOZake — Account</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #e2ded4;
+      color: #111;
+      min-height: 100vh;
+    }
+    header {
+      width: 100%;
+      padding: 26px 34px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #111;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      width: 62px;
+      height: 48px;
+    }
+    .mozake-logo {
+      width: 62px;
+      height: 48px;
+      display: block;
+      overflow: visible;
+    }
+    .mozake-logo polygon {
+      fill: #111;
+    }
+    nav {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+    nav a {
+      color: #111;
+      text-decoration: none;
+      font-size: 21px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      white-space: nowrap;
+      transition: opacity 0.3s ease;
+    }
+    nav a:hover {
+      opacity: 0.45;
+    }
+    main {
+      min-height: calc(100vh - 99px);
+      padding: 120px 7vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .account-wrap {
+      width: 100%;
+      max-width: 620px;
+    }
+    .label {
+      font-size: 13px;
+      letter-spacing: 4px;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+    h1 {
+      font-size: clamp(65px, 12vw, 150px);
+      line-height: 0.8;
+      letter-spacing: -7px;
+      text-transform: uppercase;
+      margin-bottom: 70px;
+    }
+    .form {
+      border-top: 1px solid #111;
+    }
+    .field {
+      padding: 22px 0;
+      border-bottom: 1px solid #111;
+    }
+    .field label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .field input {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: #111;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 18px;
+      padding: 4px 0;
+    }
+    .actions {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 35px;
+    }
+    button {
+      min-height: 48px;
+      padding: 0 22px;
+      border: 1px solid #111;
+      background: #111;
+      color: #e2ded4;
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+    button.secondary {
+      background: transparent;
+      color: #111;
+    }
+    button:hover {
+      opacity: 0.55;
+    }
+    .message {
+      min-height: 22px;
+      margin-top: 25px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .account-info {
+      display: none;
+    }
+    .account-info.active {
+      display: block;
+    }
+    .account-email {
+      font-size: 22px;
+      padding: 25px 0;
+      border-top: 1px solid #111;
+      border-bottom: 1px solid #111;
+    }
+    footer {
+      background: #111;
+      color: #fff;
+      padding: 70px 40px 40px;
+    }
+    .footer-logo {
+      font-size: 42px;
+      font-weight: 700;
+      letter-spacing: -2px;
+      color: #fff;
+    }
+    .footer-slogan {
+      margin-top: 10px;
+      font-size: 13px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .footer-bottom {
+      margin-top: 70px;
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .footer-bottom a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+    @media (max-width: 700px) {
+      header {
+        padding: 20px 16px;
+      }
+      .logo {
+        width: 48px;
+        height: 38px;
+      }
+      .mozake-logo {
+        width: 48px;
+        height: 38px;
+      }
+      nav {
+        gap: 12px;
+        flex-shrink: 0;
+      }
+      nav a {
+        font-size: 12px;
+        letter-spacing: 1.2px;
+      }
+      main {
+        padding: 85px 22px;
+      }
+      h1 {
+        font-size: 16vw;
+        letter-spacing: -3px;
+        margin-bottom: 55px;
+      }
+      .actions {
+        flex-direction: column;
+      }
+      button {
+        width: 100%;
+      }
+      footer {
+        padding: 60px 22px 35px;
+      }
+      .footer-bottom {
+        margin-top: 50px;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+<a href="./index.html" class="logo" aria-label="MOZake">
+  <svg
+    class="mozake-logo"
+    viewBox="0 0 82 58"
+    aria-label="MOZake logo">
+    <polygon points="2,55 29,7 56,55"></polygon>
+    <polygon points="27,51 54,3 81,51"></polygon>
+  </svg>
+</a>
+<nav>
+  <a href="./art.html">ART</a>
+  <a href="./clothing.html">CLOTHING</a>
+  <a href="./collectibles.html">COLLECTIBLES</a>
+  <a href="./story.html">STORY</a>
+  <a href="./shop.html">SHOP</a>
+</nav>
+  </header>
+  <main>
+<div class="account-wrap">
+  <div class="label">
+    MOZake ACCOUNT
+  </div>
+  <h1>
+    ACCOUNT
+  </h1>
+  <div id="authForms">
+    <form id="authForm" class="form">
+      <div class="field">
+        <label for="email">EMAIL</label>
+        <input
+          id="email"
+          type="email"
+          autocomplete="email"
+          required>
+      </div>
+      <div class="field">
+        <label for="password">PASSWORD</label>
+        <input
+          id="password"
+          type="password"
+          autocomplete="current-password"
+          minlength="6"
+          required>
+      </div>
+      <div class="actions">
+        <button type="submit">
+          LOG IN
+        </button>
+        <button
+          type="button"
+          class="secondary"
+          id="signupButton">
+          CREATE ACCOUNT
+        </button>
+      </div>
+    </form>
+  </div>
+  <div id="accountInfo" class="account-info">
+    <div class="account-email">
+      <span id="loggedInEmail"></span>
+    </div>
+    <div class="actions">
+      <button
+        type="button"
+        id="logoutButton">
+        LOG OUT
+      </button>
+    </div>
+  </div>
+  <div
+    id="message"
+    class="message"
+    aria-live="polite">
+  </div>
+</div>
+  </main>
+  <footer>
+<div class="footer-logo">
+  MOZake
+</div>
+<div class="footer-slogan">
+  MAKE IT EXIST.
+</div>
+<div class="footer-bottom">
+  <a href="./art.html">ART</a>
+  <a href="./clothing.html">CLOTHING</a>
+  <a href="./collectibles.html">COLLECTIBLES</a>
+</div>
+  </footer>
+  <script type="module">
+    import {
+      createClient
+    } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+    const SUPABASE_URL =
+      "https://cjyhqxffjppmzgsgrsvt.supabase.co";
+    const SUPABASE_PUBLISHABLE_KEY =
+      "sb_publishable_vDNha1HTi57tHedL3KgSzA_DnyVaEj5";
+    const supabase =
+      createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+      );
+    const authForm =
+      document.getElementById("authForm");
+    const signupButton =
+      document.getElementById("signupButton");
+    const logoutButton =
+      document.getElementById("logoutButton");
+    const authForms =
+      document.getElementById("authForms");
+    const accountInfo =
+      document.getElementById("accountInfo");
+    const loggedInEmail =
+      document.getElementById("loggedInEmail");
+    const message =
+      document.getElementById("message");
+    function showMessage(text) {
+      message.textContent = text;
+    }
+    function showLoggedOut() {
+      authForms.style.display = "block";
+      accountInfo.classList.remove("active");
+    }
+    function showLoggedIn(user) {
+      authForms.style.display = "none";
+      accountInfo.classList.add("active");
+      loggedInEmail.textContent =
+        user.email || "";
+    }
+    authForm.addEventListener(
+      "submit",
+      async function(event) {
+        event.preventDefault();
+        const email =
+          document.getElementById("email").value.trim();
+        const password =
+          document.getElementById("password").value;
+        showMessage("LOGGING IN…");
+        const {
+          data,
+          error
+        } = await supabase.auth.signInWithPassword({
+          email,
+          password
+        });
+        if (error) {
+          showMessage(error.message);
+          return;
+        }
+        showMessage("LOGGED IN.");
+        showLoggedIn(data.user);
+      }
+    );
+    signupButton.addEventListener(
+      "click",
+      async function() {
+        const email =
+          document.getElementById("email").value.trim();
+        const password =
+          document.getElementById("password").value;
+        if (!email || !password) {
+          showMessage(
+            "ENTER YOUR EMAIL AND PASSWORD FIRST."
+          );
+          return;
+        }
+        showMessage("CREATING ACCOUNT…");
+        const {
+          data,
+          error
+        } = await supabase.auth.signUp({
+          email,
+          password
+        });
+        if (error) {
+          showMessage(error.message);
+          return;
+        }
+        if (data.session) {
+          showMessage("ACCOUNT CREATED.");
+          showLoggedIn(data.user);
+        } else {
+          showMessage(
+            "ACCOUNT CREATED. CHECK YOUR EMAIL TO CONFIRM IT."
+          );
+        }
+      }
+    );
+    logoutButton.addEventListener(
+      "click",
+      async function() {
+        const {
+          error
+        } = await supabase.auth.signOut();
+        if (error) {
+          showMessage(error.message);
+          return;
+        }
+        showMessage("LOGGED OUT.");
+        showLoggedOut();
+      }
+    );
+    const {
+      data: {
+        session
+      }
+    } = await supabase.auth.getSession();
+    if (session && session.user) {
+      showLoggedIn(session.user);
+    } else {
+      showLoggedOut();
+    }
+  </script>
+</body>
+</html>
