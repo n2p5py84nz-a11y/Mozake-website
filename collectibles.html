@@ -114,7 +114,7 @@
       font-size: 17px;
       line-height: 1.65;
     }
-    /* FEATURED */
+    /* FEATURED RELEASE */
     .featured {
       padding: 120px 40px 140px;
       border-bottom: 1px solid #111;
@@ -205,90 +205,7 @@
       font-size: 34px;
       letter-spacing: -2px;
     }
-    /* COLLECTION */
-    .collection {
-      padding: 130px 40px 150px;
-      background: #111;
-      color: #e2ded4;
-    }
-    .collection-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 40px;
-      margin-bottom: 70px;
-    }
-    .collection-header h2 {
-      font-size: clamp(65px, 10vw, 155px);
-      line-height: 0.8;
-      letter-spacing: -8px;
-      text-transform: uppercase;
-    }
-    .collection-header span {
-      font-size: 11px;
-      letter-spacing: 3px;
-      opacity: 0.5;
-      white-space: nowrap;
-    }
-    .collectible-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: #444;
-      border: 1px solid #444;
-    }
-    .collectible-card {
-      background: #111;
-      padding: 32px;
-      min-height: 560px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: background 0.3s ease;
-    }
-    .collectible-card:hover {
-      background: #181818;
-    }
-    .card-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-    }
-    .card-number,
-    .card-edition {
-      font-size: 10px;
-      letter-spacing: 3px;
-      opacity: 0.5;
-    }
-    .card-image {
-      flex: 1;
-      margin: 35px 0;
-      border: 1px solid #444;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      min-height: 320px;
-    }
-    .card-image span {
-      font-size: 10px;
-      letter-spacing: 3px;
-      opacity: 0.35;
-    }
-    .card-bottom h3 {
-      font-size: clamp(38px, 4vw, 60px);
-      line-height: 0.84;
-      letter-spacing: -4px;
-      text-transform: uppercase;
-    }
-    .card-bottom p {
-      margin-top: 17px;
-      max-width: 400px;
-      font-size: 13px;
-      line-height: 1.55;
-      opacity: 0.6;
-    }
-    /* OBJECT */
+    /* THE OBJECT */
     .object-section {
       padding: 150px 40px;
       border-bottom: 1px solid #111;
@@ -484,41 +401,6 @@
       .release-info {
         text-align: left;
       }
-      .collection {
-        padding: 90px 20px 105px;
-      }
-      .collection-header {
-        display: block;
-        margin-bottom: 50px;
-      }
-      .collection-header h2 {
-        font-size: 17vw;
-        letter-spacing: -4px;
-      }
-      .collection-header span {
-        display: block;
-        margin-top: 22px;
-        white-space: normal;
-        line-height: 1.5;
-      }
-      .collectible-grid {
-        grid-template-columns: 1fr;
-      }
-      .collectible-card {
-        min-height: 470px;
-        padding: 23px;
-      }
-      .card-image {
-        min-height: 280px;
-        margin: 28px 0;
-      }
-      .card-bottom h3 {
-        font-size: 15vw;
-        letter-spacing: -4px;
-      }
-      .card-bottom p {
-        font-size: 14px;
-      }
       .object-section {
         padding: 100px 20px;
       }
@@ -578,8 +460,7 @@
         scroll-behavior: auto;
       }
       nav a,
-      .footer-bottom a,
-      .collectible-card {
+      .footer-bottom a {
         transition: none;
       }
     }
@@ -634,17 +515,16 @@
   </p>
 </div>
   </section>
-  <!-- FEATURED ORIGINAL -->
+  <!-- CURRENT RELEASE -->
   <section class="featured">
 <div class="section-label">
-  FEATURED RELEASE
+  CURRENT RELEASE
 </div>
 <div class="featured-number">
   01 / THE COLLECTION
 </div>
 <h2 class="featured-title">
-  THE<br>
-  CREATION
+  MOZake
 </h2>
 <div class="figure-display">
   <div class="edition">
@@ -663,15 +543,16 @@
 <div class="featured-info">
   <div>
     <h3>
-      THE FIRST MOZake.
+      THE ORIGINAL MOZake.
     </h3>
     <p>
-      Before the versions, before the identities,
-      there was only one.
+      The original MOZake.
       <br><br>
-      The Creation is the original MOZake —
-      the first physical object in the collection
-      and the beginning of everything that follows.
+      The figure that defines the form,
+      the identity and the world that follows.
+      <br><br>
+      The first physical object in the collection —
+      created to exist beyond the artwork.
     </p>
   </div>
   <div class="release-info">
@@ -682,191 +563,6 @@
       5,000
     </strong>
   </div>
-</div>
-  </section>
-  <!-- COLLECTION -->
-  <section class="collection">
-<div class="collection-header">
-  <h2>
-    THE<br>
-    COLLECTION
-  </h2>
-  <span>
-    07 FIGURES / LIMITED EDITIONS
-  </span>
-</div>
-<div class="collectible-grid">
-  <!-- 01 -->
-  <article class="collectible-card">
-    <div class="card-top">
-      <span class="card-number">
-        01 / 07
-      </span>
-      <span class="card-edition">
-        5,000
-      </span>
-    </div>
-    <div class="card-image">
-      <span>
-        IMAGE COMING SOON
-      </span>
-    </div>
-    <div class="card-bottom">
-      <h3>
-        THE<br>
-        CREATION
-      </h3>
-      <p>
-        The original MOZake.
-      </p>
-    </div>
-  </article>
-  <!-- 02 -->
-  <article class="collectible-card">
-    <div class="card-top">
-      <span class="card-number">
-        02 / 07
-      </span>
-      <span class="card-edition">
-        1 / 100
-      </span>
-    </div>
-    <div class="card-image">
-      <span>
-        IMAGE COMING SOON
-      </span>
-    </div>
-    <div class="card-bottom">
-      <h3>
-        THE<br>
-        CREATOR
-      </h3>
-      <p>
-        MOZake becomes the creator.
-      </p>
-    </div>
-  </article>
-  <!-- 03 -->
-  <article class="collectible-card">
-    <div class="card-top">
-      <span class="card-number">
-        03 / 07
-      </span>
-      <span class="card-edition">
-        1,000
-      </span>
-    </div>
-    <div class="card-image">
-      <span>
-        IMAGE COMING SOON
-      </span>
-    </div>
-    <div class="card-bottom">
-      <h3>
-        GRAFFITI
-      </h3>
-      <p>
-        The first mark.
-      </p>
-    </div>
-  </article>
-  <!-- 04 -->
-  <article class="collectible-card">
-    <div class="card-top">
-      <span class="card-number">
-        04 / 07
-      </span>
-      <span class="card-edition">
-        500
-      </span>
-    </div>
-    <div class="card-image">
-      <span>
-        IMAGE COMING SOON
-      </span>
-    </div>
-    <div class="card-bottom">
-      <h3>
-        IMPOSTER
-      </h3>
-      <p>
-        Not everything is what it seems.
-      </p>
-    </div>
-  </article>
-  <!-- 05 -->
-  <article class="collectible-card">
-    <div class="card-top">
-      <span class="card-number">
-        05 / 07
-      </span>
-      <span class="card-edition">
-        1,000
-      </span>
-    </div>
-    <div class="card-image">
-      <span>
-        IMAGE COMING SOON
-      </span>
-    </div>
-    <div class="card-bottom">
-      <h3>
-        FORGOTTEN
-      </h3>
-      <p>
-        A version left behind.
-      </p>
-    </div>
-  </article>
-  <!-- 06 -->
-  <article class="collectible-card">
-    <div class="card-top">
-      <span class="card-number">
-        06 / 07
-      </span>
-      <span class="card-edition">
-        1,000
-      </span>
-    </div>
-    <div class="card-image">
-      <span>
-        IMAGE COMING SOON
-      </span>
-    </div>
-    <div class="card-bottom">
-      <h3>
-        HERO
-      </h3>
-      <p>
-        Every world needs one.
-      </p>
-    </div>
-  </article>
-  <!-- 07 -->
-  <article class="collectible-card">
-    <div class="card-top">
-      <span class="card-number">
-        07 / 07
-      </span>
-      <span class="card-edition">
-        50
-      </span>
-    </div>
-    <div class="card-image">
-      <span>
-        IMAGE COMING SOON
-      </span>
-    </div>
-    <div class="card-bottom">
-      <h3>
-        SPECIAL<br>
-        EDITION
-      </h3>
-      <p>
-        Created outside the ordinary.
-      </p>
-    </div>
-  </article>
 </div>
   </section>
   <!-- THE OBJECT -->
