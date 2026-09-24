@@ -3,42 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>ART — MOZake</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
-    rel="stylesheet">
-
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
     html {
       scroll-behavior: smooth;
     }
-
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: #e2ded4;
       color: #111;
     }
-
     button,
     a {
       -webkit-tap-highlight-color: transparent;
     }
-
     img {
       max-width: 100%;
     }
-
     header {
       height: 90px;
       padding: 0 40px;
@@ -47,31 +33,26 @@
       justify-content: space-between;
       border-bottom: 1px solid #111;
     }
-
     .logo {
       display: flex;
       align-items: center;
       width: 62px;
       height: 48px;
     }
-
     .mozake-logo {
       width: 62px;
       height: 48px;
       display: block;
       overflow: visible;
     }
-
     .mozake-logo polygon {
       fill: #111;
     }
-
     nav {
       display: flex !important;
       gap: 40px !important;
       align-items: center !important;
     }
-
     nav a {
       color: #111 !important;
       text-decoration: none !important;
@@ -81,7 +62,6 @@
       white-space: nowrap !important;
       line-height: 1 !important;
     }
-
     .art-hero {
       min-height: 24vh;
       padding: 8px 40px 10px;
@@ -91,36 +71,30 @@
       border-bottom: 1px solid #111;
       overflow: hidden;
     }
-
     .art-label {
       font-size: 20px;
       letter-spacing: 3px;
       font-weight: 600;
       margin-bottom: 18px;
     }
-
     .art-title {
       width: 100%;
-      font-family: "Permanent Marker", Arial, Helvetica, sans-serif;
       font-size: clamp(70px, 14vw, 220px);
-      font-weight: 400;
+      font-weight: 700;
       line-height: 0.78;
       letter-spacing: -9px;
       text-transform: uppercase;
       white-space: nowrap;
     }
-
     .featured {
       padding: 75px 40px 120px;
     }
-
     .section-label {
       font-size: 13px;
       letter-spacing: 3px;
       font-weight: 600;
       margin-bottom: 30px;
     }
-
     .artwork-container {
       width: 100%;
       max-width: 650px;
@@ -128,13 +102,11 @@
       background: #d7d2c7;
       overflow: hidden;
     }
-
     .artwork-image {
       width: 100%;
       height: auto;
       display: block;
     }
-
     .art-info {
       max-width: 650px;
       margin: 25px auto 0;
@@ -143,21 +115,18 @@
       align-items: flex-end;
       gap: 30px;
     }
-
     .art-info h2 {
       font-size: 28px;
       font-weight: 700;
       letter-spacing: -1px;
       margin-bottom: 10px;
     }
-
     .art-info p {
       max-width: 520px;
       font-size: 14px;
       line-height: 1.6;
       letter-spacing: 0.2px;
     }
-
     .view-link {
       color: #111;
       text-decoration: none;
@@ -168,13 +137,11 @@
       border-bottom: 1px solid #111;
       padding-bottom: 4px;
     }
-
     footer {
       background: #111;
       color: #fff;
       padding: 70px 40px 40px;
     }
-
     .footer-top {
       display: flex;
       justify-content: space-between;
@@ -182,28 +149,24 @@
       gap: 30px;
       padding-bottom: 70px;
     }
-
     .footer-logo {
       font-size: 42px;
       font-weight: 700;
       letter-spacing: -2px;
       color: #fff !important;
     }
-
     .footer-slogan {
       font-size: 13px;
       letter-spacing: 3px;
       font-weight: 600;
       color: #fff !important;
     }
-
     .footer-bottom {
       display: flex;
       gap: 35px;
       padding-top: 25px;
       border-top: 1px solid rgba(255,255,255,0.25);
     }
-
     .footer-bottom a {
       color: #fff !important;
       text-decoration: none !important;
@@ -211,7 +174,6 @@
       letter-spacing: 2px !important;
       font-size: 12px;
     }
-
     .artwork-viewer {
       position: fixed;
       inset: 0;
@@ -224,13 +186,11 @@
       pointer-events: none;
       transition: opacity 0.35s ease, visibility 0.35s ease;
     }
-
     .artwork-viewer.open {
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
     }
-
     .viewer-header {
       height: 90px;
       padding: 0 40px;
@@ -239,14 +199,12 @@
       align-items: center;
       border-bottom: 1px solid #111;
     }
-
     .viewer-number,
     .viewer-close {
       font-size: 13px;
       font-weight: 600;
       letter-spacing: 2px;
     }
-
     .viewer-close {
       background: none;
       border: 0;
@@ -254,13 +212,11 @@
       cursor: pointer;
       padding: 12px 0;
     }
-
     .viewer-content {
       padding: 70px 40px 120px;
       max-width: 1100px;
       margin: 0 auto;
     }
-
     .viewer-title {
       font-size: clamp(60px, 12vw, 170px);
       line-height: 0.8;
@@ -268,174 +224,139 @@
       font-weight: 700;
       margin-bottom: 70px;
     }
-
     .viewer-image-wrap {
       max-width: 800px;
       margin: 0 auto;
     }
-
     .viewer-image {
       width: 100%;
       height: auto;
       display: block;
     }
-
     .viewer-story {
       max-width: 650px;
       margin: 90px auto 0;
     }
-
     .viewer-story-label {
       font-size: 12px;
       font-weight: 600;
       letter-spacing: 3px;
       margin-bottom: 20px;
     }
-
     .viewer-story h2 {
       font-size: 30px;
       letter-spacing: -1px;
       margin-bottom: 30px;
     }
-
     .viewer-story p {
       font-size: 16px;
       line-height: 1.8;
     }
-
     a:focus-visible,
     button:focus-visible {
       outline: 2px solid #111;
       outline-offset: 5px;
     }
-
     @media (max-width: 700px) {
-
       header {
         height: 75px;
         padding: 0 20px;
       }
-
       .logo {
         width: 48px;
         height: 38px;
       }
-
       .mozake-logo {
         width: 48px;
         height: 38px;
       }
-
       nav {
         gap: 12px !important;
         flex-shrink: 0 !important;
       }
-
       nav a {
         font-size: 12px !important;
         font-weight: 600 !important;
         letter-spacing: 1.2px !important;
       }
-
       .art-hero {
         min-height: 18vh;
         padding: 8px 20px 8px;
       }
-
       .art-label {
         font-size: 15px;
         letter-spacing: 2px;
         margin-bottom: 13px;
       }
-
       .art-title {
         width: 100%;
         font-size: 15vw;
         letter-spacing: -3px;
       }
-
       .featured {
         padding: 60px 20px 80px;
       }
-
       .artwork-container {
         max-width: 420px;
       }
-
       .art-info {
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
       }
-
       .art-info h2 {
         font-size: 24px;
       }
-
       footer {
         padding: 50px 20px 30px;
       }
-
       .footer-top {
         flex-direction: column;
         align-items: flex-start;
         padding-bottom: 50px;
       }
-
       .footer-logo {
         font-size: 36px;
       }
-
       .footer-bottom {
         gap: 20px;
         flex-wrap: wrap;
       }
-
       .viewer-header {
         height: 75px;
         padding: 0 20px;
       }
-
       .viewer-content {
         padding: 50px 20px 80px;
       }
-
       .viewer-title {
         font-size: 18vw;
         letter-spacing: -4px;
         margin-bottom: 50px;
       }
-
       .viewer-story {
         margin-top: 60px;
       }
-
       .viewer-story h2 {
         font-size: 26px;
       }
-
       .viewer-story p {
         font-size: 15px;
         line-height: 1.7;
       }
     }
-
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
       }
-
       .artwork-viewer {
         transition: none;
       }
     }
   </style>
 </head>
-
 <body>
-
 <header>
-
   <a href="./index.html" class="logo" aria-label="MOZake">
     <svg
       class="mozake-logo"
@@ -445,7 +366,6 @@
       <polygon points="27,51 54,3 81,51"></polygon>
     </svg>
   </a>
-
   <nav>
     <a href="./art.html">ART</a>
     <a href="./clothing.html">CLOTHING</a>
@@ -453,99 +373,67 @@
     <a href="./story.html">STORY</a>
     <a href="./shop.html">SHOP</a>
   </nav>
-
 </header>
-
 <main>
-
   <section class="art-hero">
-
     <div class="art-label">
       THE WORLD OF MOZake
     </div>
-
     <h1 class="art-title">
       ART
     </h1>
-
   </section>
-
   <section class="featured">
-
     <div class="section-label">
       FEATURED
     </div>
-
     <div class="artwork-container">
-
       <img
         src="./artwork01.JPG"
         alt="MOZake creating his first graffiti"
         class="artwork-image"
         loading="eager">
-
     </div>
-
     <div class="art-info">
-
       <div>
-
         <h2>
           FIRST MARK
         </h2>
-
         <p>
           MOZake leaves his first mark. The beginning of a world created
           through art, imagination and the need to make something exist.
         </p>
-
       </div>
-
       <a
         href="#"
         class="view-link"
         id="viewArtwork">
         VIEW →
       </a>
-
     </div>
-
   </section>
-
 </main>
-
 <footer>
-
   <div class="footer-top">
-
     <div class="footer-logo">
       MOZake
     </div>
-
     <div class="footer-slogan">
       MAKE IT EXIST.
     </div>
-
   </div>
-
   <div class="footer-bottom">
-
     <a href="./art.html">
       ART
     </a>
-
     <a href="./clothing.html">
       CLOTHING
     </a>
-
     <a href="./collectibles.html">
       COLLECTIBLES
     </a>
-
   </div>
-
 </footer>
-
 <div
   class="artwork-viewer"
   id="artworkViewer"
@@ -553,13 +441,10 @@
   role="dialog"
   aria-modal="true"
   aria-label="FIRST MARK artwork">
-
   <div class="viewer-header">
-
     <div class="viewer-number">
       01 / ART
     </div>
-
     <button
       type="button"
       class="viewer-close"
@@ -567,136 +452,88 @@
       aria-label="Close artwork viewer">
       CLOSE ×
     </button>
-
   </div>
-
   <div class="viewer-content">
-
     <h1 class="viewer-title">
       FIRST MARK
     </h1>
-
     <div class="viewer-image-wrap">
-
       <img
         src="./artwork01.JPG"
         alt="MOZake creating his first graffiti"
         class="viewer-image">
-
     </div>
-
     <div class="viewer-story">
-
       <div class="viewer-story-label">
         THE STORY
       </div>
-
       <h2>
         THE FIRST MARK
       </h2>
-
       <p>
         Every story has a beginning.
         <br><br>
-
         For MOZake, it began with a mark.
         <br><br>
-
         The first piece of graffiti was more than a drawing. It was the
         moment MOZake created something of his own — an expression of
         identity, a decision to leave something behind.
         <br><br>
-
         That mark became the beginning.
         <br><br>
-
         The beginning of art.<br>
         The beginning of identity.<br>
         The beginning of a world that could keep changing, growing and
         creating itself.
         <br><br>
-
         MAKE IT EXIST.
       </p>
-
     </div>
-
   </div>
-
 </div>
-
 <script>
-
   const viewArtwork = document.getElementById("viewArtwork");
   const artworkViewer = document.getElementById("artworkViewer");
   const closeArtwork = document.getElementById("closeArtwork");
-
   let previousFocusedElement = null;
-
   function openArtwork() {
-
     previousFocusedElement = document.activeElement;
-
     artworkViewer.classList.add("open");
     artworkViewer.setAttribute("aria-hidden", "false");
-
     artworkViewer.scrollTop = 0;
-
     document.body.style.overflow = "hidden";
-
     setTimeout(function() {
       closeArtwork.focus();
     }, 50);
-
   }
-
   function closeArtworkViewer() {
-
     artworkViewer.classList.remove("open");
     artworkViewer.setAttribute("aria-hidden", "true");
-
     document.body.style.overflow = "";
-
     if (previousFocusedElement) {
       previousFocusedElement.focus();
     }
-
   }
-
   viewArtwork.addEventListener("click", function(event) {
-
     event.preventDefault();
-
     openArtwork();
-
   });
-
   closeArtwork.addEventListener("click", function() {
-
     closeArtworkViewer();
-
   });
-
   artworkViewer.addEventListener("click", function(event) {
-
     if (event.target === artworkViewer) {
       closeArtworkViewer();
     }
-
   });
-
   document.addEventListener("keydown", function(event) {
-
     if (
       event.key === "Escape" &&
       artworkViewer.classList.contains("open")
     ) {
       closeArtworkViewer();
     }
-
   });
-
 </script>
-
 </body>
 </html>
