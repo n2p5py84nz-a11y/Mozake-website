@@ -3,34 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>CLOTHING — MOZake</title>
-
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
     html {
       scroll-behavior: smooth;
     }
-
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: #e2ded4;
       color: #111;
       overflow-x: hidden;
     }
-
     button,
     a {
       -webkit-tap-highlight-color: transparent;
     }
-
     /* HEADER */
-
     header {
       width: 100%;
       height: 90px;
@@ -41,31 +34,26 @@
       position: relative;
       z-index: 10;
     }
-
     .logo {
       display: flex;
       align-items: center;
       width: 62px;
       height: 48px;
     }
-
     .mozake-logo {
       width: 62px;
       height: 48px;
       display: block;
       overflow: visible;
     }
-
     .mozake-logo polygon {
       fill: #111;
     }
-
     nav {
       display: flex !important;
       gap: 40px !important;
       align-items: center !important;
     }
-
     nav a {
       color: #111 !important;
       text-decoration: none !important;
@@ -76,13 +64,10 @@
       line-height: 1 !important;
       transition: opacity 0.3s ease;
     }
-
     nav a:hover {
       opacity: 0.45;
     }
-
     /* HERO */
-
     .clothing-hero {
       min-height: 24vh;
       padding: 8px 40px 10px;
@@ -92,14 +77,12 @@
       border-bottom: 1px solid #111;
       overflow: hidden;
     }
-
     .clothing-label {
       font-size: 20px;
       letter-spacing: 3px;
       font-weight: 600;
       margin-bottom: 18px;
     }
-
     .clothing-title {
       width: 100%;
       font-size: clamp(70px, 14vw, 220px);
@@ -109,41 +92,33 @@
       text-transform: uppercase;
       white-space: nowrap;
     }
-
     /* INTRO */
-
     .clothing-intro {
       padding: 120px 40px 110px;
       border-bottom: 1px solid #111;
     }
-
     .clothing-intro-grid {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
       gap: 80px;
       align-items: end;
     }
-
     .clothing-intro h2 {
       font-size: clamp(55px, 8vw, 125px);
       line-height: 0.82;
       letter-spacing: -7px;
       text-transform: uppercase;
     }
-
     .clothing-intro p {
       max-width: 500px;
       font-size: 17px;
       line-height: 1.65;
     }
-
     /* COLLECTION */
-
     .collection {
       padding: 110px 0 0;
       border-bottom: 1px solid #111;
     }
-
     .section-label {
       padding: 0 40px;
       font-size: 13px;
@@ -151,7 +126,6 @@
       font-weight: 600;
       margin-bottom: 45px;
     }
-
     .collection-header {
       padding: 0 40px 80px;
       display: flex;
@@ -159,27 +133,22 @@
       align-items: flex-end;
       gap: 40px;
     }
-
     .collection-header h2 {
       font-size: clamp(70px, 10vw, 155px);
       line-height: 0.8;
       letter-spacing: -8px;
       text-transform: uppercase;
     }
-
     .collection-header span {
       font-size: 11px;
       letter-spacing: 3px;
       font-weight: 600;
       white-space: nowrap;
     }
-
     /* LOOKBOOK PIECES */
-
     .product {
       border-top: 1px solid #111;
     }
-
     .product-top {
       padding: 22px 40px;
       display: flex;
@@ -187,18 +156,15 @@
       align-items: center;
       gap: 20px;
     }
-
     .product-number,
     .product-status {
       font-size: 10px;
       letter-spacing: 3px;
       font-weight: 600;
     }
-
     .product-status {
       opacity: 0.5;
     }
-
     .product-visual {
       width: 100%;
       min-height: 650px;
@@ -209,60 +175,50 @@
       position: relative;
       overflow: hidden;
     }
-
     .visual-placeholder {
       text-align: center;
       opacity: 0.45;
     }
-
     .visual-placeholder strong {
       display: block;
       font-size: 11px;
       letter-spacing: 4px;
       margin-bottom: 10px;
     }
-
     .visual-placeholder span {
       font-size: 10px;
       letter-spacing: 2px;
     }
-
     .product-info {
       padding: 35px 40px 70px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 50px;
     }
-
     .product-info h3 {
       font-size: clamp(50px, 7vw, 105px);
       line-height: 0.82;
       letter-spacing: -5px;
       text-transform: uppercase;
     }
-
     .product-details {
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       align-items: flex-start;
     }
-
     .product-details p {
       max-width: 480px;
       font-size: 15px;
       line-height: 1.6;
     }
-
     .product-price {
       margin-top: 25px;
       font-size: 11px;
       letter-spacing: 3px;
       font-weight: 600;
     }
-
     /* PHILOSOPHY */
-
     .philosophy {
       padding: 160px 40px;
       min-height: 75vh;
@@ -272,75 +228,62 @@
       background: #111;
       color: #e2ded4;
     }
-
     .philosophy-label {
       font-size: 13px;
       letter-spacing: 4px;
       font-weight: 600;
       margin-bottom: 55px;
     }
-
     .philosophy h2 {
       font-size: clamp(60px, 10vw, 155px);
       line-height: 0.82;
       letter-spacing: -8px;
       text-transform: uppercase;
     }
-
     .philosophy p {
       max-width: 600px;
       margin-top: 65px;
       font-size: 18px;
       line-height: 1.55;
     }
-
     /* END */
-
     .clothing-end {
       padding: 130px 40px 110px;
     }
-
     .clothing-end-label {
       font-size: 13px;
       letter-spacing: 4px;
       font-weight: 600;
       margin-bottom: 45px;
     }
-
     .clothing-end h2 {
       font-size: clamp(60px, 10vw, 150px);
       line-height: 0.82;
       letter-spacing: -7px;
       text-transform: uppercase;
     }
-
     /* FOOTER */
-
     footer {
       padding: 70px 40px 40px;
       background: #111;
       color: #e2ded4;
     }
-
     .footer-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       gap: 40px;
     }
-
     .footer-logo {
       font-size: 42px;
       font-weight: 700;
       letter-spacing: -2px;
     }
-
     .footer-slogan {
       font-size: 13px;
       letter-spacing: 3px;
       font-weight: 600;
     }
-
     .footer-bottom {
       display: flex;
       justify-content: space-between;
@@ -349,182 +292,144 @@
       letter-spacing: 2px;
       font-weight: 600;
     }
-
     .footer-bottom a {
       color: #e2ded4;
       text-decoration: none;
       transition: opacity 0.3s ease;
     }
-
     .footer-bottom a:hover {
       opacity: 0.45;
     }
-
     /* MOBILE */
-
     @media (max-width: 700px) {
-
       header {
         height: 75px;
         padding: 18px 20px;
       }
-
       .logo {
         width: 48px;
         height: 38px;
       }
-
       .mozake-logo {
         width: 48px;
         height: 38px;
       }
-
       nav {
         gap: 12px !important;
         flex-shrink: 0 !important;
       }
-
       nav a {
         font-size: 12px !important;
         font-weight: 600 !important;
         letter-spacing: 1.2px !important;
       }
-
       .clothing-hero {
         min-height: 18vh;
         padding: 8px 20px 8px;
       }
-
       .clothing-label {
         font-size: 15px;
         letter-spacing: 2px;
         margin-bottom: 13px;
       }
-
       .clothing-title {
         width: 100%;
         font-size: 15vw;
         line-height: 0.78;
         letter-spacing: -3px;
       }
-
       .clothing-intro {
         padding: 80px 20px;
       }
-
       .clothing-intro-grid {
         grid-template-columns: 1fr;
         gap: 45px;
       }
-
       .clothing-intro h2 {
         font-size: 16vw;
         letter-spacing: -4px;
       }
-
       .clothing-intro p {
         font-size: 16px;
       }
-
       .collection {
         padding-top: 80px;
       }
-
       .section-label {
         padding: 0 20px;
         margin-bottom: 35px;
       }
-
       .collection-header {
         padding: 0 20px 55px;
         display: block;
       }
-
       .collection-header h2 {
         font-size: 17vw;
         letter-spacing: -4px;
       }
-
       .collection-header span {
         display: block;
         margin-top: 25px;
       }
-
       .product-top {
         padding: 18px 20px;
       }
-
       .product-visual {
         min-height: 430px;
       }
-
       .product-info {
         padding: 30px 20px 55px;
         grid-template-columns: 1fr;
         gap: 35px;
       }
-
       .product-info h3 {
         font-size: 16vw;
         letter-spacing: -4px;
       }
-
       .product-details p {
         font-size: 14px;
       }
-
       .philosophy {
         padding: 110px 20px;
         min-height: 65vh;
       }
-
       .philosophy h2 {
         font-size: 17vw;
         letter-spacing: -4px;
       }
-
       .philosophy p {
         margin-top: 45px;
         font-size: 16px;
       }
-
       .clothing-end {
         padding: 90px 20px 80px;
       }
-
       .clothing-end h2 {
         font-size: 17vw;
         letter-spacing: -4px;
       }
-
       footer {
         padding: 50px 20px 30px;
       }
-
       .footer-top {
         display: block;
       }
-
       .footer-logo {
         font-size: 34px;
       }
-
       .footer-slogan {
         margin-top: 20px;
       }
-
       .footer-bottom {
         margin-top: 60px;
         gap: 20px;
         flex-wrap: wrap;
       }
     }
-
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
       }
-
       nav a,
       .footer-bottom a {
         transition: none;
@@ -532,25 +437,17 @@
     }
   </style>
 </head>
-
 <body>
-
 <header>
-
   <a href="./index.html" class="logo" aria-label="MOZake">
-
-    <svg
-      class="mozake-logo"
-      viewBox="0 0 82 58"
-      aria-label="MOZake logo">
-
-      <polygon points="2,55 29,7 56,55"></polygon>
-      <polygon points="27,51 54,3 81,51"></polygon>
-
-    </svg>
-
+<svg
+  class="mozake-logo"
+  viewBox="0 0 82 58"
+  aria-label="MOZake logo">
+  <polygon points="2,55 29,7 56,55"></polygon>
+  <polygon points="27,51 54,3 81,51"></polygon>
+</svg>
   </a>
-
   <nav>
     <a href="./art.html">ART</a>
     <a href="./clothing.html">CLOTHING</a>
@@ -558,373 +455,237 @@
     <a href="./story.html">STORY</a>
     <a href="./shop.html">SHOP</a>
   </nav>
-
 </header>
-
 <main>
-
   <!-- HERO -->
-
   <section class="clothing-hero">
-
-    <div class="clothing-label">
-      THE WORLD OF MOZake
-    </div>
-
-    <h1 class="clothing-title">
-      CLOTHING
-    </h1>
-
+<div class="clothing-label">
+  THE WORLD OF MOZake
+</div>
+<h1 class="clothing-title">
+  CLOTHING
+</h1>
   </section>
-
-
   <!-- INTRO -->
-
   <section class="clothing-intro">
-
-    <div class="clothing-intro-grid">
-
-      <h2>
-        DESIGNED<br>
-        TO<br>
-        EXIST.
-      </h2>
-
-      <p>
-        Clothing with its own identity.
-        <br><br>
-        Built around form, individuality and expression.
-        <br><br>
-        Don’t just wear the brand.
-        Wear the identity.
-      </p>
-
-    </div>
-
+<div class="clothing-intro-grid">
+  <h2>
+    DESIGNED<br>
+    TO<br>
+    EXIST.
+  </h2>
+  <p>
+    Clothing with its own identity.
+    <br><br>
+    Built around form, individuality and expression.
+    <br><br>
+    Don’t just wear the brand.
+    Wear the identity.
+  </p>
+</div>
   </section>
-
-
   <!-- COLLECTION -->
-
   <section class="collection">
-
-    <div class="section-label">
-      COLLECTION 01
-    </div>
-
-    <div class="collection-header">
-
-      <h2>
-        MAKE IT<br>
-        EXIST.
-      </h2>
-
+<div class="section-label">
+  COLLECTION 01
+</div>
+<div class="collection-header">
+  <h2>
+    MAKE IT<br>
+    EXIST.
+  </h2>
+  <span>
+    04 PIECES
+  </span>
+</div>
+<!-- SYMBOL TEE -->
+<article class="product">
+  <div class="product-top">
+    <span class="product-number">
+      01 / 04
+    </span>
+    <span class="product-status">
+      COMING SOON
+    </span>
+  </div>
+  <div class="product-visual">
+    <div class="visual-placeholder">
+      <strong>
+        SYMBOL TEE
+      </strong>
       <span>
-        04 PIECES
+        IMAGE COMING SOON
       </span>
-
     </div>
-
-
-    <!-- SYMBOL TEE -->
-
-    <article class="product">
-
-      <div class="product-top">
-
-        <span class="product-number">
-          01 / 04
-        </span>
-
-        <span class="product-status">
-          COMING SOON
-        </span>
-
+  </div>
+  <div class="product-info">
+    <h3>
+      SYMBOL<br>
+      TEE
+    </h3>
+    <div class="product-details">
+      <p>
+        A statement in simplicity.
+        Built to stand on its own.
+      </p>
+      <div class="product-price">
+        PRICE — TBA
       </div>
-
-      <div class="product-visual">
-
-        <div class="visual-placeholder">
-
-          <strong>
-            SYMBOL TEE
-          </strong>
-
-          <span>
-            IMAGE COMING SOON
-          </span>
-
-        </div>
-
+    </div>
+  </div>
+</article>
+<!-- FIRST MARK -->
+<article class="product">
+  <div class="product-top">
+    <span class="product-number">
+      02 / 04
+    </span>
+    <span class="product-status">
+      COMING SOON
+    </span>
+  </div>
+  <div class="product-visual">
+    <div class="visual-placeholder">
+      <strong>
+        FIRST MARK
+      </strong>
+      <span>
+        IMAGE COMING SOON
+      </span>
+    </div>
+  </div>
+  <div class="product-info">
+    <h3>
+      FIRST<br>
+      MARK
+    </h3>
+    <div class="product-details">
+      <p>
+        A defining mark.
+        Reworked into something made to be worn.
+      </p>
+      <div class="product-price">
+        PRICE — TBA
       </div>
-
-      <div class="product-info">
-
-        <h3>
-          SYMBOL<br>
-          TEE
-        </h3>
-
-        <div class="product-details">
-
-          <p>
-            A statement in simplicity.
-            Built to stand on its own.
-          </p>
-
-          <div class="product-price">
-            PRICE — TBA
-          </div>
-
-        </div>
-
+    </div>
+  </div>
+</article>
+<!-- MOZake HOODIE -->
+<article class="product">
+  <div class="product-top">
+    <span class="product-number">
+      03 / 04
+    </span>
+    <span class="product-status">
+      COMING SOON
+    </span>
+  </div>
+  <div class="product-visual">
+    <div class="visual-placeholder">
+      <strong>
+        MOZake HOODIE
+      </strong>
+      <span>
+        IMAGE COMING SOON
+      </span>
+    </div>
+  </div>
+  <div class="product-info">
+    <h3>
+      MOZake<br>
+      HOODIE
+    </h3>
+    <div class="product-details">
+      <p>
+        Built for presence.
+        Designed to become part of yours.
+      </p>
+      <div class="product-price">
+        PRICE — TBA
       </div>
-
-    </article>
-
-
-    <!-- FIRST MARK -->
-
-    <article class="product">
-
-      <div class="product-top">
-
-        <span class="product-number">
-          02 / 04
-        </span>
-
-        <span class="product-status">
-          COMING SOON
-        </span>
-
+    </div>
+  </div>
+</article>
+<!-- WORLD PIECE -->
+<article class="product">
+  <div class="product-top">
+    <span class="product-number">
+      04 / 04
+    </span>
+    <span class="product-status">
+      LIMITED EDITION
+    </span>
+  </div>
+  <div class="product-visual">
+    <div class="visual-placeholder">
+      <strong>
+        WORLD PIECE
+      </strong>
+      <span>
+        IMAGE COMING SOON
+      </span>
+    </div>
+  </div>
+  <div class="product-info">
+    <h3>
+      WORLD<br>
+      PIECE
+    </h3>
+    <div class="product-details">
+      <p>
+        A limited piece.
+        Made to leave an impression.
+      </p>
+      <div class="product-price">
+        PRICE — TBA
       </div>
-
-      <div class="product-visual">
-
-        <div class="visual-placeholder">
-
-          <strong>
-            FIRST MARK
-          </strong>
-
-          <span>
-            IMAGE COMING SOON
-          </span>
-
-        </div>
-
-      </div>
-
-      <div class="product-info">
-
-        <h3>
-          FIRST<br>
-          MARK
-        </h3>
-
-        <div class="product-details">
-
-          <p>
-            A defining mark.
-            Reworked into something made to be worn.
-          </p>
-
-          <div class="product-price">
-            PRICE — TBA
-          </div>
-
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- MOZake HOODIE -->
-
-    <article class="product">
-
-      <div class="product-top">
-
-        <span class="product-number">
-          03 / 04
-        </span>
-
-        <span class="product-status">
-          COMING SOON
-        </span>
-
-      </div>
-
-      <div class="product-visual">
-
-        <div class="visual-placeholder">
-
-          <strong>
-            MOZake HOODIE
-          </strong>
-
-          <span>
-            IMAGE COMING SOON
-          </span>
-
-        </div>
-
-      </div>
-
-      <div class="product-info">
-
-        <h3>
-          MOZake<br>
-          HOODIE
-        </h3>
-
-        <div class="product-details">
-
-          <p>
-            Built for presence.
-            Designed to become part of yours.
-          </p>
-
-          <div class="product-price">
-            PRICE — TBA
-          </div>
-
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- WORLD PIECE -->
-
-    <article class="product">
-
-      <div class="product-top">
-
-        <span class="product-number">
-          04 / 04
-        </span>
-
-        <span class="product-status">
-          LIMITED EDITION
-        </span>
-
-      </div>
-
-      <div class="product-visual">
-
-        <div class="visual-placeholder">
-
-          <strong>
-            WORLD PIECE
-          </strong>
-
-          <span>
-            IMAGE COMING SOON
-          </span>
-
-        </div>
-
-      </div>
-
-      <div class="product-info">
-
-        <h3>
-          WORLD<br>
-          PIECE
-        </h3>
-
-        <div class="product-details">
-
-          <p>
-            A limited piece.
-            Made to leave an impression.
-          </p>
-
-          <div class="product-price">
-            PRICE — TBA
-          </div>
-
-        </div>
-
-      </div>
-
-    </article>
-
+    </div>
+  </div>
+</article>
   </section>
-
-
   <!-- PHILOSOPHY -->
-
   <section class="philosophy">
-
-    <div class="philosophy-label">
-      IDENTITY
-    </div>
-
-    <h2>
-      WEAR THE<br>
-      IDENTITY.
-    </h2>
-
-    <p>
-      What you wear says something about you.
-      <br><br>
-      It becomes part of how you move,
-      how you express yourself and how you're seen.
-      <br><br>
-      No uniform. No rules. Just identity.
-    </p>
-
+<div class="philosophy-label">
+  IDENTITY
+</div>
+<h2>
+  WEAR THE<br>
+  IDENTITY.
+</h2>
+<p>
+  What you wear says something about you.
+  <br><br>
+  It becomes part of how you move,
+  how you express yourself and how you're seen.
+  <br><br>
+  No uniform. No rules. Just identity.
+</p>
   </section>
-
-
   <!-- END -->
-
   <section class="clothing-end">
-
-    <div class="clothing-end-label">
-      THE COLLECTION CONTINUES
-    </div>
-
-    <h2>
-      BUILT FOR<br>
-      WHAT COMES<br>
-      NEXT.
-    </h2>
-
+<div class="clothing-end-label">
+  THE COLLECTION CONTINUES
+</div>
+<h2>
+  MORE TO COME.
+</h2>
   </section>
-
 </main>
-
-
 <!-- FOOTER -->
-
 <footer>
-
   <div class="footer-top">
-
-    <div class="footer-logo">
-      MOZake
-    </div>
-
-    <div class="footer-slogan">
-      MAKE IT EXIST.
-    </div>
-
+<div class="footer-logo">
+  MOZake
+</div>
+<div class="footer-slogan">
+  MAKE IT EXIST.
+</div>
   </div>
-
   <div class="footer-bottom">
-
-    <a href="./art.html">ART</a>
-    <a href="./clothing.html">CLOTHING</a>
-    <a href="./collectibles.html">COLLECTIBLES</a>
-
+<a href="./art.html">ART</a>
+<a href="./clothing.html">CLOTHING</a>
+<a href="./collectibles.html">COLLECTIBLES</a>
   </div>
-
 </footer>
-
 </body>
 </html>
