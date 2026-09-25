@@ -477,11 +477,11 @@
 </a>
   </div>
   <nav aria-label="Main navigation">
-<a href="./art.html">ART</a>
-<a href="./clothing.html">CLOTHING</a>
-<a href="./collectibles.html">COLLECTIBLES</a>
-<a href="./story.html">STORY</a>
-<a href="./shop.html">SHOP</a>
+    <a href="./art.html">ART</a>
+    <a href="./clothing.html">CLOTHING</a>
+    <a href="./collectibles.html">COLLECTIBLES</a>
+    <a href="./story.html">STORY</a>
+    <a href="./shop.html">SHOP</a>
   </nav>
 </header>
 <main>
@@ -522,25 +522,19 @@
         ORDER SUMMARY
       </div>
       <div class="summary-row">
-        <span>
-          SUBTOTAL
-        </span>
+        <span>SUBTOTAL</span>
         <span id="subtotal">
           $0.00
         </span>
       </div>
       <div class="summary-row">
-        <span>
-          SHIPPING
-        </span>
+        <span>SHIPPING</span>
         <span>
           CALCULATED AT CHECKOUT
         </span>
       </div>
       <div class="summary-row total">
-        <span>
-          TOTAL
-        </span>
+        <span>TOTAL</span>
         <span id="total">
           $0.00
         </span>
@@ -594,43 +588,24 @@
     "https://cjyhqxffjppmzgsgrsvt.supabase.co";
   const SUPABASE_KEY =
     "sb_publishable_vDNha1HTi57tHedL3KgSzA_DnyVaEj5";
-  /* SUPABASE CLIENT — GLOBAL */
-  const supabase =
-    window.supabase.createClient(
-      SUPABASE_URL,
-      SUPABASE_KEY
-    );
+  let supabase = null;
   const loadingMessage =
-    document.getElementById(
-      "loadingMessage"
-    );
+    document.getElementById("loadingMessage");
   const cartContent =
-    document.getElementById(
-      "cartContent"
-    );
+    document.getElementById("cartContent");
   const emptyCart =
-    document.getElementById(
-      "emptyCart"
-    );
+    document.getElementById("emptyCart");
   const cartItems =
-    document.getElementById(
-      "cartItems"
-    );
+    document.getElementById("cartItems");
   const cartCount =
-    document.getElementById(
-      "cartCount"
-    );
+    document.getElementById("cartCount");
   const subtotal =
-    document.getElementById(
-      "subtotal"
-    );
+    document.getElementById("subtotal");
   const total =
-    document.getElementById(
-      "total"
-    );
-  function showStatus(
-    message
-  ) {
+    document.getElementById("total");
+  let currentStage =
+    "PAGE STARTED";
+  function showStatus(message) {
     loadingMessage.textContent =
       message;
     loadingMessage.style.display =
@@ -640,36 +615,29 @@
     emptyCart.style.display =
       "none";
   }
-  function showError(
-    message
-  ) {
+  function showError(message) {
     console.error(message);
-    showStatus(message);
+    loadingMessage.textContent =
+      message;
+    loadingMessage.style.display =
+      "block";
+    cartContent.style.display =
+      "none";
+    emptyCart.style.display =
+      "none";
   }
-  /*
-    SAFETY TIMER
-    If anything gets stuck for more than
-    5 seconds, the page tells us where.
-  */
-  let currentStage =
-    "PAGE STARTED";
-  const safetyTimer =
-    setTimeout(
-      () => {
-        showError(
-          "CART TIMEOUT — " +
-          currentStage
-        );
-      },
-      5000
-    );
   async function startCart() {
     try {
       currentStage =
-        "LOADING SUPABASE";
+        "CHECKING SUPABASE SCRIPT";
       showStatus(
         "CONNECTING..."
       );
+      /*
+        IMPORTANT:
+        Check that the CDN library exists BEFORE
+        trying to create the Supabase client.
+      */
       if (
         !window.supabase ||
         !window.supabase.createClient
@@ -679,6 +647,11 @@
         );
         return;
       }
+      supabase =
+        window.supabase.createClient(
+          SUPABASE_URL,
+          SUPABASE_KEY
+        );
       currentStage =
         "CHECKING ACCOUNT";
       showStatus(
@@ -700,13 +673,6 @@
       if (!session) {
         showError(
           "SIGN IN TO VIEW YOUR CART."
-        );
-        setTimeout(
-          () => {
-            window.location.href =
-              "./account.html";
-          },
-          1200
         );
         return;
       }
@@ -745,9 +711,6 @@
       if (
         cartData.length === 0
       ) {
-        clearTimeout(
-          safetyTimer
-        );
         loadingMessage.style.display =
           "none";
         emptyCart.style.display =
@@ -774,14 +737,6 @@
               item.product_id
           )
           .filter(Boolean);
-      if (
-        productIds.length === 0
-      ) {
-        showError(
-          "CART ERROR — NO PRODUCT IDS"
-        );
-        return;
-      }
       const productsResult =
         await supabase
           .from("products")
@@ -816,15 +771,13 @@
       const items =
         cartData
           .map(
-            item => {
-              return {
-                ...item,
-                product:
-                  productMap.get(
-                    item.product_id
-                  ) || null
-              };
-            }
+            item => ({
+              ...item,
+              product:
+                productMap.get(
+                  item.product_id
+                ) || null
+            })
           )
           .filter(
             item =>
@@ -840,18 +793,11 @@
       }
       currentStage =
         "RENDERING CART";
-      renderCart(
-        items
-      );
-      clearTimeout(
-        safetyTimer
-      );
+      renderCart(items);
     } catch (error) {
-      clearTimeout(
-        safetyTimer
-      );
+      console.error(error);
       showError(
-        "CART CRASH — " +
+        "CART ERROR — " +
         (
           error &&
           error.message
@@ -861,9 +807,7 @@
       );
     }
   }
-  function renderCart(
-    items
-  ) {
+  function renderCart(items) {
     cartItems.innerHTML =
       "";
     let cartSubtotal =
@@ -875,48 +819,34 @@
         const product =
           item.product;
         const quantity =
-          Number(
-            item.quantity
-          ) || 1;
+          Number(item.quantity) || 1;
         const price =
-          Number(
-            product.price
-          ) || 0;
+          Number(product.price) || 0;
         cartSubtotal +=
           price * quantity;
         itemCount +=
           quantity;
         const article =
-          document.createElement(
-            "article"
-          );
+          document.createElement("article");
         article.className =
           "cart-item";
         const image =
-          document.createElement(
-            "div"
-          );
+          document.createElement("div");
         image.className =
           "cart-image";
         if (
           product.image_url
         ) {
           const img =
-            document.createElement(
-              "img"
-            );
+            document.createElement("img");
           img.src =
             product.image_url;
           img.alt =
             product.name;
-          image.appendChild(
-            img
-          );
+          image.appendChild(img);
         } else {
           const placeholder =
-            document.createElement(
-              "div"
-            );
+            document.createElement("div");
           placeholder.className =
             "cart-image-placeholder";
           placeholder.textContent =
@@ -926,41 +856,29 @@
           );
         }
         const details =
-          document.createElement(
-            "div"
-          );
+          document.createElement("div");
         const name =
-          document.createElement(
-            "div"
-          );
+          document.createElement("div");
         name.className =
           "cart-product-name";
         name.textContent =
           product.name;
         const category =
-          document.createElement(
-            "div"
-          );
+          document.createElement("div");
         category.className =
           "cart-product-category";
         category.textContent =
           product.category;
         const controls =
-          document.createElement(
-            "div"
-          );
+          document.createElement("div");
         controls.className =
           "cart-controls";
         const quantityControl =
-          document.createElement(
-            "div"
-          );
+          document.createElement("div");
         quantityControl.className =
           "quantity-control";
         const minus =
-          document.createElement(
-            "button"
-          );
+          document.createElement("button");
         minus.type =
           "button";
         minus.className =
@@ -968,17 +886,13 @@
         minus.textContent =
           "−";
         const quantityValue =
-          document.createElement(
-            "span"
-          );
+          document.createElement("span");
         quantityValue.className =
           "quantity-value";
         quantityValue.textContent =
           quantity;
         const plus =
-          document.createElement(
-            "button"
-          );
+          document.createElement("button");
         plus.type =
           "button";
         plus.className =
@@ -1013,9 +927,7 @@
           plus
         );
         const remove =
-          document.createElement(
-            "button"
-          );
+          document.createElement("button");
         remove.type =
           "button";
         remove.className =
@@ -1046,9 +958,7 @@
           controls
         );
         const itemPrice =
-          document.createElement(
-            "div"
-          );
+          document.createElement("div");
         itemPrice.className =
           "cart-item-price";
         itemPrice.textContent =
@@ -1090,9 +1000,7 @@
     cartContent.style.display =
       "block";
   }
-  function formatPrice(
-    cents
-  ) {
+  function formatPrice(cents) {
     return new Intl.NumberFormat(
       "en-AU",
       {
@@ -1115,80 +1023,56 @@
       );
       return;
     }
-    try {
-      const result =
-        await supabase
-          .from("cart_items")
-          .update({
-            quantity:
-              newQuantity,
-            updated_at:
-              new Date().toISOString()
-          })
-          .eq(
-            "id",
-            cartId
-          );
-      if (
-        result.error
-      ) {
-        alert(
-          "Unable to update quantity."
+    const result =
+      await supabase
+        .from("cart_items")
+        .update({
+          quantity:
+            newQuantity,
+          updated_at:
+            new Date().toISOString()
+        })
+        .eq(
+          "id",
+          cartId
         );
-        console.error(
-          result.error
-        );
-        return;
-      }
-      await startCart();
-    } catch (error) {
+    if (
+      result.error
+    ) {
       console.error(
-        "Quantity update error:",
-        error
+        result.error
       );
       alert(
         "Unable to update quantity."
       );
+      return;
     }
+    await startCart();
   }
   async function removeItem(
     cartId
   ) {
-    try {
-      const result =
-        await supabase
-          .from("cart_items")
-          .delete()
-          .eq(
-            "id",
-            cartId
-          );
-      if (
-        result.error
-      ) {
-        alert(
-          "Unable to remove item."
+    const result =
+      await supabase
+        .from("cart_items")
+        .delete()
+        .eq(
+          "id",
+          cartId
         );
-        console.error(
-          result.error
-        );
-        return;
-      }
-      await startCart();
-    } catch (error) {
+    if (
+      result.error
+    ) {
       console.error(
-        "Remove item error:",
-        error
+        result.error
       );
       alert(
         "Unable to remove item."
       );
+      return;
     }
+    await startCart();
   }
-  /*
-    START ONCE.
-    NO AUTH LISTENER.
-  */
   startCart();
 </script>
 </body>
