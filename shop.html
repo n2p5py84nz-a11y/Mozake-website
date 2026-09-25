@@ -10,16 +10,20 @@
       margin: 0;
       padding: 0;
     }
+
     html {
       scroll-behavior: smooth;
     }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: #e2ded4;
       color: #111;
       overflow-x: hidden;
     }
+
     /* HEADER */
+
     header {
       width: 100%;
       height: 90px;
@@ -30,26 +34,31 @@
       position: relative;
       z-index: 10;
     }
+
     .header-left {
       display: flex;
       align-items: center;
       gap: 28px;
     }
+
     .logo {
       display: flex;
       align-items: center;
       width: 62px;
       height: 48px;
     }
+
     .mozake-logo {
       width: 62px;
       height: 48px;
       display: block;
       overflow: visible;
     }
+
     .mozake-logo polygon {
       fill: #111;
     }
+
     .account-link {
       width: 25px;
       height: 25px;
@@ -60,19 +69,23 @@
       text-decoration: none;
       transition: opacity 0.3s ease;
     }
+
     .account-link:hover {
       opacity: 0.45;
     }
+
     .account-icon {
       width: 22px;
       height: 22px;
       display: block;
     }
+
     nav {
       display: flex !important;
       gap: 40px !important;
       align-items: center !important;
     }
+
     nav a {
       color: #111 !important;
       text-decoration: none !important;
@@ -83,13 +96,17 @@
       line-height: 1 !important;
       transition: opacity 0.3s ease;
     }
+
     nav a:hover {
       opacity: 0.45;
     }
+
     nav a.current {
       opacity: 0.45;
     }
+
     /* HERO */
+
     .shop-hero {
       min-height: 24vh;
       padding: 8px 40px 10px;
@@ -99,12 +116,14 @@
       border-bottom: 1px solid #111;
       overflow: hidden;
     }
+
     .shop-label {
       font-size: 20px;
       letter-spacing: 3px;
       font-weight: 600;
       margin-bottom: 18px;
     }
+
     .shop-title {
       width: 100%;
       font-size: clamp(70px, 14vw, 220px);
@@ -114,7 +133,9 @@
       text-transform: uppercase;
       white-space: nowrap;
     }
+
     /* ACCOUNT STATUS */
+
     .account-status {
       padding: 18px 40px;
       border-bottom: 1px solid #111;
@@ -126,18 +147,23 @@
       letter-spacing: 2px;
       font-weight: 600;
     }
+
     .account-status-label {
       opacity: 0.45;
     }
+
     .account-status-link {
       color: #111;
       text-decoration: none;
       transition: opacity 0.3s ease;
     }
+
     .account-status-link:hover {
       opacity: 0.45;
     }
+
     /* FILTER */
+
     .shop-controls {
       padding: 35px 40px;
       border-bottom: 1px solid #111;
@@ -146,11 +172,13 @@
       align-items: center;
       gap: 30px;
     }
+
     .shop-filter {
       display: flex;
       gap: 28px;
       flex-wrap: wrap;
     }
+
     .shop-filter button {
       border: 0;
       background: transparent;
@@ -163,20 +191,25 @@
       cursor: pointer;
       text-transform: uppercase;
     }
+
     .shop-filter button.active {
       text-decoration: underline;
       text-underline-offset: 6px;
     }
+
     .shop-count {
       font-size: 11px;
       letter-spacing: 3px;
       opacity: 0.5;
       white-space: nowrap;
     }
+
     /* PRODUCTS */
+
     .shop-products {
       padding: 60px 40px 130px;
     }
+
     .product-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -184,6 +217,7 @@
       background: #111;
       border: 1px solid #111;
     }
+
     .product-card {
       background: #e2ded4;
       min-height: 620px;
@@ -192,20 +226,24 @@
       flex-direction: column;
       justify-content: space-between;
     }
+
     .product-top {
       display: flex;
       justify-content: space-between;
       gap: 20px;
     }
+
     .product-number,
     .product-category {
       font-size: 10px;
       letter-spacing: 3px;
       font-weight: 600;
     }
+
     .product-category {
       opacity: 0.5;
     }
+
     .product-image {
       flex: 1;
       min-height: 360px;
@@ -219,19 +257,23 @@
       overflow: hidden;
       position: relative;
     }
+
     .product-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
+
     .product-image span {
       font-size: 11px;
       letter-spacing: 3px;
       font-weight: 600;
       opacity: 0.45;
     }
+
     /* WISHLIST */
+
     .wishlist-button {
       position: absolute;
       top: 14px;
@@ -249,33 +291,43 @@
       z-index: 3;
       transition: opacity 0.3s ease, transform 0.2s ease;
     }
+
     .wishlist-button:hover {
       opacity: 0.55;
     }
+
     .wishlist-button:active {
       transform: scale(0.92);
     }
+
     .wishlist-button:disabled {
       cursor: default;
     }
+
     .wishlist-icon {
       width: 19px;
       height: 19px;
       display: block;
     }
+
     .wishlist-button.saved {
       background: #111;
       color: #e2ded4;
     }
+
     .wishlist-button.saved .wishlist-icon {
       fill: currentColor;
     }
+
+    /* PRODUCT BOTTOM */
+
     .product-bottom {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       gap: 30px;
     }
+
     .product-name {
       font-size: 40px;
       line-height: 0.85;
@@ -283,12 +335,21 @@
       font-weight: 700;
       text-transform: uppercase;
     }
+
     .product-meta {
       margin-top: 15px;
       font-size: 12px;
       letter-spacing: 1.5px;
       line-height: 1.5;
     }
+
+    .product-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 18px;
+    }
+
     .product-action {
       color: #111;
       text-decoration: none;
@@ -296,10 +357,73 @@
       font-weight: 600;
       letter-spacing: 2px;
       white-space: nowrap;
+      border: 0;
+      background: transparent;
+      font-family: inherit;
+      cursor: pointer;
+      padding: 0;
     }
+
     .product-action:hover {
       opacity: 0.5;
     }
+
+    .add-cart-button {
+      color: #111;
+      background: transparent;
+      border: 1px solid #111;
+      padding: 13px 16px;
+      font-family: inherit;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.25s ease, color 0.25s ease, opacity 0.25s ease;
+    }
+
+    .add-cart-button:hover {
+      background: #111;
+      color: #e2ded4;
+    }
+
+    .add-cart-button:disabled {
+      cursor: default;
+      opacity: 0.35;
+    }
+
+    .add-cart-button.added {
+      background: #111;
+      color: #e2ded4;
+    }
+
+    /* CART MESSAGE */
+
+    .cart-message {
+      position: fixed;
+      left: 50%;
+      bottom: 25px;
+      transform: translateX(-50%);
+      z-index: 100;
+      background: #111;
+      color: #e2ded4;
+      padding: 15px 20px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .cart-message.show {
+      opacity: 1;
+    }
+
+    /* EMPTY */
+
     .shop-empty {
       padding: 80px 20px;
       text-align: center;
@@ -309,29 +433,35 @@
       font-weight: 600;
       opacity: 0.5;
     }
+
     /* FOOTER */
+
     footer {
       padding: 70px 40px 40px;
       background: #111;
       color: #e2ded4;
       border-top: 1px solid #555;
     }
+
     .footer-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       gap: 40px;
     }
+
     .footer-logo {
       font-size: 42px;
       font-weight: 700;
       letter-spacing: -2px;
     }
+
     .footer-slogan {
       font-size: 13px;
       letter-spacing: 3px;
       font-weight: 600;
     }
+
     .footer-bottom {
       display: flex;
       justify-content: space-between;
@@ -340,16 +470,21 @@
       letter-spacing: 2px;
       font-weight: 600;
     }
+
     .footer-bottom a {
       color: #e2ded4;
       text-decoration: none;
       transition: opacity 0.3s ease;
     }
+
     .footer-bottom a:hover {
       opacity: 0.45;
     }
+
     /* MOBILE */
+
     @media (max-width: 700px) {
+
       header {
         height: auto;
         padding: 16px 16px 14px;
@@ -358,6 +493,7 @@
         align-items: stretch;
         gap: 13px;
       }
+
       .header-left {
         width: 100%;
         display: flex;
@@ -365,22 +501,27 @@
         align-items: center;
         gap: 0;
       }
+
       .logo {
         width: 48px;
         height: 38px;
       }
+
       .mozake-logo {
         width: 48px;
         height: 38px;
       }
+
       .account-link {
         width: 34px;
         height: 34px;
       }
+
       .account-icon {
         width: 32px;
         height: 32px;
       }
+
       nav {
         width: 100%;
         display: flex !important;
@@ -389,89 +530,127 @@
         gap: 0 !important;
         flex-shrink: 0 !important;
       }
+
       nav a {
         font-size: 15px !important;
         font-weight: 600 !important;
         letter-spacing: 1.15px !important;
         white-space: nowrap !important;
       }
+
       .shop-hero {
         min-height: 18vh;
         padding: 8px 20px 8px;
       }
+
       .shop-label {
         font-size: 15px;
         letter-spacing: 2px;
         margin-bottom: 13px;
       }
+
       .shop-title {
         width: 100%;
         font-size: 15vw;
         letter-spacing: -3px;
         white-space: nowrap;
       }
+
       .account-status {
         padding: 16px 20px;
         font-size: 9px;
         letter-spacing: 1.5px;
       }
+
       .shop-controls {
         padding: 25px 20px;
         display: block;
       }
+
       .shop-filter {
         gap: 18px;
       }
+
       .shop-filter button {
         font-size: 10px;
         letter-spacing: 1.5px;
       }
+
       .shop-count {
         display: block;
         margin-top: 22px;
       }
+
       .shop-products {
         padding: 35px 20px 80px;
       }
+
       .product-grid {
         grid-template-columns: 1fr;
       }
+
       .product-card {
         min-height: 520px;
         padding: 20px;
       }
+
       .product-image {
         min-height: 310px;
         margin: 25px 0;
       }
+
       .wishlist-button {
         top: 12px;
         right: 12px;
         width: 40px;
         height: 40px;
       }
+
       .product-bottom {
         display: block;
       }
+
       .product-name {
         font-size: 38px;
       }
-      .product-action {
-        display: inline-block;
+
+      .product-actions {
+        align-items: flex-start;
         margin-top: 25px;
       }
+
+      .product-action {
+        display: inline-block;
+      }
+
+      .add-cart-button {
+        width: 100%;
+        text-align: center;
+      }
+
+      .cart-message {
+        bottom: 18px;
+        max-width: calc(100% - 40px);
+        text-align: center;
+        white-space: normal;
+      }
+
       footer {
         padding: 50px 20px 30px;
       }
+
       .footer-top {
         display: block;
       }
+
       .footer-logo {
         font-size: 34px;
       }
+
       .footer-slogan {
         margin-top: 20px;
       }
+
       .footer-bottom {
         margin-top: 60px;
         gap: 20px;
@@ -480,231 +659,372 @@
     }
   </style>
 </head>
+
 <body>
+
   <header>
+
     <div class="header-left">
+
       <a
         href="./index.html"
         class="logo"
         aria-label="MOZake">
+
         <svg
           class="mozake-logo"
           viewBox="0 0 82 58"
           aria-label="MOZake logo">
+
           <polygon points="2,55 29,7 56,55"></polygon>
           <polygon points="27,51 54,3 81,51"></polygon>
+
         </svg>
+
       </a>
-  <a
-    href="./account.html"
-    class="account-link"
-    aria-label="Account"
-    title="Account">
-    <svg
-      class="account-icon"
-      viewBox="0 0 24 24"
-      aria-hidden="true">
-      <circle
-        cx="12"
-        cy="8"
-        r="3.2"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.8"/>
-      <path
-        d="M5.5 19c.7-3.1 3-5 6.5-5s5.8 1.9 6.5 5"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.8"
-        stroke-linecap="round"/>
-    </svg>
-  </a>
-</div>
-<nav>
-  <a href="./art.html">
-    ART
-  </a>
-  <a href="./clothing.html">
-    CLOTHING
-  </a>
-  <a href="./collectibles.html">
-    COLLECTIBLES
-  </a>
-  <a href="./story.html">
-    STORY
-  </a>
-  <a
-    href="./shop.html"
-    class="current"
-    aria-current="page">
-    SHOP
-  </a>
-</nav>
+
+      <a
+        href="./account.html"
+        class="account-link"
+        aria-label="Account"
+        title="Account">
+
+        <svg
+          class="account-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true">
+
+          <circle
+            cx="12"
+            cy="8"
+            r="3.2"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"/>
+
+          <path
+            d="M5.5 19c.7-3.1 3-5 6.5-5s5.8 1.9 6.5 5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"/>
+
+        </svg>
+
+      </a>
+
+    </div>
+
+    <nav>
+
+      <a href="./art.html">
+        ART
+      </a>
+
+      <a href="./clothing.html">
+        CLOTHING
+      </a>
+
+      <a href="./collectibles.html">
+        COLLECTIBLES
+      </a>
+
+      <a href="./story.html">
+        STORY
+      </a>
+
+      <a
+        href="./shop.html"
+        class="current"
+        aria-current="page">
+        SHOP
+      </a>
+
+    </nav>
+
   </header>
+
   <main>
+
     <section class="shop-hero">
+
       <div class="shop-label">
         THE WORLD OF MOZake
       </div>
-  <h1 class="shop-title">
-    SHOP
-  </h1>
-</section>
-<section class="account-status">
-  <span
-    class="account-status-label"
-    id="accountStatus">
-    CHECKING ACCOUNT
-  </span>
-  <a
-    href="./account.html"
-    class="account-status-link"
-    id="accountStatusLink">
-    ACCOUNT →
-  </a>
-</section>
-<section class="shop-controls">
-  <div class="shop-filter">
-    <button
-      class="active"
-      data-filter="all">
-      ALL
-    </button>
-    <button data-filter="art">
-      ART
-    </button>
-    <button data-filter="clothing">
-      CLOTHING
-    </button>
-    <button data-filter="collectibles">
-      COLLECTIBLES
-    </button>
-  </div>
-  <div
-    class="shop-count"
-    id="shopCount">
-    LOADING
-  </div>
-</section>
-<section class="shop-products">
-  <div
-    class="product-grid"
-    id="productGrid">
-  </div>
-  <div
-    class="shop-empty"
-    id="shopEmpty"
-    style="display: none;">
-    NO PRODUCTS AVAILABLE
-  </div>
-</section>
+
+      <h1 class="shop-title">
+        SHOP
+      </h1>
+
+    </section>
+
+    <section class="account-status">
+
+      <span
+        class="account-status-label"
+        id="accountStatus">
+        CHECKING ACCOUNT
+      </span>
+
+      <a
+        href="./account.html"
+        class="account-status-link"
+        id="accountStatusLink">
+        ACCOUNT →
+      </a>
+
+    </section>
+
+    <section class="shop-controls">
+
+      <div class="shop-filter">
+
+        <button
+          class="active"
+          data-filter="all">
+          ALL
+        </button>
+
+        <button data-filter="art">
+          ART
+        </button>
+
+        <button data-filter="clothing">
+          CLOTHING
+        </button>
+
+        <button data-filter="collectibles">
+          COLLECTIBLES
+        </button>
+
+      </div>
+
+      <div
+        class="shop-count"
+        id="shopCount">
+        LOADING
+      </div>
+
+    </section>
+
+    <section class="shop-products">
+
+      <div
+        class="product-grid"
+        id="productGrid">
+      </div>
+
+      <div
+        class="shop-empty"
+        id="shopEmpty"
+        style="display: none;">
+        NO PRODUCTS AVAILABLE
+      </div>
+
+    </section>
+
   </main>
+
   <footer>
+
     <div class="footer-top">
+
       <div class="footer-logo">
         MOZake
       </div>
-  <div class="footer-slogan">
-    MAKE IT EXIST.
-  </div>
-</div>
-<div class="footer-bottom">
-  <a href="./art.html">
-    ART
-  </a>
-  <a href="./clothing.html">
-    CLOTHING
-  </a>
-  <a href="./collectibles.html">
-    COLLECTIBLES
-  </a>
-</div>
+
+      <div class="footer-slogan">
+        MAKE IT EXIST.
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+      <a href="./art.html">
+        ART
+      </a>
+
+      <a href="./clothing.html">
+        CLOTHING
+      </a>
+
+      <a href="./collectibles.html">
+        COLLECTIBLES
+      </a>
+
+    </div>
+
   </footer>
+
+  <div
+    class="cart-message"
+    id="cartMessage"
+    aria-live="polite">
+  </div>
+
   <!-- SUPABASE -->
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <script>
+
     const SUPABASE_URL =
       "https://cjyhqxffjppmzgsgrsvt.supabase.co";
+
     const SUPABASE_PUBLISHABLE_KEY =
       "sb_publishable_vDNha1HTi57tHedL3KgSzA_DnyVaEj5";
+
     const supabaseClient =
       window.supabase.createClient(
         SUPABASE_URL,
         SUPABASE_PUBLISHABLE_KEY
       );
+
     const productGrid =
-      document.getElementById("productGrid");
+      document.getElementById(
+        "productGrid"
+      );
+
     const shopCount =
-      document.getElementById("shopCount");
+      document.getElementById(
+        "shopCount"
+      );
+
     const shopEmpty =
-      document.getElementById("shopEmpty");
+      document.getElementById(
+        "shopEmpty"
+      );
+
     const accountStatus =
-      document.getElementById("accountStatus");
+      document.getElementById(
+        "accountStatus"
+      );
+
     const accountStatusLink =
-      document.getElementById("accountStatusLink");
+      document.getElementById(
+        "accountStatusLink"
+      );
+
+    const cartMessage =
+      document.getElementById(
+        "cartMessage"
+      );
+
     const filterButtons =
       document.querySelectorAll(
         ".shop-filter button"
       );
+
     let allProducts = [];
+
     let wishlistProductIds =
       new Set();
-    /*
-     * Every complete Shop refresh gets a new token.
-     * If another refresh starts before an older one
-     * finishes, the older refresh is ignored.
-     */
+
     let shopLoadToken = 0;
+
+    /* CART MESSAGE */
+
+    let cartMessageTimer = null;
+
+    function showCartMessage(
+      message
+    ) {
+
+      cartMessage.textContent =
+        message;
+
+      cartMessage.classList.add(
+        "show"
+      );
+
+      clearTimeout(
+        cartMessageTimer
+      );
+
+      cartMessageTimer =
+        setTimeout(
+          () => {
+            cartMessage.classList.remove(
+              "show"
+            );
+          },
+          2200
+        );
+    }
+
     /* ACCOUNT STATUS */
+
     async function updateAccountStatus() {
+
       try {
+
         const {
           data
         } =
           await supabaseClient.auth.getUser();
+
         const user =
           data?.user || null;
+
         if (user) {
+
           accountStatus.textContent =
             "SIGNED IN AS " +
             user.email;
+
           accountStatusLink.textContent =
             "ACCOUNT →";
+
         } else {
+
           accountStatus.textContent =
             "NOT SIGNED IN";
+
           accountStatusLink.textContent =
             "SIGN IN →";
         }
+
       } catch (error) {
+
         console.error(
           "MOZake account status error:",
           error
         );
+
         accountStatus.textContent =
           "NOT SIGNED IN";
+
         accountStatusLink.textContent =
           "SIGN IN →";
       }
     }
+
     /* PRICE */
+
     function formatPrice(
       price,
       currency
     ) {
+
       if (
         price === null ||
         price === undefined
       ) {
+
         return "PRICE — TBA";
       }
+
       const amount =
         Number(price) / 100;
+
       if (
         !Number.isFinite(amount)
       ) {
+
         return "PRICE — TBA";
       }
+
       return new Intl.NumberFormat(
         "en-AU",
         {
@@ -714,77 +1034,110 @@
         }
       ).format(amount);
     }
+
     /* CATEGORY LINK */
+
     function categoryLink(
       category
     ) {
+
       if (
         category === "art"
       ) {
+
         return "./art.html";
       }
+
       if (
         category === "clothing"
       ) {
+
         return "./clothing.html";
       }
+
       if (
         category === "collectibles"
       ) {
+
         return "./collectibles.html";
       }
+
       return "./shop.html";
     }
+
     /* CATEGORY LABEL */
+
     function categoryLabel(
       category
     ) {
+
       return String(
         category || ""
       ).toUpperCase();
     }
+
     /* WISHLIST ICON */
+
     function wishlistIconHTML() {
+
       return `
         <svg
           class="wishlist-icon"
           viewBox="0 0 24 24"
           aria-hidden="true">
+
           <path
             d="M20.8 8.7c0 5.1-8.8 10.1-8.8 10.1S3.2 13.8 3.2 8.7C3.2 5.8 5.3 4 7.8 4c1.7 0 3.2.8 4.2 2.2C13 4.8 14.5 4 16.2 4c2.5 0 4.6 1.8 4.6 4.7Z"
             fill="none"
             stroke="currentColor"
             stroke-width="1.8"
             stroke-linejoin="round"/>
+
         </svg>
       `;
     }
+
     /* CURRENT USER */
+
     async function getCurrentUser() {
+
       try {
+
         const {
           data
         } =
           await supabaseClient.auth.getUser();
+
         return data?.user || null;
+
       } catch (error) {
+
         console.error(
           "MOZake user error:",
           error
         );
+
         return null;
       }
     }
+
     /* LOAD WISHLIST */
+
     async function loadWishlist() {
+
       wishlistProductIds =
         new Set();
+
       const user =
         await getCurrentUser();
+
       if (!user) {
+
         return;
       }
+
       try {
+
         const {
           data,
           error
@@ -796,47 +1149,65 @@
               "user_id",
               user.id
             );
+
         if (error) {
+
           console.error(
             "MOZake wishlist error:",
             error
           );
+
           return;
         }
+
         (data || []).forEach(
           item => {
+
             wishlistProductIds.add(
               item.product_id
             );
           }
         );
+
       } catch (error) {
+
         console.error(
           "MOZake wishlist error:",
           error
         );
       }
     }
+
     /* TOGGLE WISHLIST */
+
     async function toggleWishlist(
       productId,
       button
     ) {
+
       const user =
         await getCurrentUser();
+
       if (!user) {
+
         window.location.href =
           "./account.html";
+
         return;
       }
+
       const alreadySaved =
         wishlistProductIds.has(
           productId
         );
+
       button.disabled =
         true;
+
       try {
+
         if (alreadySaved) {
+
           const {
             error
           } =
@@ -851,28 +1222,37 @@
                 "product_id",
                 productId
               );
+
           if (error) {
+
             console.error(
               "MOZake wishlist remove error:",
               error
             );
+
             return;
           }
+
           wishlistProductIds.delete(
             productId
           );
+
           button.classList.remove(
             "saved"
           );
+
           button.setAttribute(
             "aria-label",
             "Add to wishlist"
           );
+
           button.setAttribute(
             "title",
             "Add to wishlist"
           );
+
         } else {
+
           const {
             error
           } =
@@ -884,70 +1264,274 @@
                 product_id:
                   productId
               });
+
           if (error) {
+
             console.error(
               "MOZake wishlist add error:",
               error
             );
+
             return;
           }
+
           wishlistProductIds.add(
             productId
           );
+
           button.classList.add(
             "saved"
           );
+
           button.setAttribute(
             "aria-label",
             "Remove from wishlist"
           );
+
           button.setAttribute(
             "title",
             "Remove from wishlist"
           );
         }
+
       } catch (error) {
+
         console.error(
           "MOZake wishlist error:",
           error
         );
+
       } finally {
+
         button.disabled =
           false;
       }
     }
+
+    /* ADD TO CART */
+
+    async function addToCart(
+      product,
+      button
+    ) {
+
+      const user =
+        await getCurrentUser();
+
+      if (!user) {
+
+        window.location.href =
+          "./account.html";
+
+        return;
+      }
+
+      button.disabled =
+        true;
+
+      const originalText =
+        button.textContent;
+
+      button.textContent =
+        "ADDING...";
+
+      try {
+
+        /*
+         * Check whether this product
+         * is already in the user's cart.
+         */
+
+        const {
+          data: existingItem,
+          error: existingError
+        } =
+          await supabaseClient
+            .from("cart_items")
+            .select(
+              "id, quantity"
+            )
+            .eq(
+              "user_id",
+              user.id
+            )
+            .eq(
+              "product_id",
+              product.id
+            )
+            .maybeSingle();
+
+        if (existingError) {
+
+          throw existingError;
+        }
+
+        if (existingItem) {
+
+          /*
+           * Product already exists.
+           * Increase quantity by one.
+           */
+
+          const newQuantity =
+            Number(
+              existingItem.quantity
+            ) + 1;
+
+          const {
+            error
+          } =
+            await supabaseClient
+              .from("cart_items")
+              .update({
+                quantity:
+                  newQuantity,
+                updated_at:
+                  new Date().toISOString()
+              })
+              .eq(
+                "id",
+                existingItem.id
+              )
+              .eq(
+                "user_id",
+                user.id
+              );
+
+          if (error) {
+
+            throw error;
+          }
+
+        } else {
+
+          /*
+           * Product is not in the cart.
+           * Create the first cart row.
+           */
+
+          const {
+            error
+          } =
+            await supabaseClient
+              .from("cart_items")
+              .insert({
+                user_id:
+                  user.id,
+                product_id:
+                  product.id,
+                quantity: 1
+              });
+
+          if (error) {
+
+            throw error;
+          }
+        }
+
+        button.textContent =
+          "ADDED TO CART";
+
+        button.classList.add(
+          "added"
+        );
+
+        showCartMessage(
+          product.name +
+          " ADDED TO CART"
+        );
+
+        setTimeout(
+          () => {
+
+            button.textContent =
+              originalText;
+
+            button.classList.remove(
+              "added"
+            );
+
+            button.disabled =
+              false;
+
+          },
+          1500
+        );
+
+      } catch (error) {
+
+        console.error(
+          "MOZake cart error:",
+          error
+        );
+
+        button.textContent =
+          "CART ERROR";
+
+        showCartMessage(
+          "COULD NOT ADD TO CART"
+        );
+
+        setTimeout(
+          () => {
+
+            button.textContent =
+              originalText;
+
+            button.disabled =
+              false;
+
+          },
+          1800
+        );
+      }
+    }
+
     /* RENDER PRODUCTS */
+
     function renderProducts(
       products
     ) {
+
       productGrid.innerHTML =
         "";
+
       if (
         !products.length
       ) {
+
         productGrid.style.display =
           "none";
+
         shopEmpty.style.display =
           "block";
+
         return;
       }
+
       productGrid.style.display =
         "grid";
+
       shopEmpty.style.display =
         "none";
+
       products.forEach(
         (
           product,
           index
         ) => {
+
           const article =
             document.createElement(
               "article"
             );
+
           article.className =
             "product-card";
+
           article.dataset.category =
             product.category;
+
           const number =
             String(
               index + 1
@@ -955,6 +1539,7 @@
               2,
               "0"
             );
+
           const total =
             String(
               allProducts.length
@@ -962,6 +1547,7 @@
               2,
               "0"
             );
+
           const imageHTML =
             product.image_url
               ? `
@@ -976,6 +1562,7 @@
                   ).toUpperCase()} / IMAGE
                 </span>
               `;
+
           const statusText =
             product.status ===
             "coming_soon"
@@ -989,29 +1576,43 @@
                   : String(
                       product.status || ""
                     ).toUpperCase();
+
           const editionText =
             product.edition_size
               ? `EDITION OF ${product.edition_size.toLocaleString()}`
               : categoryLabel(
                   product.category
                 );
+
           const isSaved =
             wishlistProductIds.has(
               product.id
             );
+
+          const canAddToCart =
+            product.status ===
+            "available";
+
           article.innerHTML = `
+
             <div class="product-top">
+
               <span class="product-number">
                 ${number} / ${total}
               </span>
+
               <span class="product-category">
                 ${categoryLabel(
                   product.category
                 )}
               </span>
+
             </div>
+
             <div class="product-image">
+
               ${imageHTML}
+
               <button
                 type="button"
                 class="wishlist-button ${
@@ -1032,11 +1633,17 @@
                     ? "Remove from wishlist"
                     : "Add to wishlist"
                 }">
+
                 ${wishlistIconHTML()}
+
               </button>
+
             </div>
+
             <div class="product-bottom">
+
               <div>
+
                 <h2 class="product-name">
                   ${String(
                     product.name
@@ -1045,63 +1652,133 @@
                     "<br>"
                   )}
                 </h2>
+
                 <div class="product-meta">
+
                   ${editionText}<br>
+
                   ${formatPrice(
                     product.price,
                     product.currency
                   )}<br>
+
                   ${statusText}
+
                 </div>
+
               </div>
-              <a
-                href="${categoryLink(
-                  product.category
-                )}"
-                class="product-action">
-                VIEW →
-              </a>
+
+              <div class="product-actions">
+
+                ${
+                  canAddToCart
+                    ? `
+                      <button
+                        type="button"
+                        class="add-cart-button">
+                        ADD TO CART
+                      </button>
+                    `
+                    : `
+                      <button
+                        type="button"
+                        class="add-cart-button"
+                        disabled>
+                        ${
+                          product.status ===
+                          "sold_out"
+                            ? "SOLD OUT"
+                            : "COMING SOON"
+                        }
+                      </button>
+                    `
+                }
+
+                <a
+                  href="${categoryLink(
+                    product.category
+                  )}"
+                  class="product-action">
+                  VIEW →
+                </a>
+
+              </div>
+
             </div>
           `;
+
           const wishlistButton =
             article.querySelector(
               ".wishlist-button"
             );
+
           wishlistButton.addEventListener(
             "click",
             () => {
+
               toggleWishlist(
                 product.id,
                 wishlistButton
               );
+
             }
           );
+
+          const addCartButton =
+            article.querySelector(
+              ".add-cart-button:not(:disabled)"
+            );
+
+          if (addCartButton) {
+
+            addCartButton.addEventListener(
+              "click",
+              () => {
+
+                addToCart(
+                  product,
+                  addCartButton
+                );
+
+              }
+            );
+          }
+
           productGrid.appendChild(
             article
           );
         }
       );
     }
+
     /* FILTER */
+
     function applyFilter(
       filter
     ) {
+
       filterButtons.forEach(
         button => {
+
           button.classList.remove(
             "active"
           );
+
         }
       );
+
       const activeButton =
         document.querySelector(
           `.shop-filter button[data-filter="${filter}"]`
         );
+
       if (activeButton) {
+
         activeButton.classList.add(
           "active"
         );
       }
+
       const filtered =
         filter === "all"
           ? allProducts
@@ -1110,9 +1787,11 @@
                 product.category ===
                 filter
             );
+
       renderProducts(
         filtered
       );
+
       shopCount.textContent =
         `${String(
           filtered.length
@@ -1121,19 +1800,19 @@
           "0"
         )} ITEMS`;
     }
-    /*
-     * LOAD PRODUCTS + WISHLIST
-     *
-     * This replaces the old loadProducts().
-     * Only the newest request is allowed to
-     * update the visible Shop.
-     */
+
+    /* LOAD PRODUCTS + WISHLIST */
+
     async function refreshShop() {
+
       const requestToken =
         ++shopLoadToken;
+
       shopCount.textContent =
         "LOADING";
+
       try {
+
         const {
           data,
           error
@@ -1147,108 +1826,125 @@
                 ascending: true
               }
             );
+
         if (error) {
+
           throw error;
         }
-        /*
-         * Another refresh started while this
-         * request was running.
-         */
+
         if (
           requestToken !==
           shopLoadToken
         ) {
+
           return;
         }
+
         allProducts =
           data || [];
-        /*
-         * Render products immediately.
-         */
+
         const activeButton =
           document.querySelector(
             ".shop-filter button.active"
           );
+
         const currentFilter =
           activeButton
             ? activeButton.dataset.filter
             : "all";
+
         applyFilter(
           currentFilter
         );
-        /*
-         * Load wishlist state.
-         */
+
         await loadWishlist();
-        /*
-         * Ignore this refresh if a newer
-         * refresh has started.
-         */
+
         if (
           requestToken !==
           shopLoadToken
         ) {
+
           return;
         }
-        /*
-         * Render exactly once more with
-         * the correct saved-heart state.
-         */
+
         applyFilter(
           currentFilter
         );
+
       } catch (error) {
-        /*
-         * Ignore errors from an old request.
-         */
+
         if (
           requestToken !==
           shopLoadToken
         ) {
+
           return;
         }
+
         console.error(
           "MOZake products error:",
           error
         );
+
         productGrid.style.display =
           "none";
+
         shopEmpty.style.display =
           "block";
+
         shopEmpty.textContent =
           "PRODUCTS COULD NOT BE LOADED";
+
         shopCount.textContent =
           "ERROR";
       }
     }
+
     /* FILTER BUTTONS */
+
     filterButtons.forEach(
       button => {
+
         button.addEventListener(
           "click",
           () => {
+
             applyFilter(
               button.dataset.filter
             );
+
           }
         );
+
       }
     );
+
     /* AUTH CHANGES */
+
     supabaseClient.auth.onAuthStateChange(
       () => {
+
         setTimeout(
           async () => {
+
             await updateAccountStatus();
+
             await refreshShop();
+
           },
           0
         );
+
       }
     );
+
     /* START */
+
     updateAccountStatus();
+
     refreshShop();
+
   </script>
+
 </body>
 </html>
