@@ -22,9 +22,6 @@
     a {
       color: inherit;
     }
-    /* =========================
-       HEADER
-    ========================= */
     header {
       width: 100%;
       padding: 22px 40px;
@@ -83,9 +80,6 @@
       height: 22px;
       display: block;
     }
-    /* =========================
-       HERO
-    ========================= */
     .cart-hero {
       min-height: 24vh;
       padding: 8px 40px 10px;
@@ -109,9 +103,6 @@
       text-transform: uppercase;
       white-space: nowrap;
     }
-    /* =========================
-       CART
-    ========================= */
     .cart-section {
       padding: 70px 40px 110px;
     }
@@ -226,18 +217,12 @@
       text-transform: uppercase;
       opacity: 0.55;
     }
-    .remove-button:hover {
-      opacity: 1;
-    }
     .cart-item-price {
       font-size: 13px;
       font-weight: 600;
       letter-spacing: 1px;
       white-space: nowrap;
     }
-    /* =========================
-       SUMMARY
-    ========================= */
     .cart-summary {
       border-top: 1px solid #111;
       padding-top: 20px;
@@ -267,36 +252,31 @@
       font-weight: 600;
       letter-spacing: 0;
     }
-    .checkout-button {
+    .checkout-button,
+    .continue-button {
       width: 100%;
+      text-align: center;
+      display: block;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+    .checkout-button {
       margin-top: 25px;
       padding: 18px 20px;
       border: 1px solid #111;
       background: #111;
       color: #e2ded4;
-      text-decoration: none;
-      text-align: center;
-      display: block;
       font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      cursor: pointer;
     }
     .continue-button {
-      width: 100%;
       margin-top: 12px;
       padding: 16px 20px;
       border: 1px solid #111;
       background: transparent;
       color: #111;
-      text-decoration: none;
-      text-align: center;
-      display: block;
       font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
     }
     .empty-cart {
       border-top: 1px solid #111;
@@ -317,7 +297,6 @@
       margin: 0 auto 30px;
       font-size: 13px;
       line-height: 1.7;
-      letter-spacing: 0.3px;
     }
     .empty-button {
       display: inline-block;
@@ -338,9 +317,6 @@
       line-height: 1.6;
       word-break: break-word;
     }
-    /* =========================
-       FOOTER
-    ========================= */
     footer {
       background: #111;
       color: #e2ded4;
@@ -367,24 +343,17 @@
       letter-spacing: 2px;
       text-transform: uppercase;
     }
-    /* =========================
-       MOBILE
-    ========================= */
     @media (max-width: 700px) {
       header {
         height: auto;
         padding: 16px 16px 14px;
-        display: flex;
         flex-direction: column;
         align-items: stretch;
         gap: 13px;
       }
       .header-left {
         width: 100%;
-        display: flex;
         justify-content: space-between;
-        align-items: center;
-        gap: 0;
       }
       .logo {
         width: 48px;
@@ -404,20 +373,16 @@
       }
       nav {
         width: 100%;
-        display: flex !important;
         justify-content: space-between !important;
-        align-items: center !important;
         gap: 0 !important;
       }
       nav a {
         font-size: 15px !important;
-        font-weight: 600 !important;
         letter-spacing: 1.15px !important;
-        white-space: nowrap !important;
       }
       .cart-hero {
         min-height: 18vh;
-        padding: 8px 20px 8px;
+        padding: 8px 20px;
       }
       .cart-label {
         font-size: 15px;
@@ -425,15 +390,11 @@
         margin-bottom: 13px;
       }
       .cart-title {
-        width: 100%;
         font-size: 15vw;
         letter-spacing: -3px;
       }
       .cart-section {
         padding: 50px 20px 80px;
-      }
-      .cart-topline {
-        margin-bottom: 25px;
       }
       .cart-layout {
         grid-template-columns: 1fr;
@@ -451,9 +412,6 @@
       .cart-product-name {
         font-size: 18px;
       }
-      .cart-product-category {
-        margin-bottom: 15px;
-      }
       .cart-item-price {
         grid-column: 2;
         margin-top: 4px;
@@ -464,19 +422,9 @@
       .cart-summary {
         position: static;
       }
-      .empty-cart {
-        padding: 60px 10px;
-      }
-      .empty-title {
-        letter-spacing: -3px;
-      }
       footer {
         padding: 40px 20px;
         flex-direction: column;
-        gap: 30px;
-      }
-      .footer-links {
-        gap: 20px;
       }
     }
   </style>
@@ -522,11 +470,11 @@
 </a>
   </div>
   <nav aria-label="Main navigation">
-<a href="./art.html">ART</a>
-<a href="./clothing.html">CLOTHING</a>
-<a href="./collectibles.html">COLLECTIBLES</a>
-<a href="./story.html">STORY</a>
-<a href="./shop.html">SHOP</a>
+    <a href="./art.html">ART</a>
+    <a href="./clothing.html">CLOTHING</a>
+    <a href="./collectibles.html">COLLECTIBLES</a>
+    <a href="./story.html">STORY</a>
+    <a href="./shop.html">SHOP</a>
   </nav>
 </header>
 <main>
@@ -552,7 +500,7 @@
 <div
   id="loadingMessage"
   class="status-message">
-  LOADING
+  STARTING CART...
 </div>
 <div
   id="cartContent"
@@ -568,21 +516,15 @@
       </div>
       <div class="summary-row">
         <span>SUBTOTAL</span>
-        <span id="subtotal">
-          $0.00
-        </span>
+        <span id="subtotal">$0.00</span>
       </div>
       <div class="summary-row">
         <span>SHIPPING</span>
-        <span>
-          CALCULATED AT CHECKOUT
-        </span>
+        <span>CALCULATED AT CHECKOUT</span>
       </div>
       <div class="summary-row total">
         <span>TOTAL</span>
-        <span id="total">
-          $0.00
-        </span>
+        <span id="total">$0.00</span>
       </div>
       <a
         href="./checkout.html"
@@ -622,9 +564,9 @@
     MOZake
   </div>
   <div class="footer-links">
-<a href="./art.html">ART</a>
-<a href="./clothing.html">CLOTHING</a>
-<a href="./collectibles.html">COLLECTIBLES</a>
+    <a href="./art.html">ART</a>
+    <a href="./clothing.html">CLOTHING</a>
+    <a href="./collectibles.html">COLLECTIBLES</a>
   </div>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -633,92 +575,75 @@
     "https://cjyhqxffjppmzgsgrsvt.supabase.co";
   const SUPABASE_KEY =
     "sb_publishable_vDNha1HTi57tHedL3KgSzA_DnyVaEj5";
-  const supabase =
-    window.supabase.createClient(
-      SUPABASE_URL,
-      SUPABASE_KEY
-    );
   const loadingMessage =
-    document.getElementById(
-      "loadingMessage"
-    );
+    document.getElementById("loadingMessage");
   const cartContent =
-    document.getElementById(
-      "cartContent"
-    );
+    document.getElementById("cartContent");
   const emptyCart =
-    document.getElementById(
-      "emptyCart"
-    );
+    document.getElementById("emptyCart");
   const cartItems =
-    document.getElementById(
-      "cartItems"
-    );
+    document.getElementById("cartItems");
   const cartCount =
-    document.getElementById(
-      "cartCount"
-    );
+    document.getElementById("cartCount");
   const subtotal =
-    document.getElementById(
-      "subtotal"
-    );
+    document.getElementById("subtotal");
   const total =
-    document.getElementById(
-      "total"
-    );
-  function formatPrice(cents) {
-    return new Intl.NumberFormat(
-      "en-AU",
-      {
-        style: "currency",
-        currency: "AUD"
-      }
-    ).format(
-      (Number(cents) || 0) / 100
-    );
+    document.getElementById("total");
+  function showStatus(message) {
+    loadingMessage.textContent = message;
+    loadingMessage.style.display = "block";
+    cartContent.style.display = "none";
+    emptyCart.style.display = "none";
   }
-  function showLoading(
-    message
-  ) {
-    loadingMessage.textContent =
-      message;
-    loadingMessage.style.display =
-      "block";
-    cartContent.style.display =
-      "none";
-    emptyCart.style.display =
-      "none";
+  function showError(message) {
+    console.error(message);
+    showStatus(message);
   }
-  function showError(
-    message
-  ) {
-    console.error(
-      message
+  /*
+    SAFETY TIMER
+    If anything gets stuck for more than 5 seconds,
+    the page will tell us exactly where it stopped.
+  */
+  let currentStage = "PAGE STARTED";
+  const safetyTimer = setTimeout(() => {
+    showError(
+      "CART TIMEOUT — " +
+      currentStage
     );
-    loadingMessage.textContent =
-      message;
-    loadingMessage.style.display =
-      "block";
-    cartContent.style.display =
-      "none";
-    emptyCart.style.display =
-      "none";
-  }
-  async function loadCart() {
-    showLoading(
-      "LOADING"
-    );
+  }, 5000);
+  async function startCart() {
     try {
-      /*
-        GET CURRENT SESSION
-      */
+      currentStage =
+        "LOADING SUPABASE";
+      showStatus(
+        "CONNECTING..."
+      );
+      if (
+        !window.supabase ||
+        !window.supabase.createClient
+      ) {
+        showError(
+          "SUPABASE SCRIPT DID NOT LOAD"
+        );
+        return;
+      }
+      const supabase =
+        window.supabase.createClient(
+          SUPABASE_URL,
+          SUPABASE_KEY
+        );
+      currentStage =
+        "CHECKING ACCOUNT";
+      showStatus(
+        "CHECKING ACCOUNT..."
+      );
       const sessionResult =
         await supabase.auth.getSession();
       if (
         sessionResult.error
       ) {
         showError(
-          "SESSION ERROR — " +
+          "AUTH ERROR — " +
           sessionResult.error.message
         );
         return;
@@ -729,18 +654,17 @@
         showError(
           "SIGN IN TO VIEW YOUR CART."
         );
-        setTimeout(
-          () => {
-            window.location.href =
-              "./account.html";
-          },
-          900
-        );
+        setTimeout(() => {
+          window.location.href =
+            "./account.html";
+        }, 1200);
         return;
       }
-      /*
-        GET CART ROWS
-      */
+      currentStage =
+        "LOADING CART";
+      showStatus(
+        "LOADING CART..."
+      );
       const cartResult =
         await supabase
           .from("cart_items")
@@ -768,18 +692,18 @@
       }
       const cartData =
         cartResult.data || [];
-      /*
-        EMPTY CART
-      */
       if (
         cartData.length === 0
       ) {
+        clearTimeout(
+          safetyTimer
+        );
         loadingMessage.style.display =
-          "none";
-        cartContent.style.display =
           "none";
         emptyCart.style.display =
           "block";
+        cartContent.style.display =
+          "none";
         cartCount.textContent =
           "0 ITEMS";
         subtotal.textContent =
@@ -788,18 +712,17 @@
           "$0.00";
         return;
       }
-      /*
-        GET PRODUCT IDS
-      */
+      currentStage =
+        "LOADING PRODUCTS";
+      showStatus(
+        "LOADING PRODUCTS..."
+      );
       const productIds =
         cartData
           .map(
-            item =>
-              item.product_id
+            item => item.product_id
           )
-          .filter(
-            Boolean
-          );
+          .filter(Boolean);
       if (
         productIds.length === 0
       ) {
@@ -808,9 +731,6 @@
         );
         return;
       }
-      /*
-        GET PRODUCTS SEPARATELY
-      */
       const productsResult =
         await supabase
           .from("products")
@@ -832,10 +752,6 @@
       }
       const products =
         productsResult.data || [];
-      /*
-        MATCH CART ROWS
-        TO PRODUCTS
-      */
       const productMap =
         new Map();
       products.forEach(
@@ -846,7 +762,7 @@
           );
         }
       );
-      const combinedItems =
+      const items =
         cartData
           .map(
             item => {
@@ -860,27 +776,30 @@
             }
           )
           .filter(
-            item =>
-              item.product
+            item => item.product
           );
       if (
-        combinedItems.length === 0
+        items.length === 0
       ) {
         showError(
           "CART ERROR — PRODUCTS NOT FOUND"
         );
         return;
       }
+      currentStage =
+        "RENDERING CART";
       renderCart(
-        combinedItems
+        items
+      );
+      clearTimeout(
+        safetyTimer
       );
     } catch (error) {
-      console.error(
-        "CART CRASH:",
-        error
+      clearTimeout(
+        safetyTimer
       );
       showError(
-        "CART ERROR — " +
+        "CART CRASH — " +
         (
           error &&
           error.message
@@ -912,8 +831,7 @@
             product.price
           ) || 0;
         cartSubtotal +=
-          price *
-          quantity;
+          price * quantity;
         itemCount +=
           quantity;
         const article =
@@ -1017,19 +935,23 @@
           "+";
         minus.addEventListener(
           "click",
-          () =>
+          () => {
             updateQuantity(
+              supabase,
               item.id,
               quantity - 1
-            )
+            );
+          }
         );
         plus.addEventListener(
           "click",
-          () =>
+          () => {
             updateQuantity(
+              supabase,
               item.id,
               quantity + 1
-            )
+            );
+          }
         );
         quantityControl.appendChild(
           minus
@@ -1052,10 +974,12 @@
           "REMOVE";
         remove.addEventListener(
           "click",
-          () =>
+          () => {
             removeItem(
+              supabase,
               item.id
-            )
+            );
+          }
         );
         controls.appendChild(
           quantityControl
@@ -1080,8 +1004,7 @@
           "cart-item-price";
         itemPrice.textContent =
           formatPrice(
-            price *
-            quantity
+            price * quantity
           );
         article.appendChild(
           image
@@ -1113,12 +1036,26 @@
       );
     loadingMessage.style.display =
       "none";
-    cartContent.style.display =
-      "block";
     emptyCart.style.display =
       "none";
+    cartContent.style.display =
+      "block";
+  }
+  function formatPrice(
+    cents
+  ) {
+    return new Intl.NumberFormat(
+      "en-AU",
+      {
+        style: "currency",
+        currency: "AUD"
+      }
+    ).format(
+      (Number(cents) || 0) / 100
+    );
   }
   async function updateQuantity(
+    supabase,
     cartId,
     newQuantity
   ) {
@@ -1126,6 +1063,7 @@
       newQuantity <= 0
     ) {
       await removeItem(
+        supabase,
         cartId
       );
       return;
@@ -1146,18 +1084,18 @@
     if (
       result.error
     ) {
-      console.error(
-        "UPDATE ERROR:",
-        result.error
-      );
       alert(
         "Unable to update quantity."
       );
+      console.error(
+        result.error
+      );
       return;
     }
-    loadCart();
+    startCart();
   }
   async function removeItem(
+    supabase,
     cartId
   ) {
     const result =
@@ -1171,23 +1109,21 @@
     if (
       result.error
     ) {
-      console.error(
-        "REMOVE ERROR:",
-        result.error
-      );
       alert(
         "Unable to remove item."
       );
+      console.error(
+        result.error
+      );
       return;
     }
-    loadCart();
+    startCart();
   }
   /*
-    IMPORTANT:
-    No onAuthStateChange listener here.
-    The page loads the cart once.
+    START ONCE.
+    NO AUTH LISTENER.
   */
-  loadCart();
+  startCart();
 </script>
 </body>
 </html>
