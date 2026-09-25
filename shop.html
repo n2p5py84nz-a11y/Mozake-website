@@ -30,6 +30,11 @@
       position: relative;
       z-index: 10;
     }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
     .logo {
       display: flex;
       align-items: center;
@@ -44,6 +49,24 @@
     }
     .mozake-logo polygon {
       fill: #111;
+    }
+    .account-link {
+      width: 25px;
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #111;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+    .account-link:hover {
+      opacity: 0.45;
+    }
+    .account-icon {
+      width: 22px;
+      height: 22px;
+      display: block;
     }
     nav {
       display: flex !important;
@@ -61,6 +84,9 @@
       transition: opacity 0.3s ease;
     }
     nav a:hover {
+      opacity: 0.45;
+    }
+    nav a.current {
       opacity: 0.45;
     }
     /* HERO */
@@ -249,8 +275,19 @@
     /* MOBILE */
     @media (max-width: 700px) {
       header {
-        height: 75px;
-        padding: 18px 20px;
+        height: auto;
+        padding: 16px 16px 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 13px;
+      }
+      .header-left {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
       }
       .logo {
         width: 48px;
@@ -260,14 +297,27 @@
         width: 48px;
         height: 38px;
       }
+      .account-link {
+        width: 34px;
+        height: 34px;
+      }
+      .account-icon {
+        width: 32px;
+        height: 32px;
+      }
       nav {
-        gap: 12px !important;
+        width: 100%;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 0 !important;
         flex-shrink: 0 !important;
       }
       nav a {
-        font-size: 12px !important;
+        font-size: 15px !important;
         font-weight: 600 !important;
-        letter-spacing: 1.2px !important;
+        letter-spacing: 1.15px !important;
+        white-space: nowrap !important;
       }
       .shop-hero {
         min-height: 18vh;
@@ -345,205 +395,242 @@
 </head>
 <body>
   <header>
-<a href="./index.html" class="logo" aria-label="MOZake">
-  <svg
-    class="mozake-logo"
-    viewBox="0 0 82 58"
-    aria-label="MOZake logo">
-    <polygon points="2,55 29,7 56,55"></polygon>
-    <polygon points="27,51 54,3 81,51"></polygon>
-  </svg>
-</a>
-<nav>
-  <a href="./art.html">
-    ART
-  </a>
-  <a href="./clothing.html">
-    CLOTHING
-  </a>
-  <a href="./collectibles.html">
-    COLLECTIBLES
-  </a>
-  <a href="./story.html">
-    STORY
-  </a>
-  <a href="./shop.html">
-    SHOP
-  </a>
-</nav>
+    <div class="header-left">
+      <a href="./index.html" class="logo" aria-label="MOZake">
+        <svg
+          class="mozake-logo"
+          viewBox="0 0 82 58"
+          aria-label="MOZake logo">
+          <polygon points="2,55 29,7 56,55"></polygon>
+          <polygon points="27,51 54,3 81,51"></polygon>
+        </svg>
+      </a>
+      <a
+        href="./account.html"
+        class="account-link"
+        aria-label="Account"
+        title="Account">
+        <svg
+          class="account-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true">
+          <circle
+            cx="12"
+            cy="8"
+            r="3.2"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"/>
+          <path
+            d="M5.5 19c.7-3.1 3-5 6.5-5s5.8 1.9 6.5 5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"/>
+        </svg>
+      </a>
+    </div>
+    <nav>
+      <a href="./art.html">
+        ART
+      </a>
+      <a href="./clothing.html">
+        CLOTHING
+      </a>
+      <a href="./collectibles.html">
+        COLLECTIBLES
+      </a>
+      <a href="./story.html">
+        STORY
+      </a>
+      <a
+        href="./shop.html"
+        class="current"
+        aria-current="page">
+        SHOP
+      </a>
+    </nav>
   </header>
   <main>
-<section class="shop-hero">
-  <div class="shop-label">
-    THE WORLD OF MOZake
-  </div>
-  <h1 class="shop-title">
-    SHOP
-  </h1>
-</section>
-<section class="shop-controls">
-  <div class="shop-filter">
-    <button class="active" data-filter="all">
-      ALL
-    </button>
-    <button data-filter="art">
-      ART
-    </button>
-    <button data-filter="clothing">
-      CLOTHING
-    </button>
-    <button data-filter="collectibles">
-      COLLECTIBLES
-    </button>
-  </div>
-  <div class="shop-count">
-    04 ITEMS
-  </div>
-</section>
-<section class="shop-products">
-  <div class="product-grid">
-    <article class="product-card" data-category="art">
-      <div class="product-top">
-        <span class="product-number">
-          01 / 04
-        </span>
-        <span class="product-category">
+    <section class="shop-hero">
+      <div class="shop-label">
+        THE WORLD OF MOZake
+      </div>
+      <h1 class="shop-title">
+        SHOP
+      </h1>
+    </section>
+    <section class="shop-controls">
+      <div class="shop-filter">
+        <button class="active" data-filter="all">
+          ALL
+        </button>
+        <button data-filter="art">
           ART
-        </span>
-      </div>
-      <div class="product-image">
-        <span>
-          ARTWORK / IMAGE
-        </span>
-      </div>
-      <div class="product-bottom">
-        <div>
-          <h2 class="product-name">
-            FIRST<br>
-            MARK
-          </h2>
-          <div class="product-meta">
-            ORIGINAL ARTWORK<br>
-            PRICE — TBA
-          </div>
-        </div>
-        <a href="./art.html" class="product-action">
-          VIEW →
-        </a>
-      </div>
-    </article>
-    <article class="product-card" data-category="clothing">
-      <div class="product-top">
-        <span class="product-number">
-          02 / 04
-        </span>
-        <span class="product-category">
+        </button>
+        <button data-filter="clothing">
           CLOTHING
-        </span>
-      </div>
-      <div class="product-image">
-        <span>
-          SYMBOL TEE / IMAGE
-        </span>
-      </div>
-      <div class="product-bottom">
-        <div>
-          <h2 class="product-name">
-            SYMBOL<br>
-            TEE
-          </h2>
-          <div class="product-meta">
-            CLOTHING<br>
-            PRICE — TBA
-          </div>
-        </div>
-        <a href="./clothing.html" class="product-action">
-          VIEW →
-        </a>
-      </div>
-    </article>
-    <article class="product-card" data-category="clothing">
-      <div class="product-top">
-        <span class="product-number">
-          03 / 04
-        </span>
-        <span class="product-category">
-          CLOTHING
-        </span>
-      </div>
-      <div class="product-image">
-        <span>
-          MOZake HOODIE / IMAGE
-        </span>
-      </div>
-      <div class="product-bottom">
-        <div>
-          <h2 class="product-name">
-            MOZake<br>
-            HOODIE
-          </h2>
-          <div class="product-meta">
-            CLOTHING<br>
-            PRICE — TBA
-          </div>
-        </div>
-        <a href="./clothing.html" class="product-action">
-          VIEW →
-        </a>
-      </div>
-    </article>
-    <article class="product-card" data-category="collectibles">
-      <div class="product-top">
-        <span class="product-number">
-          04 / 04
-        </span>
-        <span class="product-category">
+        </button>
+        <button data-filter="collectibles">
           COLLECTIBLES
-        </span>
+        </button>
       </div>
-      <div class="product-image">
-        <span>
-          MOZake / IMAGE
-        </span>
+      <div class="shop-count">
+        04 ITEMS
       </div>
-      <div class="product-bottom">
-        <div>
-          <h2 class="product-name">
-            MOZake
-          </h2>
-          <div class="product-meta">
-            EDITION OF 5,000<br>
-            PRICE — TBA
+    </section>
+    <section class="shop-products">
+      <div class="product-grid">
+        <article class="product-card" data-category="art">
+          <div class="product-top">
+            <span class="product-number">
+              01 / 04
+            </span>
+            <span class="product-category">
+              ART
+            </span>
           </div>
-        </div>
-        <a href="./collectibles.html" class="product-action">
-          VIEW →
-        </a>
+          <div class="product-image">
+            <span>
+              ARTWORK / IMAGE
+            </span>
+          </div>
+          <div class="product-bottom">
+            <div>
+              <h2 class="product-name">
+                FIRST<br>
+                MARK
+              </h2>
+              <div class="product-meta">
+                ORIGINAL ARTWORK<br>
+                PRICE — TBA
+              </div>
+            </div>
+            <a
+              href="./art.html"
+              class="product-action">
+              VIEW →
+            </a>
+          </div>
+        </article>
+        <article class="product-card" data-category="clothing">
+          <div class="product-top">
+            <span class="product-number">
+              02 / 04
+            </span>
+            <span class="product-category">
+              CLOTHING
+            </span>
+          </div>
+          <div class="product-image">
+            <span>
+              SYMBOL TEE / IMAGE
+            </span>
+          </div>
+          <div class="product-bottom">
+            <div>
+              <h2 class="product-name">
+                SYMBOL<br>
+                TEE
+              </h2>
+              <div class="product-meta">
+                CLOTHING<br>
+                PRICE — TBA
+              </div>
+            </div>
+            <a
+              href="./clothing.html"
+              class="product-action">
+              VIEW →
+            </a>
+          </div>
+        </article>
+        <article class="product-card" data-category="clothing">
+          <div class="product-top">
+            <span class="product-number">
+              03 / 04
+            </span>
+            <span class="product-category">
+              CLOTHING
+            </span>
+          </div>
+          <div class="product-image">
+            <span>
+              MOZake HOODIE / IMAGE
+            </span>
+          </div>
+          <div class="product-bottom">
+            <div>
+              <h2 class="product-name">
+                MOZake<br>
+                HOODIE
+              </h2>
+              <div class="product-meta">
+                CLOTHING<br>
+                PRICE — TBA
+              </div>
+            </div>
+            <a
+              href="./clothing.html"
+              class="product-action">
+              VIEW →
+            </a>
+          </div>
+        </article>
+        <article class="product-card" data-category="collectibles">
+          <div class="product-top">
+            <span class="product-number">
+              04 / 04
+            </span>
+            <span class="product-category">
+              COLLECTIBLES
+            </span>
+          </div>
+          <div class="product-image">
+            <span>
+              MOZake / IMAGE
+            </span>
+          </div>
+          <div class="product-bottom">
+            <div>
+              <h2 class="product-name">
+                MOZake
+              </h2>
+              <div class="product-meta">
+                EDITION OF 5,000<br>
+                PRICE — TBA
+              </div>
+            </div>
+            <a
+              href="./collectibles.html"
+              class="product-action">
+              VIEW →
+            </a>
+          </div>
+        </article>
       </div>
-    </article>
-  </div>
-</section>
+    </section>
   </main>
   <footer>
-<div class="footer-top">
-  <div class="footer-logo">
-    MOZake
-  </div>
-  <div class="footer-slogan">
-    MAKE IT EXIST.
-  </div>
-</div>
-<div class="footer-bottom">
-  <a href="./art.html">
-    ART
-  </a>
-  <a href="./clothing.html">
-    CLOTHING
-  </a>
-  <a href="./collectibles.html">
-    COLLECTIBLES
-  </a>
-</div>
+    <div class="footer-top">
+      <div class="footer-logo">
+        MOZake
+      </div>
+      <div class="footer-slogan">
+        MAKE IT EXIST.
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <a href="./art.html">
+        ART
+      </a>
+      <a href="./clothing.html">
+        CLOTHING
+      </a>
+      <a href="./collectibles.html">
+        COLLECTIBLES
+      </a>
+    </div>
   </footer>
   <script>
     const filterButtons = document.querySelectorAll(".shop-filter button");
