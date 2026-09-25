@@ -4,12 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Checkout — MOZake</title>
-
   <style>
     * {
       box-sizing: border-box;
     }
-
     html, body {
       margin: 0;
       padding: 0;
@@ -17,11 +15,9 @@
       color: #111;
       font-family: Arial, Helvetica, sans-serif;
     }
-
     body {
       min-height: 100vh;
     }
-
     header {
       width: 100%;
       padding: 22px 32px;
@@ -30,13 +26,11 @@
       justify-content: space-between;
       gap: 30px;
     }
-
     .header-left {
       display: flex;
       align-items: center;
       gap: 48px;
     }
-
     .logo {
       display: flex;
       align-items: center;
@@ -44,24 +38,20 @@
       height: 48px;
       text-decoration: none;
     }
-
     .mozake-logo {
       width: 62px;
       height: 48px;
       display: block;
       overflow: visible;
     }
-
     .mozake-logo polygon {
       fill: #111;
     }
-
     nav {
       display: flex !important;
       gap: 40px !important;
       align-items: center !important;
     }
-
     nav a {
       color: #111 !important;
       text-decoration: none !important;
@@ -71,13 +61,11 @@
       white-space: nowrap !important;
       line-height: 1 !important;
     }
-
     .header-tools {
       display: flex;
       align-items: center;
       gap: 24px;
     }
-
     .cart-link {
       color: #111;
       text-decoration: none;
@@ -85,7 +73,6 @@
       font-weight: 600;
       letter-spacing: 2px;
     }
-
     .account-link {
       width: 25px;
       height: 25px;
@@ -95,78 +82,67 @@
       color: #111;
       text-decoration: none;
     }
-
     .account-icon {
       width: 22px;
       height: 22px;
       display: block;
     }
-
+    /* CHECKOUT HERO */
     .page-hero {
-      padding: 72px 32px 60px;
+      padding: 45px 32px 35px;
     }
-
     .eyebrow {
-      margin: 0 0 20px;
-      font-size: 16px;
+      margin: 0 0 15px;
+      font-size: 15px;
       letter-spacing: 3px;
       font-weight: 600;
     }
-
     .hero-title {
       margin: 0;
-      font-size: clamp(70px, 15vw, 220px);
+      font-size: clamp(52px, 9vw, 130px);
       line-height: 0.82;
-      letter-spacing: -7px;
+      letter-spacing: -5px;
       font-weight: 700;
     }
-
+    /* CHECKOUT */
     .checkout-wrap {
       max-width: 1400px;
       margin: 0 auto;
-      padding: 40px 32px 120px;
+      padding: 35px 32px 110px;
     }
-
     .checkout-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.7fr);
       gap: 80px;
       align-items: start;
     }
-
     .section-title {
       margin: 0 0 30px;
       font-size: 30px;
       letter-spacing: 2px;
     }
-
     .form-section {
       margin-bottom: 55px;
     }
-
     .field-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 18px;
     }
-
     .field {
       display: flex;
       flex-direction: column;
       gap: 8px;
       margin-bottom: 18px;
     }
-
     .field.full {
       grid-column: 1 / -1;
     }
-
     label {
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 1.5px;
     }
-
     input,
     select {
       width: 100%;
@@ -180,29 +156,25 @@
       font-size: 16px;
       outline: none;
     }
-
     input:focus,
     select:focus {
       box-shadow: inset 0 0 0 1px #111;
     }
-
     select {
       appearance: auto;
     }
-
+    /* ORDER SUMMARY */
     .order-summary {
       position: sticky;
       top: 25px;
       border-top: 1px solid #111;
       padding-top: 25px;
     }
-
     .summary-title {
       margin: 0 0 25px;
       font-size: 25px;
       letter-spacing: 2px;
     }
-
     .summary-items {
       display: flex;
       flex-direction: column;
@@ -210,30 +182,25 @@
       padding-bottom: 25px;
       border-bottom: 1px solid #111;
     }
-
     .summary-item {
       display: flex;
       justify-content: space-between;
       gap: 20px;
       font-size: 15px;
     }
-
     .summary-item-name {
       font-weight: 600;
     }
-
     .summary-item-qty {
       opacity: 0.6;
       margin-left: 5px;
     }
-
     .summary-line {
       display: flex;
       justify-content: space-between;
       padding-top: 18px;
       font-size: 16px;
     }
-
     .summary-total {
       margin-top: 20px;
       padding-top: 20px;
@@ -243,7 +210,7 @@
       display: flex;
       justify-content: space-between;
     }
-
+    /* BUTTON */
     .checkout-button {
       width: 100%;
       margin-top: 30px;
@@ -256,17 +223,14 @@
       letter-spacing: 2px;
       cursor: pointer;
     }
-
     .checkout-button:hover {
       background: transparent;
       color: #111;
     }
-
     .checkout-button:disabled {
       opacity: 0.5;
       cursor: not-allowed;
     }
-
     .back-link {
       display: inline-block;
       margin-top: 20px;
@@ -276,21 +240,50 @@
       letter-spacing: 1.5px;
       font-weight: 600;
     }
-
     .status {
       margin-bottom: 25px;
       font-size: 13px;
       letter-spacing: 1px;
     }
-
+    /* FOOTER */
     footer {
       background: #111;
       color: #e2ded4;
-      padding: 35px 32px;
-      font-size: 12px;
-      letter-spacing: 2px;
+      padding: 55px 32px 35px;
     }
-
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .footer-brand {
+      font-size: 18px;
+      letter-spacing: 3px;
+      font-weight: 700;
+      margin-bottom: 35px;
+    }
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      margin-bottom: 50px;
+    }
+    .footer-nav a {
+      color: #e2ded4;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1.8px;
+      font-weight: 600;
+    }
+    .footer-bottom {
+      padding-top: 25px;
+      border-top: 1px solid rgba(226, 222, 212, 0.25);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      opacity: 0.65;
+    }
     @media (max-width: 900px) {
       header {
         padding: 16px 16px 14px;
@@ -299,7 +292,6 @@
         align-items: stretch;
         gap: 13px;
       }
-
       .header-left {
         width: 100%;
         display: flex;
@@ -307,100 +299,89 @@
         align-items: center;
         gap: 0;
       }
-
       .logo {
         width: 48px;
         height: 38px;
       }
-
       .mozake-logo {
         width: 48px;
         height: 38px;
       }
-
       nav {
         width: 100%;
         justify-content: space-between !important;
         gap: 0 !important;
       }
-
       nav a {
         font-size: 15px !important;
         letter-spacing: 1.15px !important;
       }
-
       .header-tools {
         position: absolute;
         top: 18px;
         right: 16px;
       }
-
       .cart-link {
         font-size: 13px;
         letter-spacing: 1.5px;
       }
-
       .account-link {
         width: 34px;
         height: 34px;
       }
-
       .account-icon {
         width: 32px;
         height: 32px;
       }
-
       .page-hero {
-        padding: 55px 16px 45px;
+        padding: 35px 16px 30px;
       }
-
       .hero-title {
-        font-size: clamp(65px, 22vw, 150px);
-        letter-spacing: -5px;
+        font-size: clamp(48px, 18vw, 100px);
+        letter-spacing: -4px;
       }
-
       .checkout-wrap {
         padding: 25px 16px 80px;
       }
-
       .checkout-grid {
         grid-template-columns: 1fr;
         gap: 65px;
       }
-
       .order-summary {
         position: static;
       }
-
       .field-grid {
         grid-template-columns: 1fr;
         gap: 0;
       }
-
       .field.full {
         grid-column: auto;
       }
-
       .section-title {
         font-size: 25px;
+      }
+      footer {
+        padding: 45px 16px 28px;
+      }
+      .footer-nav {
+        gap: 20px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
       }
     }
   </style>
 </head>
-
 <body>
-
 <header>
-
   <div class="header-left">
-
     <a href="./index.html" class="logo" aria-label="MOZake">
       <svg class="mozake-logo" viewBox="0 0 82 58" aria-label="MOZake logo">
         <polygon points="2,55 29,7 56,55"></polygon>
         <polygon points="27,51 54,3 81,51"></polygon>
       </svg>
     </a>
-
     <nav>
       <a href="./art.html">ART</a>
       <a href="./clothing.html">CLOTHING</a>
@@ -408,13 +389,9 @@
       <a href="./story.html">STORY</a>
       <a href="./shop.html">SHOP</a>
     </nav>
-
   </div>
-
   <div class="header-tools">
-
     <a href="./cart.html" class="cart-link">CART</a>
-
     <a href="./account.html" class="account-link" aria-label="Account" title="Account">
       <svg class="account-icon" viewBox="0 0 24 24" aria-hidden="true">
         <circle cx="12" cy="8" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/>
@@ -425,47 +402,28 @@
           stroke-linecap="round"/>
       </svg>
     </a>
-
   </div>
-
 </header>
-
-
 <section class="page-hero">
-
   <p class="eyebrow">THE WORLD OF MOZake</p>
-
   <h1 class="hero-title">CHECKOUT</h1>
-
 </section>
-
-
 <main class="checkout-wrap">
-
   <div id="status" class="status">
     LOADING CHECKOUT...
   </div>
-
   <div class="checkout-grid">
-
     <section>
-
       <form id="checkout-form">
-
         <div class="form-section">
-
           <h2 class="section-title">
             CONTACT
           </h2>
-
           <div class="field-grid">
-
             <div class="field full">
-
               <label for="email">
                 EMAIL
               </label>
-
               <input
                 id="email"
                 name="email"
@@ -473,71 +431,49 @@
                 autocomplete="email"
                 required
               >
-
             </div>
-
           </div>
-
         </div>
-
-
         <div class="form-section">
-
           <h2 class="section-title">
             SHIPPING ADDRESS
           </h2>
-
           <div class="field-grid">
-
             <div class="field">
-
               <label for="firstName">
                 FIRST NAME
               </label>
-
               <input
                 id="firstName"
                 name="firstName"
                 autocomplete="given-name"
                 required
               >
-
             </div>
-
-
             <div class="field">
-
               <label for="lastName">
                 LAST NAME
               </label>
-
               <input
                 id="lastName"
                 name="lastName"
                 autocomplete="family-name"
                 required
               >
-
             </div>
-
-
             <div class="field full">
-
               <label for="country">
                 COUNTRY / REGION
               </label>
-
               <select
                 id="country"
                 name="country"
                 autocomplete="country-name"
                 required
               >
-
                 <option value="">
                   SELECT COUNTRY / REGION
                 </option>
-
                 <option value="AU">Australia</option>
                 <option value="NZ">New Zealand</option>
                 <option value="US">United States</option>
@@ -577,18 +513,12 @@
                 <option value="ZA">South Africa</option>
                 <option value="AE">United Arab Emirates</option>
                 <option value="SA">Saudi Arabia</option>
-
               </select>
-
             </div>
-
-
             <div class="field full">
-
               <label for="address">
                 ADDRESS
               </label>
-
               <input
                 id="address"
                 name="address"
@@ -596,32 +526,22 @@
                 placeholder="Street address"
                 required
               >
-
             </div>
-
-
             <div class="field">
-
               <label for="city">
                 CITY / SUBURB
               </label>
-
               <input
                 id="city"
                 name="city"
                 autocomplete="address-level2"
                 required
               >
-
             </div>
-
-
             <div class="field">
-
               <label for="region">
                 STATE / PROVINCE / REGION
               </label>
-
               <input
                 id="region"
                 name="region"
@@ -629,46 +549,31 @@
                 placeholder="State / province / region"
                 required
               >
-
             </div>
-
-
             <div class="field">
-
               <label for="postcode">
                 POSTCODE / ZIP
               </label>
-
               <input
                 id="postcode"
                 name="postcode"
                 autocomplete="postal-code"
                 required
               >
-
             </div>
-
-
             <div class="field">
-
               <label for="phone">
                 PHONE
               </label>
-
               <input
                 id="phone"
                 name="phone"
                 type="tel"
                 autocomplete="tel"
               >
-
             </div>
-
           </div>
-
         </div>
-
-
         <button
           type="submit"
           class="checkout-button"
@@ -676,141 +581,122 @@
         >
           CONTINUE TO PAYMENT →
         </button>
-
       </form>
-
-
       <a href="./cart.html" class="back-link">
         ← BACK TO CART
       </a>
-
     </section>
-
-
     <aside class="order-summary">
-
       <h2 class="summary-title">
         YOUR ORDER
       </h2>
-
       <div id="summary-items" class="summary-items"></div>
-
       <div class="summary-line">
         <span>SUBTOTAL</span>
         <span id="subtotal">$0.00 AUD</span>
       </div>
-
       <div class="summary-line">
         <span>SHIPPING</span>
         <span>CALCULATED NEXT</span>
       </div>
-
       <div class="summary-total">
         <span>TOTAL</span>
         <span id="total">$0.00 AUD</span>
       </div>
-
     </aside>
-
   </div>
-
 </main>
-
-
 <footer>
-  MOZake — MAKE IT EXIST.
+  <div class="footer-inner">
+    <div class="footer-brand">
+      MOZake
+    </div>
+    <nav class="footer-nav">
+      <a href="./index.html">
+        HOME
+      </a>
+      <a href="./art.html">
+        ART
+      </a>
+      <a href="./clothing.html">
+        CLOTHING
+      </a>
+      <a href="./collectibles.html">
+        COLLECTIBLES
+      </a>
+      <a href="./story.html">
+        STORY
+      </a>
+      <a href="./shop.html">
+        SHOP
+      </a>
+      <a href="./account.html">
+        ACCOUNT
+      </a>
+      <a href="./cart.html">
+        CART
+      </a>
+    </nav>
+    <div class="footer-bottom">
+      <span>
+        MAKE IT EXIST.
+      </span>
+      <span>
+        © 2026 MOZake
+      </span>
+    </div>
+  </div>
 </footer>
-
-
 <script
   src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"
   onload="window.dispatchEvent(new Event('supabase-ready'))"
   onerror="window.dispatchEvent(new Event('supabase-failed'))">
 </script>
-
-
 <script>
-
   const SUPABASE_URL =
     "https://cjyhqxffjppmzgsgrsvt.supabase.co";
-
   const SUPABASE_KEY =
     "sb_publishable_vDNha1HTi57tHedL3KgSzA_DnyVaEj5";
-
-
   let supabaseClient = null;
-
   let cartItems = [];
-
   let products = [];
-
-
   function money(cents) {
-
     return new Intl.NumberFormat("en-AU", {
-
       style: "currency",
-
       currency: "AUD"
-
     }).format((cents || 0) / 100);
-
   }
-
-
   function showStatus(message) {
-
     const status =
       document.getElementById("status");
-
     if (status) {
       status.textContent = message;
     }
-
   }
-
-
   async function startCheckout() {
-
     if (!window.supabase) {
-
       showStatus(
         "SUPABASE CONNECTION FAILED."
       );
-
       return;
     }
-
-
     supabaseClient =
       window.supabase.createClient(
         SUPABASE_URL,
         SUPABASE_KEY
       );
-
-
     const {
       data: { session }
     } =
       await supabaseClient.auth.getSession();
-
-
     if (!session) {
-
       window.location.href =
         "./account.html";
-
       return;
     }
-
-
     const user = session.user;
-
-
     document.getElementById("email").value =
       user.email || "";
-
-
     const {
       data: cartData,
       error: cartError
@@ -819,43 +705,27 @@
         .from("cart_items")
         .select("id, product_id, quantity")
         .eq("user_id", user.id);
-
-
     if (cartError) {
-
       console.error(cartError);
-
       showStatus(
         "COULD NOT LOAD CART."
       );
-
       return;
     }
-
-
     if (!cartData || cartData.length === 0) {
-
       showStatus(
         "YOUR CART IS EMPTY."
       );
-
       document
         .getElementById("payment-button")
         .disabled = true;
-
       return;
     }
-
-
     cartItems = cartData;
-
-
     const productIds =
       cartItems.map(
         item => item.product_id
       );
-
-
     const {
       data: productData,
       error: productError
@@ -864,122 +734,67 @@
         .from("products")
         .select("*")
         .in("id", productIds);
-
-
     if (productError) {
-
       console.error(productError);
-
       showStatus(
         "COULD NOT LOAD PRODUCTS."
       );
-
       return;
     }
-
-
     products = productData || [];
-
-
     renderSummary();
-
-
     showStatus("");
-
   }
-
-
   function renderSummary() {
-
     const summary =
       document.getElementById(
         "summary-items"
       );
-
-
     summary.innerHTML = "";
-
-
     let subtotal = 0;
-
-
     cartItems.forEach(item => {
-
       const product =
         products.find(
           p => p.id === item.product_id
         );
-
-
       if (!product) return;
-
-
       const price =
         product.price || 0;
-
-
       const quantity =
         item.quantity || 1;
-
-
       subtotal +=
         price * quantity;
-
-
       const row =
-        document.createElement("div");
-
-
+        document.createElement(
+          "div"
+        );
       row.className =
         "summary-item";
-
-
       row.innerHTML = `
-
         <div>
-
           <span class="summary-item-name">
             ${product.name}
           </span>
-
           <span class="summary-item-qty">
             × ${quantity}
           </span>
-
         </div>
-
         <span>
           ${money(price * quantity)}
         </span>
-
       `;
-
-
       summary.appendChild(row);
-
     });
-
-
     document.getElementById(
       "subtotal"
     ).textContent =
       money(subtotal) + " AUD";
-
-
     document.getElementById(
       "total"
     ).textContent =
       money(subtotal) + " AUD";
-
   }
-
-
-  /*
-    INTERNATIONAL REGION DATA
-  */
-
   const regionOptions = {
-
     AU: [
       "New South Wales",
       "Victoria",
@@ -990,8 +805,6 @@
       "Northern Territory",
       "Australian Capital Territory"
     ],
-
-
     US: [
       "Alabama",
       "Alaska",
@@ -1045,8 +858,6 @@
       "Wyoming",
       "District of Columbia"
     ],
-
-
     CA: [
       "Alberta",
       "British Columbia",
@@ -1062,8 +873,6 @@
       "Saskatchewan",
       "Yukon"
     ],
-
-
     NZ: [
       "Auckland",
       "Bay of Plenty",
@@ -1082,16 +891,12 @@
       "Wellington",
       "West Coast"
     ],
-
-
     GB: [
       "England",
       "Scotland",
       "Wales",
       "Northern Ireland"
     ],
-
-
     IE: [
       "Carlow",
       "Cavan",
@@ -1120,8 +925,6 @@
       "Wexford",
       "Wicklow"
     ],
-
-
     DE: [
       "Baden-Württemberg",
       "Bavaria",
@@ -1140,8 +943,6 @@
       "Schleswig-Holstein",
       "Thuringia"
     ],
-
-
     FR: [
       "Auvergne-Rhône-Alpes",
       "Bourgogne-Franche-Comté",
@@ -1157,8 +958,6 @@
       "Pays de la Loire",
       "Provence-Alpes-Côte d'Azur"
     ],
-
-
     IT: [
       "Abruzzo",
       "Aosta Valley",
@@ -1181,8 +980,6 @@
       "Umbria",
       "Veneto"
     ],
-
-
     ES: [
       "Andalusia",
       "Aragon",
@@ -1202,8 +999,6 @@
       "Navarre",
       "Valencian Community"
     ],
-
-
     JP: [
       "Aichi",
       "Akita",
@@ -1253,8 +1048,6 @@
       "Yamaguchi",
       "Yamanashi"
     ],
-
-
     BR: [
       "Acre",
       "Alagoas",
@@ -1284,8 +1077,6 @@
       "Sergipe",
       "Tocantins"
     ],
-
-
     MX: [
       "Aguascalientes",
       "Baja California",
@@ -1320,194 +1111,125 @@
       "Yucatán",
       "Zacatecas"
     ]
-
   };
-
-
   function updateRegionField() {
-
     const country =
       document.getElementById(
         "country"
       ).value;
-
-
     const oldRegion =
       document.getElementById(
         "region"
       );
-
-
     if (!oldRegion) return;
-
-
     const options =
       regionOptions[country];
-
-
     if (options) {
-
       const select =
         document.createElement(
           "select"
         );
-
-
       select.id = "region";
-
       select.name = "region";
-
       select.autocomplete =
         "address-level1";
-
       select.required = true;
-
-
       select.innerHTML = `
-
         <option value="">
           SELECT STATE / PROVINCE / REGION
         </option>
-
         ${options.map(region => `
-
           <option value="${region}">
             ${region}
           </option>
-
         `).join("")}
-
       `;
-
-
       oldRegion.replaceWith(
         select
       );
-
     } else {
-
       const input =
         document.createElement(
           "input"
         );
-
-
       input.id = "region";
-
       input.name = "region";
-
       input.autocomplete =
         "address-level1";
-
       input.placeholder =
         "State / province / region";
-
       input.required = true;
-
-
       oldRegion.replaceWith(
         input
       );
-
     }
-
   }
-
-
   document
     .getElementById("country")
     .addEventListener(
       "change",
       updateRegionField
     );
-
-
   document
     .getElementById("checkout-form")
     .addEventListener(
       "submit",
       function(event) {
-
         event.preventDefault();
-
-
         const button =
           document.getElementById(
             "payment-button"
           );
-
-
         button.disabled = true;
-
-
         button.textContent =
           "PAYMENT COMING NEXT...";
-
-
         console.log({
-
           email:
             document.getElementById(
               "email"
             ).value,
-
           firstName:
             document.getElementById(
               "firstName"
             ).value,
-
           lastName:
             document.getElementById(
               "lastName"
             ).value,
-
           country:
             document.getElementById(
               "country"
             ).value,
-
           address:
             document.getElementById(
               "address"
             ).value,
-
           city:
             document.getElementById(
               "city"
             ).value,
-
           region:
             document.getElementById(
               "region"
             ).value,
-
           postcode:
             document.getElementById(
               "postcode"
             ).value,
-
           phone:
             document.getElementById(
               "phone"
             ).value
-
         });
-
       }
     );
-
-
   window.addEventListener(
     "supabase-ready",
     startCheckout
   );
-
-
   if (window.supabase) {
     startCheckout();
   }
-
 </script>
-
 </body>
 </html>
