@@ -405,32 +405,46 @@
     /* HIDDEN MOZake MARK */
     .hidden-mark {
       position: absolute;
-      right: 34px;
-      bottom: 30px;
-      width: 46px;
-      height: 34px;
+      right: 30px;
+      bottom: 25px;
+      width: 58px;
+      height: 42px;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       cursor: pointer;
+      z-index: 5;
+
+      appearance: none;
+      -webkit-appearance: none;
+      border: 0;
+      outline: none;
+      background: transparent;
+      padding: 0;
+
       opacity: 0.9;
       transition: opacity 0.3s ease;
-      z-index: 5;
     }
 
     .hidden-mark:hover {
       opacity: 0.55;
     }
 
+    .hidden-mark:focus {
+      outline: none;
+    }
+
     .hidden-mark svg {
-      width: 46px;
-      height: 34px;
+      width: 58px;
+      height: 42px;
       display: block;
       overflow: visible;
     }
 
     .hidden-mark polygon {
-      fill: #e2ded4;
+      fill: #ffffff;
     }
 
     /* HIDDEN MESSAGE OVERLAY */
@@ -661,18 +675,20 @@
         min-height: 450px;
       }
 
+      /* HIDDEN MARK MOBILE */
       .hidden-mark {
-        right: 18px;
-        bottom: 22px;
-        width: 42px;
-        height: 31px;
+        right: 15px;
+        bottom: 18px;
+        width: 52px;
+        height: 38px;
       }
 
       .hidden-mark svg {
-        width: 42px;
-        height: 31px;
+        width: 52px;
+        height: 38px;
       }
 
+      /* SURPRISE MOBILE */
       #surpriseOverlay {
         padding: 30px 22px;
       }
@@ -1113,7 +1129,7 @@
       class="hidden-mark"
       id="surpriseButton"
       type="button"
-      aria-label="">
+      aria-label="Open hidden MOZake message">
 
       <svg
         viewBox="0 0 82 58"
