@@ -28,6 +28,7 @@
       outline: 2px solid #111;
       outline-offset: 4px;
     }
+    /* HEADER */
     header {
       width: 100%;
       height: 90px;
@@ -37,6 +38,11 @@
       justify-content: space-between;
       position: relative;
       z-index: 10;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 25px;
     }
     .logo {
       display: flex;
@@ -52,6 +58,24 @@
     }
     .mozake-logo polygon {
       fill: #111;
+    }
+    .account-link {
+      width: 25px;
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #111;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+    .account-link:hover {
+      opacity: 0.45;
+    }
+    .account-icon {
+      width: 22px;
+      height: 22px;
+      display: block;
     }
     nav {
       display: flex !important;
@@ -69,6 +93,9 @@
       transition: opacity 0.3s ease;
     }
     nav a:hover {
+      opacity: 0.45;
+    }
+    nav a.current {
       opacity: 0.45;
     }
     /* HERO */
@@ -289,8 +316,19 @@
     /* MOBILE */
     @media (max-width: 700px) {
       header {
-        height: 75px;
-        padding: 18px 20px;
+        height: auto;
+        padding: 16px 16px 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 13px;
+      }
+      .header-left {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
       }
       .logo {
         width: 48px;
@@ -300,14 +338,27 @@
         width: 48px;
         height: 38px;
       }
+      .account-link {
+        width: 34px;
+        height: 34px;
+      }
+      .account-icon {
+        width: 32px;
+        height: 32px;
+      }
       nav {
-        gap: 12px !important;
+        width: 100%;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 0 !important;
         flex-shrink: 0 !important;
       }
       nav a {
-        font-size: 12px !important;
+        font-size: 15px !important;
         font-weight: 600 !important;
-        letter-spacing: 1.2px !important;
+        letter-spacing: 1.15px !important;
+        white-space: nowrap !important;
       }
       .story-hero {
         min-height: 18vh;
@@ -427,6 +478,7 @@
         scroll-behavior: auto;
       }
       nav a,
+      .account-link,
       .footer-bottom a {
         transition: none;
       }
@@ -435,109 +487,157 @@
 </head>
 <body>
 <header>
-  <a href="./index.html" class="logo" aria-label="MOZake">
-    <svg
-      class="mozake-logo"
-      viewBox="0 0 82 58"
-      aria-label="MOZake logo">
-      <polygon points="2,55 29,7 56,55"></polygon>
-      <polygon points="27,51 54,3 81,51"></polygon>
-    </svg>
-  </a>
+  <div class="header-left">
+    <a
+      href="./index.html"
+      class="logo"
+      aria-label="MOZake">
+      <svg
+        class="mozake-logo"
+        viewBox="0 0 82 58"
+        aria-label="MOZake logo">
+        <polygon points="2,55 29,7 56,55"></polygon>
+        <polygon points="27,51 54,3 81,51"></polygon>
+      </svg>
+    </a>
+    <a
+      href="./account.html"
+      class="account-link"
+      aria-label="Account"
+      title="Account">
+      <svg
+        class="account-icon"
+        viewBox="0 0 24 24"
+        aria-hidden="true">
+        <circle
+          cx="12"
+          cy="8"
+          r="3.2"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"/>
+        <path
+          d="M5.5 19c.7-3.1 3-5 6.5-5s5.8 1.9 6.5 5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"/>
+      </svg>
+    </a>
+  </div>
   <nav>
-    <a href="./art.html">ART</a>
-    <a href="./clothing.html">CLOTHING</a>
-    <a href="./collectibles.html">COLLECTIBLES</a>
-    <a href="./story.html">STORY</a>
-    <a href="./shop.html">SHOP</a>
+    <a href="./art.html">
+      ART
+    </a>
+    <a href="./clothing.html">
+      CLOTHING
+    </a>
+    <a href="./collectibles.html">
+      COLLECTIBLES
+    </a>
+    <a
+      href="./story.html"
+      class="current"
+      aria-current="page">
+      STORY
+    </a>
+    <a href="./shop.html">
+      SHOP
+    </a>
   </nav>
 </header>
 <main>
   <!-- HERO -->
   <section class="story-hero">
-    <div class="story-label">THE WORLD OF MOZake</div>
-    <h1 class="story-title">STORY</h1>
+    <div class="story-label">
+      THE WORLD OF MOZake
+    </div>
+    <h1 class="story-title">
+      STORY
+    </h1>
   </section>
   <!-- INTRO -->
   <section class="story-intro">
     <div class="story-intro-grid">
-  <h2>
-    A WORLD<br>
-    THAT<br>
-    CREATES<br>
-    ITSELF.
-  </h2>
-  <div class="story-copy">
-    <p>
-      MOZake is not one story. It is a world that keeps creating itself.
-    </p>
-    <p>
-      Every episode introduces a new moment, a new identity, or a new part of the world.
-    </p>
-    <p>
-      What begins with one simple creation slowly becomes something bigger.
-    </p>
-  </div>
-</div>
+      <h2>
+        A WORLD<br>
+        THAT<br>
+        CREATES<br>
+        ITSELF.
+      </h2>
+      <div class="story-copy">
+        <p>
+          MOZake is not one story. It is a world that keeps creating itself.
+        </p>
+        <p>
+          Every episode introduces a new moment, a new identity, or a new part of the world.
+        </p>
+        <p>
+          What begins with one simple creation slowly becomes something bigger.
+        </p>
+      </div>
+    </div>
   </section>
   <!-- CHRONICLES -->
   <section class="episodes">
-<div class="episodes-label">
-  THE MOZake CHRONICLES
-</div>
-<article class="episode">
-  <div class="episode-top">
-    <div class="episode-number">
-      EPISODE 01
+    <div class="episodes-label">
+      THE MOZake CHRONICLES
     </div>
-    <div>
-      <h3>TBA</h3>
-    </div>
-  </div>
-  <div class="episode-visual">
-    <div class="episode-status">
-      TBA
-    </div>
-    <div class="coming-soon">
-      TBA
-    </div>
-  </div>
-  <p class="episode-story">
-    TBA
-  </p>
-  <div class="figure-release">
-    FIGURE RELEASE — MOZake
-  </div>
-</article>
+    <article class="episode">
+      <div class="episode-top">
+        <div class="episode-number">
+          EPISODE 01
+        </div>
+        <div>
+          <h3>
+            TBA
+          </h3>
+        </div>
+      </div>
+      <div class="episode-visual">
+        <div class="episode-status">
+          TBA
+        </div>
+        <div class="coming-soon">
+          TBA
+        </div>
+      </div>
+      <p class="episode-story">
+        TBA
+      </p>
+      <div class="figure-release">
+        FIGURE RELEASE — MOZake
+      </div>
+    </article>
   </section>
   <!-- PHILOSOPHY -->
   <section class="philosophy">
-<div class="philosophy-label">
-  THE IDEA
-</div>
-<h2>
-  MAKE IT<br>
-  EXIST.
-</h2>
-<p>
-  An idea doesn't have to make sense before
-  it deserves to exist.
-  <br><br>
-  Create it. Shape it. Give it a place in
-  the world.
-  <br><br>
-  That's what MOZake is about.
-</p>
+    <div class="philosophy-label">
+      THE IDEA
+    </div>
+    <h2>
+      MAKE IT<br>
+      EXIST.
+    </h2>
+    <p>
+      An idea doesn't have to make sense before
+      it deserves to exist.
+      <br><br>
+      Create it. Shape it. Give it a place in
+      the world.
+      <br><br>
+      That's what MOZake is about.
+    </p>
   </section>
   <!-- END -->
   <section class="story-end">
-<div class="story-end-label">
-  THE STORY CONTINUES
-</div>
-<h2>
-  MORE<br>
-  TO COME.
-</h2>
+    <div class="story-end-label">
+      THE STORY CONTINUES
+    </div>
+    <h2>
+      MORE<br>
+      TO COME.
+    </h2>
   </section>
 </main>
 <!-- FOOTER -->
@@ -546,14 +646,20 @@
     <div class="footer-logo">
       MOZake
     </div>
-<div class="footer-slogan">
-  MAKE IT EXIST.
-</div>
+    <div class="footer-slogan">
+      MAKE IT EXIST.
+    </div>
   </div>
   <div class="footer-bottom">
-    <a href="./art.html">ART</a>
-    <a href="./clothing.html">CLOTHING</a>
-    <a href="./collectibles.html">COLLECTIBLES</a>
+    <a href="./art.html">
+      ART
+    </a>
+    <a href="./clothing.html">
+      CLOTHING
+    </a>
+    <a href="./collectibles.html">
+      COLLECTIBLES
+    </a>
   </div>
 </footer>
 </body>
