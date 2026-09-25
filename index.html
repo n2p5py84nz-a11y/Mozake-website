@@ -402,53 +402,38 @@
       letter-spacing: 3px;
     }
 
-    /* SURPRISE */
-    .surprise {
-      background: #e2ded4;
-      min-height: 55vh;
+    /* HIDDEN MOZake MARK */
+    .hidden-mark {
+      position: absolute;
+      right: 34px;
+      bottom: 30px;
+      width: 46px;
+      height: 34px;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      border-top: 1px solid #111;
-    }
-
-    .surprise-label {
-      font-size: 11px;
-      letter-spacing: 4px;
-      margin-bottom: 35px;
-      opacity: 0.5;
-    }
-
-    .surprise-button {
-      appearance: none;
-      border: 0;
-      background: none;
-      color: #111;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: clamp(38px, 7vw, 100px);
-      font-weight: 700;
-      line-height: 0.9;
-      letter-spacing: -4px;
-      text-transform: uppercase;
       cursor: pointer;
-      padding: 10px 0;
+      opacity: 0.9;
       transition: opacity 0.3s ease;
+      z-index: 5;
     }
 
-    .surprise-button:hover {
-      opacity: 0.45;
+    .hidden-mark:hover {
+      opacity: 0.55;
     }
 
-    .surprise-subtext {
-      margin-top: 30px;
-      font-size: 12px;
-      letter-spacing: 2px;
-      opacity: 0.5;
+    .hidden-mark svg {
+      width: 46px;
+      height: 34px;
+      display: block;
+      overflow: visible;
     }
 
-    /* SURPRISE OVERLAY */
+    .hidden-mark polygon {
+      fill: #e2ded4;
+    }
+
+    /* HIDDEN MESSAGE OVERLAY */
     #surpriseOverlay {
       position: fixed;
       inset: 0;
@@ -518,7 +503,8 @@
 
     /* FOOTER */
     footer {
-      padding: 80px 7vw 50px;
+      position: relative;
+      padding: 80px 7vw 95px;
       background: #111;
       color: #e2ded4;
       border-top: 1px solid #333;
@@ -675,14 +661,16 @@
         min-height: 450px;
       }
 
-      /* SURPRISE MOBILE */
-      .surprise {
-        min-height: 50vh;
+      .hidden-mark {
+        right: 18px;
+        bottom: 22px;
+        width: 42px;
+        height: 31px;
       }
 
-      .surprise-button {
-        font-size: 15vw;
-        letter-spacing: -2px;
+      .hidden-mark svg {
+        width: 42px;
+        height: 31px;
       }
 
       #surpriseOverlay {
@@ -715,27 +703,39 @@
 
   <!-- HERO -->
   <section class="hero">
+
     <div id="intro">
+
       <video
         id="introVideo"
         autoplay
         muted
         playsinline
         preload="auto">
+
         <source src="MOZake-intro.mp4" type="video/mp4">
+
       </video>
 
       <button id="startButton">
         ENTER
       </button>
+
     </div>
+
   </section>
+
 
   <!-- HEADER -->
   <header>
+
     <div class="header-left">
 
-      <a href="./index.html" class="logo" aria-label="MOZake">
+      <a
+        href="./index.html"
+        class="logo"
+        aria-label="MOZake">
+
         <svg
           class="mozake-logo"
           viewBox="0 0 82 58"
@@ -745,7 +745,9 @@
           <polygon points="27,51 54,3 81,51"></polygon>
 
         </svg>
+
       </a>
+
 
       <a
         href="./account.html"
@@ -774,11 +776,14 @@
             stroke-linecap="round"/>
 
         </svg>
+
       </a>
 
     </div>
 
+
     <nav>
+
       <a href="./art.html">
         ART
       </a>
@@ -798,8 +803,11 @@
       <a href="./shop.html">
         SHOP
       </a>
+
     </nav>
+
   </header>
+
 
   <!-- WORLD -->
   <section class="world">
@@ -811,12 +819,15 @@
       </div>
 
       <h2 class="world-title">
+
         <span>ART.</span>
         <span>CLOTHING.</span>
         <span>COLLECTIBLES.</span>
+
       </h2>
 
     </div>
+
 
     <div class="world-bottom">
 
@@ -841,6 +852,7 @@
 
       </div>
 
+
       <div class="world-card">
 
         <div class="world-number">
@@ -861,6 +873,7 @@
         </a>
 
       </div>
+
 
       <div class="world-card">
 
@@ -887,6 +900,7 @@
 
   </section>
 
+
   <!-- LATEST -->
   <section class="latest">
 
@@ -895,19 +909,26 @@
     </div>
 
     <h2 class="medium-title">
+
       MOZake<br>
       ARTWORK
+
     </h2>
 
     <div class="art-placeholder">
       ORIGINAL MOZake ARTWORK
     </div>
 
-    <a href="./art.html" class="discover">
+    <a
+      href="./art.html"
+      class="discover">
+
       DISCOVER →
+
     </a>
 
   </section>
+
 
   <!-- STORY -->
   <section class="story">
@@ -917,22 +938,31 @@
     </div>
 
     <h2 class="large-title">
+
       EVERY<br>
       CREATION<br>
       HAS A<br>
       BEGINNING.
+
     </h2>
 
     <p class="body-text">
+
       Every creation has a beginning.
       But where did MOZake come from?
+
     </p>
 
-    <a href="./story.html" class="discover">
+    <a
+      href="./story.html"
+      class="discover">
+
       DISCOVER THE STORY →
+
     </a>
 
   </section>
+
 
   <!-- CLOTHING -->
   <section class="clothing">
@@ -942,9 +972,12 @@
     </div>
 
     <h2 class="medium-title">
+
       EXPLORE<br>
       THE CLOTHING
+
     </h2>
+
 
     <div class="product-grid">
 
@@ -962,11 +995,17 @@
 
     </div>
 
-    <a href="./clothing.html" class="discover">
+
+    <a
+      href="./clothing.html"
+      class="discover">
+
       EXPLORE THE WORLD →
+
     </a>
 
   </section>
+
 
   <!-- COLLECTIBLES -->
   <section class="collectibles">
@@ -976,9 +1015,12 @@
     </div>
 
     <h2 class="medium-title">
+
       EXPLORE<br>
       THE COLLECTION
+
     </h2>
+
 
     <div class="collectible-layout">
 
@@ -986,34 +1028,53 @@
         MOZake 001
       </div>
 
+
       <div class="collectible-info">
 
         <h3>
+
           MOZake<br>
           001
+
         </h3>
 
+
         <p class="edition">
+
           MOZake<br><br>
           THE ORIGINAL MOZake COLLECTIBLE
+
         </p>
 
+
         <p class="body-text">
+
           MOZake, exactly as he was first created.
           The original form of the character —
           before the different versions, worlds and
           stories begin.
+
           <br><br>
+
           This is where the collection starts.
+
         </p>
+
 
         <p class="edition">
+
           LIMITED EDITION<br>
           5,000 PIECES
+
         </p>
 
-        <a href="./collectibles.html" class="discover">
+
+        <a
+          href="./collectibles.html"
+          class="discover">
+
           VIEW COLLECTION →
+
         </a>
 
       </div>
@@ -1022,29 +1083,54 @@
 
   </section>
 
-  <!-- SURPRISE -->
-  <section class="surprise">
 
-    <div class="surprise-label">
-      YOU WEREN'T SUPPOSED TO FIND THIS.
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="section-label">
+      SHOP MOZake
     </div>
 
-    <button
-      class="surprise-button"
-      id="surpriseButton"
-      type="button">
+    <h2 class="large-title">
 
-      SURPRISE ME.
+      MAKE IT<br>
+      EXIST.
+
+    </h2>
+
+    <p>
+
+      CLOTHING &nbsp; / &nbsp;
+      COLLECTIBLES &nbsp; / &nbsp;
+      ART
+
+    </p>
+
+
+    <!-- HIDDEN MOZake MARK -->
+
+    <button
+      class="hidden-mark"
+      id="surpriseButton"
+      type="button"
+      aria-label="">
+
+      <svg
+        viewBox="0 0 82 58"
+        aria-hidden="true">
+
+        <polygon points="2,55 29,7 56,55"></polygon>
+        <polygon points="27,51 54,3 81,51"></polygon>
+
+      </svg>
 
     </button>
 
-    <div class="surprise-subtext">
-      CLICK IT.
-    </div>
+  </footer>
 
-  </section>
 
-  <!-- SURPRISE OVERLAY -->
+  <!-- HIDDEN MESSAGE OVERLAY -->
+
   <div
     id="surpriseOverlay"
     role="dialog"
@@ -1061,6 +1147,7 @@
 
     </button>
 
+
     <div class="surprise-content">
 
       <div
@@ -1071,15 +1158,17 @@
 
       </div>
 
+
       <div
         class="surprise-message"
         id="surpriseMessage">
 
-        MAKE SOMETHING
-        THAT DIDN'T EXIST
+        MAKE SOMETHING<br>
+        THAT DIDN'T EXIST<br>
         BEFORE YOU MADE IT.
 
       </div>
+
 
       <div
         class="surprise-small"
@@ -1093,35 +1182,26 @@
 
   </div>
 
-  <!-- FOOTER -->
-  <footer>
-
-    <div class="section-label">
-      SHOP MOZake
-    </div>
-
-    <h2 class="large-title">
-      MAKE IT<br>
-      EXIST.
-    </h2>
-
-    <p>
-      CLOTHING &nbsp; / &nbsp;
-      COLLECTIBLES &nbsp; / &nbsp;
-      ART
-    </p>
-
-  </footer>
 
   <!-- INTRO SCRIPT -->
+
   <script>
 
-    const intro = document.getElementById("intro");
-    const video = document.getElementById("introVideo");
-    const startButton = document.getElementById("startButton");
+    const intro =
+      document.getElementById("intro");
+
+    const video =
+      document.getElementById("introVideo");
+
+    const startButton =
+      document.getElementById("startButton");
+
 
     const introPlayed =
-      sessionStorage.getItem("mozakeIntroPlayed");
+      sessionStorage.getItem(
+        "mozakeIntroPlayed"
+      );
+
 
     function hideIntro() {
 
@@ -1133,10 +1213,13 @@
       intro.classList.add("hide");
 
       setTimeout(() => {
+
         intro.style.display = "none";
+
       }, 1300);
 
     }
+
 
     if (introPlayed === "true") {
 
@@ -1145,22 +1228,35 @@
     } else {
 
       video.play().catch(() => {
+
         startButton.style.display = "block";
-      });
-
-      video.addEventListener("ended", () => {
-        hideIntro();
-      });
-
-      startButton.addEventListener("click", () => {
-
-        startButton.style.display = "none";
-
-        video.play();
 
       });
+
+
+      video.addEventListener(
+        "ended",
+        () => {
+
+          hideIntro();
+
+        }
+      );
+
+
+      startButton.addEventListener(
+        "click",
+        () => {
+
+          startButton.style.display = "none";
+
+          video.play();
+
+        }
+      );
 
     }
+
 
     /* FORCE TOP NAVIGATION TO OPEN PAGES */
 
@@ -1168,37 +1264,52 @@
       .querySelectorAll("header nav a")
       .forEach(link => {
 
-        link.addEventListener("click", function(event) {
+        link.addEventListener(
+          "click",
+          function(event) {
 
-          event.preventDefault();
+            event.preventDefault();
 
-          window.location.href =
-            this.getAttribute("href");
+            window.location.href =
+              this.getAttribute("href");
 
-        });
+          }
+        );
 
       });
 
 
-    /* MOZake SURPRISE */
+    /* MOZake HIDDEN MESSAGE */
 
     const surpriseButton =
-      document.getElementById("surpriseButton");
+      document.getElementById(
+        "surpriseButton"
+      );
 
     const surpriseOverlay =
-      document.getElementById("surpriseOverlay");
+      document.getElementById(
+        "surpriseOverlay"
+      );
 
     const surpriseClose =
-      document.getElementById("surpriseClose");
+      document.getElementById(
+        "surpriseClose"
+      );
 
     const surpriseMessage =
-      document.getElementById("surpriseMessage");
+      document.getElementById(
+        "surpriseMessage"
+      );
 
     const surpriseSmall =
-      document.getElementById("surpriseSmall");
+      document.getElementById(
+        "surpriseSmall"
+      );
 
     const surpriseNumber =
-      document.getElementById("surpriseNumber");
+      document.getElementById(
+        "surpriseNumber"
+      );
 
 
     const surpriseMessages = [
@@ -1261,6 +1372,7 @@
 
       let randomIndex;
 
+
       do {
 
         randomIndex =
@@ -1274,10 +1386,14 @@
         randomIndex === lastMessage
       );
 
-      lastMessage = randomIndex;
+
+      lastMessage =
+        randomIndex;
+
 
       const selected =
         surpriseMessages[randomIndex];
+
 
       surpriseMessage.innerHTML =
         selected.message;
@@ -1285,18 +1401,28 @@
       surpriseSmall.textContent =
         selected.small;
 
-      surpriseNumber.textContent =
-        String(randomIndex + 1).padStart(2, "0") +
-        " / MOZake";
 
-      surpriseOverlay.classList.add("open");
+      surpriseNumber.textContent =
+        String(randomIndex + 1).padStart(
+          2,
+          "0"
+        ) + " / MOZake";
+
+
+      surpriseOverlay.classList.add(
+        "open"
+      );
+
 
       surpriseOverlay.setAttribute(
         "aria-hidden",
         "false"
       );
 
-      document.body.style.overflow = "hidden";
+
+      document.body.style.overflow =
+        "hidden";
+
 
       surpriseClose.focus();
 
@@ -1305,14 +1431,20 @@
 
     function closeSurprise() {
 
-      surpriseOverlay.classList.remove("open");
+      surpriseOverlay.classList.remove(
+        "open"
+      );
+
 
       surpriseOverlay.setAttribute(
         "aria-hidden",
         "true"
       );
 
-      document.body.style.overflow = "";
+
+      document.body.style.overflow =
+        "";
+
 
       surpriseButton.focus();
 
@@ -1337,7 +1469,9 @@
 
         if (
           event.key === "Escape" &&
-          surpriseOverlay.classList.contains("open")
+          surpriseOverlay.classList.contains(
+            "open"
+          )
         ) {
 
           closeSurprise();
