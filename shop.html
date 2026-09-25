@@ -114,6 +114,29 @@
       text-transform: uppercase;
       white-space: nowrap;
     }
+    /* ACCOUNT STATUS */
+    .account-status {
+      padding: 18px 40px;
+      border-bottom: 1px solid #111;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+    .account-status-label {
+      opacity: 0.45;
+    }
+    .account-status-link {
+      color: #111;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+    .account-status-link:hover {
+      opacity: 0.45;
+    }
     /* FILTER */
     .shop-controls {
       padding: 35px 40px;
@@ -387,6 +410,11 @@
         letter-spacing: -3px;
         white-space: nowrap;
       }
+      .account-status {
+        padding: 16px 20px;
+        font-size: 9px;
+        letter-spacing: 1.5px;
+      }
       .shop-controls {
         padding: 25px 20px;
         display: block;
@@ -454,130 +482,143 @@
 </head>
 <body>
   <header>
-<div class="header-left">
-  <a
-    href="./index.html"
-    class="logo"
-    aria-label="MOZake">
-    <svg
-      class="mozake-logo"
-      viewBox="0 0 82 58"
-      aria-label="MOZake logo">
-      <polygon points="2,55 29,7 56,55"></polygon>
-      <polygon points="27,51 54,3 81,51"></polygon>
-    </svg>
-  </a>
-  <a
-    href="./account.html"
-    class="account-link"
-    aria-label="Account"
-    title="Account">
-    <svg
-      class="account-icon"
-      viewBox="0 0 24 24"
-      aria-hidden="true">
-      <circle
-        cx="12"
-        cy="8"
-        r="3.2"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.8"/>
-      <path
-        d="M5.5 19c.7-3.1 3-5 6.5-5s5.8 1.9 6.5 5"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.8"
-        stroke-linecap="round"/>
-    </svg>
-  </a>
-</div>
-<nav>
-  <a href="./art.html">
-    ART
-  </a>
-  <a href="./clothing.html">
-    CLOTHING
-  </a>
-  <a href="./collectibles.html">
-    COLLECTIBLES
-  </a>
-  <a href="./story.html">
-    STORY
-  </a>
-  <a
-    href="./shop.html"
-    class="current"
-    aria-current="page">
-    SHOP
-  </a>
-</nav>
+    <div class="header-left">
+      <a
+        href="./index.html"
+        class="logo"
+        aria-label="MOZake">
+        <svg
+          class="mozake-logo"
+          viewBox="0 0 82 58"
+          aria-label="MOZake logo">
+          <polygon points="2,55 29,7 56,55"></polygon>
+          <polygon points="27,51 54,3 81,51"></polygon>
+        </svg>
+      </a>
+      <a
+        href="./account.html"
+        class="account-link"
+        aria-label="Account"
+        title="Account">
+        <svg
+          class="account-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true">
+          <circle
+            cx="12"
+            cy="8"
+            r="3.2"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"/>
+          <path
+            d="M5.5 19c.7-3.1 3-5 6.5-5s5.8 1.9 6.5 5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"/>
+        </svg>
+      </a>
+    </div>
+    <nav>
+      <a href="./art.html">
+        ART
+      </a>
+      <a href="./clothing.html">
+        CLOTHING
+      </a>
+      <a href="./collectibles.html">
+        COLLECTIBLES
+      </a>
+      <a href="./story.html">
+        STORY
+      </a>
+      <a
+        href="./shop.html"
+        class="current"
+        aria-current="page">
+        SHOP
+      </a>
+    </nav>
   </header>
   <main>
-<section class="shop-hero">
-  <div class="shop-label">
-    THE WORLD OF MOZake
-  </div>
-  <h1 class="shop-title">
-    SHOP
-  </h1>
-</section>
-<section class="shop-controls">
-  <div class="shop-filter">
-    <button
-      class="active"
-      data-filter="all">
-      ALL
-    </button>
-    <button data-filter="art">
-      ART
-    </button>
-    <button data-filter="clothing">
-      CLOTHING
-    </button>
-    <button data-filter="collectibles">
-      COLLECTIBLES
-    </button>
-  </div>
-  <div
-    class="shop-count"
-    id="shopCount">
-    LOADING
-  </div>
-</section>
-<section class="shop-products">
-  <div
-    class="product-grid"
-    id="productGrid">
-  </div>
-  <div
-    class="shop-empty"
-    id="shopEmpty"
-    style="display: none;">
-    NO PRODUCTS AVAILABLE
-  </div>
-</section>
+    <section class="shop-hero">
+      <div class="shop-label">
+        THE WORLD OF MOZake
+      </div>
+      <h1 class="shop-title">
+        SHOP
+      </h1>
+    </section>
+    <section class="account-status">
+      <span
+        class="account-status-label"
+        id="accountStatus">
+        CHECKING ACCOUNT
+      </span>
+      <a
+        href="./account.html"
+        class="account-status-link"
+        id="accountStatusLink">
+        ACCOUNT →
+      </a>
+    </section>
+    <section class="shop-controls">
+      <div class="shop-filter">
+        <button
+          class="active"
+          data-filter="all">
+          ALL
+        </button>
+        <button data-filter="art">
+          ART
+        </button>
+        <button data-filter="clothing">
+          CLOTHING
+        </button>
+        <button data-filter="collectibles">
+          COLLECTIBLES
+        </button>
+      </div>
+      <div
+        class="shop-count"
+        id="shopCount">
+        LOADING
+      </div>
+    </section>
+    <section class="shop-products">
+      <div
+        class="product-grid"
+        id="productGrid">
+      </div>
+      <div
+        class="shop-empty"
+        id="shopEmpty"
+        style="display: none;">
+        NO PRODUCTS AVAILABLE
+      </div>
+    </section>
   </main>
   <footer>
-<div class="footer-top">
-  <div class="footer-logo">
-    MOZake
-  </div>
-  <div class="footer-slogan">
-    MAKE IT EXIST.
-  </div>
-</div>
-<div class="footer-bottom">
-  <a href="./art.html">
-    ART
-  </a>
-  <a href="./clothing.html">
-    CLOTHING
-  </a>
-  <a href="./collectibles.html">
-    COLLECTIBLES
-  </a>
-</div>
+    <div class="footer-top">
+      <div class="footer-logo">
+        MOZake
+      </div>
+      <div class="footer-slogan">
+        MAKE IT EXIST.
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <a href="./art.html">
+        ART
+      </a>
+      <a href="./clothing.html">
+        CLOTHING
+      </a>
+      <a href="./collectibles.html">
+        COLLECTIBLES
+      </a>
+    </div>
   </footer>
   <!-- SUPABASE -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -586,7 +627,7 @@
       "https://cjyhqxffjppmzgsgrsvt.supabase.co";
     const SUPABASE_PUBLISHABLE_KEY =
       "sb_publishable_vDNha1HTi57tHedL3KgSzA_DnyVaEj5";
-    const supabase =
+    const supabaseClient =
       window.supabase.createClient(
         SUPABASE_URL,
         SUPABASE_PUBLISHABLE_KEY
@@ -597,6 +638,10 @@
       document.getElementById("shopCount");
     const shopEmpty =
       document.getElementById("shopEmpty");
+    const accountStatus =
+      document.getElementById("accountStatus");
+    const accountStatusLink =
+      document.getElementById("accountStatusLink");
     const filterButtons =
       document.querySelectorAll(
         ".shop-filter button"
@@ -604,7 +649,39 @@
     let allProducts = [];
     let wishlistProductIds =
       new Set();
-    let wishlistLoaded = false;
+    /* ACCOUNT STATUS */
+    async function updateAccountStatus() {
+      try {
+        const {
+          data
+        } =
+          await supabaseClient.auth.getUser();
+        const user =
+          data?.user || null;
+        if (user) {
+          accountStatus.textContent =
+            "SIGNED IN AS " +
+            user.email;
+          accountStatusLink.textContent =
+            "ACCOUNT →";
+        } else {
+          accountStatus.textContent =
+            "NOT SIGNED IN";
+          accountStatusLink.textContent =
+            "SIGN IN →";
+        }
+      } catch (error) {
+        console.error(
+          "MOZake account status error:",
+          error
+        );
+        accountStatus.textContent =
+          "NOT SIGNED IN";
+        accountStatusLink.textContent =
+          "SIGN IN →";
+      }
+    }
+    /* PRICE */
     function formatPrice(
       price,
       currency
@@ -621,17 +698,23 @@
         "en-AU",
         {
           style: "currency",
-          currency: currency || "AUD"
+          currency:
+            currency || "AUD"
         }
       ).format(amount);
     }
+    /* CATEGORY LINK */
     function categoryLink(
       category
     ) {
-      if (category === "art") {
+      if (
+        category === "art"
+      ) {
         return "./art.html";
       }
-      if (category === "clothing") {
+      if (
+        category === "clothing"
+      ) {
         return "./clothing.html";
       }
       if (
@@ -641,6 +724,7 @@
       }
       return "./shop.html";
     }
+    /* CATEGORY LABEL */
     function categoryLabel(
       category
     ) {
@@ -648,6 +732,7 @@
         category || ""
       ).toUpperCase();
     }
+    /* WISHLIST ICON */
     function wishlistIconHTML() {
       return `
         <svg
@@ -663,55 +748,65 @@
         </svg>
       `;
     }
+    /* CURRENT USER */
     async function getCurrentUser() {
-      const {
-        data
-      } =
-        await supabase.auth.getUser();
-      return data?.user || null;
+      try {
+        const {
+          data
+        } =
+          await supabaseClient.auth.getUser();
+        return data?.user || null;
+      } catch (error) {
+        console.error(
+          "MOZake user error:",
+          error
+        );
+        return null;
+      }
     }
+    /* LOAD WISHLIST */
     async function loadWishlist() {
       wishlistProductIds =
         new Set();
-      wishlistLoaded =
-        false;
       const user =
         await getCurrentUser();
       if (!user) {
-        wishlistLoaded =
-          true;
         return;
       }
-      const {
-        data,
-        error
-      } =
-        await supabase
-          .from("wishlist")
-          .select("product_id")
-          .eq(
-            "user_id",
-            user.id
+      try {
+        const {
+          data,
+          error
+        } =
+          await supabaseClient
+            .from("wishlist")
+            .select("product_id")
+            .eq(
+              "user_id",
+              user.id
+            );
+        if (error) {
+          console.error(
+            "MOZake wishlist error:",
+            error
           );
-      if (error) {
+          return;
+        }
+        (data || []).forEach(
+          item => {
+            wishlistProductIds.add(
+              item.product_id
+            );
+          }
+        );
+      } catch (error) {
         console.error(
           "MOZake wishlist error:",
           error
         );
-        wishlistLoaded =
-          true;
-        return;
       }
-      (data || []).forEach(
-        item => {
-          wishlistProductIds.add(
-            item.product_id
-          );
-        }
-      );
-      wishlistLoaded =
-        true;
     }
+    /* TOGGLE WISHLIST */
     async function toggleWishlist(
       productId,
       button
@@ -729,89 +824,96 @@
         );
       button.disabled =
         true;
-      if (alreadySaved) {
-        const {
-          error
-        } =
-          await supabase
-            .from("wishlist")
-            .delete()
-            .eq(
-              "user_id",
-              user.id
-            )
-            .eq(
-              "product_id",
-              productId
-            );
-        if (error) {
-          console.error(
-            "MOZake wishlist remove error:",
+      try {
+        if (alreadySaved) {
+          const {
             error
-          );
-          button.disabled =
-            false;
-          return;
-        }
-        wishlistProductIds.delete(
-          productId
-        );
-        button.classList.remove(
-          "saved"
-        );
-        button.setAttribute(
-          "aria-label",
-          "Add to wishlist"
-        );
-        button.setAttribute(
-          "title",
-          "Add to wishlist"
-        );
-      } else {
-        const {
-          error
-        } =
-          await supabase
-            .from("wishlist")
-            .insert({
-              user_id:
-                user.id,
-              product_id:
+          } =
+            await supabaseClient
+              .from("wishlist")
+              .delete()
+              .eq(
+                "user_id",
+                user.id
+              )
+              .eq(
+                "product_id",
                 productId
-            });
-        if (error) {
-          console.error(
-            "MOZake wishlist add error:",
-            error
+              );
+          if (error) {
+            console.error(
+              "MOZake wishlist remove error:",
+              error
+            );
+            return;
+          }
+          wishlistProductIds.delete(
+            productId
           );
-          button.disabled =
-            false;
-          return;
+          button.classList.remove(
+            "saved"
+          );
+          button.setAttribute(
+            "aria-label",
+            "Add to wishlist"
+          );
+          button.setAttribute(
+            "title",
+            "Add to wishlist"
+          );
+        } else {
+          const {
+            error
+          } =
+            await supabaseClient
+              .from("wishlist")
+              .insert({
+                user_id:
+                  user.id,
+                product_id:
+                  productId
+              });
+          if (error) {
+            console.error(
+              "MOZake wishlist add error:",
+              error
+            );
+            return;
+          }
+          wishlistProductIds.add(
+            productId
+          );
+          button.classList.add(
+            "saved"
+          );
+          button.setAttribute(
+            "aria-label",
+            "Remove from wishlist"
+          );
+          button.setAttribute(
+            "title",
+            "Remove from wishlist"
+          );
         }
-        wishlistProductIds.add(
-          productId
+      } catch (error) {
+        console.error(
+          "MOZake wishlist error:",
+          error
         );
-        button.classList.add(
-          "saved"
-        );
-        button.setAttribute(
-          "aria-label",
-          "Remove from wishlist"
-        );
-        button.setAttribute(
-          "title",
-          "Remove from wishlist"
-        );
+      } finally {
+        button.disabled =
+          false;
       }
-      button.disabled =
-        false;
     }
+    /* RENDER PRODUCTS */
     function renderProducts(
       products
     ) {
       productGrid.innerHTML =
         "";
-      if (!products.length) {
+      if (
+        !products.length
+      ) {
         productGrid.style.display =
           "none";
         shopEmpty.style.display =
@@ -823,7 +925,10 @@
       shopEmpty.style.display =
         "none";
       products.forEach(
-        (product, index) => {
+        (
+          product,
+          index
+        ) => {
           const article =
             document.createElement(
               "article"
@@ -833,12 +938,19 @@
           article.dataset.category =
             product.category;
           const number =
-            String(index + 1)
-              .padStart(2, "0");
+            String(
+              index + 1
+            ).padStart(
+              2,
+              "0"
+            );
           const total =
             String(
               allProducts.length
-            ).padStart(2, "0");
+            ).padStart(
+              2,
+              "0"
+            );
           const imageHTML =
             product.image_url
               ? `
@@ -848,7 +960,9 @@
               `
               : `
                 <span>
-                  ${product.name.toUpperCase()} / IMAGE
+                  ${String(
+                    product.name
+                  ).toUpperCase()} / IMAGE
                 </span>
               `;
           const statusText =
@@ -957,6 +1071,7 @@
         }
       );
     }
+    /* FILTER */
     function applyFilter(
       filter
     ) {
@@ -990,25 +1105,50 @@
       shopCount.textContent =
         `${String(
           filtered.length
-        ).padStart(2, "0")} ITEMS`;
+        ).padStart(
+          2,
+          "0"
+        )} ITEMS`;
     }
+    /* LOAD PRODUCTS */
     async function loadProducts() {
       shopCount.textContent =
         "LOADING";
-      const {
-        data,
-        error
-      } =
-        await supabase
-          .from("products")
-          .select("*")
-          .order(
-            "created_at",
-            {
-              ascending: true
-            }
-          );
-      if (error) {
+      try {
+        const {
+          data,
+          error
+        } =
+          await supabaseClient
+            .from("products")
+            .select("*")
+            .order(
+              "created_at",
+              {
+                ascending: true
+              }
+            );
+        if (error) {
+          throw error;
+        }
+        allProducts =
+          data || [];
+        /*
+          IMPORTANT:
+          Products render immediately.
+          Login/wishlist cannot block the Shop.
+        */
+        applyFilter(
+          "all"
+        );
+        /*
+          Wishlist loads after products.
+        */
+        await loadWishlist();
+        applyFilter(
+          "all"
+        );
+      } catch (error) {
         console.error(
           "MOZake products error:",
           error
@@ -1021,50 +1161,27 @@
           "PRODUCTS COULD NOT BE LOADED";
         shopCount.textContent =
           "ERROR";
-        return;
       }
-      allProducts =
-        data || [];
-      applyFilter(
-        "all"
-      );
-      // Wishlist loads separately.
-      // It cannot block the shop from displaying products.
-      loadWishlist()
-        .then(() => {
-          const activeButton =
-            document.querySelector(
-              ".shop-filter button.active"
-            );
-          const filter =
-            activeButton
-              ? activeButton.dataset.filter
-              : "all";
-          applyFilter(
-            filter
-          );
-        });
     }
+    /* FILTER BUTTONS */
     filterButtons.forEach(
       button => {
         button.addEventListener(
           "click",
           () => {
-            const filter =
-              button.dataset.filter;
             applyFilter(
-              filter
+              button.dataset.filter
             );
           }
         );
       }
     );
-    supabase.auth.onAuthStateChange(
+    /* AUTH CHANGES */
+    supabaseClient.auth.onAuthStateChange(
       () => {
-        // Refresh wishlist state
-        // without blocking product loading.
         setTimeout(
           async () => {
+            await updateAccountStatus();
             await loadWishlist();
             const activeButton =
               document.querySelector(
@@ -1082,6 +1199,8 @@
         );
       }
     );
+    /* START */
+    updateAccountStatus();
     loadProducts();
   </script>
 </body>
