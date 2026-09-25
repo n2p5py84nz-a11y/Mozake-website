@@ -582,7 +582,12 @@
 <a href="./collectibles.html">COLLECTIBLES</a>
   </div>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- SUPABASE -->
+<script
+  src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+  onload="window.supabaseLoaded = true;"
+  onerror="window.supabaseLoaded = false;">
+</script>
 <script>
   const SUPABASE_URL =
     "https://cjyhqxffjppmzgsgrsvt.supabase.co";
@@ -619,9 +624,8 @@
     );
   let currentStage =
     "PAGE STARTED";
-  function showStatus(
-    message
-  ) {
+  let safetyTimer = null;
+  function showStatus(message) {
     loadingMessage.textContent =
       message;
     loadingMessage.style.display =
@@ -631,12 +635,8 @@
     emptyCart.style.display =
       "none";
   }
-  function showError(
-    message
-  ) {
-    console.error(
-      message
-    );
+  function showError(message) {
+    console.error(message);
     loadingMessage.textContent =
       message;
     loadingMessage.style.display =
@@ -646,37 +646,40 @@
     emptyCart.style.display =
       "none";
   }
-  const safetyTimer =
-    setTimeout(
-      () => {
-        showError(
-          "CART TIMEOUT — " +
-          currentStage
-        );
-      },
-      5000
+  function formatPrice(cents) {
+    return new Intl.NumberFormat(
+      "en-AU",
+      {
+        style: "currency",
+        currency: "AUD"
+      }
+    ).format(
+      (Number(cents) || 0) / 100
     );
+  }
   async function startCart() {
     try {
       currentStage =
-        "CHECKING SUPABASE";
+        "STARTING";
       showStatus(
         "CONNECTING..."
       );
       /*
-        Make absolutely sure the Supabase
-        library has loaded before creating
-        the client.
+        Make sure the Supabase library
+        actually exists before using it.
       */
       if (
         !window.supabase ||
-        !window.supabase.createClient
+        typeof window.supabase.createClient !==
+          "function"
       ) {
         showError(
           "SUPABASE SCRIPT DID NOT LOAD"
         );
         return;
       }
+      currentStage =
+        "CREATING CLIENT";
       supabase =
         window.supabase.createClient(
           SUPABASE_URL,
@@ -705,7 +708,7 @@
           "SIGN IN TO VIEW YOUR CART."
         );
         setTimeout(
-          () => {
+          function() {
             window.location.href =
               "./account.html";
           },
@@ -753,10 +756,10 @@
         );
         loadingMessage.style.display =
           "none";
-        emptyCart.style.display =
-          "block";
         cartContent.style.display =
           "none";
+        emptyCart.style.display =
+          "block";
         cartCount.textContent =
           "0 ITEMS";
         subtotal.textContent =
@@ -773,8 +776,9 @@
       const productIds =
         cartData
           .map(
-            item =>
-              item.product_id
+            function(item) {
+              return item.product_id;
+            }
           )
           .filter(Boolean);
       if (
@@ -809,7 +813,7 @@
       const productMap =
         new Map();
       products.forEach(
-        product => {
+        function(product) {
           productMap.set(
             product.id,
             product
@@ -819,7 +823,7 @@
       const items =
         cartData
           .map(
-            item => {
+            function(item) {
               return {
                 ...item,
                 product:
@@ -830,8 +834,9 @@
             }
           )
           .filter(
-            item =>
-              item.product
+            function(item) {
+              return item.product;
+            }
           );
       if (
         items.length === 0
@@ -842,10 +847,8 @@
         return;
       }
       currentStage =
-        "RENDERING CART";
-      renderCart(
-        items
-      );
+        "RENDERING";
+      renderCart(items);
       clearTimeout(
         safetyTimer
       );
@@ -854,6 +857,7 @@
         safetyTimer
       );
       console.error(
+        "CART ERROR:",
         error
       );
       showError(
@@ -867,9 +871,7 @@
       );
     }
   }
-  function renderCart(
-    items
-  ) {
+  function renderCart(items) {
     cartItems.innerHTML =
       "";
     let cartSubtotal =
@@ -877,17 +879,19 @@
     let itemCount =
       0;
     items.forEach(
-      item => {
+      function(item) {
         const product =
           item.product;
         const quantity =
-          Number(
-            item.quantity
-          ) || 1;
+          Math.max(
+            1,
+            Number(item.quantity) || 1
+          );
         const price =
-          Number(
-            product.price
-          ) || 0;
+          Math.max(
+            0,
+            Number(product.price) || 0
+          );
         cartSubtotal +=
           price * quantity;
         itemCount +=
@@ -973,6 +977,10 @@
           "quantity-button";
         minus.textContent =
           "−";
+        minus.setAttribute(
+          "aria-label",
+          "Decrease quantity"
+        );
         const quantityValue =
           document.createElement(
             "span"
@@ -991,9 +999,13 @@
           "quantity-button";
         plus.textContent =
           "+";
+        plus.setAttribute(
+          "aria-label",
+          "Increase quantity"
+        );
         minus.addEventListener(
           "click",
-          () => {
+          function() {
             updateQuantity(
               item.id,
               quantity - 1
@@ -1002,7 +1014,7 @@
         );
         plus.addEventListener(
           "click",
-          () => {
+          function() {
             updateQuantity(
               item.id,
               quantity + 1
@@ -1030,7 +1042,7 @@
           "REMOVE";
         remove.addEventListener(
           "click",
-          () => {
+          function() {
             removeItem(
               item.id
             );
@@ -1076,11 +1088,12 @@
       }
     );
     cartCount.textContent =
-      `${itemCount} ${
+      itemCount +
+      (
         itemCount === 1
-          ? "ITEM"
-          : "ITEMS"
-      }`;
+          ? " ITEM"
+          : " ITEMS"
+      );
     subtotal.textContent =
       formatPrice(
         cartSubtotal
@@ -1096,19 +1109,6 @@
     cartContent.style.display =
       "block";
   }
-  function formatPrice(
-    cents
-  ) {
-    return new Intl.NumberFormat(
-      "en-AU",
-      {
-        style: "currency",
-        currency: "AUD"
-      }
-    ).format(
-      (Number(cents) || 0) / 100
-    );
-  }
   async function updateQuantity(
     cartId,
     newQuantity
@@ -1122,6 +1122,9 @@
       return;
     }
     try {
+      showStatus(
+        "UPDATING CART..."
+      );
       const result =
         await supabase
           .from("cart_items")
@@ -1141,8 +1144,10 @@
         console.error(
           result.error
         );
+        await startCart();
         alert(
-          "Unable to update quantity."
+          "Unable to update quantity. " +
+          result.error.message
         );
         return;
       }
@@ -1152,6 +1157,7 @@
         "Quantity update error:",
         error
       );
+      await startCart();
       alert(
         "Unable to update quantity."
       );
@@ -1161,6 +1167,9 @@
     cartId
   ) {
     try {
+      showStatus(
+        "REMOVING ITEM..."
+      );
       const result =
         await supabase
           .from("cart_items")
@@ -1175,8 +1184,10 @@
         console.error(
           result.error
         );
+        await startCart();
         alert(
-          "Unable to remove item."
+          "Unable to remove item. " +
+          result.error.message
         );
         return;
       }
@@ -1186,12 +1197,70 @@
         "Remove item error:",
         error
       );
+      await startCart();
       alert(
         "Unable to remove item."
       );
     }
   }
-  startCart();
+  /*
+    Start only after the browser has
+    finished loading the page.
+  */
+  window.addEventListener(
+    "load",
+    function() {
+      currentStage =
+        "PAGE LOADED";
+      showStatus(
+        "STARTING CART..."
+      );
+      safetyTimer =
+        setTimeout(
+          function() {
+            showError(
+              "CART TIMEOUT — " +
+              currentStage
+            );
+          },
+          8000
+        );
+      /*
+        Give the external Supabase script
+        a moment to become available.
+      */
+      let attempts =
+        0;
+      const checkSupabase =
+        setInterval(
+          function() {
+            attempts++;
+            if (
+              window.supabase &&
+              typeof window.supabase.createClient ===
+                "function"
+            ) {
+              clearInterval(
+                checkSupabase
+              );
+              startCart();
+              return;
+            }
+            if (
+              attempts >= 20
+            ) {
+              clearInterval(
+                checkSupabase
+              );
+              showError(
+                "SUPABASE SCRIPT DID NOT LOAD"
+              );
+            }
+          },
+          250
+        );
+    }
+  );
 </script>
 </body>
 </html>
