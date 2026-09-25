@@ -10,648 +10,712 @@
       margin: 0;
       padding: 0;
     }
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #e2ded4;
-      color: #111;
-      overflow-x: hidden;
-    }
-    /* HEADER */
-    header {
-      width: 100%;
-      height: 90px;
-      padding: 20px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-      z-index: 10;
-    }
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      width: 62px;
-      height: 48px;
-    }
-    .mozake-logo {
-      width: 62px;
-      height: 48px;
-      display: block;
-      overflow: visible;
-    }
-    .mozake-logo polygon {
-      fill: #111;
-    }
-    .account-link {
-      width: 25px;
-      height: 25px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #111;
-      text-decoration: none;
-      transition: opacity 0.3s ease;
-    }
-    .account-link:hover {
-      opacity: 0.45;
-    }
-    .account-icon {
-      width: 22px;
-      height: 22px;
-      display: block;
-    }
-    nav {
-      display: flex !important;
-      gap: 40px !important;
-      align-items: center !important;
-    }
-    nav a {
-      color: #111 !important;
-      text-decoration: none !important;
-      font-size: 21px !important;
-      font-weight: 600 !important;
-      letter-spacing: 2.5px !important;
-      white-space: nowrap !important;
-      line-height: 1 !important;
-      transition: opacity 0.3s ease;
-    }
-    nav a:hover {
-      opacity: 0.45;
-    }
-    nav a.current {
-      opacity: 0.45;
-    }
-    /* HERO */
-    .shop-hero {
-      min-height: 24vh;
-      padding: 8px 40px 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      border-bottom: 1px solid #111;
-      overflow: hidden;
-    }
-    .shop-label {
-      font-size: 20px;
-      letter-spacing: 3px;
-      font-weight: 600;
-      margin-bottom: 18px;
-    }
-    .shop-title {
-      width: 100%;
-      font-size: clamp(70px, 14vw, 220px);
-      line-height: 0.78;
-      font-weight: 700;
-      letter-spacing: -9px;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-    /* FILTER */
-    .shop-controls {
-      padding: 35px 40px;
-      border-bottom: 1px solid #111;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 30px;
-    }
-    .shop-filter {
-      display: flex;
-      gap: 28px;
-      flex-wrap: wrap;
-    }
-    .shop-filter button {
-      border: 0;
-      background: transparent;
-      color: #111;
-      padding: 0;
-      font-family: inherit;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      cursor: pointer;
-      text-transform: uppercase;
-    }
-    .shop-filter button.active {
-      text-decoration: underline;
-      text-underline-offset: 6px;
-    }
-    .shop-count {
-      font-size: 11px;
-      letter-spacing: 3px;
-      opacity: 0.5;
-      white-space: nowrap;
-    }
-    /* PRODUCTS */
-    .shop-products {
-      padding: 60px 40px 130px;
-    }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: #111;
-      border: 1px solid #111;
-    }
-    .product-card {
-      background: #e2ded4;
-      min-height: 620px;
-      padding: 25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .product-card.hidden {
-      display: none;
-    }
-    .product-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-    }
-    .product-number,
-    .product-category {
-      font-size: 10px;
-      letter-spacing: 3px;
-      font-weight: 600;
-    }
-    .product-category {
-      opacity: 0.5;
-    }
-    .product-image {
-      flex: 1;
-      min-height: 360px;
-      margin: 30px 0;
-      background: #d8d3c8;
-      border: 1px solid #111;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-    .product-image span {
-      font-size: 11px;
-      letter-spacing: 3px;
-      font-weight: 600;
-      opacity: 0.45;
-    }
-    .product-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 30px;
-    }
-    .product-name {
-      font-size: 40px;
-      line-height: 0.85;
-      letter-spacing: -3px;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-    .product-meta {
-      margin-top: 15px;
-      font-size: 12px;
-      letter-spacing: 1.5px;
-      line-height: 1.5;
-    }
-    .product-action {
-      color: #111;
-      text-decoration: none;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      white-space: nowrap;
-    }
-    .product-action:hover {
-      opacity: 0.5;
-    }
-    /* FOOTER */
-    footer {
-      padding: 70px 40px 40px;
-      background: #111;
-      color: #e2ded4;
-      border-top: 1px solid #555;
-    }
-    .footer-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 40px;
-    }
-    .footer-logo {
-      font-size: 42px;
-      font-weight: 700;
-      letter-spacing: -2px;
-    }
-    .footer-slogan {
-      font-size: 13px;
-      letter-spacing: 3px;
-      font-weight: 600;
-    }
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 90px;
-      font-size: 11px;
-      letter-spacing: 2px;
-      font-weight: 600;
-    }
-    .footer-bottom a {
-      color: #e2ded4;
-      text-decoration: none;
-      transition: opacity 0.3s ease;
-    }
-    .footer-bottom a:hover {
-      opacity: 0.45;
-    }
-    /* MOBILE */
-    @media (max-width: 700px) {
-      header {
-        height: auto;
-        padding: 16px 16px 14px;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 13px;
-      }
-      .header-left {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 0;
-      }
-      .logo {
-        width: 48px;
-        height: 38px;
-      }
-      .mozake-logo {
-        width: 48px;
-        height: 38px;
-      }
-      .account-link {
-        width: 34px;
-        height: 34px;
-      }
-      .account-icon {
-        width: 32px;
-        height: 32px;
-      }
-      nav {
-        width: 100%;
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        gap: 0 !important;
-        flex-shrink: 0 !important;
-      }
-      nav a {
-        font-size: 15px !important;
-        font-weight: 600 !important;
-        letter-spacing: 1.15px !important;
-        white-space: nowrap !important;
-      }
-      .shop-hero {
-        min-height: 18vh;
-        padding: 8px 20px 8px;
-      }
-      .shop-label {
-        font-size: 15px;
-        letter-spacing: 2px;
-        margin-bottom: 13px;
-      }
-      .shop-title {
-        width: 100%;
-        font-size: 15vw;
-        letter-spacing: -3px;
-        white-space: nowrap;
-      }
-      .shop-controls {
-        padding: 25px 20px;
-        display: block;
-      }
-      .shop-filter {
-        gap: 18px;
-      }
-      .shop-filter button {
-        font-size: 10px;
-        letter-spacing: 1.5px;
-      }
-      .shop-count {
-        display: block;
-        margin-top: 22px;
-      }
-      .shop-products {
-        padding: 35px 20px 80px;
-      }
-      .product-grid {
-        grid-template-columns: 1fr;
-      }
-      .product-card {
-        min-height: 520px;
-        padding: 20px;
-      }
-      .product-image {
-        min-height: 310px;
-        margin: 25px 0;
-      }
-      .product-bottom {
-        display: block;
-      }
-      .product-name {
-        font-size: 38px;
-      }
-      .product-action {
-        display: inline-block;
-        margin-top: 25px;
-      }
-      footer {
-        padding: 50px 20px 30px;
-      }
-      .footer-top {
-        display: block;
-      }
-      .footer-logo {
-        font-size: 34px;
-      }
-      .footer-slogan {
-        margin-top: 20px;
-      }
-      .footer-bottom {
-        margin-top: 60px;
-        gap: 20px;
-        flex-wrap: wrap;
-      }
-    }
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #e2ded4;
+  color: #111;
+  overflow-x: hidden;
+}
+/* HEADER */
+header {
+  width: 100%;
+  height: 90px;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 10;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  width: 62px;
+  height: 48px;
+}
+.mozake-logo {
+  width: 62px;
+  height: 48px;
+  display: block;
+  overflow: visible;
+}
+.mozake-logo polygon {
+  fill: #111;
+}
+.account-link {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+.account-link:hover {
+  opacity: 0.45;
+}
+.account-icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+nav {
+  display: flex !important;
+  gap: 40px !important;
+  align-items: center !important;
+}
+nav a {
+  color: #111 !important;
+  text-decoration: none !important;
+  font-size: 21px !important;
+  font-weight: 600 !important;
+  letter-spacing: 2.5px !important;
+  white-space: nowrap !important;
+  line-height: 1 !important;
+  transition: opacity 0.3s ease;
+}
+nav a:hover {
+  opacity: 0.45;
+}
+nav a.current {
+  opacity: 0.45;
+}
+/* HERO */
+.shop-hero {
+  min-height: 24vh;
+  padding: 8px 40px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-bottom: 1px solid #111;
+  overflow: hidden;
+}
+.shop-label {
+  font-size: 20px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+.shop-title {
+  width: 100%;
+  font-size: clamp(70px, 14vw, 220px);
+  line-height: 0.78;
+  font-weight: 700;
+  letter-spacing: -9px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+/* FILTER */
+.shop-controls {
+  padding: 35px 40px;
+  border-bottom: 1px solid #111;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+.shop-filter {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.shop-filter button {
+  border: 0;
+  background: transparent;
+  color: #111;
+  padding: 0;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.shop-filter button.active {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+.shop-count {
+  font-size: 11px;
+  letter-spacing: 3px;
+  opacity: 0.5;
+  white-space: nowrap;
+}
+/* PRODUCTS */
+.shop-products {
+  padding: 60px 40px 130px;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: #111;
+  border: 1px solid #111;
+}
+.product-card {
+  background: #e2ded4;
+  min-height: 620px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.product-card.hidden {
+  display: none;
+}
+.product-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.product-number,
+.product-category {
+  font-size: 10px;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+.product-category {
+  opacity: 0.5;
+}
+.product-image {
+  flex: 1;
+  min-height: 360px;
+  margin: 30px 0;
+  background: #d8d3c8;
+  border: 1px solid #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.product-image span {
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  opacity: 0.45;
+}
+.product-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+}
+.product-name {
+  font-size: 40px;
+  line-height: 0.85;
+  letter-spacing: -3px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.product-meta {
+  margin-top: 15px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  line-height: 1.5;
+}
+.product-action {
+  color: #111;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+.product-action:hover {
+  opacity: 0.5;
+}
+.shop-empty {
+  padding: 80px 20px;
+  text-align: center;
+  border: 1px solid #111;
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  opacity: 0.5;
+}
+/* FOOTER */
+footer {
+  padding: 70px 40px 40px;
+  background: #111;
+  color: #e2ded4;
+  border-top: 1px solid #555;
+}
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+}
+.footer-logo {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+.footer-slogan {
+  font-size: 13px;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 90px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+.footer-bottom a {
+  color: #e2ded4;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+.footer-bottom a:hover {
+  opacity: 0.45;
+}
+/* MOBILE */
+@media (max-width: 700px) {
+  header {
+    height: auto;
+    padding: 16px 16px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 13px;
+  }
+  .header-left {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+  }
+  .logo {
+    width: 48px;
+    height: 38px;
+  }
+  .mozake-logo {
+    width: 48px;
+    height: 38px;
+  }
+  .account-link {
+    width: 34px;
+    height: 34px;
+  }
+  .account-icon {
+    width: 32px;
+    height: 32px;
+  }
+  nav {
+    width: 100%;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 0 !important;
+    flex-shrink: 0 !important;
+  }
+  nav a {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    letter-spacing: 1.15px !important;
+    white-space: nowrap !important;
+  }
+  .shop-hero {
+    min-height: 18vh;
+    padding: 8px 20px 8px;
+  }
+  .shop-label {
+    font-size: 15px;
+    letter-spacing: 2px;
+    margin-bottom: 13px;
+  }
+  .shop-title {
+    width: 100%;
+    font-size: 15vw;
+    letter-spacing: -3px;
+    white-space: nowrap;
+  }
+  .shop-controls {
+    padding: 25px 20px;
+    display: block;
+  }
+  .shop-filter {
+    gap: 18px;
+  }
+  .shop-filter button {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+  .shop-count {
+    display: block;
+    margin-top: 22px;
+  }
+  .shop-products {
+    padding: 35px 20px 80px;
+  }
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+  .product-card {
+    min-height: 520px;
+    padding: 20px;
+  }
+  .product-image {
+    min-height: 310px;
+    margin: 25px 0;
+  }
+  .product-bottom {
+    display: block;
+  }
+  .product-name {
+    font-size: 38px;
+  }
+  .product-action {
+    display: inline-block;
+    margin-top: 25px;
+  }
+  footer {
+    padding: 50px 20px 30px;
+  }
+  .footer-top {
+    display: block;
+  }
+  .footer-logo {
+    font-size: 34px;
+  }
+  .footer-slogan {
+    margin-top: 20px;
+  }
+  .footer-bottom {
+    margin-top: 60px;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+}
   </style>
 </head>
 <body>
   <header>
     <div class="header-left">
-      <a href="./index.html" class="logo" aria-label="MOZake">
-        <svg
-          class="mozake-logo"
-          viewBox="0 0 82 58"
-          aria-label="MOZake logo">
-          <polygon points="2,55 29,7 56,55"></polygon>
-          <polygon points="27,51 54,3 81,51"></polygon>
-        </svg>
-      </a>
-      <a
-        href="./account.html"
-        class="account-link"
-        aria-label="Account"
-        title="Account">
-        <svg
-          class="account-icon"
-          viewBox="0 0 24 24"
-          aria-hidden="true">
-          <circle
-            cx="12"
-            cy="8"
-            r="3.2"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"/>
-          <path
-            d="M5.5 19c.7-3.1 3-5 6.5-5s5.8 1.9 6.5 5"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"
-            stroke-linecap="round"/>
-        </svg>
-      </a>
-    </div>
-    <nav>
-      <a href="./art.html">
-        ART
-      </a>
-      <a href="./clothing.html">
-        CLOTHING
-      </a>
-      <a href="./collectibles.html">
-        COLLECTIBLES
-      </a>
-      <a href="./story.html">
-        STORY
-      </a>
-      <a
-        href="./shop.html"
-        class="current"
-        aria-current="page">
-        SHOP
-      </a>
-    </nav>
+  <a href="./index.html" class="logo" aria-label="MOZake">
+    <svg
+      class="mozake-logo"
+      viewBox="0 0 82 58"
+      aria-label="MOZake logo">
+      <polygon points="2,55 29,7 56,55"></polygon>
+      <polygon points="27,51 54,3 81,51"></polygon>
+    </svg>
+  </a>
+  <a
+    href="./account.html"
+    class="account-link"
+    aria-label="Account"
+    title="Account">
+    <svg
+      class="account-icon"
+      viewBox="0 0 24 24"
+      aria-hidden="true">
+      <circle
+        cx="12"
+        cy="8"
+        r="3.2"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"/>
+      <path
+        d="M5.5 19c.7-3.1 3-5 6.5-5s5.8 1.9 6.5 5"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+<nav>
+  <a href="./art.html">
+    ART
+  </a>
+  <a href="./clothing.html">
+    CLOTHING
+  </a>
+  <a href="./collectibles.html">
+    COLLECTIBLES
+  </a>
+  <a href="./story.html">
+    STORY
+  </a>
+  <a
+    href="./shop.html"
+    class="current"
+    aria-current="page">
+    SHOP
+  </a>
+</nav>
   </header>
   <main>
-    <section class="shop-hero">
-      <div class="shop-label">
-        THE WORLD OF MOZake
-      </div>
-      <h1 class="shop-title">
-        SHOP
-      </h1>
-    </section>
-    <section class="shop-controls">
-      <div class="shop-filter">
-        <button class="active" data-filter="all">
-          ALL
-        </button>
-        <button data-filter="art">
-          ART
-        </button>
-        <button data-filter="clothing">
-          CLOTHING
-        </button>
-        <button data-filter="collectibles">
-          COLLECTIBLES
-        </button>
-      </div>
-      <div class="shop-count">
-        04 ITEMS
-      </div>
-    </section>
-    <section class="shop-products">
-      <div class="product-grid">
-        <article class="product-card" data-category="art">
-          <div class="product-top">
-            <span class="product-number">
-              01 / 04
-            </span>
-            <span class="product-category">
-              ART
-            </span>
-          </div>
-          <div class="product-image">
-            <span>
-              ARTWORK / IMAGE
-            </span>
-          </div>
-          <div class="product-bottom">
-            <div>
-              <h2 class="product-name">
-                FIRST<br>
-                MARK
-              </h2>
-              <div class="product-meta">
-                ORIGINAL ARTWORK<br>
-                PRICE — TBA
-              </div>
-            </div>
-            <a
-              href="./art.html"
-              class="product-action">
-              VIEW →
-            </a>
-          </div>
-        </article>
-        <article class="product-card" data-category="clothing">
-          <div class="product-top">
-            <span class="product-number">
-              02 / 04
-            </span>
-            <span class="product-category">
-              CLOTHING
-            </span>
-          </div>
-          <div class="product-image">
-            <span>
-              SYMBOL TEE / IMAGE
-            </span>
-          </div>
-          <div class="product-bottom">
-            <div>
-              <h2 class="product-name">
-                SYMBOL<br>
-                TEE
-              </h2>
-              <div class="product-meta">
-                CLOTHING<br>
-                PRICE — TBA
-              </div>
-            </div>
-            <a
-              href="./clothing.html"
-              class="product-action">
-              VIEW →
-            </a>
-          </div>
-        </article>
-        <article class="product-card" data-category="clothing">
-          <div class="product-top">
-            <span class="product-number">
-              03 / 04
-            </span>
-            <span class="product-category">
-              CLOTHING
-            </span>
-          </div>
-          <div class="product-image">
-            <span>
-              MOZake HOODIE / IMAGE
-            </span>
-          </div>
-          <div class="product-bottom">
-            <div>
-              <h2 class="product-name">
-                MOZake<br>
-                HOODIE
-              </h2>
-              <div class="product-meta">
-                CLOTHING<br>
-                PRICE — TBA
-              </div>
-            </div>
-            <a
-              href="./clothing.html"
-              class="product-action">
-              VIEW →
-            </a>
-          </div>
-        </article>
-        <article class="product-card" data-category="collectibles">
-          <div class="product-top">
-            <span class="product-number">
-              04 / 04
-            </span>
-            <span class="product-category">
-              COLLECTIBLES
-            </span>
-          </div>
-          <div class="product-image">
-            <span>
-              MOZake / IMAGE
-            </span>
-          </div>
-          <div class="product-bottom">
-            <div>
-              <h2 class="product-name">
-                MOZake
-              </h2>
-              <div class="product-meta">
-                EDITION OF 5,000<br>
-                PRICE — TBA
-              </div>
-            </div>
-            <a
-              href="./collectibles.html"
-              class="product-action">
-              VIEW →
-            </a>
-          </div>
-        </article>
-      </div>
-    </section>
+<section class="shop-hero">
+  <div class="shop-label">
+    THE WORLD OF MOZake
+  </div>
+  <h1 class="shop-title">
+    SHOP
+  </h1>
+</section>
+<section class="shop-controls">
+  <div class="shop-filter">
+    <button class="active" data-filter="all">
+      ALL
+    </button>
+    <button data-filter="art">
+      ART
+    </button>
+    <button data-filter="clothing">
+      CLOTHING
+    </button>
+    <button data-filter="collectibles">
+      COLLECTIBLES
+    </button>
+  </div>
+  <div class="shop-count" id="shopCount">
+    LOADING
+  </div>
+</section>
+<section class="shop-products">
+  <div
+    class="product-grid"
+    id="productGrid">
+  </div>
+  <div
+    class="shop-empty"
+    id="shopEmpty"
+    style="display: none;">
+    NO PRODUCTS AVAILABLE
+  </div>
+</section>
   </main>
   <footer>
-    <div class="footer-top">
-      <div class="footer-logo">
-        MOZake
-      </div>
-      <div class="footer-slogan">
-        MAKE IT EXIST.
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <a href="./art.html">
-        ART
-      </a>
-      <a href="./clothing.html">
-        CLOTHING
-      </a>
-      <a href="./collectibles.html">
-        COLLECTIBLES
-      </a>
-    </div>
+<div class="footer-top">
+  <div class="footer-logo">
+    MOZake
+  </div>
+  <div class="footer-slogan">
+    MAKE IT EXIST.
+  </div>
+</div>
+<div class="footer-bottom">
+  <a href="./art.html">
+    ART
+  </a>
+  <a href="./clothing.html">
+    CLOTHING
+  </a>
+  <a href="./collectibles.html">
+    COLLECTIBLES
+  </a>
+</div>
   </footer>
+  <!-- SUPABASE -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    const filterButtons = document.querySelectorAll(".shop-filter button");
-    const productCards = document.querySelectorAll(".product-card");
-    filterButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        const filter = button.dataset.filter;
-        filterButtons.forEach(item => {
-          item.classList.remove("active");
-        });
-        button.classList.add("active");
-        productCards.forEach(card => {
-          const category = card.dataset.category;
-          if (filter === "all" || category === filter) {
-            card.classList.remove("hidden");
-          } else {
-            card.classList.add("hidden");
-          }
-        });
+    const SUPABASE_URL =
+      "https://cjyhqxffjppmzgsgrsvt.supabase.co";
+    const SUPABASE_PUBLISHABLE_KEY =
+      "sb_publishable_vDNha1HTi57tHedL3KgSzA_DnyVaEj5";
+    const supabase =
+      window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+      );
+    const productGrid =
+      document.getElementById("productGrid");
+    const shopCount =
+      document.getElementById("shopCount");
+    const shopEmpty =
+      document.getElementById("shopEmpty");
+    const filterButtons =
+      document.querySelectorAll(".shop-filter button");
+    let allProducts = [];
+    function formatPrice(price, currency) {
+      if (price === null || price === undefined) {
+        return "PRICE — TBA";
+      }
+      const amount =
+        Number(price) / 100;
+      return new Intl.NumberFormat("en-AU", {
+        style: "currency",
+        currency: currency || "AUD"
+      }).format(amount);
+    }
+    function categoryLink(category) {
+      if (category === "art") {
+        return "./art.html";
+      }
+      if (category === "clothing") {
+        return "./clothing.html";
+      }
+      if (category === "collectibles") {
+        return "./collectibles.html";
+      }
+      return "./shop.html";
+    }
+    function categoryLabel(category) {
+      return String(category || "")
+        .toUpperCase();
+    }
+    function renderProducts(products) {
+      productGrid.innerHTML = "";
+      if (!products.length) {
+        productGrid.style.display = "none";
+        shopEmpty.style.display = "block";
+        return;
+      }
+      productGrid.style.display = "grid";
+      shopEmpty.style.display = "none";
+      products.forEach((product, index) => {
+        const article =
+          document.createElement("article");
+        article.className =
+          "product-card";
+        article.dataset.category =
+          product.category;
+        const number =
+          String(index + 1).padStart(2, "0");
+        const total =
+          String(allProducts.length).padStart(2, "0");
+        const imageHTML =
+          product.image_url
+            ? `
+              <img
+                src="${product.image_url}"
+                alt="${product.name}">
+            `
+            : `
+              <span>
+                ${product.name.toUpperCase()} / IMAGE
+              </span>
+            `;
+        const statusText =
+          product.status === "coming_soon"
+            ? "COMING SOON"
+            : product.status === "sold_out"
+              ? "SOLD OUT"
+              : product.status === "available"
+                ? "AVAILABLE"
+                : String(product.status || "").toUpperCase();
+        const editionText =
+          product.edition_size
+            ? `EDITION OF ${product.edition_size.toLocaleString()}`
+            : categoryLabel(product.category);
+        article.innerHTML = `
+          <div class="product-top">
+            <span class="product-number">
+              ${number} / ${total}
+            </span>
+            <span class="product-category">
+              ${categoryLabel(product.category)}
+            </span>
+          </div>
+          <div class="product-image">
+            ${imageHTML}
+          </div>
+          <div class="product-bottom">
+            <div>
+              <h2 class="product-name">
+                ${String(product.name).replace(/\s+/g, "<br>")}
+              </h2>
+              <div class="product-meta">
+                ${editionText}<br>
+                ${formatPrice(product.price, product.currency)}<br>
+                ${statusText}
+              </div>
+            </div>
+            <a
+              href="${categoryLink(product.category)}"
+              class="product-action">
+              VIEW →
+            </a>
+          </div>
+        `;
+        productGrid.appendChild(article);
       });
+    }
+    function applyFilter(filter) {
+      filterButtons.forEach(button => {
+        button.classList.remove("active");
+      });
+      const activeButton =
+        document.querySelector(
+          `.shop-filter button[data-filter="${filter}"]`
+        );
+      if (activeButton) {
+        activeButton.classList.add("active");
+      }
+      const filtered =
+        filter === "all"
+          ? allProducts
+          : allProducts.filter(
+              product => product.category === filter
+            );
+      renderProducts(filtered);
+      shopCount.textContent =
+        `${String(filtered.length).padStart(2, "0")} ITEMS`;
+    }
+    async function loadProducts() {
+      shopCount.textContent =
+        "LOADING";
+      const {
+        data,
+        error
+      } =
+        await supabase
+          .from("products")
+          .select("*")
+          .order("created_at", {
+            ascending: true
+          });
+      if (error) {
+        console.error(
+          "MOZake products error:",
+          error
+        );
+        productGrid.style.display = "none";
+        shopEmpty.style.display = "block";
+        shopEmpty.textContent =
+          "PRODUCTS COULD NOT BE LOADED";
+        shopCount.textContent =
+          "ERROR";
+        return;
+      }
+      allProducts =
+        data || [];
+      applyFilter("all");
+    }
+    filterButtons.forEach(button => {
+      button.addEventListener(
+        "click",
+        () => {
+          const filter =
+            button.dataset.filter;
+          applyFilter(filter);
+        }
+      );
     });
+    loadProducts();
   </script>
 </body>
 </html>
