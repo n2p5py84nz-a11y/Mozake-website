@@ -22,6 +22,7 @@
     a {
       color: inherit;
     }
+    /* HEADER */
     header {
       width: 100%;
       padding: 22px 40px;
@@ -66,6 +67,9 @@
       white-space: nowrap !important;
       line-height: 1 !important;
     }
+    nav a.current {
+      opacity: 0.45;
+    }
     .account-link {
       width: 25px;
       height: 25px;
@@ -74,12 +78,17 @@
       justify-content: center;
       color: #111;
       text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+    .account-link:hover {
+      opacity: 0.45;
     }
     .account-icon {
       width: 22px;
       height: 22px;
       display: block;
     }
+    /* HERO */
     .cart-hero {
       min-height: 24vh;
       padding: 8px 40px 10px;
@@ -103,6 +112,7 @@
       text-transform: uppercase;
       white-space: nowrap;
     }
+    /* CART */
     .cart-section {
       padding: 70px 40px 110px;
     }
@@ -179,10 +189,12 @@
       opacity: 0.5;
       margin-bottom: 22px;
     }
+    /* QUANTITY */
     .cart-controls {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 14px;
+      flex-wrap: wrap;
     }
     .quantity-control {
       display: flex;
@@ -190,17 +202,26 @@
       border: 1px solid #111;
     }
     .quantity-button {
-      width: 34px;
-      height: 34px;
+      width: 38px;
+      height: 38px;
       border: 0;
       background: transparent;
       color: #111;
       cursor: pointer;
-      font-size: 17px;
+      font-size: 18px;
       line-height: 1;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .quantity-button:hover {
+      background: #111;
+      color: #e2ded4;
+    }
+    .quantity-button:disabled {
+      opacity: 0.35;
+      cursor: default;
     }
     .quantity-value {
-      width: 34px;
+      width: 38px;
       text-align: center;
       font-size: 12px;
       font-weight: 600;
@@ -216,6 +237,14 @@
       letter-spacing: 1.5px;
       text-transform: uppercase;
       opacity: 0.55;
+      transition: opacity 0.2s ease;
+    }
+    .remove-button:hover {
+      opacity: 1;
+    }
+    .remove-button:disabled {
+      opacity: 0.3;
+      cursor: default;
     }
     .cart-item-price {
       font-size: 13px;
@@ -223,6 +252,7 @@
       letter-spacing: 1px;
       white-space: nowrap;
     }
+    /* SUMMARY */
     .cart-summary {
       border-top: 1px solid #111;
       padding-top: 20px;
@@ -278,6 +308,7 @@
       color: #111;
       font-size: 10px;
     }
+    /* EMPTY */
     .empty-cart {
       border-top: 1px solid #111;
       border-bottom: 1px solid #111;
@@ -308,6 +339,7 @@
       letter-spacing: 2px;
       text-transform: uppercase;
     }
+    /* STATUS */
     .status-message {
       font-size: 11px;
       letter-spacing: 1.5px;
@@ -317,6 +349,7 @@
       line-height: 1.6;
       word-break: break-word;
     }
+    /* FOOTER */
     footer {
       background: #111;
       color: #e2ded4;
@@ -343,6 +376,7 @@
       letter-spacing: 2px;
       text-transform: uppercase;
     }
+    /* MOBILE */
     @media (max-width: 700px) {
       header {
         height: auto;
@@ -470,11 +504,21 @@
 </a>
   </div>
   <nav aria-label="Main navigation">
-    <a href="./art.html">ART</a>
-    <a href="./clothing.html">CLOTHING</a>
-    <a href="./collectibles.html">COLLECTIBLES</a>
-    <a href="./story.html">STORY</a>
-    <a href="./shop.html">SHOP</a>
+<a href="./art.html">
+  ART
+</a>
+<a href="./clothing.html">
+  CLOTHING
+</a>
+<a href="./collectibles.html">
+  COLLECTIBLES
+</a>
+<a href="./story.html">
+  STORY
+</a>
+<a href="./shop.html">
+  SHOP
+</a>
   </nav>
 </header>
 <main>
@@ -515,16 +559,28 @@
         ORDER SUMMARY
       </div>
       <div class="summary-row">
-        <span>SUBTOTAL</span>
-        <span id="subtotal">$0.00</span>
+        <span>
+          SUBTOTAL
+        </span>
+        <span id="subtotal">
+          $0.00
+        </span>
       </div>
       <div class="summary-row">
-        <span>SHIPPING</span>
-        <span>CALCULATED AT CHECKOUT</span>
+        <span>
+          SHIPPING
+        </span>
+        <span>
+          CALCULATED AT CHECKOUT
+        </span>
       </div>
       <div class="summary-row total">
-        <span>TOTAL</span>
-        <span id="total">$0.00</span>
+        <span>
+          TOTAL
+        </span>
+        <span id="total">
+          $0.00
+        </span>
       </div>
       <a
         href="./checkout.html"
@@ -564,9 +620,15 @@
     MOZake
   </div>
   <div class="footer-links">
-    <a href="./art.html">ART</a>
-    <a href="./clothing.html">CLOTHING</a>
-    <a href="./collectibles.html">COLLECTIBLES</a>
+<a href="./art.html">
+  ART
+</a>
+<a href="./clothing.html">
+  CLOTHING
+</a>
+<a href="./collectibles.html">
+  COLLECTIBLES
+</a>
   </div>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -575,74 +637,93 @@
     "https://cjyhqxffjppmzgsgrsvt.supabase.co";
   const SUPABASE_KEY =
     "sb_publishable_vDNha1HTi57tHedL3KgSzA_DnyVaEj5";
-  const loadingMessage =
-    document.getElementById("loadingMessage");
-  const cartContent =
-    document.getElementById("cartContent");
-  const emptyCart =
-    document.getElementById("emptyCart");
-  const cartItems =
-    document.getElementById("cartItems");
-  const cartCount =
-    document.getElementById("cartCount");
-  const subtotal =
-    document.getElementById("subtotal");
-  const total =
-    document.getElementById("total");
-  function showStatus(message) {
-    loadingMessage.textContent = message;
-    loadingMessage.style.display = "block";
-    cartContent.style.display = "none";
-    emptyCart.style.display = "none";
-  }
-  function showError(message) {
-    console.error(message);
-    showStatus(message);
-  }
-  /*
-    SAFETY TIMER
-    If anything gets stuck for more than 5 seconds,
-    the page will tell us exactly where it stopped.
-  */
-  let currentStage = "PAGE STARTED";
-  const safetyTimer = setTimeout(() => {
-    showError(
-      "CART TIMEOUT — " +
-      currentStage
+  const supabase =
+    window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
     );
-  }, 5000);
-  async function startCart() {
-    try {
-      currentStage =
-        "LOADING SUPABASE";
-      showStatus(
-        "CONNECTING..."
-      );
-      if (
-        !window.supabase ||
-        !window.supabase.createClient
-      ) {
-        showError(
-          "SUPABASE SCRIPT DID NOT LOAD"
-        );
-        return;
+  const loadingMessage =
+    document.getElementById(
+      "loadingMessage"
+    );
+  const cartContent =
+    document.getElementById(
+      "cartContent"
+    );
+  const emptyCart =
+    document.getElementById(
+      "emptyCart"
+    );
+  const cartItems =
+    document.getElementById(
+      "cartItems"
+    );
+  const cartCount =
+    document.getElementById(
+      "cartCount"
+    );
+  const subtotal =
+    document.getElementById(
+      "subtotal"
+    );
+  const total =
+    document.getElementById(
+      "total"
+    );
+  /* STATUS */
+  function showStatus(
+    message
+  ) {
+    loadingMessage.textContent =
+      message;
+    loadingMessage.style.display =
+      "block";
+    cartContent.style.display =
+      "none";
+    emptyCart.style.display =
+      "none";
+  }
+  /* PRICE */
+  function formatPrice(
+    cents
+  ) {
+    return new Intl.NumberFormat(
+      "en-AU",
+      {
+        style: "currency",
+        currency: "AUD"
       }
-      const supabase =
-        window.supabase.createClient(
-          SUPABASE_URL,
-          SUPABASE_KEY
-        );
-      currentStage =
-        "CHECKING ACCOUNT";
+    ).format(
+      (Number(cents) || 0) / 100
+    );
+  }
+  /* EMPTY CART */
+  function showEmptyCart() {
+    loadingMessage.style.display =
+      "none";
+    cartContent.style.display =
+      "none";
+    emptyCart.style.display =
+      "block";
+    cartCount.textContent =
+      "0 ITEMS";
+    subtotal.textContent =
+      "$0.00";
+    total.textContent =
+      "$0.00";
+  }
+  /* LOAD CART */
+  async function loadCart() {
+    try {
       showStatus(
-        "CHECKING ACCOUNT..."
+        "LOADING CART..."
       );
       const sessionResult =
         await supabase.auth.getSession();
       if (
         sessionResult.error
       ) {
-        showError(
+        showStatus(
           "AUTH ERROR — " +
           sessionResult.error.message
         );
@@ -651,20 +732,18 @@
       const session =
         sessionResult.data.session;
       if (!session) {
-        showError(
+        showStatus(
           "SIGN IN TO VIEW YOUR CART."
         );
-        setTimeout(() => {
-          window.location.href =
-            "./account.html";
-        }, 1200);
+        setTimeout(
+          () => {
+            window.location.href =
+              "./account.html";
+          },
+          1200
+        );
         return;
       }
-      currentStage =
-        "LOADING CART";
-      showStatus(
-        "LOADING CART..."
-      );
       const cartResult =
         await supabase
           .from("cart_items")
@@ -684,7 +763,7 @@
       if (
         cartResult.error
       ) {
-        showError(
+        showStatus(
           "CART ERROR — " +
           cartResult.error.message
         );
@@ -695,38 +774,20 @@
       if (
         cartData.length === 0
       ) {
-        clearTimeout(
-          safetyTimer
-        );
-        loadingMessage.style.display =
-          "none";
-        emptyCart.style.display =
-          "block";
-        cartContent.style.display =
-          "none";
-        cartCount.textContent =
-          "0 ITEMS";
-        subtotal.textContent =
-          "$0.00";
-        total.textContent =
-          "$0.00";
+        showEmptyCart();
         return;
       }
-      currentStage =
-        "LOADING PRODUCTS";
-      showStatus(
-        "LOADING PRODUCTS..."
-      );
       const productIds =
         cartData
           .map(
-            item => item.product_id
+            item =>
+              item.product_id
           )
           .filter(Boolean);
       if (
         productIds.length === 0
       ) {
-        showError(
+        showStatus(
           "CART ERROR — NO PRODUCT IDS"
         );
         return;
@@ -744,7 +805,7 @@
       if (
         productsResult.error
       ) {
-        showError(
+        showStatus(
           "PRODUCT ERROR — " +
           productsResult.error.message
         );
@@ -765,50 +826,44 @@
       const items =
         cartData
           .map(
-            item => {
-              return {
-                ...item,
-                product:
-                  productMap.get(
-                    item.product_id
-                  ) || null
-              };
-            }
+            item => ({
+              ...item,
+              product:
+                productMap.get(
+                  item.product_id
+                ) || null
+            })
           )
           .filter(
-            item => item.product
+            item =>
+              item.product
           );
       if (
         items.length === 0
       ) {
-        showError(
+        showStatus(
           "CART ERROR — PRODUCTS NOT FOUND"
         );
         return;
       }
-      currentStage =
-        "RENDERING CART";
       renderCart(
         items
       );
-      clearTimeout(
-        safetyTimer
-      );
     } catch (error) {
-      clearTimeout(
-        safetyTimer
+      console.error(
+        "MOZake cart error:",
+        error
       );
-      showError(
-        "CART CRASH — " +
+      showStatus(
+        "CART ERROR — " +
         (
-          error &&
-          error.message
-            ? error.message
-            : "UNKNOWN ERROR"
+          error?.message ||
+          "UNKNOWN ERROR"
         )
       );
     }
   }
+  /* RENDER CART */
   function renderCart(
     items
   ) {
@@ -823,9 +878,12 @@
         const product =
           item.product;
         const quantity =
-          Number(
-            item.quantity
-          ) || 1;
+          Math.max(
+            1,
+            Number(
+              item.quantity
+            ) || 1
+          );
         const price =
           Number(
             product.price
@@ -840,6 +898,7 @@
           );
         article.className =
           "cart-item";
+        /* IMAGE */
         const image =
           document.createElement(
             "div"
@@ -873,6 +932,7 @@
             placeholder
           );
         }
+        /* DETAILS */
         const details =
           document.createElement(
             "div"
@@ -893,6 +953,7 @@
           "cart-product-category";
         category.textContent =
           product.category;
+        /* CONTROLS */
         const controls =
           document.createElement(
             "div"
@@ -915,6 +976,10 @@
           "quantity-button";
         minus.textContent =
           "−";
+        minus.setAttribute(
+          "aria-label",
+          "Decrease quantity"
+        );
         const quantityValue =
           document.createElement(
             "span"
@@ -933,21 +998,45 @@
           "quantity-button";
         plus.textContent =
           "+";
+        plus.setAttribute(
+          "aria-label",
+          "Increase quantity"
+        );
+        /*
+         * MINUS
+         */
         minus.addEventListener(
           "click",
-          () => {
-            updateQuantity(
-              supabase,
-              item.id,
-              quantity - 1
-            );
+          async () => {
+            minus.disabled =
+              true;
+            plus.disabled =
+              true;
+            if (
+              quantity <= 1
+            ) {
+              await removeItem(
+                item.id
+              );
+            } else {
+              await updateQuantity(
+                item.id,
+                quantity - 1
+              );
+            }
           }
         );
+        /*
+         * PLUS
+         */
         plus.addEventListener(
           "click",
-          () => {
-            updateQuantity(
-              supabase,
+          async () => {
+            minus.disabled =
+              true;
+            plus.disabled =
+              true;
+            await updateQuantity(
               item.id,
               quantity + 1
             );
@@ -962,6 +1051,9 @@
         quantityControl.appendChild(
           plus
         );
+        /*
+         * REMOVE
+         */
         const remove =
           document.createElement(
             "button"
@@ -972,11 +1064,17 @@
           "remove-button";
         remove.textContent =
           "REMOVE";
+        remove.setAttribute(
+          "aria-label",
+          "Remove " +
+          product.name
+        );
         remove.addEventListener(
           "click",
-          () => {
-            removeItem(
-              supabase,
+          async () => {
+            remove.disabled =
+              true;
+            await removeItem(
               item.id
             );
           }
@@ -996,6 +1094,7 @@
         details.appendChild(
           controls
         );
+        /* PRICE */
         const itemPrice =
           document.createElement(
             "div"
@@ -1041,21 +1140,8 @@
     cartContent.style.display =
       "block";
   }
-  function formatPrice(
-    cents
-  ) {
-    return new Intl.NumberFormat(
-      "en-AU",
-      {
-        style: "currency",
-        currency: "AUD"
-      }
-    ).format(
-      (Number(cents) || 0) / 100
-    );
-  }
+  /* UPDATE QUANTITY */
   async function updateQuantity(
-    supabase,
     cartId,
     newQuantity
   ) {
@@ -1063,67 +1149,73 @@
       newQuantity <= 0
     ) {
       await removeItem(
-        supabase,
         cartId
       );
       return;
     }
-    const result =
-      await supabase
-        .from("cart_items")
-        .update({
-          quantity:
-            newQuantity,
-          updated_at:
-            new Date().toISOString()
-        })
-        .eq(
-          "id",
-          cartId
-        );
-    if (
-      result.error
-    ) {
+    try {
+      const result =
+        await supabase
+          .from("cart_items")
+          .update({
+            quantity:
+              newQuantity,
+            updated_at:
+              new Date().toISOString()
+          })
+          .eq(
+            "id",
+            cartId
+          );
+      if (
+        result.error
+      ) {
+        throw result.error;
+      }
+      await loadCart();
+    } catch (error) {
+      console.error(
+        "MOZake quantity update error:",
+        error
+      );
       alert(
         "Unable to update quantity."
       );
-      console.error(
-        result.error
-      );
-      return;
+      await loadCart();
     }
-    startCart();
   }
+  /* REMOVE ITEM */
   async function removeItem(
-    supabase,
     cartId
   ) {
-    const result =
-      await supabase
-        .from("cart_items")
-        .delete()
-        .eq(
-          "id",
-          cartId
-        );
-    if (
-      result.error
-    ) {
+    try {
+      const result =
+        await supabase
+          .from("cart_items")
+          .delete()
+          .eq(
+            "id",
+            cartId
+          );
+      if (
+        result.error
+      ) {
+        throw result.error;
+      }
+      await loadCart();
+    } catch (error) {
+      console.error(
+        "MOZake remove item error:",
+        error
+      );
       alert(
         "Unable to remove item."
       );
-      console.error(
-        result.error
-      );
-      return;
+      await loadCart();
     }
-    startCart();
   }
-  /*
-    START ONCE.
-    NO AUTH LISTENER.
-  */
-  startCart();
+  /* START */
+  loadCart();
 </script>
 </body>
 </html>
