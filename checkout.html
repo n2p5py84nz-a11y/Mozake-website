@@ -1,1 +1,1156 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOZake — Checkout</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: #e2ded4;
+      color: #111;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    body {
+      min-height: 100vh;
+    }
+    a {
+      color: inherit;
+    }
+    header {
+      width: 100%;
+      padding: 22px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      border-bottom: 1px solid #111;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      width: 62px;
+      height: 48px;
+      text-decoration: none;
+    }
+    .mozake-logo {
+      width: 62px;
+      height: 48px;
+      display: block;
+      overflow: visible;
+    }
+    .mozake-logo polygon {
+      fill: #111;
+    }
+    nav {
+      display: flex !important;
+      gap: 40px !important;
+      align-items: center !important;
+    }
+    nav a {
+      color: #111 !important;
+      text-decoration: none !important;
+      font-size: 21px !important;
+      font-weight: 600 !important;
+      letter-spacing: 2.5px !important;
+      white-space: nowrap !important;
+      line-height: 1 !important;
+    }
+    .account-link {
+      width: 25px;
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #111;
+      text-decoration: none;
+    }
+    .account-icon {
+      width: 22px;
+      height: 22px;
+      display: block;
+    }
+    .checkout-hero {
+      min-height: 24vh;
+      padding: 8px 40px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      border-bottom: 1px solid #111;
+    }
+    .checkout-label {
+      font-size: 20px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+    .checkout-title {
+      width: 100%;
+      font-size: clamp(70px, 14vw, 220px);
+      line-height: 0.78;
+      font-weight: 700;
+      letter-spacing: -9px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .checkout-section {
+      padding: 70px 40px 110px;
+    }
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 380px;
+      gap: 80px;
+      align-items: start;
+    }
+    .section-heading {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 35px;
+    }
+    .form-section {
+      border-top: 1px solid #111;
+      padding-top: 25px;
+      margin-bottom: 55px;
+    }
+    .form-section-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+    .field {
+      margin-bottom: 20px;
+    }
+    .field label {
+      display: block;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .field input,
+    .field select {
+      width: 100%;
+      height: 48px;
+      border: 1px solid #111;
+      background: transparent;
+      color: #111;
+      padding: 0 14px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      outline: none;
+    }
+    .field input:focus,
+    .field select:focus {
+      background: #d7d2c8;
+    }
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .checkout-summary {
+      border-top: 1px solid #111;
+      padding-top: 25px;
+      position: sticky;
+      top: 30px;
+    }
+    .summary-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .summary-item {
+      display: grid;
+      grid-template-columns: 70px minmax(0, 1fr) auto;
+      gap: 15px;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(17,17,17,0.2);
+    }
+    .summary-image {
+      width: 70px;
+      height: 85px;
+      background: #d7d2c8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .summary-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .summary-placeholder {
+      font-size: 7px;
+      line-height: 1.4;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.45;
+      padding: 5px;
+    }
+    .summary-item-name {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      line-height: 1.4;
+    }
+    .summary-item-quantity {
+      font-size: 9px;
+      letter-spacing: 1px;
+      opacity: 0.5;
+      margin-top: 5px;
+    }
+    .summary-item-price {
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(17,17,17,0.2);
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+    .summary-row.total {
+      border-bottom: 0;
+      padding-top: 22px;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+    .place-order-button {
+      width: 100%;
+      margin-top: 25px;
+      padding: 19px 20px;
+      border: 1px solid #111;
+      background: #111;
+      color: #e2ded4;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .place-order-button:hover {
+      background: transparent;
+      color: #111;
+    }
+    .place-order-button:disabled {
+      opacity: 0.35;
+      cursor: wait;
+    }
+    .back-cart {
+      display: inline-block;
+      margin-top: 15px;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      opacity: 0.55;
+    }
+    .back-cart:hover {
+      opacity: 1;
+    }
+    .status-message {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      opacity: 0.5;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+    .empty-checkout {
+      border-top: 1px solid #111;
+      border-bottom: 1px solid #111;
+      padding: 80px 0;
+      text-align: center;
+    }
+    .empty-title {
+      font-size: clamp(45px, 8vw, 110px);
+      line-height: 0.85;
+      font-weight: 700;
+      letter-spacing: -5px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+    .empty-copy {
+      max-width: 440px;
+      margin: 0 auto 30px;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    .empty-button {
+      display: inline-block;
+      padding: 16px 25px;
+      border: 1px solid #111;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    footer {
+      background: #111;
+      color: #e2ded4;
+      padding: 55px 40px;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .footer-brand {
+      font-size: 12px;
+      letter-spacing: 3px;
+      font-weight: 600;
+    }
+    .footer-links {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: #e2ded4;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    @media (max-width: 700px) {
+      header {
+        height: auto;
+        padding: 16px 16px 14px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 13px;
+      }
+      .header-left {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .logo {
+        width: 48px;
+        height: 38px;
+      }
+      .mozake-logo {
+        width: 48px;
+        height: 38px;
+      }
+      .account-link {
+        width: 34px;
+        height: 34px;
+      }
+      .account-icon {
+        width: 32px;
+        height: 32px;
+      }
+      nav {
+        width: 100%;
+        justify-content: space-between !important;
+        gap: 0 !important;
+      }
+      nav a {
+        font-size: 15px !important;
+        letter-spacing: 1.15px !important;
+      }
+      .checkout-hero {
+        min-height: 18vh;
+        padding: 8px 20px;
+      }
+      .checkout-label {
+        font-size: 15px;
+        letter-spacing: 2px;
+        margin-bottom: 13px;
+      }
+      .checkout-title {
+        font-size: 15vw;
+        letter-spacing: -3px;
+      }
+      .checkout-section {
+        padding: 50px 20px 80px;
+      }
+      .checkout-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+      .field-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .checkout-summary {
+        position: static;
+      }
+      .summary-item {
+        grid-template-columns: 60px minmax(0, 1fr) auto;
+        gap: 12px;
+      }
+      .summary-image {
+        width: 60px;
+        height: 75px;
+      }
+      footer {
+        padding: 40px 20px;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-left">
+<a
+  href="./index.html"
+  class="logo"
+  aria-label="MOZake">
+  <svg
+    class="mozake-logo"
+    viewBox="0 0 82 58"
+    aria-label="MOZake logo">
+    <polygon points="2,55 29,7 56,55"></polygon>
+    <polygon points="27,51 54,3 81,51"></polygon>
+  </svg>
+</a>
+<a
+  href="./account.html"
+  class="account-link"
+  aria-label="Account"
+  title="Account">
+  <svg
+    class="account-icon"
+    viewBox="0 0 24 24"
+    aria-hidden="true">
+    <circle
+      cx="12"
+      cy="8"
+      r="3.2"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"/>
+    <path
+      d="M5.5 19c.7-3.1 3-5 6.5-5s5.8 1.9 6.5 5"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"/>
+  </svg>
+</a>
+  </div>
+  <nav aria-label="Main navigation">
+    <a href="./art.html">ART</a>
+    <a href="./clothing.html">CLOTHING</a>
+    <a href="./collectibles.html">COLLECTIBLES</a>
+    <a href="./story.html">STORY</a>
+    <a href="./shop.html">SHOP</a>
+  </nav>
+</header>
+<main>
+  <section class="checkout-hero">
+<div class="checkout-label">
+  THE WORLD OF MOZake
+</div>
+<div class="checkout-title">
+  CHECKOUT
+</div>
+  </section>
+  <section class="checkout-section">
+<div
+  id="statusMessage"
+  class="status-message">
+  LOADING CHECKOUT...
+</div>
+<div
+  id="checkoutContent"
+  style="display:none;">
+  <div class="checkout-grid">
+    <div>
+      <div class="section-heading">
+        YOUR DETAILS
+      </div>
+      <form id="checkoutForm">
+        <div class="form-section">
+          <div class="form-section-title">
+            CONTACT
+          </div>
+          <div class="field">
+            <label for="email">
+              EMAIL
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required>
+          </div>
+        </div>
+        <div class="form-section">
+          <div class="form-section-title">
+            SHIPPING ADDRESS
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="firstName">
+                FIRST NAME
+              </label>
+              <input
+                id="firstName"
+                name="firstName"
+                type="text"
+                autocomplete="given-name"
+                required>
+            </div>
+            <div class="field">
+              <label for="lastName">
+                LAST NAME
+              </label>
+              <input
+                id="lastName"
+                name="lastName"
+                type="text"
+                autocomplete="family-name"
+                required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="address">
+              ADDRESS
+            </label>
+            <input
+              id="address"
+              name="address"
+              type="text"
+              autocomplete="street-address"
+              required>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="suburb">
+                SUBURB
+              </label>
+              <input
+                id="suburb"
+                name="suburb"
+                type="text"
+                autocomplete="address-level2"
+                required>
+            </div>
+            <div class="field">
+              <label for="postcode">
+                POSTCODE
+              </label>
+              <input
+                id="postcode"
+                name="postcode"
+                type="text"
+                inputmode="numeric"
+                autocomplete="postal-code"
+                required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="state">
+              STATE
+            </label>
+            <select
+              id="state"
+              name="state"
+              autocomplete="address-level1"
+              required>
+              <option value="">
+                SELECT STATE
+              </option>
+              <option value="NSW">
+                NEW SOUTH WALES
+              </option>
+              <option value="VIC">
+                VICTORIA
+              </option>
+              <option value="QLD">
+                QUEENSLAND
+              </option>
+              <option value="WA">
+                WESTERN AUSTRALIA
+              </option>
+              <option value="SA">
+                SOUTH AUSTRALIA
+              </option>
+              <option value="TAS">
+                TASMANIA
+              </option>
+              <option value="ACT">
+                AUSTRALIAN CAPITAL TERRITORY
+              </option>
+              <option value="NT">
+                NORTHERN TERRITORY
+              </option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="country">
+              COUNTRY
+            </label>
+            <input
+              id="country"
+              name="country"
+              type="text"
+              value="Australia"
+              autocomplete="country-name"
+              required>
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="place-order-button"
+          id="placeOrderButton">
+          CONTINUE TO PAYMENT →
+        </button>
+      </form>
+    </div>
+    <aside class="checkout-summary">
+      <div class="summary-title">
+        ORDER SUMMARY
+      </div>
+      <div id="summaryItems"></div>
+      <div class="summary-row">
+        <span>
+          SUBTOTAL
+        </span>
+        <span id="summarySubtotal">
+          $0.00
+        </span>
+      </div>
+      <div class="summary-row">
+        <span>
+          SHIPPING
+        </span>
+        <span>
+          CALCULATED AT CHECKOUT
+        </span>
+      </div>
+      <div class="summary-row total">
+        <span>
+          TOTAL
+        </span>
+        <span id="summaryTotal">
+          $0.00
+        </span>
+      </div>
+      <a
+        href="./cart.html"
+        class="back-cart">
+        ← BACK TO CART
+      </a>
+    </aside>
+  </div>
+</div>
+<div
+  id="emptyCheckout"
+  class="empty-checkout"
+  style="display:none;">
+  <div class="empty-title">
+    NOTHING<br>TO CHECK OUT.
+  </div>
+  <div class="empty-copy">
+    Your cart is empty.
+    Add something from the MOZake world
+    before continuing.
+  </div>
+  <a
+    href="./shop.html"
+    class="empty-button">
+    ENTER THE SHOP →
+  </a>
+</div>
+  </section>
+</main>
+<footer>
+  <div class="footer-brand">
+    MOZake
+  </div>
+  <div class="footer-links">
+    <a href="./art.html">ART</a>
+    <a href="./clothing.html">CLOTHING</a>
+    <a href="./collectibles.html">COLLECTIBLES</a>
+  </div>
+</footer>
+<script
+  src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"
+  onload="window.dispatchEvent(new Event('supabase-ready'))"
+  onerror="window.dispatchEvent(new Event('supabase-failed'))">
+</script>
+<script>
+  const SUPABASE_URL =
+    "https://cjyhqxffjppmzgsgrsvt.supabase.co";
+  const SUPABASE_KEY =
+    "sb_publishable_vDNha1HTi57tHedL3KgSzA_DnyVaEj5";
+  let supabaseClient = null;
+  let activeUser = null;
+  let cartData = [];
+  const statusMessage =
+    document.getElementById("statusMessage");
+  const checkoutContent =
+    document.getElementById("checkoutContent");
+  const emptyCheckout =
+    document.getElementById("emptyCheckout");
+  const summaryItems =
+    document.getElementById("summaryItems");
+  const summarySubtotal =
+    document.getElementById("summarySubtotal");
+  const summaryTotal =
+    document.getElementById("summaryTotal");
+  const checkoutForm =
+    document.getElementById("checkoutForm");
+  const placeOrderButton =
+    document.getElementById("placeOrderButton");
+  function formatPrice(cents) {
+    return new Intl.NumberFormat(
+      "en-AU",
+      {
+        style: "currency",
+        currency: "AUD"
+      }
+    ).format(
+      (Number(cents) || 0) / 100
+    );
+  }
+  function showStatus(message) {
+    statusMessage.textContent =
+      message;
+    statusMessage.style.display =
+      "block";
+    checkoutContent.style.display =
+      "none";
+    emptyCheckout.style.display =
+      "none";
+  }
+  function showError(message) {
+    console.error(message);
+    statusMessage.textContent =
+      message;
+    statusMessage.style.display =
+      "block";
+    checkoutContent.style.display =
+      "none";
+    emptyCheckout.style.display =
+      "none";
+  }
+  function showEmptyCheckout() {
+    statusMessage.style.display =
+      "none";
+    checkoutContent.style.display =
+      "none";
+    emptyCheckout.style.display =
+      "block";
+  }
+  function renderCheckout() {
+    summaryItems.innerHTML =
+      "";
+    let subtotal =
+      0;
+    cartData.forEach(
+      item => {
+        const product =
+          item.product;
+        const quantity =
+          Math.max(
+            1,
+            Number(item.quantity) || 1
+          );
+        const price =
+          Number(product.price) || 0;
+        subtotal +=
+          price * quantity;
+        const row =
+          document.createElement(
+            "div"
+          );
+        row.className =
+          "summary-item";
+        const image =
+          document.createElement(
+            "div"
+          );
+        image.className =
+          "summary-image";
+        if (
+          product.image_url
+        ) {
+          const img =
+            document.createElement(
+              "img"
+            );
+          img.src =
+            product.image_url;
+          img.alt =
+            product.name;
+          image.appendChild(
+            img
+          );
+        } else {
+          const placeholder =
+            document.createElement(
+              "div"
+            );
+          placeholder.className =
+            "summary-placeholder";
+          placeholder.textContent =
+            "IMAGE COMING SOON";
+          image.appendChild(
+            placeholder
+          );
+        }
+        const details =
+          document.createElement(
+            "div"
+          );
+        const name =
+          document.createElement(
+            "div"
+          );
+        name.className =
+          "summary-item-name";
+        name.textContent =
+          product.name;
+        const quantityText =
+          document.createElement(
+            "div"
+          );
+        quantityText.className =
+          "summary-item-quantity";
+        quantityText.textContent =
+          `QTY ${quantity}`;
+        details.appendChild(
+          name
+        );
+        details.appendChild(
+          quantityText
+        );
+        const itemPrice =
+          document.createElement(
+            "div"
+          );
+        itemPrice.className =
+          "summary-item-price";
+        itemPrice.textContent =
+          formatPrice(
+            price * quantity
+          );
+        row.appendChild(
+          image
+        );
+        row.appendChild(
+          details
+        );
+        row.appendChild(
+          itemPrice
+        );
+        summaryItems.appendChild(
+          row
+        );
+      }
+    );
+    summarySubtotal.textContent =
+      formatPrice(
+        subtotal
+      );
+    summaryTotal.textContent =
+      formatPrice(
+        subtotal
+      );
+    statusMessage.style.display =
+      "none";
+    checkoutContent.style.display =
+      "block";
+    emptyCheckout.style.display =
+      "none";
+  }
+  async function initialiseSupabase() {
+    if (
+      !window.supabase ||
+      typeof window.supabase.createClient !==
+        "function"
+    ) {
+      showError(
+        "SUPABASE LIBRARY DID NOT LOAD."
+      );
+      return false;
+    }
+    try {
+      supabaseClient =
+        window.supabase.createClient(
+          SUPABASE_URL,
+          SUPABASE_KEY
+        );
+      return true;
+    } catch (error) {
+      console.error(error);
+      showError(
+        "SUPABASE CONNECTION FAILED."
+      );
+      return false;
+    }
+  }
+  async function loadCheckout() {
+    showStatus(
+      "LOADING CHECKOUT..."
+    );
+    try {
+      const cartResult =
+        await supabaseClient
+          .from("cart_items")
+          .select(
+            "id, quantity, product_id, created_at"
+          )
+          .eq(
+            "user_id",
+            activeUser.id
+          )
+          .order(
+            "created_at",
+            {
+              ascending: true
+            }
+          );
+      if (
+        cartResult.error
+      ) {
+        showError(
+          "CART ERROR — " +
+          cartResult.error.message
+        );
+        return;
+      }
+      const cartItems =
+        cartResult.data || [];
+      if (
+        cartItems.length === 0
+      ) {
+        cartData = [];
+        showEmptyCheckout();
+        return;
+      }
+      const productIds =
+        cartItems
+          .map(
+            item =>
+              item.product_id
+          )
+          .filter(Boolean);
+      const productsResult =
+        await supabaseClient
+          .from("products")
+          .select(
+            "id, name, category, description, price, image_url, status"
+          )
+          .in(
+            "id",
+            productIds
+          );
+      if (
+        productsResult.error
+      ) {
+        showError(
+          "PRODUCT ERROR — " +
+          productsResult.error.message
+        );
+        return;
+      }
+      const products =
+        productsResult.data || [];
+      const productMap =
+        new Map();
+      products.forEach(
+        product => {
+          productMap.set(
+            product.id,
+            product
+          );
+        }
+      );
+      cartData =
+        cartItems
+          .map(
+            item => ({
+              ...item,
+              product:
+                productMap.get(
+                  item.product_id
+                ) || null
+            })
+          )
+          .filter(
+            item =>
+              item.product
+          );
+      if (
+        cartData.length === 0
+      ) {
+        showError(
+          "CHECKOUT ERROR — PRODUCTS NOT FOUND."
+        );
+        return;
+      }
+      const userEmail =
+        activeUser.email || "";
+      document.getElementById(
+        "email"
+      ).value =
+        userEmail;
+      renderCheckout();
+    } catch (error) {
+      console.error(error);
+      showError(
+        "CHECKOUT ERROR — " +
+        (
+          error &&
+          error.message
+            ? error.message
+            : "UNABLE TO LOAD CHECKOUT."
+        )
+      );
+    }
+  }
+  async function startCheckout() {
+    showStatus(
+      "CONNECTING..."
+    );
+    try {
+      const ready =
+        await initialiseSupabase();
+      if (!ready) {
+        return;
+      }
+      showStatus(
+        "CHECKING ACCOUNT..."
+      );
+      const sessionResult =
+        await supabaseClient
+          .auth
+          .getSession();
+      if (
+        sessionResult.error
+      ) {
+        showError(
+          "AUTH ERROR — " +
+          sessionResult.error.message
+        );
+        return;
+      }
+      activeUser =
+        sessionResult
+          .data
+          .session
+            ? sessionResult
+                .data
+                .session
+                .user
+            : null;
+      if (
+        !activeUser
+      ) {
+        showError(
+          "SIGN IN TO CHECK OUT."
+        );
+        setTimeout(
+          () => {
+            window.location.href =
+              "./account.html";
+          },
+          1200
+        );
+        return;
+      }
+      await loadCheckout();
+    } catch (error) {
+      console.error(error);
+      showError(
+        "CONNECTION ERROR — " +
+        (
+          error &&
+          error.message
+            ? error.message
+            : "UNABLE TO CONNECT."
+        )
+      );
+    }
+  }
+  checkoutForm.addEventListener(
+    "submit",
+    event => {
+      event.preventDefault();
+      const formData =
+        new FormData(
+          checkoutForm
+        );
+      if (
+        !checkoutForm.checkValidity()
+      ) {
+        checkoutForm.reportValidity();
+        return;
+      }
+      placeOrderButton.disabled =
+        true;
+      placeOrderButton.textContent =
+        "PAYMENT COMING NEXT...";
+      console.log(
+        "Checkout details:",
+        Object.fromEntries(
+          formData.entries()
+        )
+      );
+    }
+  );
+  window.addEventListener(
+    "supabase-ready",
+    () => {
+      startCheckout();
+    },
+    {
+      once: true
+    }
+  );
+  window.addEventListener(
+    "supabase-failed",
+    () => {
+      showError(
+        "SUPABASE LIBRARY FAILED TO LOAD."
+      );
+    },
+    {
+      once: true
+    }
+  );
+  if (
+    window.supabase &&
+    typeof window.supabase.createClient ===
+      "function"
+  ) {
+    startCheckout();
+  }
+</script>
+</body>
+</html>
