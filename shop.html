@@ -169,9 +169,6 @@ nav a.current {
   flex-direction: column;
   justify-content: space-between;
 }
-.product-card.hidden {
-  display: none;
-}
 .product-top {
   display: flex;
   justify-content: space-between;
@@ -197,6 +194,7 @@ nav a.current {
   justify-content: center;
   text-align: center;
   overflow: hidden;
+  position: relative;
 }
 .product-image img {
   width: 100%;
@@ -209,6 +207,42 @@ nav a.current {
   letter-spacing: 3px;
   font-weight: 600;
   opacity: 0.45;
+}
+/* WISHLIST */
+.wishlist-button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #111;
+  border-radius: 50%;
+  background: #e2ded4;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+.wishlist-button:hover {
+  opacity: 0.55;
+}
+.wishlist-button:active {
+  transform: scale(0.92);
+}
+.wishlist-icon {
+  width: 19px;
+  height: 19px;
+  display: block;
+}
+.wishlist-button.saved {
+  background: #111;
+  color: #e2ded4;
+}
+.wishlist-button.saved .wishlist-icon {
+  fill: currentColor;
 }
 .product-bottom {
   display: flex;
@@ -378,6 +412,12 @@ footer {
   .product-image {
     min-height: 310px;
     margin: 25px 0;
+  }
+  .wishlist-button {
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
   }
   .product-bottom {
     display: block;
@@ -550,6 +590,7 @@ footer {
     const filterButtons =
       document.querySelectorAll(".shop-filter button");
     let allProducts = [];
+    let wishlistProductIds = new Set();
     function formatPrice(price, currency) {
       if (price === null || price === undefined) {
         return "PRICE — TBA";
@@ -577,15 +618,154 @@ footer {
       return String(category || "")
         .toUpperCase();
     }
+    function wishlistIconHTML() {
+      return `
+        <svg
+          class="wishlist-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true">
+          <path
+            d="M20.8 8.7c0 5.1-8.8 10.1-8.8 10.1S3.2 13.8 3.2 8.7C3.2 5.8 5.3 4 7.8 4c1.7 0 3.2.8 4.2 2.2C13 4.8 14.5 4 16.2 4c2.5 0 4.6 1.8 4.6 4.7Z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linejoin="round"/>
+        </svg>
+      `;
+    }
+    async function getCurrentUser() {
+      const {
+        data,
+        error
+      } = await supabase.auth.getUser();
+      if (error) {
+        console.error(
+          "MOZake auth error:",
+          error
+        );
+        return null;
+      }
+      return data.user || null;
+    }
+    async function loadWishlist() {
+      wishlistProductIds =
+        new Set();
+      const user =
+        await getCurrentUser();
+      if (!user) {
+        return;
+      }
+      const {
+        data,
+        error
+      } =
+        await supabase
+          .from("wishlist")
+          .select("product_id")
+          .eq("user_id", user.id);
+      if (error) {
+        console.error(
+          "MOZake wishlist error:",
+          error
+        );
+        return;
+      }
+      (data || []).forEach(item => {
+        wishlistProductIds.add(
+          item.product_id
+        );
+      });
+    }
+    async function toggleWishlist(productId, button) {
+      const user =
+        await getCurrentUser();
+      if (!user) {
+        window.location.href =
+          "./account.html";
+        return;
+      }
+      const alreadySaved =
+        wishlistProductIds.has(productId);
+      button.disabled = true;
+      if (alreadySaved) {
+        const {
+          error
+        } =
+          await supabase
+            .from("wishlist")
+            .delete()
+            .eq("user_id", user.id)
+            .eq("product_id", productId);
+        if (error) {
+          console.error(
+            "MOZake wishlist remove error:",
+            error
+          );
+          button.disabled = false;
+          return;
+        }
+        wishlistProductIds.delete(
+          productId
+        );
+        button.classList.remove(
+          "saved"
+        );
+        button.setAttribute(
+          "aria-label",
+          "Add to wishlist"
+        );
+        button.setAttribute(
+          "title",
+          "Add to wishlist"
+        );
+      } else {
+        const {
+          error
+        } =
+          await supabase
+            .from("wishlist")
+            .insert({
+              user_id: user.id,
+              product_id: productId
+            });
+        if (error) {
+          console.error(
+            "MOZake wishlist add error:",
+            error
+          );
+          button.disabled = false;
+          return;
+        }
+        wishlistProductIds.add(
+          productId
+        );
+        button.classList.add(
+          "saved"
+        );
+        button.setAttribute(
+          "aria-label",
+          "Remove from wishlist"
+        );
+        button.setAttribute(
+          "title",
+          "Remove from wishlist"
+        );
+      }
+      button.disabled = false;
+    }
     function renderProducts(products) {
       productGrid.innerHTML = "";
       if (!products.length) {
-        productGrid.style.display = "none";
-        shopEmpty.style.display = "block";
+        productGrid.style.display =
+          "none";
+        shopEmpty.style.display =
+          "block";
         return;
       }
-      productGrid.style.display = "grid";
-      shopEmpty.style.display = "none";
+      productGrid.style.display =
+        "grid";
+      shopEmpty.style.display =
+        "none";
       products.forEach((product, index) => {
         const article =
           document.createElement("article");
@@ -594,9 +774,11 @@ footer {
         article.dataset.category =
           product.category;
         const number =
-          String(index + 1).padStart(2, "0");
+          String(index + 1)
+            .padStart(2, "0");
         const total =
-          String(allProducts.length).padStart(2, "0");
+          String(allProducts.length)
+            .padStart(2, "0");
         const imageHTML =
           product.image_url
             ? `
@@ -616,68 +798,115 @@ footer {
               ? "SOLD OUT"
               : product.status === "available"
                 ? "AVAILABLE"
-                : String(product.status || "").toUpperCase();
+                : String(
+                    product.status || ""
+                  ).toUpperCase();
         const editionText =
           product.edition_size
             ? `EDITION OF ${product.edition_size.toLocaleString()}`
-            : categoryLabel(product.category);
+            : categoryLabel(
+                product.category
+              );
+        const isSaved =
+          wishlistProductIds.has(
+            product.id
+          );
         article.innerHTML = `
           <div class="product-top">
             <span class="product-number">
               ${number} / ${total}
             </span>
             <span class="product-category">
-              ${categoryLabel(product.category)}
+              ${categoryLabel(
+                product.category
+              )}
             </span>
           </div>
           <div class="product-image">
             ${imageHTML}
+            <button
+              type="button"
+              class="wishlist-button ${isSaved ? "saved" : ""}"
+              data-product-id="${product.id}"
+              aria-label="${isSaved ? "Remove from wishlist" : "Add to wishlist"}"
+              title="${isSaved ? "Remove from wishlist" : "Add to wishlist"}">
+              ${wishlistIconHTML()}
+            </button>
           </div>
           <div class="product-bottom">
             <div>
               <h2 class="product-name">
-                ${String(product.name).replace(/\s+/g, "<br>")}
+                ${String(product.name)
+                  .replace(/\s+/g, "<br>")}
               </h2>
               <div class="product-meta">
                 ${editionText}<br>
-                ${formatPrice(product.price, product.currency)}<br>
+                ${formatPrice(
+                  product.price,
+                  product.currency
+                )}<br>
                 ${statusText}
               </div>
             </div>
             <a
-              href="${categoryLink(product.category)}"
+              href="${categoryLink(
+                product.category
+              )}"
               class="product-action">
               VIEW →
             </a>
           </div>
         `;
-        productGrid.appendChild(article);
+        const wishlistButton =
+          article.querySelector(
+            ".wishlist-button"
+          );
+        wishlistButton.addEventListener(
+          "click",
+          () => {
+            toggleWishlist(
+              product.id,
+              wishlistButton
+            );
+          }
+        );
+        productGrid.appendChild(
+          article
+        );
       });
     }
     function applyFilter(filter) {
       filterButtons.forEach(button => {
-        button.classList.remove("active");
+        button.classList.remove(
+          "active"
+        );
       });
       const activeButton =
         document.querySelector(
           `.shop-filter button[data-filter="${filter}"]`
         );
       if (activeButton) {
-        activeButton.classList.add("active");
+        activeButton.classList.add(
+          "active"
+        );
       }
       const filtered =
         filter === "all"
           ? allProducts
           : allProducts.filter(
-              product => product.category === filter
+              product =>
+                product.category === filter
             );
-      renderProducts(filtered);
+      renderProducts(
+        filtered
+      );
       shopCount.textContent =
         `${String(filtered.length).padStart(2, "0")} ITEMS`;
     }
     async function loadProducts() {
       shopCount.textContent =
         "LOADING";
+      await loadWishlist();
       const {
         data,
         error
@@ -693,8 +922,10 @@ footer {
           "MOZake products error:",
           error
         );
-        productGrid.style.display = "none";
-        shopEmpty.style.display = "block";
+        productGrid.style.display =
+          "none";
+        shopEmpty.style.display =
+          "block";
         shopEmpty.textContent =
           "PRODUCTS COULD NOT BE LOADED";
         shopCount.textContent =
@@ -703,7 +934,9 @@ footer {
       }
       allProducts =
         data || [];
-      applyFilter("all");
+      applyFilter(
+        "all"
+      );
     }
     filterButtons.forEach(button => {
       button.addEventListener(
@@ -711,10 +944,28 @@ footer {
         () => {
           const filter =
             button.dataset.filter;
-          applyFilter(filter);
+          applyFilter(
+            filter
+          );
         }
       );
     });
+    supabase.auth.onAuthStateChange(
+      async () => {
+        await loadWishlist();
+        const activeFilter =
+          document.querySelector(
+            ".shop-filter button.active"
+          );
+        const filter =
+          activeFilter
+            ? activeFilter.dataset.filter
+            : "all";
+        applyFilter(
+          filter
+        );
+      }
+    );
     loadProducts();
   </script>
 </body>
