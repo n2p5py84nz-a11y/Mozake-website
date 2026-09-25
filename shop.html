@@ -495,130 +495,130 @@
           <polygon points="27,51 54,3 81,51"></polygon>
         </svg>
       </a>
-      <a
-        href="./account.html"
-        class="account-link"
-        aria-label="Account"
-        title="Account">
-        <svg
-          class="account-icon"
-          viewBox="0 0 24 24"
-          aria-hidden="true">
-          <circle
-            cx="12"
-            cy="8"
-            r="3.2"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"/>
-          <path
-            d="M5.5 19c.7-3.1 3-5 6.5-5s5.8 1.9 6.5 5"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"
-            stroke-linecap="round"/>
-        </svg>
-      </a>
-    </div>
-    <nav>
-      <a href="./art.html">
-        ART
-      </a>
-      <a href="./clothing.html">
-        CLOTHING
-      </a>
-      <a href="./collectibles.html">
-        COLLECTIBLES
-      </a>
-      <a href="./story.html">
-        STORY
-      </a>
-      <a
-        href="./shop.html"
-        class="current"
-        aria-current="page">
-        SHOP
-      </a>
-    </nav>
+  <a
+    href="./account.html"
+    class="account-link"
+    aria-label="Account"
+    title="Account">
+    <svg
+      class="account-icon"
+      viewBox="0 0 24 24"
+      aria-hidden="true">
+      <circle
+        cx="12"
+        cy="8"
+        r="3.2"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"/>
+      <path
+        d="M5.5 19c.7-3.1 3-5 6.5-5s5.8 1.9 6.5 5"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"/>
+    </svg>
+  </a>
+</div>
+<nav>
+  <a href="./art.html">
+    ART
+  </a>
+  <a href="./clothing.html">
+    CLOTHING
+  </a>
+  <a href="./collectibles.html">
+    COLLECTIBLES
+  </a>
+  <a href="./story.html">
+    STORY
+  </a>
+  <a
+    href="./shop.html"
+    class="current"
+    aria-current="page">
+    SHOP
+  </a>
+</nav>
   </header>
   <main>
     <section class="shop-hero">
       <div class="shop-label">
         THE WORLD OF MOZake
       </div>
-      <h1 class="shop-title">
-        SHOP
-      </h1>
-    </section>
-    <section class="account-status">
-      <span
-        class="account-status-label"
-        id="accountStatus">
-        CHECKING ACCOUNT
-      </span>
-      <a
-        href="./account.html"
-        class="account-status-link"
-        id="accountStatusLink">
-        ACCOUNT →
-      </a>
-    </section>
-    <section class="shop-controls">
-      <div class="shop-filter">
-        <button
-          class="active"
-          data-filter="all">
-          ALL
-        </button>
-        <button data-filter="art">
-          ART
-        </button>
-        <button data-filter="clothing">
-          CLOTHING
-        </button>
-        <button data-filter="collectibles">
-          COLLECTIBLES
-        </button>
-      </div>
-      <div
-        class="shop-count"
-        id="shopCount">
-        LOADING
-      </div>
-    </section>
-    <section class="shop-products">
-      <div
-        class="product-grid"
-        id="productGrid">
-      </div>
-      <div
-        class="shop-empty"
-        id="shopEmpty"
-        style="display: none;">
-        NO PRODUCTS AVAILABLE
-      </div>
-    </section>
+  <h1 class="shop-title">
+    SHOP
+  </h1>
+</section>
+<section class="account-status">
+  <span
+    class="account-status-label"
+    id="accountStatus">
+    CHECKING ACCOUNT
+  </span>
+  <a
+    href="./account.html"
+    class="account-status-link"
+    id="accountStatusLink">
+    ACCOUNT →
+  </a>
+</section>
+<section class="shop-controls">
+  <div class="shop-filter">
+    <button
+      class="active"
+      data-filter="all">
+      ALL
+    </button>
+    <button data-filter="art">
+      ART
+    </button>
+    <button data-filter="clothing">
+      CLOTHING
+    </button>
+    <button data-filter="collectibles">
+      COLLECTIBLES
+    </button>
+  </div>
+  <div
+    class="shop-count"
+    id="shopCount">
+    LOADING
+  </div>
+</section>
+<section class="shop-products">
+  <div
+    class="product-grid"
+    id="productGrid">
+  </div>
+  <div
+    class="shop-empty"
+    id="shopEmpty"
+    style="display: none;">
+    NO PRODUCTS AVAILABLE
+  </div>
+</section>
   </main>
   <footer>
     <div class="footer-top">
       <div class="footer-logo">
         MOZake
       </div>
-      <div class="footer-slogan">
-        MAKE IT EXIST.
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <a href="./art.html">
-        ART
-      </a>
-      <a href="./clothing.html">
-        CLOTHING
-      </a>
-      <a href="./collectibles.html">
-        COLLECTIBLES
-      </a>
-    </div>
+  <div class="footer-slogan">
+    MAKE IT EXIST.
+  </div>
+</div>
+<div class="footer-bottom">
+  <a href="./art.html">
+    ART
+  </a>
+  <a href="./clothing.html">
+    CLOTHING
+  </a>
+  <a href="./collectibles.html">
+    COLLECTIBLES
+  </a>
+</div>
   </footer>
   <!-- SUPABASE -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -649,6 +649,12 @@
     let allProducts = [];
     let wishlistProductIds =
       new Set();
+    /*
+     * Every complete Shop refresh gets a new token.
+     * If another refresh starts before an older one
+     * finishes, the older refresh is ignored.
+     */
+    let shopLoadToken = 0;
     /* ACCOUNT STATUS */
     async function updateAccountStatus() {
       try {
@@ -694,6 +700,11 @@
       }
       const amount =
         Number(price) / 100;
+      if (
+        !Number.isFinite(amount)
+      ) {
+        return "PRICE — TBA";
+      }
       return new Intl.NumberFormat(
         "en-AU",
         {
@@ -1110,8 +1121,16 @@
           "0"
         )} ITEMS`;
     }
-    /* LOAD PRODUCTS */
-    async function loadProducts() {
+    /*
+     * LOAD PRODUCTS + WISHLIST
+     *
+     * This replaces the old loadProducts().
+     * Only the newest request is allowed to
+     * update the visible Shop.
+     */
+    async function refreshShop() {
+      const requestToken =
+        ++shopLoadToken;
       shopCount.textContent =
         "LOADING";
       try {
@@ -1131,24 +1150,63 @@
         if (error) {
           throw error;
         }
+        /*
+         * Another refresh started while this
+         * request was running.
+         */
+        if (
+          requestToken !==
+          shopLoadToken
+        ) {
+          return;
+        }
         allProducts =
           data || [];
         /*
-          IMPORTANT:
-          Products render immediately.
-          Login/wishlist cannot block the Shop.
-        */
+         * Render products immediately.
+         */
+        const activeButton =
+          document.querySelector(
+            ".shop-filter button.active"
+          );
+        const currentFilter =
+          activeButton
+            ? activeButton.dataset.filter
+            : "all";
         applyFilter(
-          "all"
+          currentFilter
         );
         /*
-          Wishlist loads after products.
-        */
+         * Load wishlist state.
+         */
         await loadWishlist();
+        /*
+         * Ignore this refresh if a newer
+         * refresh has started.
+         */
+        if (
+          requestToken !==
+          shopLoadToken
+        ) {
+          return;
+        }
+        /*
+         * Render exactly once more with
+         * the correct saved-heart state.
+         */
         applyFilter(
-          "all"
+          currentFilter
         );
       } catch (error) {
+        /*
+         * Ignore errors from an old request.
+         */
+        if (
+          requestToken !==
+          shopLoadToken
+        ) {
+          return;
+        }
         console.error(
           "MOZake products error:",
           error
@@ -1182,18 +1240,7 @@
         setTimeout(
           async () => {
             await updateAccountStatus();
-            await loadWishlist();
-            const activeButton =
-              document.querySelector(
-                ".shop-filter button.active"
-              );
-            const filter =
-              activeButton
-                ? activeButton.dataset.filter
-                : "all";
-            applyFilter(
-              filter
-            );
+            await refreshShop();
           },
           0
         );
@@ -1201,7 +1248,7 @@
     );
     /* START */
     updateAccountStatus();
-    loadProducts();
+    refreshShop();
   </script>
 </body>
 </html>
